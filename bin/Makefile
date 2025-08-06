@@ -11,7 +11,6 @@ SUBDIR= cat \
 	df \
 	domainname \
 	echo \
-	ed \
 	expr \
 	freebsd-version \
 	getfacl \
