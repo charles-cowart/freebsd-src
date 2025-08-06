@@ -156,7 +156,6 @@ DIRDEPS+= \
 	usr.bin/bzip2recover \
 	usr.bin/c89 \
 	usr.bin/c99 \
-	usr.bin/calendar \
 	usr.bin/cap_mkdb \
 	usr.bin/chat \
 	usr.bin/checknr \
