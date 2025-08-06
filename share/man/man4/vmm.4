@@ -53,8 +53,6 @@ amd64: An Intel CPU with VT-x/EPT or AMD CPU with SVM support is required.
 arm64: The boot CPU must start in EL2 and the system must have a GICv3 interrupt
 controller.
 VHE support will be used if available.
-.It
-riscv: The CPUs must implement the H (hypervisor) RISC-V ISA extension.
 .El
 .Pp
 PCI device passthrough to a virtual machine requires
@@ -150,7 +148,7 @@ back:
 .Nm vmm.ko
 first appeared in
 .Fx 10.0 .
-arm64 and riscv support first appeared in
+arm64 support first appeared in
 .Fx 15.0 .
 .Sh AUTHORS
 .An Neel Natu Aq neel@freebsd.org
