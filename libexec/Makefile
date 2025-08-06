@@ -18,19 +18,16 @@ SUBDIR=	${_atf} \
 	${_pppoed} \
 	rc \
 	revnetgroup \
-	${_rlogind} \
 	rpc.rquotad \
 	rpc.rstatd \
 	rpc.rusersd \
 	rpc.rwalld \
 	rpc.sprayd \
-	${_rshd} \
 	${_rtld-elf} \
 	save-entropy \
 	${_nuageinit} \
 	${_smrsh} \
 	${_tests} \
-	${_tftp-proxy} \
 	ulog-helper \
 	${_ypxfr}
 
@@ -79,10 +76,6 @@ _ypxfr=		ypxfr
 _pppoed=	pppoed
 .endif
 
-.if ${MK_PF} != "no"
-_tftp-proxy=	tftp-proxy
-.endif
-
 .if !defined(NO_PIC) && !defined(NO_RTLD)
 _rtld-elf=	rtld-elf
 .for LIBCOMPAT libcompat in ${_ALL_LIBCOMPATS_libcompats}
@@ -111,9 +104,6 @@ SUBDIR+=	talkd
 SUBDIR+=	tcpd
 .endif
 
-.if ${MK_TFTP} != "no"
-SUBDIR+=	tftpd
-.endif
 
 .if ${MK_TESTS} != "no"
 _tests=		tests

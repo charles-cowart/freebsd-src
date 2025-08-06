@@ -32,8 +32,6 @@ DIRDEPS = \
 	libexec/smrsh \
 	libexec/talkd \
 	libexec/tcpd \
-	libexec/tftp-proxy \
-	libexec/tftpd \
 	libexec/ulog-helper \
 	libexec/ypxfr \
 
