@@ -5,6 +5,9 @@
 RTLD_ELF_DIR:=	${.PARSEDIR}
 
 .include <src.opts.mk>
+.if ${MACHINE_CPUARCH} == "riscv"
+.error "riscv is not supported"
+.endif
 PACKAGE=	clibs
 MK_PIE=		no # Always position independent using local rules
 # Not compatible with sanitizer instrumentation or SSP.
