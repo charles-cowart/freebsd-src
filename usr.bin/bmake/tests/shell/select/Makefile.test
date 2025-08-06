@@ -11,11 +11,6 @@
 .SHELL: name=sh
 sh_test: print_path
 
-.elifmake csh_test
-
-.SHELL: name=csh
-csh_test: print_path
-
 .elifmake ksh_test
 
 .SHELL: name=ksh

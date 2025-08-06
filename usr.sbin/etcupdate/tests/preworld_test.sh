@@ -75,7 +75,7 @@ build_trees()
 	mkdir -p $OLD/etc
 	cat >> $OLD/etc/master.passwd <<EOF
 #
-root::0:0::0:0:Charlie &:/root:/bin/csh
+root::0:0::0:0:Charlie &:/root:/bin/sh
 toor:*:0:0::0:0:Bourne-again Superuser:/root:
 daemon:*:1:1::0:0:Owner of many system processes:/root:/usr/sbin/nologin
 operator:*:2:5::0:0:System &:/:/usr/sbin/nologin
