@@ -9,7 +9,6 @@ FILESDIR=	${SHAREDIR}/examples
 LDIRS=	BSD_daemon \
 	FreeBSD_version \
 	bootforth \
-	csh \
 	etc \
 	find_interface \
 	flua \
@@ -69,9 +68,6 @@ SE_BOOTFORTH= \
 	menuconf.4th \
 	screen.4th
 
-SE_DIRS+=	csh
-SE_CSHPACKAGE=	csh
-SE_CSH=		dot.cshrc
 
 SE_DIRS+=	etc
 SE_ETC= \

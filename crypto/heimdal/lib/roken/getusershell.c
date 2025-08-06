@@ -74,7 +74,7 @@ struct aud_rec;
  * /etc/shells.
  */
 
-static char *okshells[] = { _PATH_BSHELL, _PATH_CSHELL, NULL };
+static char *okshells[] = { _PATH_BSHELL, NULL };
 static char **curshell, **shells, *strings;
 static char **initshells (void);
 
