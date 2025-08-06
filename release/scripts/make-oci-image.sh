@@ -67,12 +67,11 @@ normalize_arch() {
 		aarch64)
 		       arch=arm64
 		       ;;
-		amd64) ;;
-		riscv64) ;;
-		*)
-			echo "Architecture ${arch} not supported for container images"
-			;;
-	esac
+                amd64) ;;
+                *)
+                        echo "Architecture ${arch} not supported for container images"
+                        ;;
+        esac
 	echo ${arch}
 }
 

@@ -43,17 +43,7 @@ PATH="${PATH}:/usr/local/sbin:/usr/local/bin"
 
 auto_shutdown()
 {
-	# NOTE: Currently RISC-V kernels lack the ability to
-	#      make qemu exit on shutdown. Reboot instead;
-	#      it makes qemu exit too.
-	case "$os_arch" in
-		riscv64)
-			shutdown -r now
-		;;
-		*)
-			shutdown -p now
-		;;
-	esac
+        shutdown -p now
 }
 
 smoke_tests()

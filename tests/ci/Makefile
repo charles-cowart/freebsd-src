@@ -246,14 +246,13 @@ ci-runtest: ci-buildimage-${TARGET_ARCH:tl} portinstall .PHONY
 
 ci-checktarget: .PHONY
 .if ${TARGET_ARCH} != "aarch64" && \
-	${TARGET_ARCH} != "amd64" && \
-	${TARGET_ARCH} != "armv7" && \
-	${TARGET_ARCH} != "powerpc64" && \
-	${TARGET_ARCH} != "powerpc64le" && \
-	${TARGET_ARCH} != "riscv64"
-	@false
+        ${TARGET_ARCH} != "amd64" && \
+        ${TARGET_ARCH} != "armv7" && \
+        ${TARGET_ARCH} != "powerpc64" && \
+        ${TARGET_ARCH} != "powerpc64le"
+        @false
 .ERROR:
-	@echo "Error: ${TARGET_ARCH} is not supported on ${TYPE} ${REVISION} ${BRANCH}"
+        @echo "Error: ${TARGET_ARCH} is not supported on ${TYPE} ${REVISION} ${BRANCH}"
 .endif
 
 ci-smoke: ci-set-smoke-var ci-create-meta ci-checktarget .WAIT ci-runtest-${TARGET_ARCH:tl} .PHONY
