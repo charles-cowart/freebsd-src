@@ -324,7 +324,6 @@ The reorganized
 filesystem has the following directories:
 .TS
 lfC l.
-/usr/share/calendar	(various useful calendar files)
 /usr/share/dict	(dictionaries)
 /usr/share/doc	(\*(4B manual sources)
 /usr/share/games	(games text files)
@@ -1797,7 +1796,6 @@ amd	An auto-mounter implementation.
 ar	Replacement of the historic archive format with a new one.
 awk	Replaced by gawk; see /usr/src/old/awk for the historic version.
 bdes	Utility implementing DES modes of operation described in FIPS PUB 81.
-calendar	Addition of an interface for system calendars.
 cap_mkdb	Utility for building hashed versions of termcap style databases.
 cc	Replacement of pcc with gcc suite.
 chflags	A utility for setting the per-file user and system flags.

@@ -221,7 +221,6 @@
             usermgmt
             ..
         ..
-        calendar
         ..
         certs
             trusted         tags=package=caroot
