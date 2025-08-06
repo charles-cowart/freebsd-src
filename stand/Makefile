@@ -18,8 +18,10 @@ S.yes+=			libsa
 S.${MK_LOADER_OFW}+=	libofw
 S.${MK_FDT}+=		fdt
 
+.if ${MACHINE_CPUARCH} != "riscv"
 S.${MK_FORTH}+=		ficl
 S.${MK_FORTH}+=		forth
+.endif
 S.${MK_LOADER_LUA}+=	liblua
 S.${MK_LOADER_LUA}+=	lua
 S.yes+=			defaults
@@ -27,7 +29,7 @@ S.yes+=			fonts
 S.yes+=			images
 S.yes+=			man
 
-.if ${MK_FORTH} != "no"
+.if ${MK_FORTH} != "no" && ${MACHINE_CPUARCH} != "riscv"
 INTERP_DEPENDS+=	forth
 .endif
 .if ${MK_LOADER_LUA} != "no"
@@ -36,7 +38,9 @@ INTERP_DEPENDS+=	lua
 
 .include <bsd.arch.inc.mk>
 
+.if ${MACHINE_CPUARCH} != "riscv"
 S.${MK_EFI}+=		efi
+.endif
 S.${MK_LOADER_KBOOT}+=	kboot
 S.${MK_LOADER_UBOOT}+=	uboot
 
@@ -73,7 +77,9 @@ SUBDIR_DEPEND_${_x}32+=	libsa32
 .endfor
 
 # Remaining dependencies
+.if ${MACHINE_CPUARCH} != "riscv"
 SUBDIR_DEPEND_forth+=	ficl
+.endif
 SUBDIR_DEPEND_lua+=	liblua
 
 SUBDIR_DEPEND_efi+=	${INTERP_DEPENDS}
