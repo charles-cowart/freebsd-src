@@ -55,10 +55,6 @@
             libexec
                 bsdinstall
                 ..
-                lpr
-                    ru
-                    ..
-                ..
                 sendmail
                 ..
                 sm.bin

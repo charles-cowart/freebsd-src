@@ -13,12 +13,6 @@ FTPPACKAGE=	ftpd
 FTPDIR=		/etc/newsyslog.conf.d
 .endif
 
-.if ${MK_LPR} != "no"
-CONFGROUPS+=	LP
-LP+=		lpr.conf
-LPPACKAGE=	lp
-LPDIR=		/etc/newsyslog.conf.d
-.endif
 
 .if ${MK_OFED} != "no"
 CONFS+=		opensm.conf

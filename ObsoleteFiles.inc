@@ -50,6 +50,33 @@
 #   -V OLD_FILES -V OLD_LIBS -V MOVED_LIBS -V OLD_DIRS check-old | \
 #   xargs -n1 | sort | uniq -d;
 # done
+# 20240619: remove lpd and lpr
+OLD_FILES+=etc/rc.d/lpd
+OLD_FILES+=usr/bin/lp
+OLD_FILES+=usr/bin/lpr
+OLD_FILES+=usr/bin/lprm
+OLD_FILES+=usr/bin/lpq
+OLD_FILES+=usr/sbin/lptest
+OLD_FILES+=usr/sbin/pac
+OLD_FILES+=usr/sbin/lpc
+OLD_FILES+=usr/sbin/lpd
+OLD_FILES+=usr/sbin/chkprintcap
+OLD_FILES+=etc/hosts.lpd
+OLD_FILES+=etc/printcap
+OLD_FILES+=usr/share/man/man1/lp.1.gz
+OLD_FILES+=usr/share/man/man1/lpr.1.gz
+OLD_FILES+=usr/share/man/man1/lprm.1.gz
+OLD_FILES+=usr/share/man/man1/lpq.1.gz
+OLD_FILES+=usr/share/man/man1/lptest.1.gz
+OLD_FILES+=usr/share/man/man8/lpc.8.gz
+OLD_FILES+=usr/share/man/man8/lpd.8.gz
+OLD_FILES+=usr/share/man/man8/pac.8.gz
+OLD_FILES+=usr/share/man/man8/chkprintcap.8.gz
+OLD_FILES+=usr/share/man/man5/hosts.lpd.5.gz
+OLD_DIRS+=usr/libexec/lpr
+OLD_FILES+=etc/syslog.d/lpr.conf
+OLD_FILES+=etc/newsyslog.conf.d/lpr.conf
+
 # 20250806: remove calendar tool
 OLD_FILES+=etc/periodic/daily/300.calendar
 OLD_FILES+=usr/bin/calendar
