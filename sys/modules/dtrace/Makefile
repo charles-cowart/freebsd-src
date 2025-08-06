@@ -18,7 +18,7 @@ SUBDIR+=	fasttrap systrace_linux
 SUBDIR+=	systrace_linux32
 SUBDIR+=	kinst
 .endif
-.if ${MACHINE_CPUARCH} == "riscv" || ${MACHINE_CPUARCH} == "aarch64"
+.if ${MACHINE_CPUARCH} == "aarch64"
 SUBDIR+=	kinst
 .endif
 .if ${MACHINE_CPUARCH} == "powerpc"
