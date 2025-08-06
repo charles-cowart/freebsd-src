@@ -392,9 +392,9 @@ test8()
 	awk 'BEGIN {
 		for (i = 1; i <= 10; ++i) {
 			printf("p\nkkey1\nD/bin/sh\n");
-			printf("p\nkkey2\nD/bin/csh\n");
+			printf("p\nkkey2\nD/bin/sh\n");
 			if (i % 8 == 0) {
-				printf("c\nkkey2\nD/bin/csh\n");
+				printf("c\nkkey2\nD/bin/sh\n");
 				printf("c\nkkey1\nD/bin/sh\n");
 				printf("e\t%d of 10 (comparison)\n", i);
 			} else

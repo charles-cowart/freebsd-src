@@ -6,10 +6,9 @@
 DESC="Select the builtin sh shell."
 
 # Run
-TEST_N=3
+TEST_N=2
 TEST_1="sh_test"
-TEST_2="csh_test"
-TEST_3="ksh_test"
-TEST_3_SKIP="no ksh on FreeBSD"
+TEST_2="ksh_test"
+TEST_2_SKIP="no ksh on FreeBSD"
 
 eval_cmd $*
