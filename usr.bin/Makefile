@@ -240,11 +240,9 @@ SUBDIR.${MK_OPENSSH}+=	ssh-copy-id
 SUBDIR.${MK_QUOTAS}+=	quota
 SUBDIR.${MK_SENDMAIL}+=	vacation
 SUBDIR.${MK_TALK}+=	talk
-SUBDIR.${MK_TELNET}+=	telnet
 SUBDIR.${MK_TESTS_SUPPORT}+=	kyua
 SUBDIR.${MK_TESTS}+=	tests
 SUBDIR.${MK_TEXTPROC}+=	ul
-SUBDIR.${MK_TFTP}+=	tftp
 .if ${MK_LLVM_BINUTILS} == "no"
 # Only build the elftoolchain tools if we aren't using the LLVM ones.
 SUBDIR.${MK_TOOLCHAIN}+=	addr2line

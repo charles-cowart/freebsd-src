@@ -227,7 +227,6 @@ SUBDIR.${MK_PF}+=	libpfctl
 SUBDIR.${MK_PMC}+=	libpmc libpmcstat
 SUBDIR.${MK_RADIUS_SUPPORT}+=	libradius
 SUBDIR.${MK_SENDMAIL}+=	libmilter libsm libsmdb libsmutil
-SUBDIR.${MK_TELNET}+=	libtelnet
 SUBDIR.${MK_TESTS_SUPPORT}+=	atf
 SUBDIR.${MK_TESTS_SUPPORT}+=	liblutok
 SUBDIR.${MK_TESTS}+=	tests
