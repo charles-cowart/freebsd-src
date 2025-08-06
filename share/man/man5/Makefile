@@ -21,7 +21,6 @@ MAN=	a.out.5 \
 	link.5 \
 	mailer.conf.5 \
 	make.conf.5 \
-	motd.5 \
 	mount.conf.5 \
 	networks.5 \
 	nsswitch.conf.5 \
