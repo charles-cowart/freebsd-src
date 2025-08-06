@@ -373,11 +373,6 @@ UNBOUND+=	local_unbound
 UNBOUNDPACKAGE=	unbound
 .endif
 
-.if ${MK_VI} != "no"
-CONFGROUPS+=	VI
-VI+=		virecover
-VIPACKAGE=	vi
-.endif
 
 .if ${MK_WIRELESS} != "no"
 CONFGROUPS+=	HOSTAPD

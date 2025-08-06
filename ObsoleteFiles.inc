@@ -51,6 +51,35 @@
 #   xargs -n1 | sort | uniq -d;
 # done
 
+# 20240702: remove vi/nvi and ed
+OLD_FILES+=bin/ed
+OLD_FILES+=bin/red
+OLD_FILES+=usr/share/man/man1/ed.1.gz
+OLD_FILES+=usr/share/man/man1/red.1.gz
+OLD_FILES+=etc/rc.d/virecover
+OLD_FILES+=rescue/ed
+OLD_FILES+=rescue/red
+OLD_FILES+=rescue/ex
+OLD_FILES+=rescue/vi
+OLD_FILES+=usr/bin/ex
+OLD_FILES+=usr/bin/nex
+OLD_FILES+=usr/bin/nvi
+OLD_FILES+=usr/bin/nview
+OLD_FILES+=usr/bin/vi
+OLD_FILES+=usr/bin/view
+OLD_FILES+=usr/share/man/man1/ex.1.gz
+OLD_FILES+=usr/share/man/man1/nex.1.gz
+OLD_FILES+=usr/share/man/man1/nvi.1.gz
+OLD_FILES+=usr/share/man/man1/nview.1.gz
+OLD_FILES+=usr/share/man/man1/vi.1.gz
+OLD_FILES+=usr/share/man/man1/view.1.gz
+.if exists(${DESTDIR}/usr/share/vi)
+VI_DIRS!=find ${DESTDIR}/usr/share/vi -type d | sed -e 's,^${DESTDIR}/,,'; echo
+VI_FILES!=find ${DESTDIR}/usr/share/vi \! -type d | sed -e 's,^${DESTDIR}/,,'; echo
+OLD_DIRS+=${VI_DIRS}
+OLD_FILES+=${VI_FILES}
+.endif
+
 # 20250806: remove calendar tool
 OLD_FILES+=etc/periodic/daily/300.calendar
 OLD_FILES+=usr/bin/calendar

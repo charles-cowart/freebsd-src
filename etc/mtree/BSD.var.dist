@@ -93,8 +93,6 @@
 /set gname=wheel
     ..
     tmp             mode=01777
-        vi.recover      mode=01777
-        ..
     ..
     unbound         uname=unbound gname=unbound mode=0755 tags=package=unbound
         conf.d          uname=unbound gname=unbound mode=0755 tags=package=unbound

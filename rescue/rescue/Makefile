@@ -54,7 +54,7 @@ CRUNCH_LIBS+= ${.OBJDIR}/../librescue/*.o
 #
 CRUNCH_SRCDIRS+= bin
 CRUNCH_PROGS_bin= cat chflags chio chmod cp date dd df echo 	\
-	 ed expr getfacl hostname kenv kill ln ls mkdir mv	\
+	 expr getfacl hostname kenv kill ln ls mkdir mv	\
 	 pkill ps pwd realpath rm rmdir setfacl sh sleep stty	\
 	 sync test
 CRUNCH_LIBS+= -lcrypt -ledit -ljail -lkvm -lelf -ltermcapw -lutil -lxo
@@ -67,7 +67,6 @@ CRUNCH_ALIAS_sh= -sh
 CRUNCH_SUPPRESS_LINK_-sh= 1
 CRUNCH_ALIAS_ln= link
 CRUNCH_ALIAS_rm= unlink
-CRUNCH_ALIAS_ed= red
 CRUNCH_ALIAS_pkill= pgrep
 
 .if ${MK_TCSH} != "no"
@@ -241,10 +240,6 @@ CRUNCH_LIBS+= -lmd
 CRUNCH_PROGS_usr.bin+=	nc
 .endif
 
-.if ${MK_VI} != "no"
-CRUNCH_PROGS_usr.bin+= vi
-CRUNCH_ALIAS_vi= ex
-.endif
 
 CRUNCH_PROGS_usr.bin+= id
 CRUNCH_ALIAS_id= groups whoami
