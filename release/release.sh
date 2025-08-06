@@ -140,13 +140,13 @@ env_check() {
 	if [ -n "${EMBEDDEDBUILD}" ]; then
 		WITH_DVD=
 		WITH_COMPRESSED_IMAGES=
-		case ${EMBEDDED_TARGET}:${EMBEDDED_TARGET_ARCH} in
-			arm:arm*|arm64:aarch64|riscv:riscv64*)
-				chroot_build_release_cmd="chroot_arm_build_release"
-				;;
-			*)
-				;;
-		esac
+                case ${EMBEDDED_TARGET}:${EMBEDDED_TARGET_ARCH} in
+                        arm:arm*|arm64:aarch64*)
+                                chroot_build_release_cmd="chroot_arm_build_release"
+                                ;;
+                        *)
+                                ;;
+                esac
 	fi
 
 	# If NOSRC and/or NOPORTS are unset, they must not pass to make
@@ -371,17 +371,14 @@ efi_boot_name()
 		amd64)
 			echo "bootx64.efi"
 			;;
-		riscv)
-			echo "bootriscv64.efi"
-			;;
-	esac
+        esac
 }
 
 # chroot_arm_build_release(): Create arm SD card image.
 chroot_arm_build_release() {
 	load_target_env
 	case ${EMBEDDED_TARGET} in
-		arm|arm64|riscv)
+                arm|arm64)
 			if [ -e "${RELENGDIR}/tools/arm.subr" ]; then
 				. "${RELENGDIR}/tools/arm.subr"
 			fi
