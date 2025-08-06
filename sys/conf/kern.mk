@@ -151,30 +151,7 @@ CFLAGS += -mno-outline-atomics
 INLINE_LIMIT?=	8000
 .endif
 
-#
-# For RISC-V we specify the soft-float ABI (lp64) to avoid the use of floating
-# point registers within the kernel. However, we include the F and D extensions
-# in -march so we can have limited floating point support in context switching
-# code. This is different than userland where we use a hard-float ABI (lp64d).
-#
-# We also specify the "medium" code model, which generates code suitable for a
-# 2GiB addressing range located at any offset, allowing modules to be located
-# anywhere in the 64-bit address space.  Note that clang and GCC refer to this
-# code model as "medium" and "medany" respectively.
-#
-.if ${MACHINE_CPUARCH} == "riscv"
-CFLAGS+=	-march=rv64imafdch
-CFLAGS+=	-mabi=lp64
-CFLAGS.clang+=	-mcmodel=medium
-CFLAGS.gcc+=	-mcmodel=medany
-INLINE_LIMIT?=	8000
-
-.if ${LINKER_FEATURES:Mriscv-relaxations} == ""
-CFLAGS+=	-mno-relax
-.endif
-.endif
-
-#
+##
 # For AMD64, we explicitly prohibit the use of FPU, SSE and other SIMD
 # operations inside the kernel itself.  These operations are exclusively
 # reserved for user applications.
@@ -410,5 +387,4 @@ LD_EMULATION_powerpc= elf32ppc_fbsd
 LD_EMULATION_powerpcspe= elf32ppc_fbsd
 LD_EMULATION_powerpc64= elf64ppc_fbsd
 LD_EMULATION_powerpc64le= elf64lppc_fbsd
-LD_EMULATION_riscv64= elf64lriscv
 LD_EMULATION=${LD_EMULATION_${MACHINE_ARCH}}
