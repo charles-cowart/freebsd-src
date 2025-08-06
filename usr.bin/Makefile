@@ -84,10 +84,9 @@ SUBDIR=	alias \
 	lzmainfo \
 	m4 \
 	mandoc \
-	mdo \
-	mesg \
-	mididump \
-	ministat \
+       mdo \
+       mididump \
+       ministat \
 	mkdep \
 	mkfifo \
 	mkimg \
@@ -172,10 +171,9 @@ SUBDIR=	alias \
 	what \
 	whereis \
 	which \
-	whois \
-	write \
-	xargs \
-	xinstall \
+       whois \
+       xargs \
+       xinstall \
 	xo \
 	xz \
 	xzdec \
@@ -195,7 +193,6 @@ SUBDIR+=	clang
 SUBDIR.${MK_DIALOG}+=	dpv
 SUBDIR.${MK_EE}+=	ee
 SUBDIR.${MK_FILE}+=	file
-SUBDIR.${MK_FINGER}+=	finger
 SUBDIR.${MK_FTP}+=	ftp
 SUBDIR.${MK_GAMES}+=	caesar
 SUBDIR.${MK_GAMES}+=	factor
@@ -225,7 +222,6 @@ SUBDIR.${MK_LDNS_UTILS}+=	host
 SUBDIR.${MK_LIB32}+=	ldd32
 SUBDIR.${MK_LOCATE}+=	locate
 # XXX msgs?
-SUBDIR.${MK_MAIL}+=	biff
 SUBDIR.${MK_MAIL}+=	from
 SUBDIR.${MK_MAIL}+=	mail
 SUBDIR.${MK_MAIL}+=	msgs
@@ -238,7 +234,6 @@ SUBDIR.${MK_NIS}+=	ypwhich
 SUBDIR.${MK_OPENSSH}+=	ssh-copy-id
 SUBDIR.${MK_QUOTAS}+=	quota
 SUBDIR.${MK_SENDMAIL}+=	vacation
-SUBDIR.${MK_TALK}+=	talk
 SUBDIR.${MK_TELNET}+=	telnet
 SUBDIR.${MK_TESTS_SUPPORT}+=	kyua
 SUBDIR.${MK_TESTS}+=	tests
