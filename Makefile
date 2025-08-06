@@ -314,7 +314,7 @@ MK_META_MODE= no
 # exceptions.
 .if !defined(TARGET_ARCH) && defined(TARGET)
 # T->TA mapping is usually TARGET with arm64 the odd man out
-_TARGET_ARCH=	${TARGET:S/arm64/aarch64/:S/riscv/riscv64/:S/arm/armv7/}
+_TARGET_ARCH=	${TARGET:S/arm64/aarch64/:S/arm/armv7/}
 .elif !defined(TARGET) && defined(TARGET_ARCH) && \
     ${TARGET_ARCH} != ${MACHINE_ARCH}
 # TA->T mapping is accidentally CPUARCH with aarch64 the odd man out
@@ -546,7 +546,6 @@ TOOLCHAINS_arm=		armv7-${_GCC_VERSION}
 TOOLCHAINS_arm64=	aarch64-${_GCC_VERSION}
 TOOLCHAINS_i386=	i386-${_GCC_VERSION}
 TOOLCHAINS_powerpc=	powerpc64-${_GCC_VERSION}
-TOOLCHAINS_riscv=	riscv64-${_GCC_VERSION}
 .endif
 
 # If a target is using an external toolchain, set MAKE_PARAMS to enable use
