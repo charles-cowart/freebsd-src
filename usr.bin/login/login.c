@@ -79,7 +79,6 @@ static void		 bail(int, int);
 static void		 bail_internal(int, int, int);
 static int		 export(const char *);
 static void		 export_pam_environment(void);
-static int		 motd(const char *);
 static void		 badlogin(char *);
 static char		*getloginname(void);
 static void		 pam_syslog(const char *);
@@ -606,22 +605,14 @@ main(int argc, char *argv[])
 	(void)setenv("USER", username, 1);
 	(void)setenv("PATH", rootlogin ? _PATH_STDPATH : _PATH_DEFPATH, 0);
 
-	if (!quietlog) {
-		const char *cw;
+       if (!quietlog) {
+               if (login_getcapbool(lc_user, "nocheckmail", 0) == 0 &&
+                   login_getcapbool(lc, "nocheckmail", 0) == 0) {
+                       char *cx;
 
-		cw = login_getcapstr(lc, "welcome", NULL, NULL);
-		if (cw != NULL && access(cw, F_OK) == 0)
-			motd(cw);
-		else
-			motd(_PATH_MOTDFILE);
-
-		if (login_getcapbool(lc_user, "nocheckmail", 0) == 0 &&
-		    login_getcapbool(lc, "nocheckmail", 0) == 0) {
-			char *cx;
-
-			/* $MAIL may have been set by class. */
-			cx = getenv("MAIL");
-			if (cx == NULL) {
+                       /* $MAIL may have been set by class. */
+                       cx = getenv("MAIL");
+                       if (cx == NULL) {
 				asprintf(&cx, "%s/%s",
 				    _PATH_MAILDIR, pwd->pw_name);
 			}
@@ -849,45 +840,6 @@ getloginname(void)
 	}
 	return nbuf;
 }
-
-/*
- * SIGINT handler for motd().
- */
-static volatile int motdinterrupt;
-static void
-sigint(int signo __unused)
-{
-	motdinterrupt = 1;
-}
-
-/*
- * Display the contents of a file (such as /etc/motd).
- */
-static int
-motd(const char *motdfile)
-{
-	struct sigaction newint, oldint;
-	FILE *f;
-	int ch;
-
-	if ((f = fopen(motdfile, "r")) == NULL)
-		return (-1);
-	motdinterrupt = 0;
-	newint.sa_handler = sigint;
-	newint.sa_flags = 0;
-	sigfillset(&newint.sa_mask);
-	sigaction(SIGINT, &newint, &oldint);
-	while ((ch = fgetc(f)) != EOF && !motdinterrupt)
-		putchar(ch);
-	sigaction(SIGINT, &oldint, NULL);
-	if (ch != EOF || ferror(f)) {
-		fclose(f);
-		return (-1);
-	}
-	fclose(f);
-	return (0);
-}
-
 /*
  * SIGALRM handler, to enforce login prompt timeout.
  *

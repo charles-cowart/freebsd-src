@@ -9792,7 +9792,6 @@ OLD_FILES+=usr/include/netpfil/pf/pf_altq.h
 OLD_FILES+=usr/include/netpfil/pf/pf_mtag.h
 OLD_FILES+=usr/lib/snmp_pf.so
 OLD_LIBS+=usr/lib/snmp_pf.so.6
-OLD_FILES+=usr/libexec/tftp-proxy
 OLD_FILES+=usr/sbin/ftp-proxy
 OLD_FILES+=usr/share/examples/etc/pf.os
 OLD_FILES+=usr/share/examples/pf/ackpri
@@ -9814,7 +9813,6 @@ OLD_FILES+=usr/share/man/man5/pf.os.5.gz
 OLD_FILES+=usr/share/man/man8/ftp-proxy.8.gz
 OLD_FILES+=usr/share/man/man8/pfctl.8.gz
 OLD_FILES+=usr/share/man/man8/pflogd.8.gz
-OLD_FILES+=usr/share/man/man8/tftp-proxy.8.gz
 OLD_FILES+=usr/share/snmp/defs/pf_tree.def
 OLD_FILES+=usr/share/snmp/mibs/BEGEMOT-PF-MIB.txt
 .endif
@@ -10614,10 +10612,6 @@ OLD_FILES+=usr/share/nls/uk_UA.KOI8-U/tcsh.cat
 OLD_FILES+=usr/share/nls/uk_UA.UTF-8/tcsh.cat
 .endif
 
-.if ${MK_TELNET} == no
-OLD_FILES+=usr/bin/telnet
-OLD_FILES+=usr/share/man/man1/telnet.1.gz
-.endif
 
 .if ${MK_TESTS} == yes
 OLD_FILES+=usr/bin/atf-sh
@@ -11250,12 +11244,6 @@ OLD_FILES+=usr/share/man/man1/colcrt.1.gz
 OLD_FILES+=usr/share/man/man1/ul.1.gz
 .endif
 
-.if ${MK_TFTP} == no
-OLD_FILES+=usr/bin/tftp
-OLD_FILES+=usr/libexec/tftpd
-OLD_FILES+=usr/share/man/man1/tftp.1.gz
-OLD_FILES+=usr/share/man/man8/tftpd.8.gz
-.endif
 
 .if ${MK_TOOLCHAIN} == no
 OLD_FILES+=usr/bin/CC

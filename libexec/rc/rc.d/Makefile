@@ -40,7 +40,6 @@ CONFS=	DAEMON \
 	local \
 	localpkg \
 	mixer \
-	motd \
 	mountcritlocal \
 	mountcritremote \
 	mountlate \
