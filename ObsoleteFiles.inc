@@ -50,16 +50,7 @@
 #   -V OLD_FILES -V OLD_LIBS -V MOVED_LIBS -V OLD_DIRS check-old | \
 #   xargs -n1 | sort | uniq -d;
 # done
-# 20250806: remove telnet and tftp utilities
-OLD_FILES+=usr/bin/telnet
-OLD_FILES+=usr/share/man/man1/telnet.1.gz
-OLD_FILES+=usr/bin/tftp
-OLD_FILES+=usr/share/man/man1/tftp.1.gz
-OLD_FILES+=usr/libexec/tftpd
-OLD_FILES+=usr/share/man/man8/tftpd.8.gz
-OLD_FILES+=usr/libexec/tftp-proxy
-OLD_FILES+=usr/include/arpa/telnet.h
-OLD_FILES+=usr/include/arpa/tftp.h
+
 # 20250806: remove calendar tool
 OLD_FILES+=etc/periodic/daily/300.calendar
 OLD_FILES+=usr/bin/calendar

@@ -8216,42 +8216,6 @@ OLD_FILES+=usr/share/man/man8/locate.updatedb.8.gz
 OLD_FILES+=usr/share/man/man8/updatedb.8.gz
 .endif
 
-.if ${MK_LPR} == no
-OLD_FILES+=etc/hosts.lpd
-OLD_FILES+=etc/printcap
-OLD_FILES+=etc/newsyslog.conf.d/lpr.conf
-OLD_FILES+=etc/rc.d/lpd
-OLD_FILES+=etc/syslog.d/lpr.conf
-OLD_FILES+=usr/bin/lp
-OLD_FILES+=usr/bin/lpq
-OLD_FILES+=usr/bin/lpr
-OLD_FILES+=usr/bin/lprm
-OLD_FILES+=usr/libexec/lpr/ru/bjc-240.sh.sample
-OLD_FILES+=usr/libexec/lpr/ru/koi2alt
-OLD_FILES+=usr/libexec/lpr/ru/koi2855
-OLD_DIRS+=usr/libexec/lpr/ru
-OLD_FILES+=usr/libexec/lpr/lpf
-OLD_DIRS+=usr/libexec/lpr
-OLD_FILES+=usr/sbin/chkprintcap
-OLD_FILES+=usr/sbin/lpc
-OLD_FILES+=usr/sbin/lpd
-OLD_FILES+=usr/sbin/lptest
-OLD_FILES+=usr/sbin/pac
-OLD_FILES+=usr/share/doc/smm/07.lpd/paper.ascii.gz
-OLD_DIRS+=usr/share/doc/smm/07.lpd
-OLD_FILES+=usr/share/examples/etc/hosts.lpd
-OLD_FILES+=usr/share/examples/etc/printcap
-OLD_FILES+=usr/share/man/man1/lp.1.gz
-OLD_FILES+=usr/share/man/man1/lpq.1.gz
-OLD_FILES+=usr/share/man/man1/lpr.1.gz
-OLD_FILES+=usr/share/man/man1/lprm.1.gz
-OLD_FILES+=usr/share/man/man1/lptest.1.gz
-OLD_FILES+=usr/share/man/man5/printcap.5.gz
-OLD_FILES+=usr/share/man/man8/chkprintcap.8.gz
-OLD_FILES+=usr/share/man/man8/lpc.8.gz
-OLD_FILES+=usr/share/man/man8/lpd.8.gz
-OLD_FILES+=usr/share/man/man8/pac.8.gz
-.endif
 
 .if ${MK_MAIL} == no
 OLD_FILES+=etc/aliases

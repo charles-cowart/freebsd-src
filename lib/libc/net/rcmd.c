@@ -494,7 +494,7 @@ again:
 
 /*
  * XXX
- * Don't make static, used by lpd(8).
+ * Don't make static.
  *
  * Returns 0 if ok, -1 if not ok.
  */
