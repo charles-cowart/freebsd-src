@@ -24,7 +24,6 @@ LDIRS=	BSD_daemon \
 	oci \
 	perfmon \
 	ppi \
-	ppp \
 	ses \
 	scsi_target \
 	sound \
@@ -228,22 +227,6 @@ SE_PPI= \
 	Makefile \
 	ppilcd.c
 
-SE_DIRS+=	ppp
-SE_PPP= \
-	chap-auth \
-	login-auth \
-	ppp.conf.sample \
-	ppp.conf.span-isp \
-	ppp.conf.span-isp.working \
-	ppp.linkdown.sample \
-	ppp.linkdown.span-isp \
-	ppp.linkdown.span-isp.working \
-	ppp.linkup.sample \
-	ppp.linkup.span-isp \
-	ppp.linkup.span-isp.working \
-	ppp.secret.sample \
-	ppp.secret.span-isp \
-	ppp.secret.span-isp.working
 
 SE_PRINTING= \
 	diablo-if-net \

@@ -17,7 +17,6 @@ SUBDIR=	${_atf} \
 	${_makewhatis.local} \
 	${_mknetid} \
 	${_phttpget} \
-	${_pppoed} \
 	rc \
 	revnetgroup \
 	${_rlogind} \
@@ -71,9 +70,6 @@ _mknetid=	mknetid
 _ypxfr=		ypxfr
 .endif
 
-.if ${MK_NETGRAPH} != "no"
-_pppoed=	pppoed
-.endif
 
 .if ${MK_PF} != "no"
 _tftp-proxy=	tftp-proxy

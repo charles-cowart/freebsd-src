@@ -203,7 +203,6 @@ OLD_DIRS+=etc/bluetooth
 OLD_FILES+=etc/rc.d/bluetooth
 OLD_FILES+=etc/rc.d/bthidd
 OLD_FILES+=etc/rc.d/hcsecd
-OLD_FILES+=etc/rc.d/rfcomm_pppd_server
 OLD_FILES+=etc/rc.d/sdpd
 OLD_FILES+=etc/rc.d/ubthidhci
 OLD_FILES+=usr/bin/bthost
@@ -245,7 +244,6 @@ OLD_FILES+=usr/sbin/hcseriald
 OLD_FILES+=usr/sbin/iwmbtfw
 OLD_FILES+=usr/sbin/l2control
 OLD_FILES+=usr/sbin/l2ping
-OLD_FILES+=usr/sbin/rfcomm_pppd
 OLD_FILES+=usr/sbin/rtlbtfw
 OLD_FILES+=usr/sbin/sdpcontrol
 OLD_FILES+=usr/sbin/sdpd
@@ -324,7 +322,6 @@ OLD_FILES+=usr/share/man/man8/hcseriald.8.gz
 OLD_FILES+=usr/share/man/man8/iwmbtfw.8.gz
 OLD_FILES+=usr/share/man/man8/l2control.8.gz
 OLD_FILES+=usr/share/man/man8/l2ping.8.gz
-OLD_FILES+=usr/share/man/man8/rfcomm_pppd.8.gz
 OLD_FILES+=usr/share/man/man8/rtlbtfw.8.gz
 OLD_FILES+=usr/share/man/man8/sdpcontrol.8.gz
 OLD_FILES+=usr/share/man/man8/sdpd.8.gz
@@ -5380,7 +5377,6 @@ OLD_FILES+=usr/lib/libnetgraph.a
 OLD_FILES+=usr/lib/libnetgraph.so
 OLD_LIBS+=usr/lib/libnetgraph.so.4
 OLD_FILES+=usr/lib/libnetgraph_p.a
-OLD_FILES+=usr/libexec/pppoed
 OLD_FILES+=usr/sbin/flowctl
 OLD_FILES+=usr/sbin/lmcconfig
 OLD_FILES+=usr/sbin/ngctl
@@ -5404,7 +5400,6 @@ OLD_FILES+=usr/share/man/man8/flowctl.8.gz
 OLD_FILES+=usr/share/man/man8/lmcconfig.8.gz
 OLD_FILES+=usr/share/man/man8/ngctl.8.gz
 OLD_FILES+=usr/share/man/man8/nghook.8.gz
-OLD_FILES+=usr/share/man/man8/pppoed.8.gz
 .endif
 
 .if ${MK_IPFW} == no || ${MK_NETGRAPH} == no
@@ -6621,7 +6616,6 @@ OLD_FILES+=usr/share/man/man8/pmcstat.8.gz
 OLD_FILES+=usr/share/man/man8/pmcstudy.8.gz
 .endif
 
-.if ${MK_PPP} == no
 OLD_FILES+=etc/newsyslog.conf.d/ppp.conf
 OLD_FILES+=etc/ppp/ppp.conf
 OLD_FILES+=etc/syslog.d/ppp.conf
@@ -6630,7 +6624,13 @@ OLD_FILES+=usr/sbin/ppp
 OLD_FILES+=usr/sbin/pppctl
 OLD_FILES+=usr/share/man/man8/ppp.8.gz
 OLD_FILES+=usr/share/man/man8/pppctl.8.gz
-.endif
+OLD_FILES+=etc/rc.d/ppp
+OLD_FILES+=etc/rc.d/pppoed
+OLD_FILES+=etc/rc.d/rfcomm_pppd_server
+OLD_FILES+=usr/libexec/pppoed
+OLD_FILES+=usr/sbin/rfcomm_pppd
+OLD_FILES+=usr/share/man/man8/pppoed.8.gz
+OLD_FILES+=usr/share/man/man8/rfcomm_pppd.8.gz
 
 .if ${MK_PROFILE} == no
 OLD_FILES+=usr/lib/lib80211_p.a
