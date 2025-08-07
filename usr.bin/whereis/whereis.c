@@ -289,21 +289,14 @@ defaults(void)
 		}
 	}
 
-	/* -m defaults to $(manpath) */
-	if (!mandirs) {
-		if ((p = popen(MANPATHCMD, "r")) == NULL)
-			err(EX_OSERR, "cannot execute manpath command");
-		if (fgets(buf, BUFSIZ - 1, p) == NULL ||
-		    pclose(p))
-			err(EX_OSERR, "error processing manpath results");
-		if ((b = strchr(buf, '\n')) != NULL)
-			*b = '\0';
-		b = strdup(buf);
-		if (b == NULL)
-			abort();
-		nele = 0;
-		decolonify(b, &mandirs, &nele);
-	}
+       /* -m defaults to $MANPATH if set */
+       if (!mandirs && (cp = getenv("MANPATH")) != NULL) {
+               b = strdup(cp);
+               if (b == NULL)
+                       abort();
+               nele = 0;
+               decolonify(b, &mandirs, &nele);
+       }
 
 	/* -s defaults to precompiled list, plus subdirs of /usr/ports */
 	if (!sourcedirs) {
