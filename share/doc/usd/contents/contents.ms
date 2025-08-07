@@ -124,55 +124,6 @@ instead of one large one.
 Text Editing
 .ND
 .IP
-.tl 'A Tutorial Introduction to the Unix Text Editor''USD:9'
-.QP
-An easy way to get started with the line editor, 
-.I ed.
-.ND
-.IP
-.tl 'Advanced Editing on Unix''USD:10'
-.if \n(.U \{\
-.br
-.>> <a href="10.exref/paper.html">10.exref/paper.html</a>
-.\}
-.QP
-The next step.
-.ND
-.IP
-.tl 'An Introduction to Display Editing with Vi''USD:11'
-.if \n(.U \{\
-.br
-.>> <a href="11.vitut/paper.html">11.vitut/paper.html</a>
-.\}
-.QP
-The document to learn to use the \fIvi\fR screen editor.
-.ND
-.IP
-.tl 'Ex Reference Manual (Version 3.7)''USD:12'
-.if \n(.U \{\
-.br
-.>> <a href="12.vi/paper.html">12.vi/paper.html</a>
-.\}
-.QP
-The final reference for the \fIex\fR editor.
-.ND
-.IP
-.tl 'Vi Reference Manual''USD:13'
-.if \n(.U \{\
-.br
-.>> <a href="13.viref/paper.html">13.viref/paper.html</a>
-.\}
-.QP
-The definitive reference for the \fInvi\fR editor.
-.ND
-.IP
-.tl 'Jove Manual for UNIX Users''USD:14'
-.QP
-Jove is a small, self-documenting, customizable display editor, based on
-EMACS.  A plausible alternative to 
-.I vi.
-.ND
-.IP
 .tl 'SED \- A Non-interactive Text Editor''USD:15'
 .QP
 Describes a one-pass variant of 

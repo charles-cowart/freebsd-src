@@ -232,10 +232,6 @@ CRUNCH_LIBS+= -lmd
 CRUNCH_PROGS_usr.bin+=	nc
 .endif
 
-.if ${MK_VI} != "no"
-CRUNCH_PROGS_usr.bin+= vi
-CRUNCH_ALIAS_vi= ex
-.endif
 
 CRUNCH_PROGS_usr.bin+= id
 CRUNCH_ALIAS_id= groups whoami
