@@ -47,7 +47,6 @@ DIRDEPS+=	libexec/dma/dmagent
 .endif
 
 .if ${MK_MAN_UTILS} != "no"
-DIRDEPS+=	libexec/makewhatis.local
 .endif
 
 .include <dirdeps.mk>

@@ -102,7 +102,7 @@ for details. FreeBSD's base system uses the in-tree make, not GNU Make, so
 [make(1)](https://man.freebsd.org/cgi/man.cgi?query=make&sektion=1) is another useful
 resource.
 
-The project uses mdoc for all its man pages. Changes should pass `mandoc -Tlint` and igor (install the latter with `pkg install igor`).
+The project uses mdoc for all its man pages. Changes should pass igor (install the latter with `pkg install igor`).
 Please be sure to observe the one-sentence-per-line rule so manual pages properly render. Any semantic changes to the manual pages should bump the date.
 [style.mdoc(5)](https://man.freebsd.org/cgi/man.cgi?query=style.mdoc&sektion=5) has the all details.
 

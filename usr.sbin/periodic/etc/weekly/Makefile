@@ -1,4 +1,3 @@
-
 .include <src.opts.mk>
 
 PACKAGE=	periodic
@@ -11,10 +10,6 @@ CONFS=	340.noid \
 
 .if ${MK_LOCATE} != "no"
 CONFS+=	310.locate
-.endif
-
-.if ${MK_MAN_UTILS} != "no"
-CONFS+=	320.whatis
 .endif
 
 .include <bsd.prog.mk>

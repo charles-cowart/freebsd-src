@@ -87,7 +87,6 @@ SUBDIR=	alias \
 	lsvfs \
 	lzmainfo \
 	m4 \
-	mandoc \
 	mdo \
 	mesg \
 	mididump \
@@ -222,7 +221,6 @@ SUBDIR.${MK_MAIL}+=	from
 SUBDIR.${MK_MAIL}+=	mail
 SUBDIR.${MK_MAIL}+=	msgs
 SUBDIR.${MK_MAKE}+=	bmake
-SUBDIR.${MK_MAN_UTILS}+=	man
 SUBDIR.${MK_NETCAT}+=	nc
 SUBDIR.${MK_NETLINK}+=	genl
 SUBDIR.${MK_NIS}+=	ypcat

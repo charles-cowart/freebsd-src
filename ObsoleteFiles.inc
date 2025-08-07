@@ -19469,4 +19469,21 @@ OLD_FILES+=usr/share/examples/printing/psif
 OLD_FILES+=usr/share/examples/printing/pstf
 OLD_FILES+=usr/share/examples/printing/pstfX
 OLD_DIRS+=usr/share/examples/printing
+# 20240614: Remove mandoc-based manual utilities
+OLD_FILES+=etc/periodic/weekly/320.whatis
+OLD_FILES+=usr/bin/apropos
+OLD_FILES+=usr/bin/makewhatis
+OLD_FILES+=usr/bin/man
+OLD_FILES+=usr/bin/manpath
+OLD_FILES+=usr/bin/whatis
+OLD_FILES+=usr/libexec/makewhatis.local
+OLD_FILES+=usr/share/man/man1/apropos.1.gz
+OLD_FILES+=usr/share/man/man1/makewhatis.1.gz
+OLD_FILES+=usr/share/man/man1/man.1.gz
+OLD_FILES+=usr/share/man/man1/manpath.1.gz
+OLD_FILES+=usr/share/man/man1/whatis.1.gz
+OLD_FILES+=usr/share/man/man5/man.conf.5.gz
+OLD_FILES+=usr/share/man/man8/makewhatis.local.8.gz
+OLD_FILES+=usr/share/man/whatis
+OLD_FILES+=usr/share/openssl/man/whatis
 .include "tools/build/mk/OptionalObsoleteFiles.inc"
