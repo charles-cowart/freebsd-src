@@ -51,6 +51,23 @@
 #   xargs -n1 | sort | uniq -d;
 # done
 
+# 20250601: remove vi, nvi, and ed editors
+OLD_FILES+=bin/ed
+OLD_FILES+=usr/bin/ex
+OLD_FILES+=usr/bin/nex
+OLD_FILES+=usr/bin/nvi
+OLD_FILES+=usr/bin/nview
+OLD_FILES+=usr/bin/vi
+OLD_FILES+=usr/bin/view
+OLD_FILES+=usr/share/man/man1/ed.1.gz
+OLD_FILES+=usr/share/man/man1/ex.1.gz
+OLD_FILES+=usr/share/man/man1/nex.1.gz
+OLD_FILES+=usr/share/man/man1/nvi.1.gz
+OLD_FILES+=usr/share/man/man1/nview.1.gz
+OLD_FILES+=usr/share/man/man1/vi.1.gz
+OLD_FILES+=usr/share/man/man1/view.1.gz
+OLD_FILES+=etc/rc.d/virecover
+
 # 20250524: don't install zoneinfo version
 OLD_FILES+=usr/share/zoneinfo/version
 

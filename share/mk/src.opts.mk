@@ -188,7 +188,6 @@ __DEFAULT_YES_OPTIONS = \
     UNBOUND \
     USB \
     UTMPX \
-    VI \
     VT \
     WIRELESS \
     WPA_SUPPLICANT_EAPOL \
