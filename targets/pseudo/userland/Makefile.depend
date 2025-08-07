@@ -572,7 +572,6 @@ DIRDEPS+= \
 	usr.sbin/mailwrapper \
 	usr.sbin/makefs \
 	usr.sbin/makemap \
-	usr.sbin/manctl \
 	usr.sbin/memcontrol \
 	usr.sbin/mergemaster \
 	usr.sbin/mfiutil \
