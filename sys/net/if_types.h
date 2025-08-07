@@ -71,7 +71,6 @@ typedef enum {
 	IFT_EON		= 0x19,		/* ISO over IP */
 	IFT_XETHER	= 0x1a,		/* obsolete 3MB experimental ethernet */
 	IFT_NSIP	= 0x1b,		/* XNS over IP */
-	IFT_SLIP	= 0x1c,		/* IP over generic TTY */
 	IFT_ULTRA	= 0x1d,		/* Ultra Technologies */
 	IFT_DS3		= 0x1e,		/* Generic T3 */
 	IFT_SIP		= 0x1f,		/* SMDS */

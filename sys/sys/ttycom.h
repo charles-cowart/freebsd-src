@@ -128,7 +128,6 @@
 						/* 124-127 compat */
 
 #define	TTYDISC		0		/* termios tty line discipline */
-#define	SLIPDISC	4		/* serial IP discipline */
 #define	PPPDISC		5		/* PPP discipline */
 #define	NETGRAPHDISC	6		/* Netgraph tty node discipline */
 #define	H4DISC		7		/* Netgraph Bluetooth H4 discipline */
