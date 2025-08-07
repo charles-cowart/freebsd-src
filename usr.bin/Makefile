@@ -190,7 +190,6 @@ SUBDIR.${MK_ACCT}+=	lastcomm
 SUBDIR.${MK_AT}+=	at
 SUBDIR.${MK_BLUETOOTH}+=	bluetooth
 SUBDIR.${MK_BSD_CPIO}+=	cpio
-SUBDIR.${MK_CALENDAR}+=	calendar
 .if ${MK_CLANG} != "no" || ${MK_LLVM_BINUTILS} != "no" || \
     ${MK_LLD} != "no" || ${MK_LLDB} != "no"
 SUBDIR+=	clang
@@ -198,7 +197,6 @@ SUBDIR+=	clang
 SUBDIR.${MK_DIALOG}+=	dpv
 SUBDIR.${MK_EE}+=	ee
 SUBDIR.${MK_FILE}+=	file
-SUBDIR.${MK_FINGER}+=	finger
 SUBDIR.${MK_FTP}+=	ftp
 SUBDIR.${MK_GAMES}+=	caesar
 SUBDIR.${MK_GAMES}+=	factor
@@ -245,7 +243,6 @@ SUBDIR.${MK_OPENSSL}+=	newkey
 SUBDIR.${MK_QUOTAS}+=	quota
 SUBDIR.${MK_SENDMAIL}+=	vacation
 SUBDIR.${MK_TALK}+=	talk
-SUBDIR.${MK_TELNET}+=	telnet
 SUBDIR.${MK_TESTS_SUPPORT}+=	kyua
 SUBDIR.${MK_TESTS}+=	tests
 SUBDIR.${MK_TEXTPROC}+=	ul

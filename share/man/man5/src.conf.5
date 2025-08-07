@@ -235,7 +235,6 @@ is set explicitly)
 Build some programs without
 .Xr libblacklist 3
 support, like
-.Xr fingerd 8 ,
 .Xr ftpd 8 ,
 and
 .Xr sshd 8 .
@@ -276,9 +275,6 @@ is set explicitly)
 .El
 .It Va WITHOUT_BZIP2_SUPPORT
 Build some programs without optional bzip2 support.
-.It Va WITHOUT_CALENDAR
-Do not build
-.Xr calendar 1 .
 .It Va WITHOUT_CAPSICUM
 This option has no effect.
 .It Va WITHOUT_CAROOT
@@ -682,11 +678,6 @@ arm/armv7, arm64/aarch64, powerpc/powerpc, powerpc/powerpc64, powerpc/powerpc64l
 Do not build
 .Xr file 1
 and related programs.
-.It Va WITHOUT_FINGER
-Do not build or install
-.Xr finger 1
-and
-.Xr fingerd 8 .
 .It Va WITHOUT_FLOPPY
 Do not build or install programs
 for operating floppy disk driver.
@@ -1691,10 +1682,6 @@ Do not build and install
 .Pa /bin/csh
 (which is
 .Xr tcsh 1 ) .
-.It Va WITHOUT_TELNET
-Do not build
-.Xr telnet 1
-and related programs.
 .It Va WITHOUT_TESTS
 Do not build nor install the
 .Fx

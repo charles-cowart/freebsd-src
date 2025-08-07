@@ -48,9 +48,7 @@ CONFS=	DAEMON \
 	local \
 	localpkg \
 	lockd \
-	mixer \
-	motd \
-	mountcritlocal \
+	mixer \	mountcritlocal \
 	mountcritremote \
 	mountlate \
 	mdconfig \

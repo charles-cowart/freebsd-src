@@ -35,6 +35,24 @@
 # grep '+=' /usr/src/tools/build/mk/OptionalObsoleteFiles.inc | sort -u) | \
 # sort | uniq -d
 #
+# 20250807: remove calendar, finger, telnet, motd
+OLD_FILES+=etc/motd.template
+OLD_FILES+=etc/periodic/daily/300.calendar
+OLD_FILES+=etc/rc.d/motd
+OLD_FILES+=usr/bin/calendar
+OLD_FILES+=usr/bin/finger
+OLD_FILES+=usr/bin/telnet
+OLD_FILES+=usr/lib/libtelnet.a
+OLD_FILES+=usr/lib/libtelnet_p.a
+OLD_FILES+=usr/libexec/fingerd
+OLD_FILES+=usr/libexec/telnetd
+OLD_FILES+=usr/share/man/man1/calendar.1.gz
+OLD_FILES+=usr/share/man/man1/finger.1.gz
+OLD_FILES+=usr/share/man/man1/telnet.1.gz
+OLD_FILES+=usr/share/man/man5/finger.conf.5.gz
+OLD_FILES+=usr/share/man/man5/motd.5.gz
+OLD_FILES+=usr/share/man/man8/fingerd.8.gz
+OLD_FILES+=usr/share/man/man8/telnetd.8.gz
 # To find regular duplicates not dependent on optional components, you can
 # also use something that will not give you false positives, e.g.:
 # for t in `make -V TARGETS universe`; do

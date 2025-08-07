@@ -105,8 +105,6 @@ pipe.
 A user account compromise is even more common than a DoS attack.
 Some
 sysadmins still run
-.Nm telnetd
-and
 .Xr ftpd 8
 servers on their machines.
 These servers, by default, do not operate over encrypted
@@ -327,10 +325,9 @@ out carefully.
 Many servers do not need to be run as root.
 For example,
 the
-.Xr talkd 8 ,
-.Xr comsat 8 ,
+.Xr talkd 8
 and
-.Xr fingerd 8
+.Xr comsat 8
 daemons can be run in special user
 .Dq sandboxes .
 A sandbox is not perfect unless you go to a large amount of trouble, but the
@@ -342,17 +339,12 @@ likelihood of his success.
 Root holes have historically been found in
 virtually every server ever run as root, including basic system servers.
 If you are running a machine through which people only log in via
-.Xr sshd 8
-and never log in via
-.Nm telnetd
 then turn off this service!
 .Pp
 .Fx
 now defaults to running
-.Xr talkd 8 ,
-.Xr comsat 8 ,
-and
-.Xr fingerd 8
+.Xr talkd 8 and
+.Xr comsat 8
 in a sandbox.
 Depending on whether you
 are installing a new system or upgrading an existing system, the special
