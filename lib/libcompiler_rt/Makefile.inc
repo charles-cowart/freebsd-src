@@ -177,8 +177,7 @@ SRCF+=		fp_mode
 # 128-bit quad precision long double support,
 # only used on some architectures.
 #
-.if ${MACHINE_CPUARCH} == "aarch64" || ${MACHINE_CPUARCH} == "amd64" || \
-    ${MACHINE_CPUARCH} == "riscv"
+.if ${MACHINE_CPUARCH} == "aarch64" || ${MACHINE_CPUARCH} == "amd64"
 SRCF+=		addtf3
 SRCF+=		comparetf2
 SRCF+=		divtc3
@@ -208,7 +207,6 @@ SRCF+=		trunctfsf2
 .endif
 
 # These are already shipped by libc.a on some architectures.
-.if ${MACHINE_CPUARCH} != "riscv"
 SRCF+=		adddf3
 SRCF+=		addsf3
 SRCF+=		divdf3
@@ -223,7 +221,6 @@ SRCF+=		mulsf3
 SRCF+=		subdf3
 SRCF+=		subsf3
 SRCF+=		truncdfsf2
-.endif
 
 SRCF+=		comparedf2
 SRCF+=		comparesf2
@@ -241,7 +238,7 @@ CRT_COMMON_F16_ARCH=t
 #
 .if ((${COMPILER_TYPE} == "clang" && ${COMPILER_VERSION} >= 150000) && \
      (defined(CRT_COMMON_F16_ARCH) || \
-      ${MACHINE_CPUARCH} == "arm" || ${MACHINE_CPUARCH} == "riscv")) || \
+      ${MACHINE_CPUARCH} == "arm")) || \
     ((${COMPILER_TYPE} == "gcc" && ${COMPILER_VERSION} >= 120000) && \
      (defined(CRT_COMMON_F16_ARCH)))
 CFLAGS+=	-DCOMPILER_RT_HAS_FLOAT16
@@ -253,8 +250,6 @@ CFLAGS+=	-DCOMPILER_RT_HAS_FLOAT16
 #
 .if ((${COMPILER_TYPE} == "clang" && ${COMPILER_VERSION} >= 150000) && \
      (defined(CRT_COMMON_F16_ARCH))) || \
-    ((${COMPILER_TYPE} == "clang" && ${COMPILER_VERSION} >= 180000) && \
-     ${MACHINE_CPUARCH} == "riscv") || \
     ((${COMPILER_TYPE} == "gcc" && ${COMPILER_VERSION} >= 130000) && \
      (defined(CRT_COMMON_F16_ARCH)))
 CFLAGS+=	-DCOMPILER_RT_HAS_BFLOAT16

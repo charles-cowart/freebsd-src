@@ -51,8 +51,7 @@ CFLAGS+=	-DTEST_LONG_DOUBLE
 # precision than their double.
 .if ${MACHINE_CPUARCH} == "aarch64" || \
     ${MACHINE_CPUARCH} == "amd64" || \
-    ${MACHINE_CPUARCH} == "i386" || \
-    ${MACHINE_CPUARCH} == "riscv"
+    ${MACHINE_CPUARCH} == "i386"
 CFLAGS+=	-D__HAVE_LONG_DOUBLE
 .endif
 

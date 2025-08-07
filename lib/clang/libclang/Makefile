@@ -1208,47 +1208,17 @@ clang/Basic/arm_sve_typeflags.inc: \
 	    -o ${.TARGET} ${CLANG_SRCS}/include/clang/Basic/arm_sve.td
 TGHDRS+=	clang/Basic/arm_sve_typeflags.inc
 
-clang/Basic/riscv_sifive_vector_builtin_cg.inc: \
-	${CLANG_SRCS}/include/clang/Basic/riscv_sifive_vector.td
-	${CLANG_TBLGEN} -gen-riscv-sifive-vector-builtin-codegen \
 	    -I ${CLANG_SRCS}/include/clang/Basic -d ${.TARGET:C/$/.d/} \
-	    -o ${.TARGET} ${CLANG_SRCS}/include/clang/Basic/riscv_sifive_vector.td
-TGHDRS+=	clang/Basic/riscv_sifive_vector_builtin_cg.inc
 
-clang/Basic/riscv_sifive_vector_builtin_sema.inc: \
-	${CLANG_SRCS}/include/clang/Basic/riscv_sifive_vector.td
-	${CLANG_TBLGEN} -gen-riscv-sifive-vector-builtin-sema \
 	    -I ${CLANG_SRCS}/include/clang/Basic -d ${.TARGET:C/$/.d/} \
-	    -o ${.TARGET} ${CLANG_SRCS}/include/clang/Basic/riscv_sifive_vector.td
-TGHDRS+=	clang/Basic/riscv_sifive_vector_builtin_sema.inc
 
-clang/Basic/riscv_sifive_vector_builtins.inc: \
-	${CLANG_SRCS}/include/clang/Basic/riscv_sifive_vector.td
-	${CLANG_TBLGEN} -gen-riscv-sifive-vector-builtins \
 	    -I ${CLANG_SRCS}/include/clang/Basic -d ${.TARGET:C/$/.d/} \
-	    -o ${.TARGET} ${CLANG_SRCS}/include/clang/Basic/riscv_sifive_vector.td
-TGHDRS+=	clang/Basic/riscv_sifive_vector_builtins.inc
 
-clang/Basic/riscv_vector_builtin_cg.inc: \
-	${CLANG_SRCS}/include/clang/Basic/riscv_vector.td
-	${CLANG_TBLGEN} -gen-riscv-vector-builtin-codegen \
 	    -I ${CLANG_SRCS}/include/clang/Basic -d ${.TARGET:C/$/.d/} \
-	    -o ${.TARGET} ${CLANG_SRCS}/include/clang/Basic/riscv_vector.td
-TGHDRS+=	clang/Basic/riscv_vector_builtin_cg.inc
 
-clang/Basic/riscv_vector_builtin_sema.inc: \
-	${CLANG_SRCS}/include/clang/Basic/riscv_vector.td
-	${CLANG_TBLGEN} -gen-riscv-vector-builtin-sema \
 	    -I ${CLANG_SRCS}/include/clang/Basic -d ${.TARGET:C/$/.d/} \
-	    -o ${.TARGET} ${CLANG_SRCS}/include/clang/Basic/riscv_vector.td
-TGHDRS+=	clang/Basic/riscv_vector_builtin_sema.inc
 
-clang/Basic/riscv_vector_builtins.inc: \
-	${CLANG_SRCS}/include/clang/Basic/riscv_vector.td
-	${CLANG_TBLGEN} -gen-riscv-vector-builtins \
 	    -I ${CLANG_SRCS}/include/clang/Basic -d ${.TARGET:C/$/.d/} \
-	    -o ${.TARGET} ${CLANG_SRCS}/include/clang/Basic/riscv_vector.td
-TGHDRS+=	clang/Basic/riscv_vector_builtins.inc
 
 clang/Driver/Options.inc: ${CLANG_SRCS}/include/clang/Driver/Options.td
 	${LLVM_TBLGEN} -gen-opt-parser-defs \

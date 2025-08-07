@@ -141,9 +141,6 @@ INCS+=		ptwriteintrin.h
 INCS+=		raointintrin.h
 INCS+=		rdpruintrin.h
 INCS+=		rdseedintrin.h
-INCS+=		riscv_bitmanip.h
-INCS+=		riscv_crypto.h
-INCS+=		riscv_ntlh.h
 INCS+=		rtmintrin.h
 INCS+=		s390intrin.h
 INCS+=		serializeintrin.h
@@ -262,13 +259,6 @@ arm_vector_types.h: ${CLANG_SRCS}/include/clang/Basic/arm_sme.td
 	    -o ${.TARGET} ${CLANG_SRCS}/include/clang/Basic/arm_neon.td
 GENINCS+=	arm_vector_types.h
 
-.for hdr in vector/vector-header
-riscv_${hdr:H}.h: ${CLANG_SRCS}/include/clang/Basic/riscv_${hdr:H}.td
-	${CLANG_TBLGEN} -gen-riscv-${hdr:T} \
-	    -I ${CLANG_SRCS}/include/clang/Basic -d ${.TARGET:C/$/.d/} \
-	    -o ${.TARGET} ${CLANG_SRCS}/include/clang/Basic/riscv_${hdr:H}.td
-GENINCS+=	riscv_${hdr:H}.h
-.endfor
 
 CLEANFILES=	${GENINCS} ${GENINCS:C/$/.d/}
 
