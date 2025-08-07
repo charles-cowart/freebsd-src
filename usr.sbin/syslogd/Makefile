@@ -31,9 +31,6 @@ FTPDIR=		/etc/syslog.d
 FTPPACKAGE=	ftpd
 .endif
 
-.if ${MK_LPR} != "no"
-SYSLOGD_D+=	lpr.conf
-.endif
 
 .if ${MK_PPP} != "no"
 CONFGROUPS+=	PPP

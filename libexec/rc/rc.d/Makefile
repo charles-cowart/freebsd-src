@@ -251,9 +251,6 @@ CONSOLE+=	syscons
 CONSOLEPACKAGE=	console-tools
 .endif
 
-.if ${MK_LPR} != "no"
-CONFS+=		lpd
-.endif
 
 .if ${MK_KERBEROS} != "no"
 CONFS+=		ipropd_master
