@@ -72,11 +72,6 @@ ypserv : localhost : allow
 #ypserv : .my.net.example.com : allow
 ypserv : ALL : deny
 
-# Provide a small amount of protection for ftpd
-ftpd : localhost : allow
-#ftpd : .nice.guy.example.com : allow
-#ftpd : .evil.cracker.example.com : deny
-ftpd : ALL : allow
 
 
 # The rest of the daemons are protected.

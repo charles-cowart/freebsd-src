@@ -54,13 +54,11 @@
 #define	AUE_rexecd		6162
 #define	AUE_passwd		6163
 #define	AUE_rexd		6164
-#define	AUE_ftpd		6165
 #define	AUE_init		6166
 #define	AUE_uadmin		6167
 #define	AUE_shutdown		6168
 #define	AUE_poweroff		6169
 #define	AUE_crontab_mod		6170
-#define	AUE_ftpd_logout		6171
 #define	AUE_ssh			6172
 #define	AUE_role_login		6173
 #define	AUE_prof_cmd		6180

@@ -144,7 +144,7 @@ connections to, for example, ftp, telnet or web servers.  The NAT
 mechanism prevents these connections. Technically, this option denies
 all incoming TCP and UDP requests, making the NAT software a
 fairly efficient one-way firewall.  The default is no, which will allow
-all incoming connections to ftpd, etc.
+all incoming connections to servers, etc.
 
 
  - nat log [yes|no]

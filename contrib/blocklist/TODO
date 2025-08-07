@@ -9,7 +9,7 @@
 - perhaps rate limit against DoS
 - perhaps instead of scanning the list have a sparse map by port?
 - do we want to use libnpf directly for efficiency?
-- add more daemons ftpd?
+- add more daemons
 - do we care about the db state becoming too large? 
 - instead of a yes = bump one, no = return to 0 interface, do we want
   to have something more flexible like?

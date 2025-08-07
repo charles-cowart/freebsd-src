@@ -197,9 +197,6 @@ BSNMPPACKAGE=	bsnmp
 CONFS+=		ccd
 .endif
 
-.if ${MK_FTP} != "no"
-CONFS+=		ftpd
-.endif
 
 .if ${MK_GSSAPI} != "no"
 CONFGROUPS+=	GSSD
