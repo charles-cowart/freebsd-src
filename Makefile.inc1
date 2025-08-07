@@ -433,9 +433,9 @@ SUBDIR+=	${_DIR}
 .endif
 .endfor
 
-# We must do etc/ last as it hooks into building the man whatis file
+# We must do etc/ last as it hooks into building manual indexes
 # by calling 'makedb' in share/man.  This is only relevant for
-# install/distribute so they build the whatis file after every manpage is
+# install/distribute so they ensure indexes are updated after every manpage is
 # installed.
 .if make(installworld) || make(install)
 SUBDIR+=.WAIT
@@ -1383,7 +1383,6 @@ ITOOLS+=tzsetup
 
 # Needed for share/man
 .if ${MK_MAN_UTILS} != "no"
-ITOOLS+=makewhatis
 .endif
 
 ITOOLS+=${LOCAL_ITOOLS}
@@ -2578,7 +2577,6 @@ ${_bt}-${_tool}: ${_bt}-usr.bin/yacc ${_bt_lex_depend}
 .endfor
 .endif
 
-${_bt}-usr.bin/mandoc: ${_bt}-lib/libopenbsd
 
 # The tools listed in _basic_bootstrap_tools will generally not be
 # bootstrapped unless BOOTSTRAP_ALL_TOOL is set. However, when building on a
@@ -2707,7 +2705,6 @@ bootstrap-tools: ${_bt}-links .PHONY
     ${_elftoolchain_libs} \
     ${_kldxref} \
     lib/libopenbsd \
-    usr.bin/mandoc \
     usr.bin/rpcgen \
     ${_yacc} \
     ${_m4} \
@@ -2939,7 +2936,6 @@ NXBDIRS+= \
     usr.bin/id \
     usr.bin/lex \
     usr.bin/limits \
-    usr.bin/mandoc \
     usr.bin/mktemp \
     usr.bin/mt \
     usr.bin/nm \

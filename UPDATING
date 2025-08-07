@@ -1635,9 +1635,7 @@ https://lists.freebsd.org/archives/freebsd-current/2021-June/000153.html
 	followed.
 
 20170531:
-	The GNU roff toolchain has been removed from base. To render manpages
-	which are not supported by mandoc(1), man(1) can fallback on GNU roff
-	from ports (and recommends to install it).
+	The GNU roff toolchain has been removed from base. To render manpages, install GNU roff from ports.
 	To render roff(7) documents, consider using GNU roff from ports or the
 	heirloom doctools roff toolchain from ports via pkg install groff or
 	via pkg install heirloom-doctools.

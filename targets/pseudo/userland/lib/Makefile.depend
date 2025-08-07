@@ -108,7 +108,6 @@ DIRDEPS = \
 	lib/libldns \
 	lib/liblzma \
 	lib/libmagic \
-	lib/libmandoc \
 	lib/libmd \
 	lib/libmemstat \
 	lib/libmilter \

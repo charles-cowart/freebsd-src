@@ -734,7 +734,7 @@ sub check {
         next if $target =~ /openssl-?/;
         next if ( grep { basename($_) eq "$target.pod" }
                   files(TAGS => [ 'manual', 'man1' ]) );
-        next if $target =~ /ps|apropos|sha1sum|procmail|perl/;
+        next if $target =~ /ps|sha1sum|procmail|perl/;
         err($id, "Bad command link L<$target(1)>") if grep /man1/, @sections;
     }
     # Check for proper in-man-3 API links.
