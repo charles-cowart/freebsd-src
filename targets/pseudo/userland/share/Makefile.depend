@@ -65,7 +65,6 @@ DIRDEPS = \
 	share/man/man3 \
 	share/man/man4 \
 	share/man/man5 \
-	share/man/man6 \
 	share/man/man7 \
 	share/man/man8 \
 	share/man/man9 \
