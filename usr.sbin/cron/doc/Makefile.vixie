@@ -36,8 +36,6 @@
 #	options (use -O, cron runs forever) and destination directories.
 #	SHELL is for the 'augumented make' systems where 'make' imports
 #	SHELL from the environment and then uses it to run its commands.
-#	if your environment SHELL variable is /bin/csh, make goes real
-#	slow and sometimes does the wrong thing.  
 #
 #	this package needs the 'bitstring macros' library, which is
 #	available from me or from the comp.sources.unix archive.  if you

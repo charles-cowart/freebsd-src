@@ -10,7 +10,6 @@ LDIRS=	BSD_daemon \
 	FreeBSD_version \
 	IPv6 \
 	bootforth \
-	csh \
 	drivers \
 	etc \
 	find_interface \
@@ -71,8 +70,6 @@ SE_BOOTFORTH= \
 	menuconf.4th \
 	screen.4th
 
-SE_DIRS+=	csh
-SE_CSH=	dot.cshrc
 
 SE_DIRS+=	drivers
 SE_DRIVERS= \

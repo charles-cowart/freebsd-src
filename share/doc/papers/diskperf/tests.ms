@@ -81,8 +81,8 @@ basic blocking factor of four Kilobytes and the same tests
 were run again and timed.
 A command script for a run appears as follows:
 .DS
-#!/bin/csh
-set time=2
+#!/bin/sh
+time=2
 echo "8K/1K file system"
 newfs /dev/rhp0g eagle
 mount /dev/hp0g /mnt0

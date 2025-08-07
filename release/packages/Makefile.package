@@ -34,10 +34,7 @@ clibs_DESC= 		Core C Libraries
 certctl_COMMENT= 	SSL Certificate Utility
 certctl_DESC=		SSL Certificate Utility
 console-tools_COMMENT=	Console Utilities
-console-tools_DESC=	Console Utilities
-csh_COMMENT=		C Shell
-csh_DESC=		C Shell
-ctf-tools_COMMENT=	CTF Utilities
+console-tools_DESC=	Console Utilitiesctf-tools_COMMENT=	CTF Utilities
 ctf-tools_DESC=		CTF Utilities
 cxgbe-tools_COMMENT=	Chelsio cxbge Utilities
 cxgbe-tools_DESC=	Chelsio cxbge Utilities

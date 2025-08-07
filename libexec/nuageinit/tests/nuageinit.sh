@@ -275,8 +275,8 @@ config2_pubkeys_meta_data_body()
 EOF
 	mkdir -p etc
 	cat > etc/master.passwd << EOF
-root:*:0:0::0:0:Charlie &:/root:/bin/csh
-sys:*:1:0::0:0:Sys:/home/sys:/bin/csh
+root:*:0:0::0:0:Charlie &:/root:/bin/sh
+sys:*:1:0::0:0:Sys:/home/sys:/bin/sh
 EOF
 	pwd_mkdb -d etc ${here}/etc/master.passwd
 	cat > etc/group << EOF
@@ -437,8 +437,8 @@ ssh_keys:
 EOF
 	mkdir -p etc/ssh
 	cat > etc/master.passwd << EOF
-root:*:0:0::0:0:Charlie &:/root:/bin/csh
-sys:*:1:0::0:0:Sys:/home/sys:/bin/csh
+root:*:0:0::0:0:Charlie &:/root:/bin/sh
+sys:*:1:0::0:0:Sys:/home/sys:/bin/sh
 EOF
 	pwd_mkdb -d etc ${here}/etc/master.passwd
 	cat > etc/group << EOF

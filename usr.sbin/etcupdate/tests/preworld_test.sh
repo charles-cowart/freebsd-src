@@ -75,7 +75,7 @@ build_trees()
 	mkdir -p $OLD/etc
 	cat >> $OLD/etc/master.passwd <<EOF
 #
-root::0:0::0:0:Charlie &:/root:/bin/csh
+root::0:0::0:0:Charlie &:/root:/bin/sh
 toor:*:0:0::0:0:Bourne-again Superuser:/root:
 daemon:*:1:1::0:0:Owner of many system processes:/root:/usr/sbin/nologin
 operator:*:2:5::0:0:System &:/:/usr/sbin/nologin
@@ -112,7 +112,7 @@ EOF
 	cp -R $OLD $TEST
 	sed -I "" -e 's/root::/root:<rpass>:/' $TEST/etc/master.passwd
 	cat >> $TEST/etc/master.passwd <<EOF
-john:<password>:1001:1001::0:0:John Baldwin:/home/john:/bin/tcsh
+john:<password>:1001:1001::0:0:John Baldwin:/home/john:/bin/sh
 messagebus:*:556:556::0:0:D-BUS Daemon User:/nonexistent:/usr/sbin/nologin
 polkit:*:562:562::0:0:PolicyKit User:/nonexistent:/usr/sbin/nologin
 haldaemon:*:560:560::0:0:HAL Daemon User:/nonexistent:/usr/sbin/nologin

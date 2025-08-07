@@ -2827,7 +2827,7 @@ xterm-new|modern xterm:\
 	:tc=xterm-basic:
 #
 # This chunk is used for building the VT220/Sun/PC keyboard variants.
-xterm-basic|modern xterm common:\
+# bash.
 	:am:bs:km:mi:ms:ut:xn:AX:\
 	:Co#8:co#80:kn#12:li#24:pa#64:\
 	:AB=\E[4%dm:AF=\E[3%dm:AL=\E[%dL:DC=\E[%dP:DL=\E[%dM:\
