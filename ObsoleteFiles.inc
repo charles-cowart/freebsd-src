@@ -35,6 +35,18 @@
 # grep '+=' /usr/src/tools/build/mk/OptionalObsoleteFiles.inc | sort -u) | \
 # sort | uniq -d
 #
+# 20250808: remove talk, write, mesg, biff
+OLD_FILES+=usr/bin/biff
+OLD_FILES+=usr/bin/mesg
+OLD_FILES+=usr/bin/talk
+OLD_FILES+=usr/bin/write
+OLD_FILES+=usr/include/protocols/talkd.h
+OLD_FILES+=usr/libexec/ntalkd
+OLD_FILES+=usr/share/man/man1/biff.1.gz
+OLD_FILES+=usr/share/man/man1/mesg.1.gz
+OLD_FILES+=usr/share/man/man1/talk.1.gz
+OLD_FILES+=usr/share/man/man1/write.1.gz
+OLD_FILES+=usr/share/man/man8/talkd.8.gz
 # 20250807: remove calendar, finger, telnet, motd
 OLD_FILES+=etc/motd.template
 OLD_FILES+=etc/periodic/daily/300.calendar

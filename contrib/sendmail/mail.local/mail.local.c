@@ -153,7 +153,7 @@ bool	EAI = true;			/* advertise SMTPUTF8 in LMTP */
 #endif
 char	ErrBuf[10240];			/* error buffer */
 int	ExitVal = EX_OK;		/* sysexits.h error value. */
-bool	nobiff = false;
+bool	nocomsat = false;
 bool	nofsync = false;
 bool	HoldErrs = false;		/* Hold errors in ErrBuf */
 bool	LMTPMode = false;
@@ -175,7 +175,7 @@ char	*process_recipient __P((char *));
 void	dolmtp __P((void));
 void	deliver __P((int, char *));
 int	e_to_sys __P((int));
-void	notifybiff __P((char *));
+void	notifycomsat __P((char *));
 int	store __P((char *, bool *));
 void	usage __P((void));
 int	lockmbox __P((char *));
@@ -257,7 +257,7 @@ main(argc, argv)
 			break;
 
 		  case 'B':
-			nobiff = true;
+			nocomsat = true;
 			break;
 
 		  case 'b':		/* bounce mail when over quota. */
@@ -380,9 +380,9 @@ main(argc, argv)
 	argc -= optind;
 	argv += optind;
 
-	/* initialize biff structures */
-	if (!nobiff)
-		notifybiff(NULL);
+	/* initialize comsat structures */
+	if (!nocomsat)
+		notifycomsat(NULL);
 
 	err = sm_mbdb_initialize(mbdbname);
 	if (err != EX_OK)
@@ -1019,7 +1019,7 @@ deliver(fd, name)
 	off_t headerbytes;
 	int readamount;
 #endif
-	char biffmsg[100], buf[8 * 1024];
+	char comsatmsg[100], buf[8 * 1024];
 	SM_MBDB_T user;
 
 	/*
@@ -1313,9 +1313,9 @@ tryagain:
 	/* Get the starting offset of the new message */
 	curoff = lseek(mbfd, (off_t) 0, SEEK_END);
 
-	if (!nobiff)
+	if (!nocomsat)
 	{
-		(void) sm_snprintf(biffmsg, sizeof(biffmsg), "%s@%lld\n",
+		(void) sm_snprintf(comsatmsg, sizeof(comsatmsg), "%s@%lld\n",
 				   name, (LONGLONG_T) curoff);
 	}
 
@@ -1449,8 +1449,8 @@ err0:
 		/* Attempt to truncate back to pre-write size */
 		goto err3;
 	}
-	else if (!nobiff)
-		notifybiff(biffmsg);
+	else if (!nocomsat)
+		notifycomsat(comsatmsg);
 
 	if (
 #if MAIL_LOCAL_TEST
@@ -1589,7 +1589,7 @@ unlockmbox()
 #endif /* MAILLOCK */
 
 void
-notifybiff(msg)
+notifycomsat(msg)
 	char *msg;
 {
 	static bool initialized = false;
@@ -1603,8 +1603,8 @@ notifybiff(msg)
 	{
 		initialized = true;
 
-		/* Be silent if biff service not available. */
-		if ((sp = getservbyname("biff", "udp")) == NULL ||
+		/* Be silent if comsat service not available. */
+		if ((sp = getservbyname("comsat", "udp")) == NULL ||
 		    (hp = gethostbyname("localhost")) == NULL ||
 		    hp->h_length != INADDRSZ)
 			return;

@@ -447,7 +447,6 @@ l l.
 /usr/bin/xget	secure mail receiver
 /etc/aliases	mail forwarding information
 /usr/bin/newaliases	command to rebuild binary forwarding database
-/usr/bin/biff	mail notification enabler
 /usr/libexec/comsat	mail notification daemon
 .TE
 .DE

@@ -32,7 +32,7 @@
 .Os
 .Sh NAME
 .Nm comsat
-.Nd biff server
+.Nd mail notification server
 .Sh SYNOPSIS
 .Nm
 .Sh DESCRIPTION
@@ -43,7 +43,7 @@ and notifies users if they have requested this service.
 The
 .Nm
 utility receives messages on a datagram port associated with the
-.Dq biff
+.Dq comsat
 service
 specification (see
 .Xr services 5
@@ -56,8 +56,7 @@ The one line messages are of the form:
 If the
 .Ar user
 specified is logged in to the system and the associated terminal has
-the owner execute bit turned on (by a
-.Dq Nm biff Cm y ) ,
+the owner execute bit turned on,
 the
 .Ar offset
 is used as a seek offset into the appropriate mailbox file and
@@ -75,8 +74,7 @@ lines are not included in the displayed message.
 If the
 .Ar user
 specified is logged in to the system and the associated terminal has
-the group execute bit turned on (by a
-.Dq Nm biff Cm b ) ,
+the group execute bit turned on,
 two bell characters
 .Tn ( ASCII
 \\007) are printed on the user's terminal.
@@ -92,7 +90,6 @@ to find out who is logged on and on what terminals
 standard mailbox
 .El
 .Sh SEE ALSO
-.Xr biff 1 ,
 .Xr inetd 8
 .Sh HISTORY
 The

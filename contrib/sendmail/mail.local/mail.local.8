@@ -39,7 +39,7 @@ The options are as follows:
 Do not advertise 8BITMIME support in LMTP mode.
 .TP 
 .B \-B
-Turn off the attempts to notify the ``biff'' service.
+Turn off the attempts to notify the ``comsat'' service.
 .TP 
 .B \-b
 Return a permanent error instead of a temporary error
@@ -114,9 +114,9 @@ and a
 file also is created while the mailbox is locked 
 for compatibility with older MUAs.
 .PP
-If the ``biff'' service is returned by 
-getservbyname(3), 
-the biff server is notified of delivered mail.
+If the ``comsat'' service is returned by
+getservbyname(3),
+the comsat server is notified of delivered mail.
 .PP
 The
 .B mail.local

@@ -89,7 +89,6 @@ SUBDIR=	alias \
 	m4 \
 	mandoc \
 	mdo \
-	mesg \
 	mididump \
 	ministat \
 	mkdep \
@@ -175,7 +174,6 @@ SUBDIR=	alias \
 	whereis \
 	which \
 	whois \
-	write \
 	xargs \
 	xinstall \
 	xo \
@@ -226,7 +224,6 @@ SUBDIR.${MK_LDNS_UTILS}+=	host
 SUBDIR.${MK_LIB32}+=	ldd32
 SUBDIR.${MK_LOCATE}+=	locate
 # XXX msgs?
-SUBDIR.${MK_MAIL}+=	biff
 SUBDIR.${MK_MAIL}+=	from
 SUBDIR.${MK_MAIL}+=	mail
 SUBDIR.${MK_MAIL}+=	msgs
@@ -242,7 +239,6 @@ SUBDIR.${MK_OPENSSL}+=	chkey
 SUBDIR.${MK_OPENSSL}+=	newkey
 SUBDIR.${MK_QUOTAS}+=	quota
 SUBDIR.${MK_SENDMAIL}+=	vacation
-SUBDIR.${MK_TALK}+=	talk
 SUBDIR.${MK_TESTS_SUPPORT}+=	kyua
 SUBDIR.${MK_TESTS}+=	tests
 SUBDIR.${MK_TEXTPROC}+=	ul

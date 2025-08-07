@@ -323,13 +323,10 @@ ticket out to the entire world.
 Never run a server that you have not checked
 out carefully.
 Many servers do not need to be run as root.
-For example,
-the
-.Xr talkd 8
-and
+For example, the
 .Xr comsat 8
-daemons can be run in special user
-.Dq sandboxes .
+daemon can be run in a special user
+.Dq sandbox .
 A sandbox is not perfect unless you go to a large amount of trouble, but the
 onion approach to security still stands: if someone is able to break in
 through a server running in a sandbox, they still have to break out of the
@@ -343,7 +340,6 @@ then turn off this service!
 .Pp
 .Fx
 now defaults to running
-.Xr talkd 8 and
 .Xr comsat 8
 in a sandbox.
 Depending on whether you
@@ -818,7 +814,6 @@ ports A, B, C, D, and M-Z
 This
 way you can firewall off all of your low ports except for certain specific
 services such as
-.Xr talkd 8 ,
 .Xr sendmail 8 ,
 and other internet-accessible services.
 If you try to configure the firewall the other

@@ -48,7 +48,6 @@ _blacklistd-helper+=	blacklistd-helper
 SUBDIR+=	bootpd
 .endif
 
-
 .if ${MK_FREEBSD_UPDATE} != "no"
 _phttpget=	phttpget
 .endif
@@ -100,10 +99,6 @@ _smrsh=		smrsh
 
 .if ${MK_MAN_UTILS} != "no"
 _makewhatis.local=	makewhatis.local
-.endif
-
-.if ${MK_TALK} != "no"
-SUBDIR+=	talkd
 .endif
 
 .if ${MK_TCP_WRAPPERS} != "no"

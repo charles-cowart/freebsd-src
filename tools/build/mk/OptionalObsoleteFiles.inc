@@ -4992,7 +4992,6 @@ OLD_FILES+=etc/mail/aliases
 OLD_FILES+=etc/mail/mailer.conf
 OLD_FILES+=etc/periodic/daily/130.clean-msgs
 OLD_FILES+=usr/bin/Mail
-OLD_FILES+=usr/bin/biff
 OLD_FILES+=usr/bin/from
 OLD_FILES+=usr/bin/mail
 OLD_FILES+=usr/bin/mailx
@@ -5000,7 +4999,6 @@ OLD_FILES+=usr/bin/msgs
 OLD_FILES+=usr/libexec/comsat
 OLD_FILES+=usr/share/examples/etc/mail.rc
 OLD_FILES+=usr/share/man/man1/Mail.1.gz
-OLD_FILES+=usr/share/man/man1/biff.1.gz
 OLD_FILES+=usr/share/man/man1/from.1.gz
 OLD_FILES+=usr/share/man/man1/mail.1.gz
 OLD_FILES+=usr/share/man/man1/mailx.1.gz
@@ -7482,13 +7480,6 @@ OLD_DIRS+=usr/share/syscons/fonts
 OLD_DIRS+=usr/share/syscons/scrnmaps
 OLD_DIRS+=usr/share/syscons/keymaps
 OLD_DIRS+=usr/share/syscons
-.endif
-
-.if ${MK_TALK} == no
-OLD_FILES+=usr/bin/talk
-OLD_FILES+=usr/libexec/ntalkd
-OLD_FILES+=usr/share/man/man1/talk.1.gz
-OLD_FILES+=usr/share/man/man8/talkd.8.gz
 .endif
 
 .if ${MK_TCSH} == no

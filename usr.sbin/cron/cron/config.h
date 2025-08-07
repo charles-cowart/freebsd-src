@@ -34,8 +34,8 @@
 
 			/*
 			 * choose one of these mailer commands.  some use
-			 * /bin/mail for speed; it makes biff bark but doesn't
-			 * do aliasing.  sendmail does do aliasing but is
+                         * /bin/mail for speed; it doesn't
+                         * do aliasing.  sendmail does do aliasing but is
 			 * a hog for short messages.  aliasing is not needed
 			 * if you make use of the MAILTO= feature in crontabs.
 			 * (hint: MAILTO= was added for this reason).

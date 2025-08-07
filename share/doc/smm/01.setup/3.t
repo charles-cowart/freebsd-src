@@ -676,10 +676,6 @@ and other sources belong to group ``wsrc.''
 Rather than make user terminals writable by all users,
 they are now placed in group ``tty'' and made only group writable.
 Programs that should legitimately have access to write on user terminals
-such as
-.Xr talkd
-and
-.Xr write
 now run set-group-id to ``tty''.
 The ``operator'' group controls access to disks.
 By default, disks are readable by group ``operator'',
