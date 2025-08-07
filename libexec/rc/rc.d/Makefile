@@ -67,17 +67,14 @@ CONFS=	DAEMON \
 	nfsd \
 	nfsuserd \
 	nisdomain \
-	${_nscd} \
-	ntpdate \
-	${_opensm} \
-	os-release \
-	pf \
-	pflog \
-	pfsync \
-	powerd \
-	ppp \
-	pppoed \
-	pwcheck \
+${_nscd} \
+ntpdate \
+${_opensm} \
+os-release \
+powerd \
+ppp \
+pppoed \
+pwcheck \
 	quota \
 	random \
 	rarpd \
