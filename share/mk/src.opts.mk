@@ -74,7 +74,6 @@ __DEFAULT_YES_OPTIONS = \
     BSDINSTALL \
     BSNMP \
     BZIP2 \
-    CALENDAR \
     CAROOT \
     CCD \
     CDDL \
@@ -96,7 +95,6 @@ __DEFAULT_YES_OPTIONS = \
     ELFTOOLCHAIN_BOOTSTRAP \
     EXAMPLES \
     FILE \
-    FINGER \
     FLOPPY \
     FORTH \
     FP_LIBC \
@@ -182,7 +180,6 @@ __DEFAULT_YES_OPTIONS = \
     TALK \
     TCP_WRAPPERS \
     TCSH \
-    TELNET \
     TEXTPROC \
     TFTP \
     UNBOUND \

@@ -38,7 +38,6 @@ MAN=	acct.5 \
 	mailer.conf.5 \
 	make.conf.5 \
 	moduli.5 \
-	motd.5 \
 	mount.conf.5 \
 	mqueuefs.5 \
 	msdosfs.5 \

@@ -5,7 +5,7 @@
 
 PACKAGE=	runtime
 
-CONFS=	fbtab login.conf motd.template login.access
+CONFS=	fbtab login.conf login.access
 PROG=	login
 SRCS=	login.c login_fbtab.c
 CFLAGS+=-DLOGALL
