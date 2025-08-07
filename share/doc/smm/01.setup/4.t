@@ -382,57 +382,6 @@ The
 .Xr netstat (8)
 program can be used to inspect and debug
 your routes; see section 5.4.
-.Sh 2 "Setting up the line printer system"
-.PP
-The line printer system consists of at least
-the following files and commands:
-.DS
-.TS
-l l.
-/usr/bin/lpq	spooling queue examination program
-/usr/bin/lprm	program to delete jobs from a queue
-/usr/bin/lpr	program to enter a job in a printer queue
-/etc/printcap	printer configuration and capability database
-/usr/sbin/lpd	line printer daemon, scans spooling queues
-/usr/sbin/lpc	line printer control program
-/etc/hosts.lpd	list of host allowed to use the printers
-.TE
-.DE
-.PP
-The file
-.Pn /etc/printcap
-is a master database describing line
-printers directly attached to a machine and, also, printers
-accessible across a network.  The manual page
-.Xr printcap (5)
-describes the format of this database and also
-shows the default values for such things as the directory
-in which spooling is performed.  The line printer system handles
-multiple printers, multiple spooling queues, local and remote
-printers, and also printers attached via serial lines that require
-line initialization such as the baud rate.  Raster output devices
-such as a Varian or Versatec, and laser printers such as an Imagen,
-are also supported by the line printer system.
-.PP
-Remote spooling via the network is handled with two spooling
-queues, one on the local machine and one on the remote machine.
-When a remote printer job is started with
-.Xr lpr ,
-the job is queued locally and a daemon process created to oversee the
-transfer of the job to the remote machine.  If the destination
-machine is unreachable, the job will remain queued until it is
-possible to transfer the files to the spooling queue on the
-remote machine.  The
-.Xr lpq
-program shows the contents of spool
-queues on both the local and remote machines.
-.PP
-To configure your line printers, consult the printcap manual page
-and the accompanying document, ``4.3BSD Line Printer Spooler Manual'' (SMM:7).
-A call to the
-.Xr lpd
-program should be present in
-.Pn /etc/rc .
 .Sh 2 "Setting up the mail system"
 .PP
 The mail system consists of the following commands:

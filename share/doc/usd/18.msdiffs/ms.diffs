@@ -73,8 +73,8 @@ Footnote numbers are printed by means of a pre-defined string
 Each time it is used, this string increases the footnote number by one,
 whether or not you use .FS and .FE in your text.
 Footnote numbers will be superscripted on the phototypesetter
-and on daisy-wheel terminals, but on low-resolution devices
-(such as the lpr and a crt), they will be bracketed.
+and on daisy-wheel terminals, but on low-resolution devices,
+such as a CRT, they will be bracketed.
 If you use \e\(**\(** to indicate numbered footnotes,
 then the .FS macro will automatically include
 the footnote number at the bottom of the page.
