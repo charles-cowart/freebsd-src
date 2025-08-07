@@ -25,7 +25,6 @@ LDIRS=	BSD_daemon \
 	perfmon \
 	ppi \
 	ppp \
-	printing \
 	ses \
 	scsi_target \
 	sound \
@@ -246,7 +245,6 @@ SE_PPP= \
 	ppp.secret.span-isp \
 	ppp.secret.span-isp.working
 
-SE_DIRS+=	printing
 SE_PRINTING= \
 	diablo-if-net \
 	hpdf \

@@ -8,9 +8,6 @@ CONFGROUPS=	CONFS
 CONFS=
 
 
-.if ${MK_LPR} != "no"
-CONFS+=		lpr.conf
-.endif
 
 .if ${MK_OFED} != "no"
 CONFS+=		opensm.conf

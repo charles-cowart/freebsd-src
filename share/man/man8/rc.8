@@ -258,17 +258,13 @@ because they are required by
 below.
 .It Pa DAEMON
 Check-point before all general purpose daemons such as
-.Pa lpd
-and
 .Pa ntpd .
 .It Pa LOGIN
 Check-point before user login services
 .Pa ( inetd
-and
 .Pa sshd ) ,
 as well as services which might run commands as users
 .Pa ( cron
-and
 .Pa sendmail ) .
 .El
 .It Pa bar
@@ -286,7 +282,6 @@ keywords, especially an appropriate
 .Dq Li PROVIDE
 entry, and if necessary
 .Dq Li REQUIRE
-and
 .Dq Li BEFORE
 keywords.
 .Pp
@@ -433,7 +428,6 @@ This script runs
 .Xr fsck 8
 with option
 .Fl p
-and
 .Fl F
 to
 .Dq preen

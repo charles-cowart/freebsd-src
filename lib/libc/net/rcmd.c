@@ -1,9 +1,7 @@
 /*-
  * SPDX-License-Identifier: BSD-3-Clause
- *
  * Copyright (c) 1983, 1993, 1994
  *	The Regents of the University of California.  All rights reserved.
- *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
  * are met:
@@ -15,7 +13,6 @@
  * 3. Neither the name of the University nor the names of its contributors
  *    may be used to endorse or promote products derived from this software
  *    without specific prior written permission.
- *
  * THIS SOFTWARE IS PROVIDED BY THE REGENTS AND CONTRIBUTORS ``AS IS'' AND
  * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
  * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
@@ -262,7 +259,6 @@ again:
 			break;
 		}
 		/*
-		 * XXX careful for ftp bounce attacks. If discovered, shut them
 		 * down and check for the real auxiliary channel to connect.
 		 */
 		if (aport == 20) {
@@ -399,7 +395,6 @@ ruserok(const char *rhost, int superuser, const char *ruser, const char *luser)
  * has ip addresses, we don't have to trust a nameserver.  When it
  * contains hostnames, we spin through the list of addresses the nameserver
  * gives us and look for a match.
- *
  * Returns 0 if ok, -1 if not ok.
  */
 int
@@ -417,7 +412,6 @@ iruserok(unsigned long raddr, int superuser, const char *ruser, const char *luse
 
 /*
  * AF independent extension of iruserok.
- *
  * Returns 0 if ok, -1 if not ok.
  */
 int
@@ -496,9 +490,6 @@ again:
 }
 
 /*
- * XXX
- * Don't make static, used by lpd(8).
- *
  * Returns 0 if ok, -1 if not ok.
  */
 int
@@ -516,8 +507,6 @@ __ivaliduser(FILE *hostf, u_int32_t raddr, const char *luser, const char *ruser)
 
 /*
  * Returns 0 if ok, -1 if not ok.
- *
- * XXX obsolete API.
  */
 int
 __ivaliduser_af(FILE *hostf, const void *raddr, const char *luser,

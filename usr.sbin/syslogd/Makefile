@@ -25,9 +25,6 @@ CFLAGS+= -DINET6
 SYSLOGD_D=
 SYSLOGD_DDIR=	/etc/syslog.d
 
-.if ${MK_LPR} != "no"
-SYSLOGD_D+=	lpr.conf
-.endif
 
 .if ${MK_PPP} != "no"
 CONFGROUPS+=	PPP

@@ -28,7 +28,6 @@ MAN=	acct.5 \
 	group.5 \
 	hosts.5 \
 	hosts.equiv.5 \
-	hosts.lpd.5 \
 	intro.5 \
 	libmap.conf.5 \
 	lindebugfs.5 \
