@@ -57,16 +57,8 @@ is closed or when the entire buffer is sent in interrupt driven mode.
 .Pp
 The driver can be configured to be either interrupt-driven, or
 to poll the printer.
-Ports that are configured to be
-interrupt-driven can be switched to polled mode by using the
-.Xr lptcontrol 8
-command.
-.Pp
-Depending on your hardware, extended capabilities may be configured with the
-.Xr lptcontrol 8
-command.
-With an ECP/ISA port, you can take advantage
-of FIFO and DMA.
+Ports can be configured for either interrupt-driven or polled mode.
+With an ECP/ISA port, you can take advantage of FIFO and DMA.
 .Pp
 In order to retrieve printer info from /dev/lpt0, just apply the
 .Nm cat
@@ -80,17 +72,11 @@ first parallel port driver
 .El
 .Sh SEE ALSO
 .Xr ppbus 4 ,
-.Xr ppc 4 ,
-.Xr lptcontrol 8
+.Xr ppc 4
 .Sh HISTORY
 This driver replaces the functionality of the lpa
 driver, which is now defunct.
 .Sh BUGS
 There are lots of them, especially in cheap parallel port implementations.
-.Pp
-It is only possible to open a lpt port when a printer is connected and
-on-line, making it impossible to run
-.Xr lptcontrol 8
-when there is no printer connected.
 .Pp
 This driver could still stand a rewrite.

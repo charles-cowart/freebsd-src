@@ -482,11 +482,7 @@ _obj=		obj
 LOCAL_TOOL_DIRS?=
 PACKAGEDIR?=	${DESTDIR}/${DISTDIR}
 
-.if empty(SHELL:M*csh*)
 BUILDENV_SHELL?=${SHELL}
-.else
-BUILDENV_SHELL?=/bin/sh
-.endif
 
 .if !defined(_MKSHOWCONFIG)
 .if !defined(VCS_REVISION) || empty(VCS_REVISION)
@@ -2397,10 +2393,6 @@ BOOTSTRAP_ALL_TOOLS:=	1
 BOOTSTRAPPING_OSRELDATE:=	0
 .endif
 
-.if ${MK_GAMES} != "no"
-_strfile=	usr.bin/fortune/strfile
-.endif
-
 # vtfontcvt is used to build font files for loader and to generate
 # C source for loader built in font (8x16.c).
 _vtfontcvt=	usr.bin/vtfontcvt
@@ -2772,9 +2764,6 @@ _share=	share/syscons/scrnmaps
 _rescue=rescue/rescue
 .endif
 
-.if ${MK_TCSH} != "no"
-_tcsh=bin/csh
-.endif
 .if ${MK_FILE} != "no"
 _libmagic=lib/libmagic
 .endif
@@ -2790,7 +2779,6 @@ _bt_clean=	${CLEANDIR}
 .endif
 
 .for _tool in \
-    ${_tcsh} \
     bin/sh \
     ${LOCAL_TOOL_DIRS} \
     ${_jevents} \
@@ -2917,7 +2905,6 @@ NXBDIRS+= \
     bin/cat \
     bin/chmod \
     bin/cp \
-    ${_tcsh} \
     bin/echo \
     bin/expr \
     bin/hostname \

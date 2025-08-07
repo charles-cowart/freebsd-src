@@ -79,13 +79,6 @@ CRUNCH_ALIAS_rm= unlink
 CRUNCH_ALIAS_ed= red
 CRUNCH_ALIAS_pkill= pgrep
 
-.if ${MK_TCSH} != "no"
-CRUNCH_PROGS_bin+= csh
-CRUNCH_ALIAS_csh= -csh tcsh -tcsh
-CRUNCH_BUILDTOOLS+= bin/csh
-CRUNCH_SUPPRESS_LINK_-csh= 1
-CRUNCH_SUPPRESS_LINK_-tcsh= 1
-.endif
 
 ###################################################################
 # Programs from standard /sbin
@@ -232,10 +225,6 @@ CRUNCH_LIBS+= -lmd
 CRUNCH_PROGS_usr.bin+=	nc
 .endif
 
-.if ${MK_VI} != "no"
-CRUNCH_PROGS_usr.bin+= vi
-CRUNCH_ALIAS_vi= ex
-.endif
 
 CRUNCH_PROGS_usr.bin+= id
 CRUNCH_ALIAS_id= groups whoami

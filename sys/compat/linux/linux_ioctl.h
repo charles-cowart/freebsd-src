@@ -414,7 +414,6 @@
 
 /* line disciplines */
 #define	LINUX_N_TTY		0
-#define	LINUX_N_SLIP		1
 #define	LINUX_N_MOUSE		2
 #define	LINUX_N_PPP		3
 

@@ -9,9 +9,7 @@ This directory contains the following files:
 amd.map		- filesystem automounter lookup resolution map (see amd(8))
 apmd.conf	- configuration file for apmd(8)
 bsd-style-copyright	- copyright style for bsd system
-crontab		- system scheduled command table (see crontab(5))
-csh.cshrc	- sample .cshrc (see csh(1))
-csh.login	- sample .login
+crontab		- system scheduled command table (see crontab(5))csh.login	- sample .login
 csh.logout	- sample .logout
 defaults/	- directory containing default configuration file
 devd.conf	- configuration file for devd(8)
@@ -19,13 +17,11 @@ devfs.conf	- configuration file for devfs(8)
 dhclient.conf	- configuration file for dhclient(8)
 disktab		- disk description file (see disktab(5))
 fbtab		- configuration file for login(1)
-ftpusers	- user restriction file for ftpd(8)
 gettytab	- defines port configuration for getty(8)
 group		- group permissions file (see group(5))
 hosts		- see hosts(5)
 hosts.allow	- defines allow trusted hosts
 hosts.equiv	- defines system-wide trusted hosts (see ruserok(3))
-hosts.lpd	- defines trusted hosts for lpd(8)
 inetd.conf	- configuration file for inetd(8)
 locate.rc	- configuration file for locate(1)
 login.access	- configuration file for login(8) (see login.access(5))
@@ -43,7 +39,6 @@ nsmb.conf	- smbfs lookups configuration file
 pf.conf		- pf(4) example configuration file
 pf.os		- SYN fingerprint database
 phones		- phone number database for tip(1)
-printcap	- configuration file for lpr(1)
 profile		- system-wide .profile for sh(1)
 protocols	- see protocols(5)
 rc		- system startup script (see init(8))

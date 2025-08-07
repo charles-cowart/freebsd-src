@@ -6,7 +6,6 @@ MODULES		+= pam_chroot
 MODULES		+= pam_deny
 MODULES		+= pam_echo
 MODULES		+= pam_exec
-MODULES		+= pam_ftpusers
 MODULES		+= pam_group
 MODULES		+= pam_guest
 .if ${MK_KERBEROS} != "no"

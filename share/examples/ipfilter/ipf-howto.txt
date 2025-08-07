@@ -2323,10 +2323,9 @@ decided to use numbers higher than 1023, such as nfsd and X.
 which  ports  get  assigned to passive sessions.  This means
 that instead of opening all ports above 1023, you can  allo-
 cate ports 15001-19999 as ftp ports and only open that range
-of your firewall up.  In wu-ftpd, this is done with the pas-
-sive  ports option in ftpaccess.  Please see the man page on
-ftpaccess for details  in  wu-ftpd  configuration.   On  the
-ipfilter side, all we need do is setup corresponding rules:
+of your firewall up. Configure your FTP server to use the desired
+passive port range. On the ipfilter side, all we need do is setup
+corresponding rules:
 
      pass in quick proto tcp from any to 20.20.20.20/32 port 15000 >< 20000 flags S keep state
      pass out proto tcp all keep state

@@ -674,7 +674,7 @@ you can override this default by setting the valued option
 .q SHELL,
 eg:
 .(l
-set SHELL=/bin/csh
+set SHELL=/bin/sh
 .)l
 \fBShell\fP can be abbreviated to \fBsh\fP.
 .ip "\fBsize\fP\ \ "

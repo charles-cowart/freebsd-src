@@ -7,16 +7,7 @@ CONFSDIR=	/etc/newsyslog.conf.d
 CONFGROUPS=	CONFS
 CONFS=
 
-.if ${MK_FTP} != "no"
-CONFGROUPS+=	FTP
-FTP+=		ftp.conf
-FTPPACKAGE=	ftpd
-FTPDIR=		/etc/newsyslog.conf.d
-.endif
 
-.if ${MK_LPR} != "no"
-CONFS+=		lpr.conf
-.endif
 
 .if ${MK_OFED} != "no"
 CONFS+=		opensm.conf
@@ -29,12 +20,6 @@ PFPACKAGE=	pf
 PFDIR=		/etc/newsyslog.conf.d
 .endif
 
-.if ${MK_PPP} != "no"
-CONFGROUPS+=	PPP
-PPP+=		ppp.conf
-PPPPACKAGE=	ppp
-PPPDIR=		/etc/newsyslog.conf.d
-.endif
 
 .if ${MK_SENDMAIL} != "no"
 CONFGROUPS+=		SENDMAIL

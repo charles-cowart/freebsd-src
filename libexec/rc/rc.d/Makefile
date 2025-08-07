@@ -48,9 +48,7 @@ CONFS=	DAEMON \
 	local \
 	localpkg \
 	lockd \
-	mixer \
-	motd \
-	mountcritlocal \
+	mixer \	mountcritlocal \
 	mountcritremote \
 	mountlate \
 	mdconfig \
@@ -71,9 +69,6 @@ CONFS=	DAEMON \
 	ntpdate \
 	${_opensm} \
 	os-release \
-	pf \
-	pflog \
-	pfsync \
 	powerd \
 	ppp \
 	pppoed \
@@ -202,9 +197,6 @@ BSNMPPACKAGE=	bsnmp
 CONFS+=		ccd
 .endif
 
-.if ${MK_FTP} != "no"
-CONFS+=		ftpd
-.endif
 
 .if ${MK_GSSAPI} != "no"
 CONFGROUPS+=	GSSD
@@ -256,9 +248,6 @@ CONSOLE+=	syscons
 CONSOLEPACKAGE=	console-tools
 .endif
 
-.if ${MK_LPR} != "no"
-CONFS+=		lpd
-.endif
 
 .if ${MK_KERBEROS} != "no"
 CONFS+=		ipropd_master
@@ -329,11 +318,6 @@ UNBOUNDPACKAGE=	unbound
 _utx=		utx
 .endif
 
-.if ${MK_VI} != "no"
-CONFGROUPS+=	VI
-VI+=		virecover
-VIPACKAGE=	vi
-.endif
 
 .if ${MK_WIRELESS} != "no"
 CONFS+=		hostapd

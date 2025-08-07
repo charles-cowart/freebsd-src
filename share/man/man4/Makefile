@@ -975,7 +975,6 @@ ATF=            ${SRCTOP}/contrib/atf
 _atf_test_case.4=	atf-test-case.4
 .endif
 
-
 .if ${MK_USB} != "no"
 MAN+=	\
 	otus.4 \

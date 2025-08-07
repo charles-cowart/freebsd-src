@@ -17,7 +17,6 @@ SUBDIR=	${_atf} \
 	${_makewhatis.local} \
 	${_mknetid} \
 	${_phttpget} \
-	${_pppoed} \
 	rc \
 	revnetgroup \
 	${_rlogind} \
@@ -48,17 +47,11 @@ _blacklistd-helper+=	blacklistd-helper
 SUBDIR+=	bootpd
 .endif
 
-.if ${MK_FINGER} != "no"
-SUBDIR+=	fingerd
-.endif
 
 .if ${MK_FREEBSD_UPDATE} != "no"
 _phttpget=	phttpget
 .endif
 
-.if ${MK_FTP} != "no"
-SUBDIR+=	ftpd
-.endif
 
 .if ${MK_MAIL} != "no"
 _comsat=	comsat
@@ -77,9 +70,6 @@ _mknetid=	mknetid
 _ypxfr=		ypxfr
 .endif
 
-.if ${MK_NETGRAPH} != "no"
-_pppoed=	pppoed
-.endif
 
 .if ${MK_PF} != "no"
 _tftp-proxy=	tftp-proxy

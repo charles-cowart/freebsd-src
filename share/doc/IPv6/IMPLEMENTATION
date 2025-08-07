@@ -1328,9 +1328,6 @@ the use of IPv4 mapped addresses:
 - rshd/rlogind do not accept connections from IPv4 mapped address.
   This is to avoid malicious use of IPv4 mapped address in IPv6 native
   packet, to bypass source-address based authentication.
-- ftp/ftpd assume that you are on dual stack network.  IPv4 mapped address
-  will be decoded in userland, and will be passed to AF_INET sockets
-  (in other words, ftp/ftpd do not support SIIT environment).
 
 1.12.7 Interaction with SIIT translator
 

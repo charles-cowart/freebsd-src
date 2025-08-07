@@ -272,8 +272,6 @@
     ..
     examples
     ..
-    games
-    ..
     gnu
         lib
         ..
@@ -471,7 +469,6 @@
         ..
         nvmecontrol
         ..
-        pfctl
             files
             ..
         ..

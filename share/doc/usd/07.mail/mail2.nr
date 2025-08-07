@@ -355,10 +355,10 @@ option tells
 .i Mail
 which shell you like to use, and is specified by
 .(l
-set SHELL=/bin/csh
+set SHELL=/bin/sh
 .)l
 for example.  Note that no spaces are allowed in
-.q "SHELL=/bin/csh."
+.q "SHELL=/bin/sh."
 A complete list of the
 .i Mail
 options appears in section 5.
@@ -447,7 +447,7 @@ file is usually used by each user to set options the way he likes
 and define individual aliases.
 For example, my .mailrc file looks like this:
 .(l
-set ask nosave SHELL=/bin/csh
+set ask nosave SHELL=/bin/sh
 .)l
 As you can see, it is possible to set many options in the
 same

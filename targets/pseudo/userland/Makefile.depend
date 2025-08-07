@@ -10,7 +10,6 @@ DIRDEPS+= \
 	bin/chio \
 	bin/chmod \
 	bin/cp \
-	bin/csh \
 	bin/date \
 	bin/dd \
 	bin/df \
@@ -110,8 +109,6 @@ DIRDEPS+= \
 	sbin/newfs_msdos \
 	sbin/nfsiod \
 	sbin/nos-tun \
-	sbin/pfctl \
-	sbin/pflogd \
 	sbin/ping \
 	sbin/ping6 \
 	sbin/quotacheck \
@@ -573,19 +570,6 @@ DIRDEPS+= \
 	usr.sbin/kldxref \
 	usr.sbin/lastlogin \
 	usr.sbin/lmcconfig \
-	usr.sbin/lpr/chkprintcap \
-	usr.sbin/lpr/common_source \
-	usr.sbin/lpr/filters \
-	usr.sbin/lpr/filters.ru/koi2855 \
-	usr.sbin/lpr/filters.ru/koi2alt \
-	usr.sbin/lpr/lp \
-	usr.sbin/lpr/lpc \
-	usr.sbin/lpr/lpd \
-	usr.sbin/lpr/lpq \
-	usr.sbin/lpr/lpr \
-	usr.sbin/lpr/lprm \
-	usr.sbin/lpr/lptest \
-	usr.sbin/lpr/pac \
 	usr.sbin/mailstats \
 	usr.sbin/mailwrapper \
 	usr.sbin/makefs \
@@ -766,7 +750,6 @@ DIRDEPS.amd64= \
 	usr.sbin/hyperv/tools \
 	usr.sbin/hyperv/tools/kvp \
 	usr.sbin/hyperv/tools/vss \
-	usr.sbin/lptcontrol \
 	usr.sbin/mptable \
 	usr.sbin/spkrtest \
 	usr.sbin/sade \
@@ -788,7 +771,6 @@ DIRDEPS.i386= \
 	usr.sbin/hyperv/tools \
 	usr.sbin/hyperv/tools/kvp \
 	usr.sbin/hyperv/tools/vss \
-	usr.sbin/lptcontrol \
 	usr.sbin/mptable \
 	usr.sbin/pnpinfo \
 	usr.sbin/sade \

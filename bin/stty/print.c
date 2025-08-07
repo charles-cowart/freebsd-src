@@ -60,9 +60,6 @@ print(struct termios *tp, struct winsize *wp, int ldisc, enum FMT fmt)
 	/* Line discipline. */
 	if (ldisc != TTYDISC) {
 		switch(ldisc) {
-		case SLIPDISC:
-			cnt += printf("slip disc; ");
-			break;
 		case PPPDISC:
 			cnt += printf("ppp disc; ");
 			break;

@@ -919,12 +919,9 @@ linux_ioctl_termio(struct thread *td, struct linux_ioctl_args *args)
 		case LINUX_N_TTY:
 			line = TTYDISC;
 			break;
-		case LINUX_N_SLIP:
-			line = SLIPDISC;
-			break;
-		case LINUX_N_PPP:
-			line = PPPDISC;
-			break;
+               case LINUX_N_PPP:
+                       line = PPPDISC;
+                       break;
 		default:
 			fdrop(fp, td);
 			return (EINVAL);
@@ -945,12 +942,9 @@ linux_ioctl_termio(struct thread *td, struct linux_ioctl_args *args)
 		case TTYDISC:
 			linux_line = LINUX_N_TTY;
 			break;
-		case SLIPDISC:
-			linux_line = LINUX_N_SLIP;
-			break;
-		case PPPDISC:
-			linux_line = LINUX_N_PPP;
-			break;
+               case PPPDISC:
+                       linux_line = LINUX_N_PPP;
+                       break;
 		default:
 			fdrop(fp, td);
 			return (EINVAL);

@@ -584,7 +584,7 @@ EOF
 	## Tests for post-install actions
 
 	# - Adding /etc/master.passwd should cause pwd_mkdb to be run
-	echo "foo:*:16000:100::0:0:& user:/home/foo:/bin/tcsh" > \
+	echo "foo:*:16000:100::0:0:& user:/home/foo:/bin/sh" > \
 	    $NEW/etc/master.passwd
 
 	# - Verify that updating an unmodified /etc/login.conf builds

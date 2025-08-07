@@ -24,7 +24,31 @@
 # OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
 # SUCH DAMAGE.
 
-. $(atf_get_srcdir)/../common/utils.subr
+. $(atf_get_srcdir)/../../common/vnet.subr
+
+firewall_init()
+{
+	vnet_init
+	if ! kldstat -q -m ipfw; then
+		atf_skip "This test requires ipfw"
+	fi
+}
+
+firewall_config()
+{
+	jname=$1
+	shift
+	jexec ${jname} ipfw -q -f flush
+	while [ $# -gt 0 ]; do
+		jexec ${jname} "$1"
+		shift
+	done
+}
+
+firewall_cleanup()
+{
+	vnet_cleanup
+}
 
 atf_test_case "local" "cleanup"
 local_head()
@@ -35,7 +59,7 @@ local_head()
 
 local_body()
 {
-	firewall_init "ipfw"
+        firewall_init
 
 	epair=$(vnet_mkepair)
 	vnet_mkjail alcatraz ${epair}b
@@ -48,9 +72,9 @@ local_body()
 	jexec alcatraz route add default 192.0.2.0
 	jexec alcatraz /usr/sbin/inetd -p /dev/null $(atf_get_srcdir)/fwd_inetd.conf
 
-	firewall_config alcatraz ipfw ipfw \
-	    "ipfw add 10 fwd 127.0.0.1,82 tcp from any to any dst-port 80 in via ${epair}b" \
-	    "ipfw add 20 allow all from any to any"
+        firewall_config alcatraz \
+            "ipfw add 10 fwd 127.0.0.1,82 tcp from any to any dst-port 80 in via ${epair}b" \
+            "ipfw add 20 allow all from any to any"
 
 	# Sanity check
 	atf_check -s exit:0 -o ignore ping -i .1 -c 3 -s 1200 192.0.2.1

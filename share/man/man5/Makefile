@@ -28,7 +28,6 @@ MAN=	acct.5 \
 	group.5 \
 	hosts.5 \
 	hosts.equiv.5 \
-	hosts.lpd.5 \
 	intro.5 \
 	libmap.conf.5 \
 	lindebugfs.5 \
@@ -38,7 +37,6 @@ MAN=	acct.5 \
 	mailer.conf.5 \
 	make.conf.5 \
 	moduli.5 \
-	motd.5 \
 	mount.conf.5 \
 	mqueuefs.5 \
 	msdosfs.5 \
