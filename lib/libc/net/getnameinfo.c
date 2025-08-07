@@ -485,7 +485,6 @@ getnameinfo_link(const struct afd *afd,
 	 * IFT_GIF	(net/if_gif.c)
 	 * IFT_LOOP	(net/if_loop.c)
 	 * IFT_PPP	(net/if_tuntap.c)
-	 * IFT_SLIP	(net/if_sl.c, net/if_strip.c)
 	 * IFT_STF	(net/if_stf.c)
 	 * IFT_L2VLAN	(net/if_vlan.c)
 	 * IFT_BRIDGE (net/if_bridge.h>

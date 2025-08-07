@@ -1,22 +1,9 @@
-You can do network installations over 3 types of communications links:
+You can do network installations over several types of communications links:
 
-        Serial port:    SLIP / PPP
+        Serial port:	PPP
         Parallel port:  PLIP (laplink cable)
         Ethernet:       A standard Ethernet controller (includes some
                         PCMCIA networking cards).
-
-SLIP support is rather primitive and limited primarily to directly
-connected links, such as a serial cable running between a laptop
-computer and another PC.  The link must be hard-wired as the SLIP
-installation doesn't currently offer a dialing capability (that
-facility is offered by the PPP utility, which should be used in
-preference to SLIP whenever possible).  When you choose the SLIP
-option, you'll be given the option of later editing the slattach
-command before it's run on the serial line.  It is expected that
-you'll run slattach (or some equivalent command) on the other end of
-the link at that time and bring up the line.  FreeBSD will then
-install itself at serial speeds of up to 115.2K/baud (the recommended
-speed for a hardwired cable).
 
 If you're using a modem then PPP is almost certainly your only choice.
 Make sure that you have your service provider's information handy as
