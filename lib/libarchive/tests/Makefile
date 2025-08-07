@@ -491,7 +491,6 @@ ${PACKAGE}FILES+=	test_read_format_7zip_lzma2.7z.uu
 ${PACKAGE}FILES+=	test_read_format_7zip_lzma2_arm.7z.uu
 ${PACKAGE}FILES+=	test_read_format_7zip_lzma2_arm64.7z.uu
 ${PACKAGE}FILES+=	test_read_format_7zip_lzma2_powerpc.7z.uu
-${PACKAGE}FILES+=	test_read_format_7zip_lzma2_riscv.7z.uu
 ${PACKAGE}FILES+=	test_read_format_7zip_lzma2_sparc.7z.uu
 ${PACKAGE}FILES+=	test_read_format_7zip_malformed.7z.uu
 ${PACKAGE}FILES+=	test_read_format_7zip_malformed2.7z.uu

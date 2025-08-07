@@ -721,7 +721,6 @@ SRCS_EXT+=	ExecutionEngine/JITLink/ELF_aarch64.cpp
 SRCS_EXT+=	ExecutionEngine/JITLink/ELF_i386.cpp
 SRCS_EXT+=	ExecutionEngine/JITLink/ELF_loongarch.cpp
 SRCS_EXT+=	ExecutionEngine/JITLink/ELF_ppc64.cpp
-SRCS_EXT+=	ExecutionEngine/JITLink/ELF_riscv.cpp
 SRCS_EXT+=	ExecutionEngine/JITLink/ELF_x86_64.cpp
 SRCS_EXT+=	ExecutionEngine/JITLink/JITLink.cpp
 SRCS_EXT+=	ExecutionEngine/JITLink/JITLinkGeneric.cpp
@@ -735,7 +734,6 @@ SRCS_EXT+=	ExecutionEngine/JITLink/aarch64.cpp
 SRCS_EXT+=	ExecutionEngine/JITLink/i386.cpp
 SRCS_EXT+=	ExecutionEngine/JITLink/loongarch.cpp
 SRCS_EXT+=	ExecutionEngine/JITLink/ppc64.cpp
-SRCS_EXT+=	ExecutionEngine/JITLink/riscv.cpp
 SRCS_EXT+=	ExecutionEngine/JITLink/x86_64.cpp
 SRCS_XDB+=	ExecutionEngine/MCJIT/MCJIT.cpp
 SRCS_EXT+=	ExecutionEngine/Orc/COFFPlatform.cpp
@@ -2014,7 +2012,7 @@ SRCS_MIN+=	Transforms/Vectorize/VPlanTransforms.cpp
 SRCS_MIN+=	Transforms/Vectorize/VPlanVerifier.cpp
 SRCS_MIN+=	Transforms/Vectorize/VectorCombine.cpp
 SRCS_EXT+=	Transforms/Vectorize/Vectorize.cpp
-SRCS_MIN+=	WindowsDriver/MSVCPaths.cpp	
+SRCS_MIN+=	WindowsDriver/MSVCPaths.cpp
 SRCS_EXT+=	XRay/BlockIndexer.cpp
 SRCS_EXT+=	XRay/BlockVerifier.cpp
 SRCS_EXT+=	XRay/FDRRecordProducer.cpp
@@ -2099,7 +2097,7 @@ TGHDRS+=	llvm/IR/IntrinsicImpl.inc
 .for arch in \
 	AArch64/aarch64 AMDGPU/amdgcn ARM/arm BPF/bpf DirectX/dx \
 	Hexagon/hexagon LoongArch/loongarch Mips/mips NVPTX/nvvm PowerPC/ppc \
-	R600/r600 RISCV/riscv S390/s390 SPIRV/spv VE/ve WebAssembly/wasm \
+	R600/r600 S390/s390 SPIRV/spv VE/ve WebAssembly/wasm \
 	X86/x86 XCore/xcore
 llvm/IR/Intrinsics${arch:H}.h: ${LLVM_SRCS}/include/llvm/IR/Intrinsics.td
 	${LLVM_TBLGEN} -gen-intrinsic-enums -intrinsic-prefix=${arch:T} \
@@ -2108,7 +2106,7 @@ llvm/IR/Intrinsics${arch:H}.h: ${LLVM_SRCS}/include/llvm/IR/Intrinsics.td
 TGHDRS+=	llvm/IR/Intrinsics${arch:H}.h
 .endfor
 
-.for arch in AArch64/arm ARM/arm RISCV/riscv
+.for arch in AArch64/arm ARM/arm
 llvm/TargetParser/${arch:H}TargetParserDef.inc: ${LLVM_SRCS}/lib/Target/${arch:H}/${arch:H}.td
 	${LLVM_TBLGEN} -gen-${arch:T}-target-def \
 	    -I ${LLVM_SRCS}/include -I ${LLVM_SRCS}/lib/Target/${arch:H} \

@@ -103,7 +103,7 @@
 #define	PS_FST_FFLAG_EXEC	0x2000
 #define	PS_FST_FFLAG_HASLOCK	0x4000
 
-#if !defined(__ILP32__) && !defined(__riscv)
+#if !defined(__ILP32__)
 /* Target architecture supports 32-bit compat */
 #define	PS_ARCH_HAS_FREEBSD32	1
 #endif

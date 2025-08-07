@@ -42,12 +42,12 @@ Version-64.map: Version.map
 
 .include <bsd.lib.mk>
 
-# gcc13 doesn't support _Float16 on riscv, powerpc64, and x86 or __int128
+# gcc13 doesn't support _Float16 on powerpc64 and x86 or __int128
 # on i386.  Disable checks for missing symbols to allow this to link.
 #
 # XXX: This is a hack that hides an ABI divergence between clang and gcc.
 .if ${COMPILER_TYPE} == "gcc" && \
     (${MACHINE_ARCH} == "amd64" || ${MACHINE_ARCH} == "i386" || \
-     ${MACHINE_ARCH:Mpowerpc64*} || ${MACHINE_ARCH} == "riscv64")
+     ${MACHINE_ARCH:Mpowerpc64*})
 LDFLAGS+=	-Wl,--undefined-version
 .endif
