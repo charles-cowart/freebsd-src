@@ -19406,7 +19406,7 @@ OLD_DIRS+=usr/include/ufs/mfs
 OLD_DIRS+=usr/libexec/uucp
 
 
-# 2024-07-01: remove lpr/lpd
+# 2024-07-01: remove lpr/lpd and related utilities
 OLD_FILES+=etc/hosts.lpd
 OLD_FILES+=etc/printcap
 OLD_FILES+=etc/newsyslog.conf.d/lpr.conf
@@ -19425,6 +19425,7 @@ OLD_DIRS+=usr/libexec/lpr
 OLD_FILES+=usr/sbin/chkprintcap
 OLD_FILES+=usr/sbin/lpc
 OLD_FILES+=usr/sbin/lpd
+OLD_FILES+=usr/sbin/lptcontrol
 OLD_FILES+=usr/sbin/lptest
 OLD_FILES+=usr/sbin/pac
 OLD_FILES+=usr/share/examples/etc/hosts.lpd
@@ -19438,6 +19439,7 @@ OLD_FILES+=usr/share/man/man5/printcap.5.gz
 OLD_FILES+=usr/share/man/man8/chkprintcap.8.gz
 OLD_FILES+=usr/share/man/man8/lpc.8.gz
 OLD_FILES+=usr/share/man/man8/lpd.8.gz
+OLD_FILES+=usr/share/man/man8/lptcontrol.8.gz
 OLD_FILES+=usr/share/man/man8/pac.8.gz
 OLD_FILES+=usr/share/man/man5/hosts.lpd.5.gz
 OLD_FILES+=usr/share/examples/printing/diablo-if-net
