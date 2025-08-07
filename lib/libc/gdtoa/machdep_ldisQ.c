@@ -34,7 +34,7 @@
 /*
  * Machine-dependent glue to integrate David Gay's gdtoa
  * package into libc for architectures where a long double
- * uses quad precision, such as aarch64 or riscv.
+ * uses quad precision, such as aarch64.
  */
 
 #include <float.h>

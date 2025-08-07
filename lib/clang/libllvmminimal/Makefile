@@ -39,7 +39,6 @@ SRCS+=		Support/Path.cpp
 SRCS+=		Support/PrettyStackTrace.cpp
 SRCS+=		Support/Process.cpp
 SRCS+=		Support/Program.cpp
-SRCS+=		Support/RISCVISAUtils.cpp
 SRCS+=		Support/RandomNumberGenerator.cpp
 SRCS+=		Support/Regex.cpp
 SRCS+=		Support/Signals.cpp

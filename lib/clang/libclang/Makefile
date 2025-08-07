@@ -260,7 +260,6 @@ SRCS_MIN+=	Basic/Targets/NVPTX.cpp
 SRCS_MIN+=	Basic/Targets/OSTargets.cpp
 SRCS_MIN+=	Basic/Targets/PNaCl.cpp
 SRCS_MIN+=	Basic/Targets/PPC.cpp
-SRCS_MIN+=	Basic/Targets/RISCV.cpp
 SRCS_MIN+=	Basic/Targets/SPIR.cpp
 SRCS_MIN+=	Basic/Targets/Sparc.cpp
 SRCS_MIN+=	Basic/Targets/SystemZ.cpp
@@ -350,7 +349,6 @@ SRCS_MIN+=	CodeGen/Targets/Mips.cpp
 SRCS_MIN+=	CodeGen/Targets/NVPTX.cpp
 SRCS_MIN+=	CodeGen/Targets/PNaCl.cpp
 SRCS_MIN+=	CodeGen/Targets/PPC.cpp
-SRCS_MIN+=	CodeGen/Targets/RISCV.cpp
 SRCS_MIN+=	CodeGen/Targets/SPIR.cpp
 SRCS_MIN+=	CodeGen/Targets/Sparc.cpp
 SRCS_MIN+=	CodeGen/Targets/SystemZ.cpp
@@ -385,7 +383,6 @@ SRCS_MIN+=	Driver/ToolChains/Arch/LoongArch.cpp
 SRCS_MIN+=	Driver/ToolChains/Arch/M68k.cpp
 SRCS_MIN+=	Driver/ToolChains/Arch/Mips.cpp
 SRCS_MIN+=	Driver/ToolChains/Arch/PPC.cpp
-SRCS_MIN+=	Driver/ToolChains/Arch/RISCV.cpp
 SRCS_MIN+=	Driver/ToolChains/Arch/Sparc.cpp
 SRCS_MIN+=	Driver/ToolChains/Arch/SystemZ.cpp
 SRCS_MIN+=	Driver/ToolChains/Arch/VE.cpp
@@ -422,7 +419,6 @@ SRCS_MIN+=	Driver/ToolChains/OpenBSD.cpp
 SRCS_MIN+=	Driver/ToolChains/PPCFreeBSD.cpp
 SRCS_MIN+=	Driver/ToolChains/PPCLinux.cpp
 SRCS_MIN+=	Driver/ToolChains/PS4CPU.cpp
-SRCS_MIN+=	Driver/ToolChains/RISCVToolchain.cpp
 SRCS_MIN+=	Driver/ToolChains/SPIRV.cpp
 SRCS_MIN+=	Driver/ToolChains/Solaris.cpp
 SRCS_MIN+=	Driver/ToolChains/TCE.cpp
@@ -615,7 +611,6 @@ SRCS_MIN+=	Sema/SemaOpenMP.cpp
 SRCS_MIN+=	Sema/SemaOverload.cpp
 SRCS_MIN+=	Sema/SemaPPC.cpp
 SRCS_MIN+=	Sema/SemaPseudoObject.cpp
-SRCS_MIN+=	Sema/SemaRISCV.cpp
 SRCS_MIN+=	Sema/SemaSYCL.cpp
 SRCS_MIN+=	Sema/SemaStmt.cpp
 SRCS_MIN+=	Sema/SemaStmtAsm.cpp
@@ -836,7 +831,6 @@ SRCS_FUL+=	StaticAnalyzer/Frontend/CreateCheckerManager.cpp
 SRCS_FUL+=	StaticAnalyzer/Frontend/FrontendActions.cpp
 SRCS_FUL+=	StaticAnalyzer/Frontend/ModelConsumer.cpp
 SRCS_FUL+=	StaticAnalyzer/Frontend/ModelInjector.cpp
-SRCS_MIN+=	Support/RISCVVIntrinsicUtils.cpp
 SRCS_MIN+=	Tooling/ArgumentsAdjusters.cpp
 SRCS_MIN+=	Tooling/CommonOptionsParser.cpp
 SRCS_MIN+=	Tooling/CompilationDatabase.cpp
@@ -1039,11 +1033,8 @@ clang/Basic/BuiltinsBPF.inc: ${CLANG_SRCS}/include/clang/Basic/Builtins.td
 	    ${CLANG_SRCS}/include/clang/Basic/BuiltinsBPF.td
 TGHDRS+=	clang/Basic/BuiltinsBPF.inc
 
-clang/Basic/BuiltinsRISCV.inc: ${CLANG_SRCS}/include/clang/Basic/Builtins.td
 	${CLANG_TBLGEN} -gen-clang-builtins \
 	    -I ${CLANG_SRCS}/include -d ${.TARGET:C/$/.d/} -o ${.TARGET} \
-	    ${CLANG_SRCS}/include/clang/Basic/BuiltinsRISCV.td
-TGHDRS+=	clang/Basic/BuiltinsRISCV.inc
 
 clang/Basic/RegularKeywordAttrInfo.inc: ${CLANG_SRCS}/include/clang/Basic/Attr.td
 	${CLANG_TBLGEN} -gen-clang-regular-keyword-attr-info \
@@ -1208,47 +1199,17 @@ clang/Basic/arm_sve_typeflags.inc: \
 	    -o ${.TARGET} ${CLANG_SRCS}/include/clang/Basic/arm_sve.td
 TGHDRS+=	clang/Basic/arm_sve_typeflags.inc
 
-clang/Basic/riscv_sifive_vector_builtin_cg.inc: \
-	${CLANG_SRCS}/include/clang/Basic/riscv_sifive_vector.td
-	${CLANG_TBLGEN} -gen-riscv-sifive-vector-builtin-codegen \
 	    -I ${CLANG_SRCS}/include/clang/Basic -d ${.TARGET:C/$/.d/} \
-	    -o ${.TARGET} ${CLANG_SRCS}/include/clang/Basic/riscv_sifive_vector.td
-TGHDRS+=	clang/Basic/riscv_sifive_vector_builtin_cg.inc
 
-clang/Basic/riscv_sifive_vector_builtin_sema.inc: \
-	${CLANG_SRCS}/include/clang/Basic/riscv_sifive_vector.td
-	${CLANG_TBLGEN} -gen-riscv-sifive-vector-builtin-sema \
 	    -I ${CLANG_SRCS}/include/clang/Basic -d ${.TARGET:C/$/.d/} \
-	    -o ${.TARGET} ${CLANG_SRCS}/include/clang/Basic/riscv_sifive_vector.td
-TGHDRS+=	clang/Basic/riscv_sifive_vector_builtin_sema.inc
 
-clang/Basic/riscv_sifive_vector_builtins.inc: \
-	${CLANG_SRCS}/include/clang/Basic/riscv_sifive_vector.td
-	${CLANG_TBLGEN} -gen-riscv-sifive-vector-builtins \
 	    -I ${CLANG_SRCS}/include/clang/Basic -d ${.TARGET:C/$/.d/} \
-	    -o ${.TARGET} ${CLANG_SRCS}/include/clang/Basic/riscv_sifive_vector.td
-TGHDRS+=	clang/Basic/riscv_sifive_vector_builtins.inc
 
-clang/Basic/riscv_vector_builtin_cg.inc: \
-	${CLANG_SRCS}/include/clang/Basic/riscv_vector.td
-	${CLANG_TBLGEN} -gen-riscv-vector-builtin-codegen \
 	    -I ${CLANG_SRCS}/include/clang/Basic -d ${.TARGET:C/$/.d/} \
-	    -o ${.TARGET} ${CLANG_SRCS}/include/clang/Basic/riscv_vector.td
-TGHDRS+=	clang/Basic/riscv_vector_builtin_cg.inc
 
-clang/Basic/riscv_vector_builtin_sema.inc: \
-	${CLANG_SRCS}/include/clang/Basic/riscv_vector.td
-	${CLANG_TBLGEN} -gen-riscv-vector-builtin-sema \
 	    -I ${CLANG_SRCS}/include/clang/Basic -d ${.TARGET:C/$/.d/} \
-	    -o ${.TARGET} ${CLANG_SRCS}/include/clang/Basic/riscv_vector.td
-TGHDRS+=	clang/Basic/riscv_vector_builtin_sema.inc
 
-clang/Basic/riscv_vector_builtins.inc: \
-	${CLANG_SRCS}/include/clang/Basic/riscv_vector.td
-	${CLANG_TBLGEN} -gen-riscv-vector-builtins \
 	    -I ${CLANG_SRCS}/include/clang/Basic -d ${.TARGET:C/$/.d/} \
-	    -o ${.TARGET} ${CLANG_SRCS}/include/clang/Basic/riscv_vector.td
-TGHDRS+=	clang/Basic/riscv_vector_builtins.inc
 
 clang/Driver/Options.inc: ${CLANG_SRCS}/include/clang/Driver/Options.td
 	${LLVM_TBLGEN} -gen-opt-parser-defs \

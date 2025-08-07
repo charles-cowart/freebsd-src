@@ -211,9 +211,8 @@ SUBDIR.${MK_PMC}+=	libopencsd
 SUBDIR.${MK_PMC}+=	libipt
 .endif
 
-.if ${MACHINE_CPUARCH} == "amd64" || ${MACHINE_CPUARCH} == "aarch64" || \
-    ${MACHINE_CPUARCH} == "riscv"
-SUBDIR.${MK_BHYVE}+=	libvmmapi
+.if ${MACHINE_CPUARCH} == "amd64" || ${MACHINE_CPUARCH} == "aarch64"
+SUBDIR.${MK_BHYVE}+=    libvmmapi
 .endif
 
 .if ${MACHINE_ARCH} != "powerpc" && ${MACHINE_CPUARCH} != "arm"

@@ -80,12 +80,6 @@ CFLAGS+=	-DLLVM_TARGET_ENABLE_POWERPC
 LLVM_NATIVE_ARCH=	PowerPC
 . endif
 .endif
-.if ${MK_LLVM_TARGET_RISCV} != "no"
-CFLAGS+=	-DLLVM_TARGET_ENABLE_RISCV
-. if ${MACHINE_CPUARCH} == "riscv"
-LLVM_NATIVE_ARCH=	RISCV
-. endif
-.endif
 .if ${MK_LLVM_TARGET_X86} != "no"
 CFLAGS+=	-DLLVM_TARGET_ENABLE_X86
 . if ${MACHINE_CPUARCH} == "i386" || ${MACHINE_CPUARCH} == "amd64"
@@ -109,13 +103,10 @@ CFLAGS+=	-fdata-sections
 LDFLAGS+=	-Wl,-dead_strip
 .else
 LDFLAGS+=	-Wl,--gc-sections
-# XXX: --gc-sections strips the ELF brand note and on RISC-V the OS/ABI ends up
 # as NONE, so for statically-linked binaries, i.e. lacking an interpreter,
 # get_brandinfo finds nothing and (f)execve fails with ENOEXEC. Work around
 # this by manually setting the OS/ABI field via the emulation.
-.if ${MACHINE_ARCH:Mriscv64*} != "" && ${NO_SHARED:Uno:tl} != "no" && \
     (${.MAKE.OS} == "FreeBSD" || !defined(BOOTSTRAPPING))
-LDFLAGS+=	-Wl,-m,elf64lriscv_fbsd
 .endif
 .endif
 

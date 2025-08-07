@@ -23,14 +23,14 @@ CFLAGS+=	-I${SRCTOP}/sys/contrib/zstd/lib
 
 .if ${MK_LLVM_TARGET_AARCH64} == "no" && ${MK_LLVM_TARGET_ARM} == "no" && \
     ${MK_LLVM_TARGET_BPF} == "no" && ${MK_LLVM_TARGET_MIPS} == "no" && \
-    ${MK_LLVM_TARGET_POWERPC} == "no" && ${MK_LLVM_TARGET_RISCV} == "no" && \
+    ${MK_LLVM_TARGET_POWERPC} == "no" && \
     ${MK_LLVM_TARGET_X86} == "no"
 .error Please enable at least one of: MK_LLVM_TARGET_AARCH64,\
  MK_LLVM_TARGET_ARM, MK_LLVM_TARGET_BPF, MK_LLVM_TARGET_MIPS, \
- MK_LLVM_TARGET_POWERPC, MK_LLVM_TARGET_RISCV, or MK_LLVM_TARGET_X86
+ MK_LLVM_TARGET_POWERPC, or MK_LLVM_TARGET_X86
 .endif
 
-.for arch in AArch64 ARM BPF Mips PowerPC RISCV X86
+.for arch in AArch64 ARM BPF Mips PowerPC X86
 . if ${MK_LLVM_TARGET_${arch:tu}} != "no"
 CFLAGS+=	-I${LLVM_SRCS}/lib/Target/${arch}
 . endif
@@ -721,7 +721,6 @@ SRCS_EXT+=	ExecutionEngine/JITLink/ELF_aarch64.cpp
 SRCS_EXT+=	ExecutionEngine/JITLink/ELF_i386.cpp
 SRCS_EXT+=	ExecutionEngine/JITLink/ELF_loongarch.cpp
 SRCS_EXT+=	ExecutionEngine/JITLink/ELF_ppc64.cpp
-SRCS_EXT+=	ExecutionEngine/JITLink/ELF_riscv.cpp
 SRCS_EXT+=	ExecutionEngine/JITLink/ELF_x86_64.cpp
 SRCS_EXT+=	ExecutionEngine/JITLink/JITLink.cpp
 SRCS_EXT+=	ExecutionEngine/JITLink/JITLinkGeneric.cpp
@@ -735,7 +734,6 @@ SRCS_EXT+=	ExecutionEngine/JITLink/aarch64.cpp
 SRCS_EXT+=	ExecutionEngine/JITLink/i386.cpp
 SRCS_EXT+=	ExecutionEngine/JITLink/loongarch.cpp
 SRCS_EXT+=	ExecutionEngine/JITLink/ppc64.cpp
-SRCS_EXT+=	ExecutionEngine/JITLink/riscv.cpp
 SRCS_EXT+=	ExecutionEngine/JITLink/x86_64.cpp
 SRCS_XDB+=	ExecutionEngine/MCJIT/MCJIT.cpp
 SRCS_EXT+=	ExecutionEngine/Orc/COFFPlatform.cpp
@@ -1190,9 +1188,6 @@ SRCS_MIN+=	Support/PluginLoader.cpp
 SRCS_MIN+=	Support/PrettyStackTrace.cpp
 SRCS_MIN+=	Support/Process.cpp
 SRCS_MIN+=	Support/Program.cpp
-SRCS_MIN+=	Support/RISCVAttributeParser.cpp
-SRCS_MIN+=	Support/RISCVAttributes.cpp
-SRCS_MIN+=	Support/RISCVISAUtils.cpp
 SRCS_MIN+=	Support/RWMutex.cpp
 SRCS_MIN+=	Support/RandomNumberGenerator.cpp
 SRCS_MIN+=	Support/Regex.cpp
@@ -1555,58 +1550,6 @@ SRCS_MIN+=	Target/PowerPC/PPCVSXFMAMutate.cpp
 SRCS_MIN+=	Target/PowerPC/PPCVSXSwapRemoval.cpp
 SRCS_MIN+=	Target/PowerPC/TargetInfo/PowerPCTargetInfo.cpp
 .endif # MK_LLVM_TARGET_POWERPC
-.if ${MK_LLVM_TARGET_RISCV} != "no"
-SRCS_MIN+=	Target/RISCV/AsmParser/RISCVAsmParser.cpp
-SRCS_MIN+=	Target/RISCV/Disassembler/RISCVDisassembler.cpp
-SRCS_MIN+=	Target/RISCV/GISel/RISCVCallLowering.cpp
-SRCS_MIN+=	Target/RISCV/GISel/RISCVInstructionSelector.cpp
-SRCS_MIN+=	Target/RISCV/GISel/RISCVLegalizerInfo.cpp
-SRCS_MIN+=	Target/RISCV/GISel/RISCVO0PreLegalizerCombiner.cpp
-SRCS_MIN+=	Target/RISCV/GISel/RISCVPostLegalizerCombiner.cpp
-SRCS_MIN+=	Target/RISCV/GISel/RISCVPreLegalizerCombiner.cpp
-SRCS_MIN+=	Target/RISCV/GISel/RISCVRegisterBankInfo.cpp
-SRCS_EXT+=	Target/RISCV/MCA/RISCVCustomBehaviour.cpp
-SRCS_MIN+=	Target/RISCV/MCTargetDesc/RISCVAsmBackend.cpp
-SRCS_MIN+=	Target/RISCV/MCTargetDesc/RISCVBaseInfo.cpp
-SRCS_MIN+=	Target/RISCV/MCTargetDesc/RISCVELFObjectWriter.cpp
-SRCS_MIN+=	Target/RISCV/MCTargetDesc/RISCVELFStreamer.cpp
-SRCS_MIN+=	Target/RISCV/MCTargetDesc/RISCVInstPrinter.cpp
-SRCS_MIN+=	Target/RISCV/MCTargetDesc/RISCVMCAsmInfo.cpp
-SRCS_MIN+=	Target/RISCV/MCTargetDesc/RISCVMCCodeEmitter.cpp
-SRCS_MIN+=	Target/RISCV/MCTargetDesc/RISCVMCExpr.cpp
-SRCS_MIN+=	Target/RISCV/MCTargetDesc/RISCVMCObjectFileInfo.cpp
-SRCS_MIN+=	Target/RISCV/MCTargetDesc/RISCVMCTargetDesc.cpp
-SRCS_MIN+=	Target/RISCV/MCTargetDesc/RISCVMatInt.cpp
-SRCS_MIN+=	Target/RISCV/MCTargetDesc/RISCVTargetStreamer.cpp
-SRCS_MIN+=	Target/RISCV/RISCVAsmPrinter.cpp
-SRCS_MIN+=	Target/RISCV/RISCVCodeGenPrepare.cpp
-SRCS_MIN+=	Target/RISCV/RISCVDeadRegisterDefinitions.cpp
-SRCS_MIN+=	Target/RISCV/RISCVExpandAtomicPseudoInsts.cpp
-SRCS_MIN+=	Target/RISCV/RISCVExpandPseudoInsts.cpp
-SRCS_MIN+=	Target/RISCV/RISCVFrameLowering.cpp
-SRCS_MIN+=	Target/RISCV/RISCVGatherScatterLowering.cpp
-SRCS_MIN+=	Target/RISCV/RISCVISelDAGToDAG.cpp
-SRCS_MIN+=	Target/RISCV/RISCVISelLowering.cpp
-SRCS_MIN+=	Target/RISCV/RISCVInsertReadWriteCSR.cpp
-SRCS_MIN+=	Target/RISCV/RISCVInsertVSETVLI.cpp
-SRCS_MIN+=	Target/RISCV/RISCVInsertWriteVXRM.cpp
-SRCS_MIN+=	Target/RISCV/RISCVInstrInfo.cpp
-SRCS_MIN+=	Target/RISCV/RISCVMachineFunctionInfo.cpp
-SRCS_MIN+=	Target/RISCV/RISCVMakeCompressible.cpp
-SRCS_MIN+=	Target/RISCV/RISCVMergeBaseOffset.cpp
-SRCS_MIN+=	Target/RISCV/RISCVMoveMerger.cpp
-SRCS_MIN+=	Target/RISCV/RISCVOptWInstrs.cpp
-SRCS_MIN+=	Target/RISCV/RISCVPostRAExpandPseudoInsts.cpp
-SRCS_MIN+=	Target/RISCV/RISCVPushPopOptimizer.cpp
-SRCS_MIN+=	Target/RISCV/RISCVRedundantCopyElimination.cpp
-SRCS_MIN+=	Target/RISCV/RISCVRegisterInfo.cpp
-SRCS_MIN+=	Target/RISCV/RISCVSubtarget.cpp
-SRCS_MIN+=	Target/RISCV/RISCVTargetMachine.cpp
-SRCS_MIN+=	Target/RISCV/RISCVTargetObjectFile.cpp
-SRCS_MIN+=	Target/RISCV/RISCVTargetTransformInfo.cpp
-SRCS_MIN+=	Target/RISCV/RISCVVectorPeephole.cpp
-SRCS_MIN+=	Target/RISCV/TargetInfo/RISCVTargetInfo.cpp
-.endif # MK_LLVM_TARGET_RISCV
 SRCS_MIN+=	Target/Target.cpp
 SRCS_MIN+=	Target/TargetLoweringObjectFile.cpp
 SRCS_MIN+=	Target/TargetMachine.cpp
@@ -1705,8 +1648,6 @@ SRCS_MIN+=	TargetParser/ARMTargetParserCommon.cpp
 SRCS_MIN+=	TargetParser/CSKYTargetParser.cpp
 SRCS_MIN+=	TargetParser/Host.cpp
 SRCS_MIN+=	TargetParser/LoongArchTargetParser.cpp
-SRCS_MIN+=	TargetParser/RISCVISAInfo.cpp
-SRCS_MIN+=	TargetParser/RISCVTargetParser.cpp
 SRCS_MIN+=	TargetParser/SubtargetFeature.cpp
 SRCS_MIN+=	TargetParser/TargetParser.cpp
 SRCS_MIN+=	TargetParser/Triple.cpp
@@ -2099,7 +2040,7 @@ TGHDRS+=	llvm/IR/IntrinsicImpl.inc
 .for arch in \
 	AArch64/aarch64 AMDGPU/amdgcn ARM/arm BPF/bpf DirectX/dx \
 	Hexagon/hexagon LoongArch/loongarch Mips/mips NVPTX/nvvm PowerPC/ppc \
-	R600/r600 RISCV/riscv S390/s390 SPIRV/spv VE/ve WebAssembly/wasm \
+	R600/r600 S390/s390 SPIRV/spv VE/ve WebAssembly/wasm \
 	X86/x86 XCore/xcore
 llvm/IR/Intrinsics${arch:H}.h: ${LLVM_SRCS}/include/llvm/IR/Intrinsics.td
 	${LLVM_TBLGEN} -gen-intrinsic-enums -intrinsic-prefix=${arch:T} \
@@ -2108,7 +2049,7 @@ llvm/IR/Intrinsics${arch:H}.h: ${LLVM_SRCS}/include/llvm/IR/Intrinsics.td
 TGHDRS+=	llvm/IR/Intrinsics${arch:H}.h
 .endfor
 
-.for arch in AArch64/arm ARM/arm RISCV/riscv
+.for arch in AArch64/arm ARM/arm
 llvm/TargetParser/${arch:H}TargetParserDef.inc: ${LLVM_SRCS}/lib/Target/${arch:H}/${arch:H}.td
 	${LLVM_TBLGEN} -gen-${arch:T}-target-def \
 	    -I ${LLVM_SRCS}/include -I ${LLVM_SRCS}/lib/Target/${arch:H} \
@@ -2150,7 +2091,7 @@ beforebuild:
 
 # Note: some rules are superfluous, not every combination is valid.
 .for arch in \
-	AArch64/AArch64 ARM/ARM BPF/BPF Mips/Mips PowerPC/PPC RISCV/RISCV \
+	AArch64/AArch64 ARM/ARM BPF/BPF Mips/Mips PowerPC/PPC \
 	X86/X86
 . for hdr in \
 	AsmMatcher/-gen-asm-matcher \
@@ -2180,7 +2121,6 @@ beforebuild:
 	SubtargetInfo/-gen-subtarget \
 	SystemOperands/-gen-searchable-tables \
 	SystemRegister/-gen-searchable-tables
-.  if "${arch:T}" == "RISCV" && "${hdr:T:C/(-gen-global-isel).*/\1/}" == "-gen-global-isel"
 tdfile_${arch:T}_${hdr:H}=	${LLVM_SRCS}/lib/Target/${arch:H}/${arch:T}GISel.td
 .  else
 tdfile_${arch:T}_${hdr:H}=	${LLVM_SRCS}/lib/Target/${arch:H}/${arch:T}.td
@@ -2272,28 +2212,6 @@ TGHDRS+=	PPCGenRegisterBank.inc
 TGHDRS+=	PPCGenRegisterInfo.inc
 TGHDRS+=	PPCGenSubtargetInfo.inc
 .endif # MK_LLVM_TARGET_POWERPC
-.if ${MK_LLVM_TARGET_RISCV} != "no"
-TGHDRS+=	RISCVGenAsmMatcher.inc
-TGHDRS+=	RISCVGenAsmWriter.inc
-TGHDRS+=	RISCVGenCallingConv.inc
-TGHDRS+=	RISCVGenCompressInstEmitter.inc
-TGHDRS+=	RISCVGenDAGISel.inc
-TGHDRS+=	RISCVGenDAGISel.inc
-TGHDRS+=	RISCVGenDisassemblerTables.inc
-TGHDRS+=	RISCVGenGlobalISel.inc
-TGHDRS+=	RISCVGenInstrInfo.inc
-TGHDRS+=	RISCVGenMCCodeEmitter.inc
-TGHDRS+=	RISCVGenMCPseudoLowering.inc
-TGHDRS+=	RISCVGenMacroFusion.inc
-TGHDRS+=	RISCVGenO0PreLegalizeGICombiner.inc
-TGHDRS+=	RISCVGenPostLegalizeGICombiner.inc
-TGHDRS+=	RISCVGenPreLegalizeGICombiner.inc
-TGHDRS+=	RISCVGenRegisterBank.inc
-TGHDRS+=	RISCVGenRegisterInfo.inc
-TGHDRS+=	RISCVGenSearchableTables.inc
-TGHDRS+=	RISCVGenSubtargetInfo.inc
-TGHDRS+=	RISCVGenSystemOperands.inc
-.endif # MK_LLVM_TARGET_RISCV
 .if ${MK_LLVM_TARGET_X86} != "no"
 TGHDRS+=	X86GenAsmMatcher.inc
 TGHDRS+=	X86GenAsmWriter.inc

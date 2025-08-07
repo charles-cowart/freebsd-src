@@ -106,8 +106,6 @@
 /* Define to 1 if powerpc decoder is enabled. */
 #define HAVE_DECODER_POWERPC 1
 
-/* Define to 1 if riscv decoder is enabled. */
-#define HAVE_DECODER_RISCV 1
 
 /* Define to 1 if sparc decoder is enabled. */
 #define HAVE_DECODER_SPARC 1
@@ -148,8 +146,6 @@
 /* Define to 1 if powerpc encoder is enabled. */
 #define HAVE_ENCODER_POWERPC 1
 
-/* Define to 1 if riscv encoder is enabled. */
-#define HAVE_ENCODER_RISCV 1
 
 /* Define to 1 if sparc encoder is enabled. */
 #define HAVE_ENCODER_SPARC 1

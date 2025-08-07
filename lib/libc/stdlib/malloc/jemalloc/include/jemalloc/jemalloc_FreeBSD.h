@@ -73,10 +73,6 @@
 #  define LG_SIZEOF_PTR		2
 #  define JEMALLOC_TLS_MODEL	__attribute__((tls_model("initial-exec")))
 #endif
-#ifdef __riscv
-#  define LG_VADDR		48
-#  define LG_SIZEOF_PTR		3
-#endif
 
 #if LG_VADDR > 32
 #  define JEMALLOC_RETAIN

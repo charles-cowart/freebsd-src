@@ -83,10 +83,6 @@ SUBDIR+=	${SD_XRAY}
 . else
 # nothing for other powerpc yet
 . endif
-.elif ${MACHINE_CPUARCH} == "riscv"
-SUBDIR+=	${SD_ASAN}
-SUBDIR+=	${SD_STATS}
-SUBDIR+=	${SD_UBSAN}
 .endif
 
 SUBDIR+=	${SD_INCLUDE}

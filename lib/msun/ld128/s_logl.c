@@ -534,7 +534,7 @@ logl(long double x)
 	/*
 	 * Use double precision operations wherever possible, since
 	 * long double operations are emulated and were very slow on
-	 * the old sparc64 and unknown on the newer aarch64 and riscv
+	 * the old sparc64 and unknown on the newer aarch64
 	 * machines.  Also, don't try to improve parallelism by
 	 * increasing the number of operations, since any parallelism
 	 * on such machines is needed for the emulation.  Horner's

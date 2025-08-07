@@ -63,11 +63,5 @@ CFLAGS.huf_decompress.c+=	${NO_WBITWISE_INSTEAD_OF_LOGICAL}
 CFLAGS.zstd_decompress_block.c+=	-fno-tree-vectorize
 .endif
 
-# Work around lack of __bswap[sd]i2() intrinsics on riscv.  Probably should be
-# added to one of the runtime C libraries instead.
-.if ${MACHINE_CPUARCH} == "riscv"
-.PATH:	${ZSTDDIR}/lib/freebsd
-SRCS+=	zstd_kfreebsd.c
-.endif
 
 .include <bsd.lib.mk>

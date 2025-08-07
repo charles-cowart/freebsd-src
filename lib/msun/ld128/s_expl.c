@@ -89,7 +89,7 @@ expl(long double x)
 	/* Scale by 2**k. */
 	/*
 	 * XXX sparc64 multiplication was so slow that scalbnl() is faster,
-	 * but performance on aarch64 and riscv hasn't yet been quantified.
+	 * but performance on aarch64 hasn't yet been quantified.
 	 */
 	if (k >= LDBL_MIN_EXP) {
 		if (k == LDBL_MAX_EXP)
