@@ -16108,9 +16108,6 @@ OLD_FILES+=usr/share/man/man9/vm_page_sleep_busy.9.gz
 OLD_FILES+=usr/share/man/man9/taskqueue_find.9.gz
 # 20101011: removed subblock.h from liblzma
 OLD_FILES+=usr/include/lzma/subblock.h
-# 20101002: removed manpath.config
-OLD_FILES+=etc/manpath.config
-OLD_FILES+=usr/share/examples/etc/manpath.config
 # 20100910: renamed sbuf_overflowed to sbuf_error
 OLD_FILES+=usr/share/man/man9/sbuf_overflowed.9.gz
 # 20100815: retired last traces of chooseproc(9)
@@ -19474,15 +19471,12 @@ OLD_FILES+=etc/periodic/weekly/320.whatis
 OLD_FILES+=usr/bin/apropos
 OLD_FILES+=usr/bin/makewhatis
 OLD_FILES+=usr/bin/man
-OLD_FILES+=usr/bin/manpath
 OLD_FILES+=usr/bin/whatis
 OLD_FILES+=usr/libexec/makewhatis.local
 OLD_FILES+=usr/share/man/man1/apropos.1.gz
 OLD_FILES+=usr/share/man/man1/makewhatis.1.gz
 OLD_FILES+=usr/share/man/man1/man.1.gz
-OLD_FILES+=usr/share/man/man1/manpath.1.gz
 OLD_FILES+=usr/share/man/man1/whatis.1.gz
-OLD_FILES+=usr/share/man/man5/man.conf.5.gz
 OLD_FILES+=usr/share/man/man8/makewhatis.local.8.gz
 OLD_FILES+=usr/share/man/whatis
 OLD_FILES+=usr/share/openssl/man/whatis

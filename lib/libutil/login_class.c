@@ -126,7 +126,6 @@ static struct login_vars {
 } pathvars[] = {
     { "path",           "PATH",       NULL, 1},
     { "cdpath",         "CDPATH",     NULL, 1},
-    { "manpath",        "MANPATH",    NULL, 1},
     { NULL,             NULL,         NULL, 0}
 }, envars[] = {
     { "lang",           "LANG",       NULL, 1},

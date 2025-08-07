@@ -625,7 +625,6 @@ _	_	_
 	/etc/csh.logout	system-wide csh(1) logout file
 	/etc/disklabels	directory for saving disklabels
 	/etc/exports	NFS list of export permissions
-	/etc/man.conf	lists directories searched by \fIman\fP\|(1)
 	/etc/mtree	directory for local mtree files; see mtree(8)
 	/etc/netgroup	NFS group list used in \f(CW/etc/exports\fP
 	/etc/pwd.db	non-secure hashed user data base file

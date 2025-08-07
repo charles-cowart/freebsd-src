@@ -82,8 +82,7 @@
             <documentation>
                 <manpage
                     title='sshd'
-                    section='1M'
-                    manpath='@prefix@/man'/>
+                    section='1M'/>
             </documentation>
         </template>
     </service>

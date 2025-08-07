@@ -519,8 +519,7 @@ Manual pages for local commands should be installed in
 The
 .Xr man (1)
 command automatically finds manual pages placed in
-/usr/local/man/cat[1-8] to encourage this practice (see
-.Xr man.conf (5)).
+/usr/local/man/cat[1-8] to encourage this practice.
 .Sh 2 "Accounting"
 .PP
 UNIX optionally records two kinds of accounting information:
