@@ -262,7 +262,6 @@
             ..
             bsdconfig
             ..
-            csh
             ..
             diskless
             ..
@@ -364,7 +363,6 @@
                 sort
                 ..
             ..
-            tcsh
             ..
             uefisign
             ..

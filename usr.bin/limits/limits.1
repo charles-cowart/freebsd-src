@@ -86,7 +86,7 @@ output, except that it will emit them in
 .Ic eval
 format, suitable for the calling shell.
 If the shell is known (i.e., it is one of
-.Nm sh , csh , bash , tcsh , ksh , pdksh
+.Nm sh , bash , ksh , pdksh
 or
 .Nm rc ) ,
 .Nm
@@ -410,14 +410,12 @@ ulimit -b 512;
 .Ed
 .Pp
 Same as above from
-.Xr csh 1
 .Bd -literal -offset indent
 % limits -e -b 1b
 limit -h sbsize 512;
 limit sbsize 512;
 .Ed
 .Sh SEE ALSO
-.Xr csh 1 ,
 .Xr env 1 ,
 .Xr limit 1 ,
 .Xr sh 1 ,

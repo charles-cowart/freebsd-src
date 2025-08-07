@@ -140,18 +140,19 @@ ignore()
 		set -o noglob
 	done
 
-	# Ignore /.cshrc and /.profile if they are hardlinked to the
 	# same file in /root.  This ensures we only compare those
-	# files once in that case.
-	case $1 in
-		/.cshrc|/.profile)
-			if [ ${DESTDIR}$1 -ef ${DESTDIR}/root$1 ]; then
-				return 0
-			fi
-			;;
-		*)
-			;;
-	esac
+       # Ignore /.profile if it is hardlinked to the
+       # same file in /root.  This ensures we only compare that
+       # file once in that case.
+       case $1 in
+               /.profile)
+                       if [ ${DESTDIR}$1 -ef ${DESTDIR}/root$1 ]; then
+                               return 0
+                       fi
+                       ;;
+               *)
+                       ;;
+       esac
 
 	return 1
 }
@@ -777,7 +778,6 @@ update_unmodified()
 		fi
 
 	# If both the old and new files are regular files, leave the
-	# existing file.  This avoids breaking hard links for /.cshrc
 	# and /.profile.  Otherwise, explicitly remove the old file.
 	elif ! [ -f ${DESTDIR}$1 -a -f ${NEWTREE}$1 ]; then
 		log "rm -f ${DESTDIR}$1"

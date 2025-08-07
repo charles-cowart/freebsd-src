@@ -65,8 +65,9 @@ struct aud_rec;
 #define _PATH_BSHELL "/bin/sh"
 #endif
 
+/* Provide a default shell if no C shell is available. */
 #ifndef _PATH_CSHELL
-#define _PATH_CSHELL "/bin/csh"
+#define _PATH_CSHELL "/bin/sh"
 #endif
 
 /*
@@ -74,7 +75,7 @@ struct aud_rec;
  * /etc/shells.
  */
 
-static char *okshells[] = { _PATH_BSHELL, _PATH_CSHELL, NULL };
+static char *okshells[] = { _PATH_BSHELL, NULL };
 static char **curshell, **shells, *strings;
 static char **initshells (void);
 

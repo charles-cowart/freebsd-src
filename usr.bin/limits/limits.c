@@ -45,9 +45,7 @@ enum
 {
     SH_NONE,
     SH_SH,      /* sh */
-    SH_CSH,     /* csh */
     SH_BASH,    /* gnu bash */
-    SH_TCSH,    /* tcsh */
     SH_KSH,     /* (pd)ksh */
     SH_ZSH,     /* zsh */
     SH_RC,      /* rc or es */
@@ -57,7 +55,7 @@ enum
 
 /* eval emitter for popular shells.
  * Why aren't there any standards here? Most shells support either
- * the csh 'limit' or sh 'ulimit' command, but each varies just
+ * shells support either the 'limit' or 'ulimit' command, but each varies just
  * enough that they aren't very compatible from one to the other.
  */
 static struct {
@@ -113,27 +111,7 @@ static struct {
 	  { "ulimit%s -o %s", ";\n",  1    },
 	  { "ulimit%s -y %s", ";\n",  1024 },
       }
-    },
-    { "csh", "unlimited", "", " -h", "", NULL,
-      {
-	  { "limit%s cputime %s",         ";\n",  1    },
-	  { "limit%s filesize %s",        ";\n",  1024 },
-	  { "limit%s datasize %s",        ";\n",  1024 },
-	  { "limit%s stacksize %s",       ";\n",  1024 },
-	  { "limit%s coredumpsize %s",    ";\n",  1024 },
-	  { "limit%s memoryuse %s",       ";\n",  1024 },
-	  { "limit%s memorylocked %s",    ";\n",  1024 },
-	  { "limit%s maxproc %s",         ";\n",  1    },
-	  { "limit%s openfiles %s",       ";\n",  1    },
-	  { "limit%s sbsize %s",          ";\n",  1    },
-	  { "limit%s vmemoryuse %s",      ";\n",  1024 },
-	  { "limit%s pseudoterminals %s", ";\n",  1    },
-	  { "limit%s swapsize %s",        ";\n",  1024 },
-	  { "limit%s kqueues %s",         ";\n",  1    },
-	  { "limit%s umtxp %s",           ";\n",  1    },
-      }
-    },
-    { "bash|bash2", "unlimited", "", " -H", " -S", "",
+    },    { "bash|bash2", "unlimited", "", " -H", " -S", "",
       {
 	  { "ulimit%s -t %s", ";\n",  1    },
 	  { "ulimit%s -f %s", ";\n",  1024 },
@@ -149,27 +127,7 @@ static struct {
 	  { "ulimit%s -p %s", ";\n",  1    },
 	  { "ulimit%s -w %s", ";\n",  1024 }
       }
-    },
-    { "tcsh", "unlimited", "", " -h", "", NULL,
-      {
-	  { "limit%s cputime %s",         ";\n",  1    },
-	  { "limit%s filesize %s",        ";\n",  1024 },
-	  { "limit%s datasize %s",        ";\n",  1024 },
-	  { "limit%s stacksize %s",       ";\n",  1024 },
-	  { "limit%s coredumpsize %s",    ";\n",  1024 },
-	  { "limit%s memoryuse %s",       ";\n",  1024 },
-	  { "limit%s memorylocked %s",    ";\n",  1024 },
-	  { "limit%s maxproc %s",         ";\n",  1    },
-	  { "limit%s descriptors %s",     ";\n",  1    },
-	  { "limit%s sbsize %s",          ";\n",  1    },
-	  { "limit%s vmemoryuse %s",      ";\n",  1024 },
-	  { "limit%s pseudoterminals %s", ";\n",  1    },
-	  { "limit%s swapsize %s",        ";\n",  1024 },
-	  { "limit%s kqueues %s",         ";\n",  1    },
-	  { "limit%s umtxp %s",           ";\n",  1    },
-      }
-    },
-    { "ksh|pdksh", "unlimited", "", " -H", " -S", "",
+    },    { "ksh|pdksh", "unlimited", "", " -H", " -S", "",
       {
 	  { "ulimit%s -t %s", ";\n",  1    },
 	  { "ulimit%s -f %s", ";\n",  512  },

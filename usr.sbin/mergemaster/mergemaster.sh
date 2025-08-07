@@ -896,7 +896,7 @@ mm_install () {
       NEED_PWD_MKDB=yes
       DONT_INSTALL=yes
       ;;
-    /.cshrc | /.profile)
+    /.profile)
       local st_nlink
 
       # install will unlink the file before it installs the new one,
@@ -913,7 +913,7 @@ mm_install () {
         case "${LINK_EXPLAINED}" in
         '')
           echo "   *** Historically BSD derived systems have had a"
-          echo "       hard link from /.cshrc and /.profile to"
+          echo "       hard link from /.profile to"
           echo "       their namesakes in /root.  Please indicate"
           echo "       your preference below for bringing your"
           echo "       installed files up to date."
