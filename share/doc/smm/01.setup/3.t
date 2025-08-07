@@ -625,7 +625,6 @@ _	_	_
 	/etc/csh.logout	system-wide csh(1) logout file
 	/etc/disklabels	directory for saving disklabels
 	/etc/exports	NFS list of export permissions
-	/etc/ftpwelcome	message displayed for ftp users; see ftpd(8)
 	/etc/man.conf	lists directories searched by \fIman\fP\|(1)
 	/etc/mtree	directory for local mtree files; see mtree(8)
 	/etc/netgroup	NFS group list used in \f(CW/etc/exports\fP
@@ -1815,7 +1814,6 @@ dev_mkdb	Hashed interface to devices.
 dm	Dungeon master.
 find	Several new options and primaries, major performance improvements.
 fstat	Utility displaying information on files open on the system.
-ftpd	Connection logging added.
 hexdump	A binary dump utility, superseding od.
 id	The POSIX 1003.2 user identification utility.
 inetd	Tcpmux added.

@@ -35,6 +35,16 @@
 # grep '+=' /usr/src/tools/build/mk/OptionalObsoleteFiles.inc | sort -u) | \
 # sort | uniq -d
 #
+# 20251120: remove ftpd and pam_ftpusers
+OLD_FILES+=etc/ftpusers
+OLD_FILES+=etc/pam.d/ftpd
+OLD_FILES+=etc/rc.d/ftpd
+OLD_FILES+=usr/libexec/ftpd
+OLD_FILES+=usr/share/man/man5/ftpchroot.5.gz
+OLD_FILES+=usr/share/man/man8/ftpd.8.gz
+OLD_LIBS+=usr/lib/pam_ftpusers.so.6
+OLD_FILES+=usr/share/man/man8/pam_ftpusers.8.gz
+
 # 20250807: remove calendar, finger, telnet, motd
 OLD_FILES+=etc/motd.template
 OLD_FILES+=etc/periodic/daily/300.calendar

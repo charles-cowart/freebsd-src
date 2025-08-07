@@ -1,6 +1,4 @@
 Build some programs without
 .Xr libblacklist 3
 support, like
-.Xr ftpd 8 ,
-and
 .Xr sshd 8 .

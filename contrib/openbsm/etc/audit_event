@@ -637,13 +637,11 @@
 6162:AUE_rexecd:rexecd:lo
 6163:AUE_passwd:passwd:lo
 6164:AUE_rexd:rexd:lo
-6165:AUE_ftpd:ftp access:lo
 6166:AUE_init:init:lo
 6167:AUE_uadmin:uadmin:no
 6168:AUE_shutdown:system shutdown:ad
 6168:AUE_poweroff:system poweroff:ad
 6170:AUE_crontab_mod:crontab-modify:ad
-6171:AUE_ftpd_logout:ftp logout:lo
 6172:AUE_ssh:login - ssh:lo
 6173:AUE_role_login:role login:lo
 6180:AUE_prof_cmd: profile command:ad

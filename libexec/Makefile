@@ -53,9 +53,6 @@ SUBDIR+=	bootpd
 _phttpget=	phttpget
 .endif
 
-.if ${MK_FTP} != "no"
-SUBDIR+=	ftpd
-.endif
 
 .if ${MK_MAIL} != "no"
 _comsat=	comsat
