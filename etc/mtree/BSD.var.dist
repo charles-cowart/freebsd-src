@@ -60,8 +60,6 @@
     ..
     empty           mode=0555 flags=schg
     ..
-    games           gname=games mode=0775
-    ..
     heimdal         mode=0700
     ..
     log

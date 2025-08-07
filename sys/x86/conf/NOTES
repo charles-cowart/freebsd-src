@@ -222,7 +222,6 @@ options 	SC_CUT_SPACES2TABS	# convert leading spaces into tabs
 options 	SC_CUT_SEPCHARS=\"x09\"	# set of characters that delimit words
 					# (default is single space - \"x20\")
 
-# If you have a two button mouse, you may want to add the following option
 # to use the right button of the mouse to paste text.
 options 	SC_TWOBUTTON_MOUSE
 

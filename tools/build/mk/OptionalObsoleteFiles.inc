@@ -1905,7 +1905,6 @@ OLD_FILES+=usr/share/man/man1/pftp.1.gz
 OLD_FILES+=usr/share/man/man5/ftpchroot.5.gz
 .endif
 
-.if ${MK_GAMES} == no
 OLD_FILES+=usr/bin/caesar
 OLD_FILES+=usr/bin/factor
 OLD_FILES+=usr/bin/fortune
@@ -1948,7 +1947,6 @@ OLD_FILES+=usr/share/man/man6/random.6.gz
 OLD_FILES+=usr/share/man/man6/rot13.6.gz
 OLD_FILES+=usr/share/man/man8/strfile.8.gz
 OLD_FILES+=usr/share/man/man8/unstr.8.gz
-.endif
 
 .if ${MK_GH_BC} == no
 OLD_FILES+=usr/share/misc/bc.library

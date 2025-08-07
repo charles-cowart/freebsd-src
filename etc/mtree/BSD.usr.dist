@@ -373,10 +373,6 @@
         ..
         flua
         ..
-        games
-            fortune
-            ..
-        ..
         i18n
             csmapper
                 APPLE
@@ -487,8 +483,6 @@
                 ..
             ..
             man5
-            ..
-            man6
             ..
             man7
             ..
