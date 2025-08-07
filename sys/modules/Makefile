@@ -305,10 +305,7 @@ SUBDIR=	\
 	${_padlock_rng} \
 	${_pchtherm} \
 	${_pcfclock} \
-	${_pf} \
-	${_pflog} \
-	${_pfsync} \
-	plip \
+       plip \
 	${_pms} \
 	ppbus \
 	ppc \
@@ -611,15 +608,6 @@ _mac_veriexec_sha512= mac_veriexec_sha512
 
 .if ${MK_NETGRAPH} != "no" || defined(ALL_MODULES)
 _netgraph=	netgraph
-.endif
-
-.if (${MK_PF} != "no" && (${MK_INET_SUPPORT} != "no" || \
-	${MK_INET6_SUPPORT} != "no")) || defined(ALL_MODULES)
-_pf=		pf
-_pflog=		pflog
-.if ${MK_INET_SUPPORT} != "no"
-_pfsync=	pfsync
-.endif
 .endif
 
 .if ${MK_SOURCELESS_UCODE} != "no"
