@@ -328,7 +328,7 @@ _
 /etc/netstart	\fIrc\fP\|(8)	command script for initializing network
 /etc/rc	\fIrc\fP\|(8)	command script for starting standard servers
 /etc/rc.local	\fIrc\fP\|(8)	command script for starting local servers
-/etc/ftpusers	\fIftpd\fP\|(8)	list of ``unwelcome'' ftp users
+|(8)	list of ``unwelcome'' ftp users
 /etc/hosts.lpd	\fIlpd\fP\|(8)	list of hosts allowed to access printers
 /etc/inetd.conf	\fIinetd\fP\|(8)	list of servers started by \fIinetd\fP
 .TE
@@ -366,9 +366,6 @@ _
 /usr/libexec/rshd	shell server	inetd
 /usr/libexec/rexecd	exec server	inetd
 /usr/libexec/rlogind	login server	inetd
-/usr/libexec/telnetd	TELNET server	inetd
-/usr/libexec/ftpd	FTP server	inetd
-/usr/libexec/fingerd	Finger server	inetd
 /usr/libexec/tftpd	TFTP server	inetd
 .TE
 Consult the manual pages and accompanying documentation (particularly
@@ -439,7 +436,6 @@ For example, an entry for the file
 transfer protocol server would appear as
 .DS
 .ft CW
-ftp	stream	tcp	nowait	root	/usr/libexec/ftpd	ftpd
 .DE
 Consult
 .Xr inetd (8)

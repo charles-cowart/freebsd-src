@@ -253,10 +253,6 @@ addresses to deliver system mail
 .Xr mailwrapper 8
 configuration
 .El
-.Pp
-.It Pa motd.template
-message displayed upon tty login; see
-.Xr motd 5
 .It Pa mtree/
 system mapper specification; see
 .Xr mtree 8
@@ -282,9 +278,6 @@ configuration for the Packet Filter firewall; see
 .It Pa pkg/
 default configuration for the package manager,
 .Xr pkg 8
-.It Pa ppp/
-PPP configuration files; see
-.Xr ppp 8
 .It Pa rc.conf
 system and daemon configuration; see
 .Xr rc.conf 5
@@ -462,9 +455,6 @@ utilities called by
 .Xr fwget 8
 .It Pa hyperv/
 scripts for communicating with the Hyper-V hypervisor
-.It Pa lpr/
-utilities and filters for the line printer system; see
-.Xr lpr 1
 .It Pa sendmail/
 the
 .Xr sendmail 8
@@ -840,9 +830,6 @@ system message buffer log, rotates to
 .Pa dmesg.yesterday
 .It Pa debug.log
 undiscarded debug syslog messages
-.It Pa lpd-errs
-logs for the line printer spooler daemon; see
-.Xr lpd 8
 .It Pa maillog
 .Xr sendmail 8
 log, rotates and compresses to maillog.0.bz2
@@ -860,9 +847,6 @@ packet filter firewall log; see
 .It Pa pflog
 saved packets caught by
 .Xr pflogd 8
-.It Pa ppp.log
-see
-.Xr ppp 8
 .It Pa security
 transcript of events marked with the security flag
 .It Pa setuid.today
@@ -879,7 +863,6 @@ login/logout log; see
 .Xr getutxent 3
 .It Pa xferlog
 default log for
-.Xr ftpd 8
 .El
 .Pp
 .It Pa mail/
@@ -899,11 +882,6 @@ files containing information about the operating system since it was booted
 .Xr bhyve 8
 virtual machine
 .Xr unix 4 Ns -domain sockets
-.It Pa ppp/
-writable by the
-.Dq network
-group for command connection sockets; see
-.Xr ppp 8
 .It Pa utx.active
 database of current users; see
 .Xr getutxent 3
@@ -935,11 +913,8 @@ Mail Agent; see
 .It Pa lock/
 serial device locks; see
 .Xr uucplock 3
-.It Pa lpd/
-line printer spooler daemon spool
 .It Pa ftp/
 ftp root directory; see
-.Xr ftpd 8
 .It Pa mqueue/
 undelivered mail queue for
 .Xr sendmail 8

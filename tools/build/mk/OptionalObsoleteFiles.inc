@@ -203,7 +203,6 @@ OLD_DIRS+=etc/bluetooth
 OLD_FILES+=etc/rc.d/bluetooth
 OLD_FILES+=etc/rc.d/bthidd
 OLD_FILES+=etc/rc.d/hcsecd
-OLD_FILES+=etc/rc.d/rfcomm_pppd_server
 OLD_FILES+=etc/rc.d/sdpd
 OLD_FILES+=etc/rc.d/ubthidhci
 OLD_FILES+=usr/bin/bthost
@@ -245,7 +244,6 @@ OLD_FILES+=usr/sbin/hcseriald
 OLD_FILES+=usr/sbin/iwmbtfw
 OLD_FILES+=usr/sbin/l2control
 OLD_FILES+=usr/sbin/l2ping
-OLD_FILES+=usr/sbin/rfcomm_pppd
 OLD_FILES+=usr/sbin/rtlbtfw
 OLD_FILES+=usr/sbin/sdpcontrol
 OLD_FILES+=usr/sbin/sdpd
@@ -324,7 +322,6 @@ OLD_FILES+=usr/share/man/man8/hcseriald.8.gz
 OLD_FILES+=usr/share/man/man8/iwmbtfw.8.gz
 OLD_FILES+=usr/share/man/man8/l2control.8.gz
 OLD_FILES+=usr/share/man/man8/l2ping.8.gz
-OLD_FILES+=usr/share/man/man8/rfcomm_pppd.8.gz
 OLD_FILES+=usr/share/man/man8/rtlbtfw.8.gz
 OLD_FILES+=usr/share/man/man8/sdpcontrol.8.gz
 OLD_FILES+=usr/share/man/man8/sdpd.8.gz
@@ -742,122 +739,6 @@ OLD_DIRS+=usr/share/snmp/defs
 OLD_DIRS+=usr/share/snmp/mibs
 .endif
 
-.if ${MK_CALENDAR} == no
-OLD_FILES+=etc/periodic/daily/300.calendar
-OLD_FILES+=usr/bin/calendar
-OLD_FILES+=usr/share/calendar/calendar.all
-OLD_FILES+=usr/share/calendar/calendar.australia
-OLD_FILES+=usr/share/calendar/calendar.birthday
-OLD_FILES+=usr/share/calendar/calendar.brazilian
-OLD_FILES+=usr/share/calendar/calendar.christian
-OLD_FILES+=usr/share/calendar/calendar.computer
-OLD_FILES+=usr/share/calendar/calendar.croatian
-OLD_FILES+=usr/share/calendar/calendar.dutch
-OLD_FILES+=usr/share/calendar/calendar.freebsd
-OLD_FILES+=usr/share/calendar/calendar.french
-OLD_FILES+=usr/share/calendar/calendar.german
-OLD_FILES+=usr/share/calendar/calendar.history
-OLD_FILES+=usr/share/calendar/calendar.holiday
-OLD_FILES+=usr/share/calendar/calendar.hungarian
-OLD_FILES+=usr/share/calendar/calendar.judaic
-OLD_FILES+=usr/share/calendar/calendar.lotr
-OLD_FILES+=usr/share/calendar/calendar.music
-OLD_FILES+=usr/share/calendar/calendar.newzealand
-OLD_FILES+=usr/share/calendar/calendar.russian
-OLD_FILES+=usr/share/calendar/calendar.southafrica
-OLD_FILES+=usr/share/calendar/calendar.ukrainian
-OLD_FILES+=usr/share/calendar/calendar.usholiday
-OLD_FILES+=usr/share/calendar/calendar.world
-OLD_FILES+=usr/share/calendar/de_AT.ISO_8859-15/calendar.feiertag
-OLD_DIRS+=usr/share/calendar/de_AT.ISO_8859-15
-OLD_FILES+=usr/share/calendar/de_DE.ISO8859-1/calendar.all
-OLD_FILES+=usr/share/calendar/de_DE.ISO8859-1/calendar.feiertag
-OLD_FILES+=usr/share/calendar/de_DE.ISO8859-1/calendar.geschichte
-OLD_FILES+=usr/share/calendar/de_DE.ISO8859-1/calendar.kirche
-OLD_FILES+=usr/share/calendar/de_DE.ISO8859-1/calendar.literatur
-OLD_FILES+=usr/share/calendar/de_DE.ISO8859-1/calendar.musik
-OLD_FILES+=usr/share/calendar/de_DE.ISO8859-1/calendar.wissenschaft
-OLD_DIRS+=usr/share/calendar/de_DE.ISO8859-1
-OLD_FILES+=usr/share/calendar/de_DE.ISO8859-15
-OLD_FILES+=usr/share/calendar/fr_FR.ISO8859-1/calendar.all
-OLD_FILES+=usr/share/calendar/fr_FR.ISO8859-1/calendar.fetes
-OLD_FILES+=usr/share/calendar/fr_FR.ISO8859-1/calendar.french
-OLD_FILES+=usr/share/calendar/fr_FR.ISO8859-1/calendar.jferies
-OLD_FILES+=usr/share/calendar/fr_FR.ISO8859-1/calendar.proverbes
-OLD_DIRS+=usr/share/calendar/fr_FR.ISO8859-1
-OLD_FILES+=usr/share/calendar/fr_FR.ISO8859-15
-OLD_FILES+=usr/share/calendar/hr_HR.ISO8859-2/calendar.all
-OLD_FILES+=usr/share/calendar/hr_HR.ISO8859-2/calendar.praznici
-OLD_DIRS+=usr/share/calendar/hr_HR.ISO8859-2
-OLD_FILES+=usr/share/calendar/hu_HU.ISO8859-2/calendar.all
-OLD_FILES+=usr/share/calendar/hu_HU.ISO8859-2/calendar.nevnapok
-OLD_FILES+=usr/share/calendar/hu_HU.ISO8859-2/calendar.unnepek
-OLD_DIRS+=usr/share/calendar/hu_HU.ISO8859-2
-OLD_FILES+=usr/share/calendar/pt_BR.ISO8859-1/calendar.all
-OLD_FILES+=usr/share/calendar/pt_BR.ISO8859-1/calendar.commemorative
-OLD_FILES+=usr/share/calendar/pt_BR.ISO8859-1/calendar.holidays
-OLD_FILES+=usr/share/calendar/pt_BR.ISO8859-1/calendar.mcommemorative
-OLD_DIRS+=usr/share/calendar/pt_BR.ISO8859-1
-OLD_FILES+=usr/share/calendar/pt_BR.UTF-8/calendar.all
-OLD_FILES+=usr/share/calendar/pt_BR.UTF-8/calendar.commemorative
-OLD_FILES+=usr/share/calendar/pt_BR.UTF-8/calendar.holidays
-OLD_FILES+=usr/share/calendar/pt_BR.UTF-8/calendar.mcommemorative
-OLD_DIRS+=usr/share/calendar/pt_BR.UTF-8
-OLD_FILES+=usr/share/calendar/ru_RU.KOI8-R/calendar.all
-OLD_FILES+=usr/share/calendar/ru_RU.KOI8-R/calendar.common
-OLD_FILES+=usr/share/calendar/ru_RU.KOI8-R/calendar.holiday
-OLD_FILES+=usr/share/calendar/ru_RU.KOI8-R/calendar.military
-OLD_FILES+=usr/share/calendar/ru_RU.KOI8-R/calendar.orthodox
-OLD_FILES+=usr/share/calendar/ru_RU.KOI8-R/calendar.pagan
-OLD_DIRS+=usr/share/calendar/ru_RU.KOI8-R
-OLD_FILES+=usr/share/calendar/ru_RU.UTF-8/calendar.all
-OLD_FILES+=usr/share/calendar/ru_RU.UTF-8/calendar.common
-OLD_FILES+=usr/share/calendar/ru_RU.UTF-8/calendar.holiday
-OLD_FILES+=usr/share/calendar/ru_RU.UTF-8/calendar.military
-OLD_FILES+=usr/share/calendar/ru_RU.UTF-8/calendar.orthodox
-OLD_FILES+=usr/share/calendar/ru_RU.UTF-8/calendar.pagan
-OLD_DIRS+=usr/share/calendar/ru_RU.UTF-8
-OLD_FILES+=usr/share/calendar/uk_UA.KOI8-U/calendar.all
-OLD_FILES+=usr/share/calendar/uk_UA.KOI8-U/calendar.holiday
-OLD_FILES+=usr/share/calendar/uk_UA.KOI8-U/calendar.misc
-OLD_FILES+=usr/share/calendar/uk_UA.KOI8-U/calendar.orthodox
-OLD_DIRS+=usr/share/calendar/uk_UA.KOI8-U
-OLD_DIRS+=usr/share/calendar
-OLD_FILES+=usr/share/man/man1/calendar.1.gz
-OLD_FILES+=usr/tests/usr.bin/calendar/Kyuafile
-OLD_FILES+=usr/tests/usr.bin/calendar/calendar.calibrate
-OLD_FILES+=usr/tests/usr.bin/calendar/legacy_test
-OLD_FILES+=usr/tests/usr.bin/calendar/regress.a1.out
-OLD_FILES+=usr/tests/usr.bin/calendar/regress.a2.out
-OLD_FILES+=usr/tests/usr.bin/calendar/regress.a3.out
-OLD_FILES+=usr/tests/usr.bin/calendar/regress.a4.out
-OLD_FILES+=usr/tests/usr.bin/calendar/regress.a5.out
-OLD_FILES+=usr/tests/usr.bin/calendar/regress.b1.out
-OLD_FILES+=usr/tests/usr.bin/calendar/regress.b2.out
-OLD_FILES+=usr/tests/usr.bin/calendar/regress.b3.out
-OLD_FILES+=usr/tests/usr.bin/calendar/regress.b4.out
-OLD_FILES+=usr/tests/usr.bin/calendar/regress.b5.out
-OLD_FILES+=usr/tests/usr.bin/calendar/regress.s1.out
-OLD_FILES+=usr/tests/usr.bin/calendar/regress.s2.out
-OLD_FILES+=usr/tests/usr.bin/calendar/regress.s3.out
-OLD_FILES+=usr/tests/usr.bin/calendar/regress.s4.out
-OLD_FILES+=usr/tests/usr.bin/calendar/regress.sh
-OLD_FILES+=usr/tests/usr.bin/calendar/regress.w0-1.out
-OLD_FILES+=usr/tests/usr.bin/calendar/regress.w0-2.out
-OLD_FILES+=usr/tests/usr.bin/calendar/regress.w0-3.out
-OLD_FILES+=usr/tests/usr.bin/calendar/regress.w0-4.out
-OLD_FILES+=usr/tests/usr.bin/calendar/regress.w0-5.out
-OLD_FILES+=usr/tests/usr.bin/calendar/regress.w0-6.out
-OLD_FILES+=usr/tests/usr.bin/calendar/regress.w0-7.out
-OLD_FILES+=usr/tests/usr.bin/calendar/regress.wn-1.out
-OLD_FILES+=usr/tests/usr.bin/calendar/regress.wn-2.out
-OLD_FILES+=usr/tests/usr.bin/calendar/regress.wn-3.out
-OLD_FILES+=usr/tests/usr.bin/calendar/regress.wn-4.out
-OLD_FILES+=usr/tests/usr.bin/calendar/regress.wn-5.out
-OLD_FILES+=usr/tests/usr.bin/calendar/regress.wn-6.out
-OLD_FILES+=usr/tests/usr.bin/calendar/regress.wn-7.out
-OLD_DIRS+=usr/tests/usr.bin/calendar
-.endif
 
 .if ${MK_CASPER} == no
 OLD_LIBS+=lib/libcasper.so.1
@@ -1684,7 +1565,6 @@ OLD_FILES+=usr/share/examples/bootforth/screen.4th
 OLD_FILES+=usr/share/examples/bsdconfig/add_some_packages.sh
 OLD_FILES+=usr/share/examples/bsdconfig/browse_packages_http.sh
 OLD_FILES+=usr/share/examples/bsdconfig/bsdconfigrc
-OLD_FILES+=usr/share/examples/csh/dot.cshrc
 OLD_FILES+=usr/share/examples/diskless/ME
 OLD_FILES+=usr/share/examples/diskless/README.BOOTP
 OLD_FILES+=usr/share/examples/diskless/README.TEMPLATING
@@ -1905,8 +1785,6 @@ OLD_FILES+=usr/share/examples/sunrpc/sort/Makefile
 OLD_FILES+=usr/share/examples/sunrpc/sort/rsort.c
 OLD_FILES+=usr/share/examples/sunrpc/sort/sort.x
 OLD_FILES+=usr/share/examples/sunrpc/sort/sort_proc.c
-OLD_FILES+=usr/share/examples/tcsh/complete.tcsh
-OLD_FILES+=usr/share/examples/tcsh/csh-mode.el
 OLD_FILES+=usr/share/examples/uefisign/uefikeys
 OLD_FILES+=usr/share/examples/ypldap/ypldap.conf
 OLD_DIRS+=usr/share/examples
@@ -1916,7 +1794,6 @@ OLD_DIRS+=usr/share/examples/IPv6
 OLD_DIRS+=usr/share/examples/bhyve
 OLD_DIRS+=usr/share/examples/bootforth
 OLD_DIRS+=usr/share/examples/bsdconfig
-OLD_DIRS+=usr/share/examples/csh
 OLD_DIRS+=usr/share/examples/diskless
 OLD_DIRS+=usr/share/examples/dma
 OLD_DIRS+=usr/share/examples/drivers
@@ -1969,7 +1846,6 @@ OLD_DIRS+=usr/share/examples/sunrpc
 OLD_DIRS+=usr/share/examples/sunrpc/dir
 OLD_DIRS+=usr/share/examples/sunrpc/msg
 OLD_DIRS+=usr/share/examples/sunrpc/sort
-OLD_DIRS+=usr/share/examples/tcsh
 OLD_DIRS+=usr/share/examples/uefisign
 OLD_DIRS+=usr/share/examples/ypldap
 .endif
@@ -1978,13 +1854,6 @@ OLD_DIRS+=usr/share/examples/ypldap
 OLD_FILES+=usr/share/man/man8/ofwdump.8.gz
 .endif
 
-.if ${MK_FINGER} == no
-OLD_FILES+=usr/bin/finger
-OLD_FILES+=usr/share/man/man1/finger.1.gz
-OLD_FILES+=usr/share/man/man5/finger.conf.5.gz
-OLD_FILES+=usr/libexec/fingerd
-OLD_FILES+=usr/share/man/man8/fingerd.8.gz
-.endif
 
 .if ${MK_FLOPPY} == no
 OLD_FILES+=usr/sbin/fdcontrol
@@ -2026,21 +1895,16 @@ OLD_FILES+=usr/share/man/man8/phttpget.8.gz
 OLD_FILES+=etc/ftpusers
 OLD_FILES+=etc/newsyslog.conf.d/ftp.conf
 OLD_FILES+=etc/pam.d/ftp
-OLD_FILES+=etc/pam.d/ftpd
-OLD_FILES+=etc/rc.d/ftpd
 OLD_FILES+=etc/syslog.d/ftp.conf
 OLD_FILES+=usr/bin/ftp
 OLD_FILES+=usr/bin/gate-ftp
 OLD_FILES+=usr/bin/pftp
-OLD_FILES+=usr/libexec/ftpd
 OLD_FILES+=usr/share/man/man1/ftp.1.gz
 OLD_FILES+=usr/share/man/man1/gate-ftp.1.gz
 OLD_FILES+=usr/share/man/man1/pftp.1.gz
 OLD_FILES+=usr/share/man/man5/ftpchroot.5.gz
-OLD_FILES+=usr/share/man/man8/ftpd.8.gz
 .endif
 
-.if ${MK_GAMES} == no
 OLD_FILES+=usr/bin/caesar
 OLD_FILES+=usr/bin/factor
 OLD_FILES+=usr/bin/fortune
@@ -2083,7 +1947,6 @@ OLD_FILES+=usr/share/man/man6/random.6.gz
 OLD_FILES+=usr/share/man/man6/rot13.6.gz
 OLD_FILES+=usr/share/man/man8/strfile.8.gz
 OLD_FILES+=usr/share/man/man8/unstr.8.gz
-.endif
 
 .if ${MK_GH_BC} == no
 OLD_FILES+=usr/share/misc/bc.library
@@ -5071,41 +4934,6 @@ OLD_FILES+=usr/share/man/man8/locate.updatedb.8.gz
 OLD_FILES+=usr/share/man/man8/updatedb.8.gz
 .endif
 
-.if ${MK_LPR} == no
-OLD_FILES+=etc/hosts.lpd
-OLD_FILES+=etc/printcap
-OLD_FILES+=etc/newsyslog.conf.d/lpr.conf
-OLD_FILES+=etc/rc.d/lpd
-OLD_FILES+=etc/syslog.d/lpr.conf
-OLD_FILES+=usr/bin/lp
-OLD_FILES+=usr/bin/lpq
-OLD_FILES+=usr/bin/lpr
-OLD_FILES+=usr/bin/lprm
-OLD_FILES+=usr/libexec/lpr/ru/bjc-240.sh.sample
-OLD_FILES+=usr/libexec/lpr/ru/koi2alt
-OLD_FILES+=usr/libexec/lpr/ru/koi2855
-OLD_DIRS+=usr/libexec/lpr/ru
-OLD_FILES+=usr/libexec/lpr/lpf
-OLD_DIRS+=usr/libexec/lpr
-OLD_FILES+=usr/sbin/chkprintcap
-OLD_FILES+=usr/sbin/lpc
-OLD_FILES+=usr/sbin/lpd
-OLD_FILES+=usr/sbin/lptest
-OLD_FILES+=usr/sbin/pac
-OLD_FILES+=usr/share/doc/smm/07.lpd/paper.ascii.gz
-OLD_DIRS+=usr/share/doc/smm/07.lpd
-OLD_FILES+=usr/share/examples/etc/hosts.lpd
-OLD_FILES+=usr/share/examples/etc/printcap
-OLD_FILES+=usr/share/man/man1/lp.1.gz
-OLD_FILES+=usr/share/man/man1/lpq.1.gz
-OLD_FILES+=usr/share/man/man1/lpr.1.gz
-OLD_FILES+=usr/share/man/man1/lprm.1.gz
-OLD_FILES+=usr/share/man/man1/lptest.1.gz
-OLD_FILES+=usr/share/man/man5/printcap.5.gz
-OLD_FILES+=usr/share/man/man8/chkprintcap.8.gz
-OLD_FILES+=usr/share/man/man8/lpc.8.gz
-OLD_FILES+=usr/share/man/man8/lpd.8.gz
-OLD_FILES+=usr/share/man/man8/pac.8.gz
 .endif
 
 .if ${MK_MAIL} == no
@@ -5547,7 +5375,6 @@ OLD_FILES+=usr/lib/libnetgraph.a
 OLD_FILES+=usr/lib/libnetgraph.so
 OLD_LIBS+=usr/lib/libnetgraph.so.4
 OLD_FILES+=usr/lib/libnetgraph_p.a
-OLD_FILES+=usr/libexec/pppoed
 OLD_FILES+=usr/sbin/flowctl
 OLD_FILES+=usr/sbin/lmcconfig
 OLD_FILES+=usr/sbin/ngctl
@@ -5571,7 +5398,6 @@ OLD_FILES+=usr/share/man/man8/flowctl.8.gz
 OLD_FILES+=usr/share/man/man8/lmcconfig.8.gz
 OLD_FILES+=usr/share/man/man8/ngctl.8.gz
 OLD_FILES+=usr/share/man/man8/nghook.8.gz
-OLD_FILES+=usr/share/man/man8/pppoed.8.gz
 .endif
 
 .if ${MK_IPFW} == no || ${MK_NETGRAPH} == no
@@ -5682,34 +5508,23 @@ OLD_DIRS+=usr/share/nls/da_DK.ISO8859-15
 OLD_DIRS+=usr/share/nls/da_DK.UTF-8
 OLD_DIRS+=usr/share/nls/de_AT.ISO8859-1
 OLD_FILES+=usr/share/nls/de_AT.ISO8859-1/ee.cat
-OLD_FILES+=usr/share/nls/de_AT.ISO8859-1/tcsh.cat
 OLD_DIRS+=usr/share/nls/de_AT.ISO8859-15
 OLD_FILES+=usr/share/nls/de_AT.ISO8859-15/ee.cat
-OLD_FILES+=usr/share/nls/de_AT.ISO8859-15/tcsh.cat
 OLD_DIRS+=usr/share/nls/de_AT.UTF-8
-OLD_FILES+=usr/share/nls/de_AT.UTF-8/tcsh.cat
 OLD_DIRS+=usr/share/nls/de_CH.ISO8859-1
 OLD_FILES+=usr/share/nls/de_CH.ISO8859-1/ee.cat
-OLD_FILES+=usr/share/nls/de_CH.ISO8859-1/tcsh.cat
 OLD_DIRS+=usr/share/nls/de_CH.ISO8859-15
 OLD_FILES+=usr/share/nls/de_CH.ISO8859-15/ee.cat
-OLD_FILES+=usr/share/nls/de_CH.ISO8859-15/tcsh.cat
 OLD_DIRS+=usr/share/nls/de_CH.UTF-8
-OLD_FILES+=usr/share/nls/de_CH.UTF-8/tcsh.cat
 OLD_DIRS+=usr/share/nls/de_DE.ISO8859-1
 OLD_FILES+=usr/share/nls/de_DE.ISO8859-1/ee.cat
 OLD_FILES+=usr/share/nls/de_DE.ISO8859-1/libc.cat
-OLD_FILES+=usr/share/nls/de_DE.ISO8859-1/tcsh.cat
 OLD_DIRS+=usr/share/nls/de_DE.ISO8859-15
 OLD_FILES+=usr/share/nls/de_DE.ISO8859-15/ee.cat
-OLD_FILES+=usr/share/nls/de_DE.ISO8859-15/tcsh.cat
 OLD_DIRS+=usr/share/nls/de_DE.UTF-8
-OLD_FILES+=usr/share/nls/de_DE.UTF-8/tcsh.cat
 OLD_DIRS+=usr/share/nls/el_GR.ISO8859-7
 OLD_FILES+=usr/share/nls/el_GR.ISO8859-7/libc.cat
-OLD_FILES+=usr/share/nls/el_GR.ISO8859-7/tcsh.cat
 OLD_DIRS+=usr/share/nls/el_GR.UTF-8
-OLD_FILES+=usr/share/nls/el_GR.UTF-8/tcsh.cat
 OLD_DIRS+=usr/share/nls/en_AU.ISO8859-1
 OLD_DIRS+=usr/share/nls/en_AU.ISO8859-15
 OLD_DIRS+=usr/share/nls/en_AU.US-ASCII
@@ -5734,55 +5549,35 @@ OLD_FILES+=usr/share/nls/en_US.ISO8859-15/ee.cat
 OLD_DIRS+=usr/share/nls/en_US.UTF-8
 OLD_DIRS+=usr/share/nls/es_ES.UTF-8
 OLD_FILES+=usr/share/nls/es_ES.ISO8859-1/libc.cat
-OLD_FILES+=usr/share/nls/es_ES.ISO8859-1/tcsh.cat
 OLD_DIRS+=usr/share/nls/es_ES.ISO8859-1
 OLD_DIRS+=usr/share/nls/es_ES.ISO8859-15
-OLD_FILES+=usr/share/nls/es_ES.ISO8859-15/tcsh.cat
-OLD_FILES+=usr/share/nls/es_ES.UTF-8/tcsh.cat
 OLD_DIRS+=usr/share/nls/et_EE.ISO8859-15
-OLD_FILES+=usr/share/nls/et_EE.ISO8859-15/tcsh.cat
 OLD_DIRS+=usr/share/nls/et_EE.UTF-8
-OLD_FILES+=usr/share/nls/et_EE.UTF-8/tcsh.cat
 OLD_DIRS+=usr/share/nls/fi_FI.ISO8859-1
 OLD_FILES+=usr/share/nls/fi_FI.ISO8859-1/libc.cat
-OLD_FILES+=usr/share/nls/fi_FI.ISO8859-1/tcsh.cat
 OLD_DIRS+=usr/share/nls/fi_FI.ISO8859-15
-OLD_FILES+=usr/share/nls/fi_FI.ISO8859-15/tcsh.cat
 OLD_DIRS+=usr/share/nls/fi_FI.UTF-8
-OLD_FILES+=usr/share/nls/fi_FI.UTF-8/tcsh.cat
 OLD_DIRS+=usr/share/nls/fr_BE.ISO8859-1
 OLD_FILES+=usr/share/nls/fr_BE.ISO8859-1/ee.cat
-OLD_FILES+=usr/share/nls/fr_BE.ISO8859-1/tcsh.cat
 OLD_DIRS+=usr/share/nls/fr_BE.ISO8859-15
 OLD_FILES+=usr/share/nls/fr_BE.ISO8859-15/ee.cat
-OLD_FILES+=usr/share/nls/fr_BE.ISO8859-15/tcsh.cat
 OLD_DIRS+=usr/share/nls/fr_BE.UTF-8
-OLD_FILES+=usr/share/nls/fr_BE.UTF-8/tcsh.cat
 OLD_DIRS+=usr/share/nls/fr_CA.ISO8859-1
 OLD_FILES+=usr/share/nls/fr_CA.ISO8859-1/ee.cat
-OLD_FILES+=usr/share/nls/fr_CA.ISO8859-1/tcsh.cat
 OLD_DIRS+=usr/share/nls/fr_CA.ISO8859-15
 OLD_FILES+=usr/share/nls/fr_CA.ISO8859-15/ee.cat
-OLD_FILES+=usr/share/nls/fr_CA.ISO8859-15/tcsh.cat
 OLD_DIRS+=usr/share/nls/fr_CA.UTF-8
-OLD_FILES+=usr/share/nls/fr_CA.UTF-8/tcsh.cat
 OLD_DIRS+=usr/share/nls/fr_CH.ISO8859-1
 OLD_FILES+=usr/share/nls/fr_CH.ISO8859-1/ee.cat
-OLD_FILES+=usr/share/nls/fr_CH.ISO8859-1/tcsh.cat
 OLD_DIRS+=usr/share/nls/fr_CH.ISO8859-15
 OLD_FILES+=usr/share/nls/fr_CH.ISO8859-15/ee.cat
-OLD_FILES+=usr/share/nls/fr_CH.ISO8859-15/tcsh.cat
 OLD_DIRS+=usr/share/nls/fr_CH.UTF-8
-OLD_FILES+=usr/share/nls/fr_CH.UTF-8/tcsh.cat
 OLD_DIRS+=usr/share/nls/fr_FR.ISO8859-1
 OLD_FILES+=usr/share/nls/fr_FR.ISO8859-1/ee.cat
 OLD_FILES+=usr/share/nls/fr_FR.ISO8859-1/libc.cat
-OLD_FILES+=usr/share/nls/fr_FR.ISO8859-1/tcsh.cat
 OLD_DIRS+=usr/share/nls/fr_FR.ISO8859-15
 OLD_FILES+=usr/share/nls/fr_FR.ISO8859-15/ee.cat
-OLD_FILES+=usr/share/nls/fr_FR.ISO8859-15/tcsh.cat
 OLD_DIRS+=usr/share/nls/fr_FR.UTF-8
-OLD_FILES+=usr/share/nls/fr_FR.UTF-8/tcsh.cat
 OLD_DIRS+=usr/share/nls/gl_ES.ISO8859-1
 OLD_FILES+=usr/share/nls/gl_ES.ISO8859-1/libc.cat
 OLD_DIRS+=usr/share/nls/he_IL.UTF-8
@@ -5799,26 +5594,17 @@ OLD_DIRS+=usr/share/nls/is_IS.ISO8859-1
 OLD_DIRS+=usr/share/nls/is_IS.ISO8859-15
 OLD_DIRS+=usr/share/nls/is_IS.UTF-8
 OLD_DIRS+=usr/share/nls/it_CH.ISO8859-1
-OLD_FILES+=usr/share/nls/it_CH.ISO8859-1/tcsh.cat
 OLD_DIRS+=usr/share/nls/it_CH.ISO8859-15
-OLD_FILES+=usr/share/nls/it_CH.ISO8859-15/tcsh.cat
 OLD_DIRS+=usr/share/nls/it_CH.UTF-8
-OLD_FILES+=usr/share/nls/it_CH.UTF-8/tcsh.cat
 OLD_DIRS+=usr/share/nls/it_IT.ISO8859-1
-OLD_FILES+=usr/share/nls/it_IT.ISO8859-1/tcsh.cat
 OLD_DIRS+=usr/share/nls/it_IT.ISO8859-15
 OLD_FILES+=usr/share/nls/it_IT.ISO8859-15/libc.cat
-OLD_FILES+=usr/share/nls/it_IT.ISO8859-15/tcsh.cat
 OLD_DIRS+=usr/share/nls/it_IT.UTF-8
-OLD_FILES+=usr/share/nls/it_IT.UTF-8/tcsh.cat
 OLD_DIRS+=usr/share/nls/ja_JP.SJIS
-OLD_FILES+=usr/share/nls/ja_JP.SJIS/tcsh.cat
 OLD_DIRS+=usr/share/nls/ja_JP.UTF-8
 OLD_FILES+=usr/share/nls/ja_JP.UTF-8/libc.cat
-OLD_FILES+=usr/share/nls/ja_JP.UTF-8/tcsh.cat
 OLD_DIRS+=usr/share/nls/ja_JP.eucJP
 OLD_FILES+=usr/share/nls/ja_JP.eucJP/libc.cat
-OLD_FILES+=usr/share/nls/ja_JP.eucJP/tcsh.cat
 OLD_DIRS+=usr/share/nls/kk_KZ.PT154
 OLD_DIRS+=usr/share/nls/kk_KZ.UTF-8
 OLD_DIRS+=usr/share/nls/ko_KR.CP949
@@ -5858,17 +5644,12 @@ OLD_DIRS+=usr/share/nls/pt_PT.UTF-8
 OLD_DIRS+=usr/share/nls/ro_RO.ISO8859-2
 OLD_DIRS+=usr/share/nls/ro_RO.UTF-8
 OLD_DIRS+=usr/share/nls/ru_RU.CP1251
-OLD_FILES+=usr/share/nls/ru_RU.CP1251/tcsh.cat
 OLD_DIRS+=usr/share/nls/ru_RU.CP866
-OLD_FILES+=usr/share/nls/ru_RU.CP866/tcsh.cat
 OLD_DIRS+=usr/share/nls/ru_RU.ISO8859-5
-OLD_FILES+=usr/share/nls/ru_RU.ISO8859-5/tcsh.cat
 OLD_DIRS+=usr/share/nls/ru_RU.KOI8-R
 OLD_FILES+=usr/share/nls/ru_RU.KOI8-R/ee.cat
 OLD_FILES+=usr/share/nls/ru_RU.KOI8-R/libc.cat
-OLD_FILES+=usr/share/nls/ru_RU.KOI8-R/tcsh.cat
 OLD_DIRS+=usr/share/nls/ru_RU.UTF-8
-OLD_FILES+=usr/share/nls/ru_RU.UTF-8/tcsh.cat
 OLD_DIRS+=usr/share/nls/sk_SK.ISO8859-2
 OLD_FILES+=usr/share/nls/sk_SK.ISO8859-2/libc.cat
 OLD_DIRS+=usr/share/nls/sk_SK.UTF-8
@@ -5884,13 +5665,10 @@ OLD_DIRS+=usr/share/nls/sv_SE.UTF-8
 OLD_DIRS+=usr/share/nls/tr_TR.ISO8859-9
 OLD_DIRS+=usr/share/nls/tr_TR.UTF-8
 OLD_DIRS+=usr/share/nls/uk_UA.ISO8859-5
-OLD_FILES+=usr/share/nls/uk_UA.ISO8859-5/tcsh.cat
 OLD_DIRS+=usr/share/nls/uk_UA.KOI8-U
 OLD_FILES+=usr/share/nls/uk_UA.KOI8-U/ee.cat
-OLD_FILES+=usr/share/nls/uk_UA.KOI8-U/tcsh.cat
 OLD_DIRS+=usr/share/nls/uk_UA.UTF-8
 OLD_FILES+=usr/share/nls/uk_UA.UTF-8/libc.cat
-OLD_FILES+=usr/share/nls/uk_UA.UTF-8/tcsh.cat
 OLD_DIRS+=usr/share/nls/zh_CN.GB18030
 OLD_FILES+=usr/share/nls/zh_CN.GB18030/libc.cat
 OLD_DIRS+=usr/share/nls/zh_CN.GBK
@@ -5905,27 +5683,6 @@ OLD_FILES+=usr/tests/bin/sh/builtins/locale1.0
 .endif
 
 .if ${MK_NLS_CATALOGS} == no
-OLD_FILES+=usr/share/nls/de_AT.UTF-8/tcsh.cat
-OLD_FILES+=usr/share/nls/de_CH.UTF-8/tcsh.cat
-OLD_FILES+=usr/share/nls/de_DE.UTF-8/tcsh.cat
-OLD_FILES+=usr/share/nls/el_GR.UTF-8/tcsh.cat
-OLD_FILES+=usr/share/nls/es_ES.UTF-8/tcsh.cat
-OLD_FILES+=usr/share/nls/et_EE.UTF-8/tcsh.cat
-OLD_FILES+=usr/share/nls/fi_FI.UTF-8/tcsh.cat
-OLD_FILES+=usr/share/nls/fr_BE.UTF-8/tcsh.cat
-OLD_FILES+=usr/share/nls/fr_CA.UTF-8/tcsh.cat
-OLD_FILES+=usr/share/nls/fr_CH.UTF-8/tcsh.cat
-OLD_FILES+=usr/share/nls/fr_FR.UTF-8/tcsh.cat
-OLD_FILES+=usr/share/nls/it_CH.UTF-8/tcsh.cat
-OLD_FILES+=usr/share/nls/it_IT.UTF-8/tcsh.cat
-OLD_FILES+=usr/share/nls/ja_JP.SJIS/tcsh.cat
-OLD_FILES+=usr/share/nls/ja_JP.UTF-8/tcsh.cat
-OLD_FILES+=usr/share/nls/ru_RU.CP1251/tcsh.cat
-OLD_FILES+=usr/share/nls/ru_RU.CP866/tcsh.cat
-OLD_FILES+=usr/share/nls/ru_RU.ISO8859-5/tcsh.cat
-OLD_FILES+=usr/share/nls/ru_RU.UTF-8/tcsh.cat
-OLD_FILES+=usr/share/nls/uk_UA.ISO8859-5/tcsh.cat
-OLD_FILES+=usr/share/nls/uk_UA.UTF-8/tcsh.cat
 .endif
 
 .if ${MK_NS_CACHING} == no
@@ -6857,7 +6614,6 @@ OLD_FILES+=usr/share/man/man8/pmcstat.8.gz
 OLD_FILES+=usr/share/man/man8/pmcstudy.8.gz
 .endif
 
-.if ${MK_PPP} == no
 OLD_FILES+=etc/newsyslog.conf.d/ppp.conf
 OLD_FILES+=etc/ppp/ppp.conf
 OLD_FILES+=etc/syslog.d/ppp.conf
@@ -6866,7 +6622,13 @@ OLD_FILES+=usr/sbin/ppp
 OLD_FILES+=usr/sbin/pppctl
 OLD_FILES+=usr/share/man/man8/ppp.8.gz
 OLD_FILES+=usr/share/man/man8/pppctl.8.gz
-.endif
+OLD_FILES+=etc/rc.d/ppp
+OLD_FILES+=etc/rc.d/pppoed
+OLD_FILES+=etc/rc.d/rfcomm_pppd_server
+OLD_FILES+=usr/libexec/pppoed
+OLD_FILES+=usr/sbin/rfcomm_pppd
+OLD_FILES+=usr/share/man/man8/pppoed.8.gz
+OLD_FILES+=usr/share/man/man8/rfcomm_pppd.8.gz
 
 .if ${MK_PROFILE} == no
 OLD_FILES+=usr/lib/lib80211_p.a
@@ -7614,79 +7376,7 @@ OLD_FILES+=usr/share/man/man1/talk.1.gz
 OLD_FILES+=usr/share/man/man8/talkd.8.gz
 .endif
 
-.if ${MK_TCSH} == no
-OLD_FILES+=.cshrc
-OLD_FILES+=etc/csh.cshrc
-OLD_FILES+=etc/csh.login
-OLD_FILES+=etc/csh.logout
-OLD_FILES+=bin/csh
-OLD_FILES+=bin/tcsh
-OLD_FILES+=rescue/csh
-OLD_FILES+=rescue/tcsh
-OLD_FILES+=root/.cshrc
-OLD_FILES+=root/.login
-OLD_FILES+=usr/share/examples/etc/csh.cshrc
-OLD_FILES+=usr/share/examples/etc/csh.login
-OLD_FILES+=usr/share/examples/etc/csh.logout
-OLD_FILES+=usr/share/examples/tcsh/complete.tcsh
-OLD_FILES+=usr/share/examples/tcsh/csh-mode.el
-OLD_DIRS+=usr/share/examples/tcsh
-OLD_FILES+=usr/share/man/man1/csh.1.gz
-OLD_FILES+=usr/share/man/man1/tcsh.1.gz
-OLD_FILES+=usr/share/nls/de_AT.ISO8859-1/tcsh.cat
-OLD_FILES+=usr/share/nls/de_AT.ISO8859-15/tcsh.cat
-OLD_FILES+=usr/share/nls/de_AT.UTF-8/tcsh.cat
-OLD_FILES+=usr/share/nls/de_CH.ISO8859-1/tcsh.cat
-OLD_FILES+=usr/share/nls/de_CH.ISO8859-15/tcsh.cat
-OLD_FILES+=usr/share/nls/de_CH.UTF-8/tcsh.cat
-OLD_FILES+=usr/share/nls/de_DE.ISO8859-1/tcsh.cat
-OLD_FILES+=usr/share/nls/de_DE.ISO8859-15/tcsh.cat
-OLD_FILES+=usr/share/nls/de_DE.UTF-8/tcsh.cat
-OLD_FILES+=usr/share/nls/el_GR.ISO8859-7/tcsh.cat
-OLD_FILES+=usr/share/nls/el_GR.UTF-8/tcsh.cat
-OLD_FILES+=usr/share/nls/es_ES.ISO8859-1/tcsh.cat
-OLD_FILES+=usr/share/nls/es_ES.ISO8859-15/tcsh.cat
-OLD_FILES+=usr/share/nls/es_ES.UTF-8/tcsh.cat
-OLD_FILES+=usr/share/nls/et_EE.ISO8859-15/tcsh.cat
-OLD_FILES+=usr/share/nls/et_EE.UTF-8/tcsh.cat
-OLD_FILES+=usr/share/nls/fi_FI.ISO8859-1/tcsh.cat
-OLD_FILES+=usr/share/nls/fi_FI.ISO8859-15/tcsh.cat
-OLD_FILES+=usr/share/nls/fi_FI.UTF-8/tcsh.cat
-OLD_FILES+=usr/share/nls/fr_BE.ISO8859-1/tcsh.cat
-OLD_FILES+=usr/share/nls/fr_BE.ISO8859-15/tcsh.cat
-OLD_FILES+=usr/share/nls/fr_BE.UTF-8/tcsh.cat
-OLD_FILES+=usr/share/nls/fr_CA.ISO8859-1/tcsh.cat
-OLD_FILES+=usr/share/nls/fr_CA.ISO8859-15/tcsh.cat
-OLD_FILES+=usr/share/nls/fr_CA.UTF-8/tcsh.cat
-OLD_FILES+=usr/share/nls/fr_CH.ISO8859-1/tcsh.cat
-OLD_FILES+=usr/share/nls/fr_CH.ISO8859-15/tcsh.cat
-OLD_FILES+=usr/share/nls/fr_CH.UTF-8/tcsh.cat
-OLD_FILES+=usr/share/nls/fr_FR.ISO8859-1/tcsh.cat
-OLD_FILES+=usr/share/nls/fr_FR.ISO8859-15/tcsh.cat
-OLD_FILES+=usr/share/nls/fr_FR.UTF-8/tcsh.cat
-OLD_FILES+=usr/share/nls/it_CH.ISO8859-1/tcsh.cat
-OLD_FILES+=usr/share/nls/it_CH.ISO8859-15/tcsh.cat
-OLD_FILES+=usr/share/nls/it_CH.UTF-8/tcsh.cat
-OLD_FILES+=usr/share/nls/it_IT.ISO8859-1/tcsh.cat
-OLD_FILES+=usr/share/nls/it_IT.ISO8859-15/tcsh.cat
-OLD_FILES+=usr/share/nls/it_IT.UTF-8/tcsh.cat
-OLD_FILES+=usr/share/nls/ja_JP.SJIS/tcsh.cat
-OLD_FILES+=usr/share/nls/ja_JP.UTF-8/tcsh.cat
-OLD_FILES+=usr/share/nls/ja_JP.eucJP/tcsh.cat
-OLD_FILES+=usr/share/nls/ru_RU.CP1251/tcsh.cat
-OLD_FILES+=usr/share/nls/ru_RU.CP866/tcsh.cat
-OLD_FILES+=usr/share/nls/ru_RU.ISO8859-5/tcsh.cat
-OLD_FILES+=usr/share/nls/ru_RU.KOI8-R/tcsh.cat
-OLD_FILES+=usr/share/nls/ru_RU.UTF-8/tcsh.cat
-OLD_FILES+=usr/share/nls/uk_UA.ISO8859-5/tcsh.cat
-OLD_FILES+=usr/share/nls/uk_UA.KOI8-U/tcsh.cat
-OLD_FILES+=usr/share/nls/uk_UA.UTF-8/tcsh.cat
-.endif
 
-.if ${MK_TELNET} == no
-OLD_FILES+=usr/bin/telnet
-OLD_FILES+=usr/share/man/man1/telnet.1.gz
-.endif
 
 .if ${MK_TESTS} == yes
 OLD_FILES+=usr/bin/atf-sh
@@ -9126,31 +8816,6 @@ OLD_FILES+=usr/lib/libveriexec.so
 OLD_LIBS+=usr/lib/libveriexec.so.5
 .endif
 
-.if ${MK_VI} == no
-OLD_FILES+=etc/rc.d/virecover
-OLD_FILES+=rescue/ex
-OLD_FILES+=rescue/vi
-OLD_FILES+=usr/bin/ex
-OLD_FILES+=usr/bin/nex
-OLD_FILES+=usr/bin/nvi
-OLD_FILES+=usr/bin/nview
-OLD_FILES+=usr/bin/vi
-OLD_FILES+=usr/bin/view
-OLD_FILES+=usr/share/man/man1/ex.1.gz
-OLD_FILES+=usr/share/man/man1/nex.1.gz
-OLD_FILES+=usr/share/man/man1/nvi.1.gz
-OLD_FILES+=usr/share/man/man1/nview.1.gz
-OLD_FILES+=usr/share/man/man1/vi.1.gz
-OLD_FILES+=usr/share/man/man1/view.1.gz
-.  if exists(${DESTDIR}/usr/share/vi)
-VI_DIRS!=find ${DESTDIR}/usr/share/vi -type d \
-    | sed -e 's,^${DESTDIR}/,,'; echo
-VI_FILES!=find ${DESTDIR}/usr/share/vi \! -type d \
-    | sed -e 's,^${DESTDIR}/,,'; echo
-OLD_DIRS+=${VI_DIRS}
-OLD_FILES+=${VI_FILES}
-.  endif
-.endif
 
 .if ${MK_WIRELESS} == no
 OLD_FILES+=etc/regdomain.xml

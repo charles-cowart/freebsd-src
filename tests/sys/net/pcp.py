@@ -30,45 +30,37 @@ import logging
 logging.getLogger("scapy").setLevel(logging.CRITICAL)
 import scapy.all as sp
 import sys
-import os
-curdir = os.path.dirname(os.path.realpath(__file__))
-netpfil_common = curdir + "/../netpfil/common"
-sys.path.append(netpfil_common)
-from sniffer import Sniffer
 
 def check_pcp(args, packet):
-	vlan = packet.getlayer(sp.Dot1Q)
+        vlan = packet.getlayer(sp.Dot1Q)
 
-	if vlan is None:
-		return False
+        if vlan is None:
+                return False
 
-	if not packet.getlayer(sp.BOOTP):
-		return False
+        if not packet.getlayer(sp.BOOTP):
+                return False
 
-	if vlan.prio == int(args.expect_pcp[0]):
-		return True
+        if vlan.prio == int(args.expect_pcp[0]):
+                return True
 
-	return False
+        return False
 
 def main():
-	parser = argparse.ArgumentParser("pcp.py",
-		description="PCP test tool")
-	parser.add_argument('--recvif', nargs=1,
-		required=True,
-		help='The interface where to look for packets to check')
-	parser.add_argument('--expect-pcp', nargs=1,
-		help='The expected PCP value on VLAN packets')
+        parser = argparse.ArgumentParser("pcp.py",
+                description="PCP test tool")
+        parser.add_argument('--recvif', nargs=1,
+                required=True,
+                help='The interface where to look for packets to check')
+        parser.add_argument('--expect-pcp', nargs=1,
+                help='The expected PCP value on VLAN packets')
 
-	args = parser.parse_args()
+        args = parser.parse_args()
 
-	sniffer = Sniffer(args, check_pcp, args.recvif[0], timeout=20)
-
-	sniffer.join()
-
-	if sniffer.correctPackets:
-		sys.exit(0)
-
-	sys.exit(1)
+        packets = sp.sniff(iface=args.recvif[0], timeout=20)
+        for packet in packets:
+                if check_pcp(args, packet):
+                        sys.exit(0)
+        sys.exit(1)
 
 if __name__ == '__main__':
-	main()
+        main()

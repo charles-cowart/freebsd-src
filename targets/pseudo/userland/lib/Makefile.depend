@@ -121,9 +121,7 @@ DIRDEPS = \
 	lib/libpam/modules/pam_chroot \
 	lib/libpam/modules/pam_deny \
 	lib/libpam/modules/pam_echo \
-	lib/libpam/modules/pam_exec \
-	lib/libpam/modules/pam_ftpusers \
-	lib/libpam/modules/pam_group \
+	lib/libpam/modules/pam_exec \	lib/libpam/modules/pam_group \
 	lib/libpam/modules/pam_guest \
 	lib/libpam/modules/pam_krb5 \
 	lib/libpam/modules/pam_ksu \

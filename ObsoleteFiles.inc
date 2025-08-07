@@ -35,6 +35,34 @@
 # grep '+=' /usr/src/tools/build/mk/OptionalObsoleteFiles.inc | sort -u) | \
 # sort | uniq -d
 #
+# 20251120: remove ftpd and pam_ftpusers
+OLD_FILES+=etc/ftpusers
+OLD_FILES+=etc/pam.d/ftpd
+OLD_FILES+=etc/rc.d/ftpd
+OLD_FILES+=usr/libexec/ftpd
+OLD_FILES+=usr/share/man/man5/ftpchroot.5.gz
+OLD_FILES+=usr/share/man/man8/ftpd.8.gz
+OLD_LIBS+=usr/lib/pam_ftpusers.so.6
+OLD_FILES+=usr/share/man/man8/pam_ftpusers.8.gz
+
+# 20250807: remove calendar, finger, telnet, motd
+OLD_FILES+=etc/motd.template
+OLD_FILES+=etc/periodic/daily/300.calendar
+OLD_FILES+=etc/rc.d/motd
+OLD_FILES+=usr/bin/calendar
+OLD_FILES+=usr/bin/finger
+OLD_FILES+=usr/bin/telnet
+OLD_FILES+=usr/lib/libtelnet.a
+OLD_FILES+=usr/lib/libtelnet_p.a
+OLD_FILES+=usr/libexec/fingerd
+OLD_FILES+=usr/libexec/telnetd
+OLD_FILES+=usr/share/man/man1/calendar.1.gz
+OLD_FILES+=usr/share/man/man1/finger.1.gz
+OLD_FILES+=usr/share/man/man1/telnet.1.gz
+OLD_FILES+=usr/share/man/man5/finger.conf.5.gz
+OLD_FILES+=usr/share/man/man5/motd.5.gz
+OLD_FILES+=usr/share/man/man8/fingerd.8.gz
+OLD_FILES+=usr/share/man/man8/telnetd.8.gz
 # To find regular duplicates not dependent on optional components, you can
 # also use something that will not give you false positives, e.g.:
 # for t in `make -V TARGETS universe`; do
@@ -50,6 +78,23 @@
 #   -V OLD_FILES -V OLD_LIBS -V MOVED_LIBS -V OLD_DIRS check-old | \
 #   xargs -n1 | sort | uniq -d;
 # done
+
+# 20250601: remove vi, nvi, and ed editors
+OLD_FILES+=bin/ed
+OLD_FILES+=usr/bin/ex
+OLD_FILES+=usr/bin/nex
+OLD_FILES+=usr/bin/nvi
+OLD_FILES+=usr/bin/nview
+OLD_FILES+=usr/bin/vi
+OLD_FILES+=usr/bin/view
+OLD_FILES+=usr/share/man/man1/ed.1.gz
+OLD_FILES+=usr/share/man/man1/ex.1.gz
+OLD_FILES+=usr/share/man/man1/nex.1.gz
+OLD_FILES+=usr/share/man/man1/nvi.1.gz
+OLD_FILES+=usr/share/man/man1/nview.1.gz
+OLD_FILES+=usr/share/man/man1/vi.1.gz
+OLD_FILES+=usr/share/man/man1/view.1.gz
+OLD_FILES+=etc/rc.d/virecover
 
 # 20250524: don't install zoneinfo version
 OLD_FILES+=usr/share/zoneinfo/version
@@ -1442,6 +1487,10 @@ OLD_DIRS+=usr/include/c++/v1/__tuple_dir
 OLD_FILES+=usr/include/c++/v1/experimental/algorithm
 OLD_FILES+=usr/include/c++/v1/experimental/coroutine
 OLD_FILES+=usr/include/c++/v1/experimental/functional
+
+# 20240105: Remove PF tests and helpers
+OLD_DIRS+=usr/tests/sys/netpfil/pf
+OLD_DIRS+=usr/tests/sys/netpfil/common
 
 # 20231006: rename tcp6_v4unmapped_bind_test
 OLD_FILES+=usr/tests/sys/netinet/tcp6_v4unmapped_bind_test
@@ -19357,4 +19406,57 @@ OLD_DIRS+=usr/include/ufs/mfs
 OLD_DIRS+=usr/libexec/uucp
 
 
+# 2024-07-01: remove lpr/lpd and related utilities
+OLD_FILES+=etc/hosts.lpd
+OLD_FILES+=etc/printcap
+OLD_FILES+=etc/newsyslog.conf.d/lpr.conf
+OLD_FILES+=etc/rc.d/lpd
+OLD_FILES+=etc/syslog.d/lpr.conf
+OLD_FILES+=usr/bin/lp
+OLD_FILES+=usr/bin/lpq
+OLD_FILES+=usr/bin/lpr
+OLD_FILES+=usr/bin/lprm
+OLD_FILES+=usr/libexec/lpr/ru/bjc-240.sh.sample
+OLD_FILES+=usr/libexec/lpr/ru/koi2alt
+OLD_FILES+=usr/libexec/lpr/ru/koi2855
+OLD_DIRS+=usr/libexec/lpr/ru
+OLD_FILES+=usr/libexec/lpr/lpf
+OLD_DIRS+=usr/libexec/lpr
+OLD_FILES+=usr/sbin/chkprintcap
+OLD_FILES+=usr/sbin/lpc
+OLD_FILES+=usr/sbin/lpd
+OLD_FILES+=usr/sbin/lptcontrol
+OLD_FILES+=usr/sbin/lptest
+OLD_FILES+=usr/sbin/pac
+OLD_FILES+=usr/share/examples/etc/hosts.lpd
+OLD_FILES+=usr/share/examples/etc/printcap
+OLD_FILES+=usr/share/man/man1/lp.1.gz
+OLD_FILES+=usr/share/man/man1/lpq.1.gz
+OLD_FILES+=usr/share/man/man1/lpr.1.gz
+OLD_FILES+=usr/share/man/man1/lprm.1.gz
+OLD_FILES+=usr/share/man/man1/lptest.1.gz
+OLD_FILES+=usr/share/man/man5/printcap.5.gz
+OLD_FILES+=usr/share/man/man8/chkprintcap.8.gz
+OLD_FILES+=usr/share/man/man8/lpc.8.gz
+OLD_FILES+=usr/share/man/man8/lpd.8.gz
+OLD_FILES+=usr/share/man/man8/lptcontrol.8.gz
+OLD_FILES+=usr/share/man/man8/pac.8.gz
+OLD_FILES+=usr/share/man/man5/hosts.lpd.5.gz
+OLD_FILES+=usr/share/examples/printing/diablo-if-net
+OLD_FILES+=usr/share/examples/printing/hpdf
+OLD_FILES+=usr/share/examples/printing/hpif
+OLD_FILES+=usr/share/examples/printing/hpof
+OLD_FILES+=usr/share/examples/printing/hprf
+OLD_FILES+=usr/share/examples/printing/hpvf
+OLD_FILES+=usr/share/examples/printing/if-simple
+OLD_FILES+=usr/share/examples/printing/if-simpleX
+OLD_FILES+=usr/share/examples/printing/ifhp
+OLD_FILES+=usr/share/examples/printing/make-ps-header
+OLD_FILES+=usr/share/examples/printing/netprint
+OLD_FILES+=usr/share/examples/printing/psdf
+OLD_FILES+=usr/share/examples/printing/psdfX
+OLD_FILES+=usr/share/examples/printing/psif
+OLD_FILES+=usr/share/examples/printing/pstf
+OLD_FILES+=usr/share/examples/printing/pstfX
+OLD_DIRS+=usr/share/examples/printing
 .include "tools/build/mk/OptionalObsoleteFiles.inc"

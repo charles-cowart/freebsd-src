@@ -31,7 +31,7 @@
 run (shell script)
 .LP
 .vS
-#! /bin/csh -fx
+#!/bin/sh
 # Script to run benchmark programs.
 #
 date

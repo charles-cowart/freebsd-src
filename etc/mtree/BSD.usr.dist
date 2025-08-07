@@ -262,7 +262,6 @@
             ..
             bsdconfig
             ..
-            csh
             ..
             diskless
             ..
@@ -364,7 +363,6 @@
                 sort
                 ..
             ..
-            tcsh
             ..
             uefisign
             ..
@@ -374,10 +372,6 @@
         firmware
         ..
         flua
-        ..
-        games
-            fortune
-            ..
         ..
         i18n
             csmapper
@@ -489,8 +483,6 @@
                 ..
             ..
             man5
-            ..
-            man6
             ..
             man7
             ..

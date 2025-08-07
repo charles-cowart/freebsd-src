@@ -10,7 +10,6 @@ LDIRS=	BSD_daemon \
 	FreeBSD_version \
 	IPv6 \
 	bootforth \
-	csh \
 	drivers \
 	etc \
 	find_interface \
@@ -25,8 +24,6 @@ LDIRS=	BSD_daemon \
 	oci \
 	perfmon \
 	ppi \
-	ppp \
-	printing \
 	ses \
 	scsi_target \
 	sound \
@@ -71,8 +68,6 @@ SE_BOOTFORTH= \
 	menuconf.4th \
 	screen.4th
 
-SE_DIRS+=	csh
-SE_CSH=	dot.cshrc
 
 SE_DIRS+=	drivers
 SE_DRIVERS= \
@@ -232,24 +227,7 @@ SE_PPI= \
 	Makefile \
 	ppilcd.c
 
-SE_DIRS+=	ppp
-SE_PPP= \
-	chap-auth \
-	login-auth \
-	ppp.conf.sample \
-	ppp.conf.span-isp \
-	ppp.conf.span-isp.working \
-	ppp.linkdown.sample \
-	ppp.linkdown.span-isp \
-	ppp.linkdown.span-isp.working \
-	ppp.linkup.sample \
-	ppp.linkup.span-isp \
-	ppp.linkup.span-isp.working \
-	ppp.secret.sample \
-	ppp.secret.span-isp \
-	ppp.secret.span-isp.working
 
-SE_DIRS+=	printing
 SE_PRINTING= \
 	diablo-if-net \
 	hpdf \

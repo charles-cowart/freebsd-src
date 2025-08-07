@@ -1061,10 +1061,6 @@ This variable contains flags passed to the
 .Xr ipfs 8
 program.
 .\" ----- end of added ipf hook ---------------------------------
-
-
-
-
 .It Va tcp_extensions
 .Pq Vt bool
 Set to
@@ -1528,7 +1524,7 @@ In most cases, just defining an
 .Va ifconfig_ Ns Ao Ar interface Ac Ns _ipv6
 for an IPv6-capable interface should be sufficient.
 However, if an interface is added dynamically
-.Pq by some tunneling protocols such as PPP, for example ,
+.Pq by some tunneling protocols ,
 it is often difficult to define the variable in advance.
 In such a case, configuring the
 .Dq Li IFDISABLED
@@ -1820,79 +1816,6 @@ ifconfig_gif0="inet 10.0.0.1 10.0.0.2 netmask 255.255.255.252"
 gifconfig_gif1="inet6 2a00::1 2a01::1"
 ifconfig_gif1="inet 10.1.0.1 10.1.0.2 netmask 255.255.255.252"
 .Ed
-.It Va ppp_enable
-.Pq Vt bool
-If set to
-.Dq Li YES ,
-run the
-.Xr ppp 8
-daemon.
-.It Va ppp_profile
-.Pq Vt str
-The name of the profile to use from
-.Pa /etc/ppp/ppp.conf .
-Also used for per-profile overrides of
-.Va ppp_mode
-and
-.Va ppp_nat ,
-and
-.Va ppp_ Ns Ao Ar profile Ac Ns _unit .
-When the profile name contains any of the characters
-.Dq Li .-/+
-they are translated to
-.Dq Li _
-for the proposes of the override variable names.
-.It Va ppp_mode
-.Pq Vt str
-Mode in which to run the
-.Xr ppp 8
-daemon.
-.It Va ppp_ Ns Ao Ar profile Ac Ns _mode
-.Pq Vt str
-Overrides the global
-.Va ppp_mode
-for
-.Ar profile .
-Accepted modes are
-.Dq Li auto ,
-.Dq Li ddial ,
-.Dq Li direct
-and
-.Dq Li dedicated .
-See the manual for a full description.
-.It Va ppp_nat
-.Pq Vt bool
-If set to
-.Dq Li YES ,
-enables network address translation.
-Used in conjunction with
-.Va gateway_enable
-allows hosts on private network addresses access to the Internet using
-this host as a network address translating router.
-Default is
-.Dq Li YES .
-.It Va ppp_ Ns Ao Ar profile Ac Ns _nat
-.Pq Vt str
-Overrides the global
-.Va ppp_nat
-for
-.Ar profile .
-.It Va ppp_ Ns Ao Ar profile Ac Ns _unit
-.Pq Vt int
-Set the unit number to be used for this profile.
-See the manual description of
-.Fl unit Ns Ar N
-for details.
-.It Va ppp_user
-.Pq Vt str
-The name of the user under which
-.Xr ppp 8
-should be started.
-By
-default,
-.Xr ppp 8
-is started as
-.Dq Li root .
 .It Va rc_conf_files
 .Pq Vt str
 This option is used to specify a list of files that will override
@@ -2480,36 +2403,6 @@ is set to
 these are the flags to pass to
 .Xr keyserv 8
 daemon.
-.It Va pppoed_enable
-.Pq Vt bool
-If set to
-.Dq Li YES ,
-run the
-.Xr pppoed 8
-daemon at boot time to provide PPP over Ethernet services.
-.It Va pppoed_ Ns Aq Ar provider
-.Pq Vt str
-.Xr pppoed 8
-listens to requests to this
-.Ar provider
-and ultimately runs
-.Xr ppp 8
-with a
-.Ar system
-argument of the same name.
-.It Va pppoed_flags
-.Pq Vt str
-Additional flags to pass to
-.Xr pppoed 8 .
-.It Va pppoed_interface
-.Pq Vt str
-The network interface to run
-.Xr pppoed 8
-on.
-This is mandatory when
-.Va pppoed_enable
-is set to
-.Dq Li YES .
 .It Va ntpdate_enable
 .Pq Vt bool
 If set to
@@ -3119,7 +3012,7 @@ seconds.
 If not set to
 .Dq Li NO ,
 this is the actual screen saver to use
-.Li ( blank , snake , daemon ,
+.Li ( blank , daemon ,
 etc).
 .It Va moused_nondefault_enable
 .Pq Vt str
@@ -3343,51 +3236,6 @@ Daylight Saving Time in
 .Xr cron 8
 (equivalent to using the flag
 .Fl s ) .
-.It Va lpd_program
-.Pq Vt str
-Path to
-.Xr lpd 8
-(default
-.Pa /usr/sbin/lpd ) .
-.It Va lpd_enable
-.Pq Vt bool
-If set to
-.Dq Li YES ,
-run the
-.Xr lpd 8
-daemon at system boot time.
-.It Va lpd_flags
-.Pq Vt str
-If
-.Va lpd_enable
-is set to
-.Dq Li YES ,
-these are the flags to pass to the
-.Xr lpd 8
-daemon.
-.It Va chkprintcap_enable
-.Pq Vt bool
-If set to
-.Dq Li YES ,
-run the
-.Xr chkprintcap 8
-command before starting the
-.Xr lpd 8
-daemon.
-.It Va chkprintcap_flags
-.Pq Vt str
-If
-.Va lpd_enable
-and
-.Va chkprintcap_enable
-are set to
-.Dq Li YES ,
-these are the flags to pass to the
-.Xr chkprintcap 8
-program.
-The default is
-.Dq Li -d ,
-which causes missing directories to be created.
 .It Va dumpdev
 .Pq Vt str
 Indicates the device (usually a swap partition) to which a crash dump
@@ -3627,27 +3475,6 @@ is set to
 .Dq Li YES ,
 these are the flags to pass to the
 .Xr sshd 8
-daemon.
-.It Va ftpd_program
-.Pq Vt str
-Path to the FTP server program
-.Pa ( /usr/libexec/ftpd
-is the default).
-.It Va ftpd_enable
-.Pq Vt bool
-Set to
-.Dq Li YES
-to start
-.Xr ftpd 8
-as a stand-alone daemon at system boot time.
-.It Va ftpd_flags
-.Pq Vt str
-If
-.Va ftpd_enable
-is set to
-.Dq Li YES ,
-these are the additional flags to pass to the
-.Xr ftpd 8
 daemon.
 .It Va watchdogd_enable
 .Pq Vt bool
@@ -4059,14 +3886,6 @@ to more than 120 seconds will have no effect until the
 variable
 .Va kern.init_shutdown_timeout
 is also increased.
-.It Va virecover_enable
-.Pq Vt bool
-Set to
-.Dq Li NO
-to prevent the system from trying to
-recover prematurely terminated
-.Xr vi 1
-sessions.
 .It Va ugidfw_enable
 .Pq Vt bool
 Set to
@@ -4265,53 +4084,6 @@ Path to a file, where
 will store information about known HID devices.
 Default
 .Pa /var/db/bthidd.hids .
-.It Va rfcomm_pppd_server_enable
-.Pq Vt bool
-If set to
-.Dq Li YES ,
-enable Bluetooth RFCOMM PPP wrapper daemon.
-.It Va rfcomm_pppd_server_profile
-.Pq Vt str
-The name of the profile to use from
-.Pa /etc/ppp/ppp.conf .
-Multiple profiles can be specified here.
-Also used to specify per-profile overrides.
-When the profile name contains any of the characters
-.Dq Li .-/+
-they are translated to
-.Dq Li _
-for the proposes of the override variable names.
-.It Va rfcomm_pppd_server_ Ns Ao Ar profile Ac Ns _bdaddr
-.Pq Vt str
-Overrides local address to listen on.
-By default
-.Xr rfcomm_pppd 8
-will listen on
-.Dq Li ANY
-address.
-The address can be specified as BD_ADDR or name.
-.It Va rfcomm_pppd_server_ Ns Ao Ar profile Ac Ns _channel
-.Pq Vt str
-Overrides local RFCOMM channel to listen on.
-By default
-.Xr rfcomm_pppd 8
-will listen on RFCOMM channel 1.
-Must set properly if multiple profiles used in the same time.
-.It Va rfcomm_pppd_server_ Ns Ao Ar profile Ac Ns _register_sp
-.Pq Vt bool
-Tells
-.Xr rfcomm_pppd 8
-if it should register Serial Port service on the specified RFCOMM channel.
-Default
-.Dq Li NO .
-.It Va rfcomm_pppd_server_ Ns Ao Ar profile Ac Ns _register_dun
-.Pq Vt bool
-Tells
-.Xr rfcomm_pppd 8
-if it should register Dial-Up Networking service on the specified
-RFCOMM channel.
-Default
-.Dq Li NO .
 .It Va ubthidhci_enable
 .Pq Vt bool
 If set to
@@ -4738,7 +4510,7 @@ these are the flags to pass to the
 .Xr jail.conf 5 ,
 .Xr loader.conf 5 ,
 .Xr login.conf 5 ,
-.Xr motd 5 ,
+
 .Xr newsyslog.conf 5 ,
 .Xr firewall 7 ,
 .Xr growfs 7 ,
@@ -4748,12 +4520,10 @@ these are the flags to pass to the
 .Xr apm 8 ,
 .Xr bsdinstall 8 ,
 .Xr bthidd 8 ,
-.Xr chkprintcap 8 ,
 .Xr chown 8 ,
 .Xr cron 8 ,
 .Xr devfs 8 ,
 .Xr dhclient 8 ,
-.Xr ftpd 8 ,
 .Xr geli 8 ,
 .Xr hcsecd 8 ,
 .Xr ifconfig 8 ,
@@ -4765,7 +4535,6 @@ these are the flags to pass to the
 .Xr jail 8 ,
 .Xr kldxref 8 ,
 .Xr loader 8 ,
-.Xr lpd 8 ,
 .Xr makewhatis 8 ,
 .Xr mdconfig 8 ,
 .Xr mdmfs 8 ,
@@ -4784,7 +4553,6 @@ these are the flags to pass to the
 .Xr rc 8 ,
 .Xr rc.subr 8 ,
 .Xr rcorder 8 ,
-.Xr rfcomm_pppd 8 ,
 .Xr route 8 ,
 .Xr route6d 8 ,
 .Xr routed 8 ,

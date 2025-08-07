@@ -59,10 +59,9 @@ dialog_menu_main()
 		'7 $msg_fire'    '$msg_fire_desc'
 		'8 $msg_green'   '$msg_green_desc'
 		'9 $msg_logo'    '$msg_logo_desc'
-		'a $msg_rain'    '$msg_rain_desc'
-		'b $msg_snake'   '$msg_snake_desc'
-		'c $msg_star'    '$msg_star_desc'
-		'd $msg_warp'    '$msg_warp_desc'
+                'a $msg_rain'    '$msg_rain_desc'
+                'b $msg_star'    '$msg_star_desc'
+                'c $msg_warp'    '$msg_warp_desc'
 		'$msg_timeout'   '$msg_timeout_desc'
 	" # END-QUOTE
 	local defaultitem= # Calculated below
@@ -86,10 +85,9 @@ dialog_menu_main()
 	fire)        defaultitem="7 $msg_fire"    ;;
 	green)       defaultitem="8 $msg_green"   ;;
 	logo)        defaultitem="9 $msg_logo"    ;;
-	rain)        defaultitem="a $msg_rain"    ;;
-	snake)       defaultitem="b $msg_snake"   ;;
-	star)        defaultitem="c $msg_star"    ;;
-	warp)        defaultitem="d $msg_warp"    ;;
+        rain)        defaultitem="a $msg_rain"    ;;
+        star)        defaultitem="b $msg_star"    ;;
+        warp)        defaultitem="c $msg_warp"    ;;
 	esac
 
 	local menu_choice
@@ -170,13 +168,11 @@ case "$mtag" in
 "9 $msg_logo") # FreeBSD "logo" animated screen saver (graphics)
 	saver_to_set="logo" ;;
 "a $msg_rain") # Rain drops screen saver
-	saver_to_set="rain" ;;
-"b $msg_snake") # Draw a FreeBSD "snake" on your screen
-	saver_to_set="snake" ;;
-"c $msg_star") # A "twinkling stars" effect
-	saver_to_set="star" ;;
-"d $msg_warp") # A "stars warping" effect
-	saver_to_set="warp" ;;
+        saver_to_set="rain" ;;
+"b $msg_star") # A "twinkling stars" effect
+        saver_to_set="star" ;;
+"c $msg_warp") # A "stars warping" effect
+        saver_to_set="warp" ;;
 esac
 
 if [ "$saver_to_set" ]; then

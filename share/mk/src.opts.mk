@@ -73,7 +73,6 @@ __DEFAULT_YES_OPTIONS = \
     BSDINSTALL \
     BSNMP \
     BZIP2 \
-    CALENDAR \
     CAROOT \
     CCD \
     CDDL \
@@ -95,7 +94,6 @@ __DEFAULT_YES_OPTIONS = \
     ELFTOOLCHAIN_BOOTSTRAP \
     EXAMPLES \
     FILE \
-    FINGER \
     FLOPPY \
     FORTH \
     FP_LIBC \
@@ -138,7 +136,6 @@ __DEFAULT_YES_OPTIONS = \
     LOADER_IA32 \
     LOCALES \
     LOCATE \
-    LPR \
     LS_COLORS \
     MACHDEP_OPTIMIZATIONS \
     MAIL \
@@ -158,7 +155,6 @@ __DEFAULT_YES_OPTIONS = \
     PAM \
     PKGBOOTSTRAP \
     PMC \
-    PPP \
     PTHREADS_ASSERTIONS \
     QUOTAS \
     RADIUS_SUPPORT \
@@ -179,14 +175,11 @@ __DEFAULT_YES_OPTIONS = \
     SYSTEM_LINKER \
     TALK \
     TCP_WRAPPERS \
-    TCSH \
-    TELNET \
     TEXTPROC \
     TFTP \
     UNBOUND \
     USB \
     UTMPX \
-    VI \
     VT \
     WIRELESS \
     WPA_SUPPLICANT_EAPOL \
