@@ -469,7 +469,6 @@
         ..
         nvmecontrol
         ..
-        pfctl
             files
             ..
         ..

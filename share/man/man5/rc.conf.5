@@ -1061,37 +1061,6 @@ This variable contains flags passed to the
 .Xr ipfs 8
 program.
 .\" ----- end of added ipf hook ---------------------------------
-.It Va ftpproxy_enable
-.Pq Vt bool
-Set to
-.Dq Li NO
-by default.
-Setting this to
-.Dq Li YES
-enables
-.Xr ftp-proxy 8
-which assists in translating ftp connections.
-.It Va ftpproxy_flags
-.Pq Vt str
-Empty by default.
-This variable contains additional flags passed to the
-.Xr ftp-proxy 8
-program.
-.It Va ftpproxy_instances
-.Pq Vt str
-Empty by default.
-If multiple instances of
-.Xr ftp-proxy 8
-are desired at boot time,
-.Va ftpproxy_instances
-should contain a whitespace-separated list of instance names.
-For each
-.Ar element
-in the list, a variable named
-.Ao Ar element Ac Ns Va _flags
-should be defined, containing the command-line flags to be passed to the
-.Xr ftp-proxy 8
-instance.
 .It Va tcp_extensions
 .Pq Vt bool
 Set to

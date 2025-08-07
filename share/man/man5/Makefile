@@ -102,10 +102,6 @@ MAN+=	freebsd-update.conf.5
 MAN+=	hesiod.conf.5
 .endif
 
-.if ${MK_PF} != "no"
-MAN+=	pf.conf.5 \
-	pf.os.5
-.endif
 
 # This makes more sense for amd64 and i386 but
 # we decide to install all manpages in all architectures

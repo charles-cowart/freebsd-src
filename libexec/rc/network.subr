@@ -510,7 +510,7 @@ noafif()
 	_if=$1
 
 	case $_if in
-        usbus[0-9]*|\
+	usbus[0-9]*|\
 	an[0-9]*|\
 	ath[0-9]*|\
 	ipw[0-9]*|\
