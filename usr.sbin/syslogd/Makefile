@@ -26,12 +26,6 @@ SYSLOGD_D=
 SYSLOGD_DDIR=	/etc/syslog.d
 
 
-.if ${MK_PPP} != "no"
-CONFGROUPS+=	PPP
-PPP+=		ppp.conf
-PPPDIR=		/etc/syslog.d
-PPPPACKAGE=	ppp
-.endif
 
 CFLAGS+= -I${SRCTOP}/usr.bin/wall
 

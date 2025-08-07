@@ -8,10 +8,9 @@ SUBDIR= \
 	hccontrol \
 	hcsecd \
 	l2control \
-	l2ping \
-	rfcomm_pppd \
-	sdpcontrol \
-	sdpd
+        l2ping \
+        sdpcontrol \
+        sdpd
 
 .if ${MK_USB} != "no"
 SUBDIR+=	ath3kfw
