@@ -70,6 +70,16 @@ OLD_FILES+=usr/share/man/man8/telnetd.8.gz
 #   -V OLD_FILES -V OLD_LIBS -V MOVED_LIBS -V OLD_DIRS check-old | \
 #   xargs -n1 | sort | uniq -d;
 # done
+
+# 20250807: remove PF documentation and examples
+OLD_FILES+=usr/share/man/man4/pf.4.gz
+OLD_FILES+=usr/share/man/man4/pflog.4.gz
+OLD_FILES+=usr/share/man/man4/pfsync.4.gz
+OLD_FILES+=usr/share/man/man5/pf.conf.5.gz
+OLD_FILES+=usr/share/man/man5/pf.os.5.gz
+OLD_FILES+=usr/share/man/man8/pfctl.8.gz
+OLD_FILES+=usr/share/man/man8/pflogd.8.gz
+OLD_DIRS+=usr/share/examples/pf
 #
 # For optional components, you can use the following to see if some entries
 # in OptionalObsoleteFiles.inc have been obsoleted by ObsoleteFiles.inc

@@ -50,17 +50,6 @@ See
 .Xr altq 9
 for details.
 .Pp
-The user interface for
-.Nm
-is implemented by the
-.Xr pfctl 8
-utility, so please refer to the
-.Xr pfctl 8
-and the
-.Xr pf.conf 5
-man pages for a complete description of the
-.Nm
-capabilities and how to use it.
 .Ss Kernel Options
 The following options in the kernel configuration file are related to
 .Nm
@@ -113,11 +102,6 @@ Note that
 cannot be loaded as kernel modules.
 In order to use a certain discipline you have to build it into a custom
 kernel.
-The
-.Xr pf 4
-interface, that is required for the configuration process of
-.Nm
-can be loaded as a module.
 .Sh SUPPORTED DEVICES
 The driver modifications described in
 .Xr altq 9
@@ -187,10 +171,7 @@ queue aq bandwidth 10Mb cbq
 pass in on igb0.10 proto udp all queue aq keep state
 .Ed
 .Sh SEE ALSO
-.Xr pf 4 ,
-.Xr pf.conf 5 ,
-.Xr ipfw 8 ,
-.Xr pfctl 8 ,
+.Xr ipfw 8
 .Xr altq 9
 .Sh HISTORY
 The

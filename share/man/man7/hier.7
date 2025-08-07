@@ -272,9 +272,6 @@ scripts that are run daily, weekly, or monthly by
 .Xr cron 8 ;
 see
 .Xr periodic 8
-.It Pa pf.conf
-configuration for the Packet Filter firewall; see
-.Xr pf 4
 .It Pa pkg/
 default configuration for the package manager,
 .Xr pkg 8
@@ -738,9 +735,6 @@ output spool files
 .It Pa audit/
 security event audit trail files; see
 .Xr audit 8
-.It Pa authpf/
-user shell sessions for authenticating gateways; see
-.Xr authpf 8
 .It Pa backups/
 critical system configuration backups
 .It Pa cache/
@@ -841,12 +835,9 @@ currently loaded
 .Xr fstab 5 ,
 rotates to
 .Pa mount.yesterday
-.It Pa pf.today
-packet filter firewall log; see
-.Xr pf 4
-.It Pa pflog
-saved packets caught by
-.Xr pflogd 8
+.It Pa ppp.log
+see
+.Xr ppp 8
 .It Pa security
 transcript of events marked with the security flag
 .It Pa setuid.today
