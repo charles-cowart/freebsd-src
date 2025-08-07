@@ -271,7 +271,7 @@ span_head()
 {
 	atf_set descr 'Bridge span test'
 	atf_set require.user root
-	atf_set require.progs scapy
+        atf_set require.progs tcpdump
 }
 
 span_body()
@@ -299,21 +299,21 @@ span_body()
 	# Send some traffic through the span
 	jexec one ping -c 1 -t 1 192.0.2.2
 
-	# Check that we see the traffic on the span interface
-	atf_check -s exit:0 \
-		$(atf_get_srcdir)/../netpfil/common/pft_ping.py \
-		--sendif ${epair}b \
-		--to 192.0.2.2 \
-		--recvif ${epair_span}b
+        # Check that we see the traffic on the span interface
+        tcpdump -n -c 1 -i ${epair_span}b icmp > span.out 2>&1 &
+        tpid=$!
+        jexec one ping -c 1 -t 1 192.0.2.2
+        wait $tpid
+        atf_check -s exit:0 -o match:"1 packet captured" cat span.out
 
-	jexec one ifconfig ${bridge} -span ${epair_span}a
+        jexec one ifconfig ${bridge} -span ${epair_span}a
 
-	# And no more traffic after we remove the span
-	atf_check -s exit:1 \
-		$(atf_get_srcdir)/../netpfil/common/pft_ping.py \
-		--sendif ${epair}b \
-		--to 192.0.2.2 \
-		--recvif ${epair_span}b
+        # And no more traffic after we remove the span
+        tcpdump -n -c 1 -i ${epair_span}b icmp > span.out 2>&1 &
+        tpid=$!
+        jexec one ping -c 1 -t 1 192.0.2.2
+        wait $tpid
+        atf_check -s exit:1 grep -q "1 packet captured" span.out
 }
 
 span_cleanup()

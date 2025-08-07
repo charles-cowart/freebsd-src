@@ -230,8 +230,8 @@ The formula of a temporary jail name is
 .Va test case name .
 All non-alphanumeric characters are replaced with
 .Sq _ .
-.Sq kyua_usr_tests_sys_netpfil_pf_pass_block_v4
-is an example for /usr/tests/sys/netpfil/pf/pass_block:v4 test case.
+.Sq kyua_usr_tests_sys_netpfil_ipfw_fwd_local
+is an example for /usr/tests/sys/netpfil/ipfw/fwd:local test case.
 .El
 .Pp
 ATF:

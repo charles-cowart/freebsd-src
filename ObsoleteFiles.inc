@@ -1443,6 +1443,10 @@ OLD_FILES+=usr/include/c++/v1/experimental/algorithm
 OLD_FILES+=usr/include/c++/v1/experimental/coroutine
 OLD_FILES+=usr/include/c++/v1/experimental/functional
 
+# 20240105: Remove PF tests and helpers
+OLD_DIRS+=usr/tests/sys/netpfil/pf
+OLD_DIRS+=usr/tests/sys/netpfil/common
+
 # 20231006: rename tcp6_v4unmapped_bind_test
 OLD_FILES+=usr/tests/sys/netinet/tcp6_v4unmapped_bind_test
 
