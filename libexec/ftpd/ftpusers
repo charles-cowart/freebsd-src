@@ -18,7 +18,6 @@ mailnull
 bind
 unbound
 proxy
-_pflogd
 _dhcp
 uucp
 pop

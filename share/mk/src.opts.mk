@@ -62,7 +62,6 @@ __DEFAULT_YES_OPTIONS = \
     APM \
     AT \
     AUDIT \
-    AUTHPF \
     AUTOFS \
     BHYVE \
     BLACKLIST \
@@ -157,7 +156,6 @@ __DEFAULT_YES_OPTIONS = \
     OFED \
     OPENSSL \
     PAM \
-    PF \
     PKGBOOTSTRAP \
     PMC \
     PPP \
@@ -216,6 +214,7 @@ __DEFAULT_NO_OPTIONS = \
     MALLOC_PRODUCTION \
     OFED_EXTRA \
     OPENLDAP \
+    PF \
     RPCBIND_WARMSTART_SUPPORT \
     SORT_THREADS \
     ZONEINFO_LEAPSECONDS_SUPPORT \
@@ -441,9 +440,6 @@ MK_LDNS_UTILS:=	no
 MK_UNBOUND:= no
 .endif
 
-.if ${MK_PF} == "no"
-MK_AUTHPF:=	no
-.endif
 
 .if ${MK_OFED} == "no"
 MK_OFED_EXTRA:=	no

@@ -71,9 +71,6 @@ CONFS=	DAEMON \
 	ntpdate \
 	${_opensm} \
 	os-release \
-	pf \
-	pflog \
-	pfsync \
 	powerd \
 	ppp \
 	pppoed \

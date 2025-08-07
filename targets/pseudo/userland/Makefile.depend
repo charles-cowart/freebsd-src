@@ -110,8 +110,6 @@ DIRDEPS+= \
 	sbin/newfs_msdos \
 	sbin/nfsiod \
 	sbin/nos-tun \
-	sbin/pfctl \
-	sbin/pflogd \
 	sbin/ping \
 	sbin/ping6 \
 	sbin/quotacheck \
@@ -417,7 +415,6 @@ DIRDEPS+= \
 	usr.sbin/auditd \
 	usr.sbin/auditdistd \
 	usr.sbin/auditreduce \
-	usr.sbin/authpf \
 	usr.sbin/autofs \
 	usr.sbin/binmiscctl \
 	usr.sbin/bluetooth/ath3kfw \

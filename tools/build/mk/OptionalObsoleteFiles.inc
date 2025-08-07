@@ -113,12 +113,6 @@ OLD_FILES+=usr/tests/sys/audit/administrative
 OLD_DIRS+=usr/tests/sys/audit
 .endif
 
-.if ${MK_AUTHPF} == no
-OLD_FILES+=usr/sbin/authpf
-OLD_FILES+=usr/sbin/authpf-noip
-OLD_FILES+=usr/share/man/man8/authpf.8.gz
-OLD_FILES+=usr/share/man/man8/authpf-noip.8.gz
-.endif
 
 .if ${MK_AUTOFS} == no
 OLD_FILES+=etc/autofs/include_ldap
@@ -6666,44 +6660,6 @@ OLD_FILES+=usr/share/man/man8/sshd.8.gz
 OLD_FILES+=etc/rc.d/keyserv
 .endif
 
-.if ${MK_PF} == no
-OLD_FILES+=etc/newsyslog.conf.d/pf.conf
-OLD_FILES+=etc/periodic/security/520.pfdenied
-OLD_FILES+=etc/pf.os
-OLD_FILES+=etc/rc.d/ftp-proxy
-OLD_FILES+=sbin/pfctl
-OLD_FILES+=sbin/pflogd
-OLD_FILES+=usr/include/netpfil/pf/pf.h
-OLD_FILES+=usr/include/netpfil/pf/pf_altq.h
-OLD_FILES+=usr/include/netpfil/pf/pf_mtag.h
-OLD_FILES+=usr/lib/snmp_pf.so
-OLD_LIBS+=usr/lib/snmp_pf.so.6
-OLD_FILES+=usr/libexec/tftp-proxy
-OLD_FILES+=usr/sbin/ftp-proxy
-OLD_FILES+=usr/share/examples/etc/pf.os
-OLD_FILES+=usr/share/examples/pf/ackpri
-OLD_FILES+=usr/share/examples/pf/faq-example1
-OLD_FILES+=usr/share/examples/pf/faq-example2
-OLD_FILES+=usr/share/examples/pf/faq-example3
-OLD_FILES+=usr/share/examples/pf/pf.conf
-OLD_FILES+=usr/share/examples/pf/queue1
-OLD_FILES+=usr/share/examples/pf/queue2
-OLD_FILES+=usr/share/examples/pf/queue3
-OLD_FILES+=usr/share/examples/pf/queue4
-OLD_FILES+=usr/share/examples/pf/spamd
-OLD_DIRS+=usr/share/examples/pf
-OLD_FILES+=usr/share/man/man4/pf.4.gz
-OLD_FILES+=usr/share/man/man4/pflog.4.gz
-OLD_FILES+=usr/share/man/man4/pfsync.4.gz
-OLD_FILES+=usr/share/man/man5/pf.conf.5.gz
-OLD_FILES+=usr/share/man/man5/pf.os.5.gz
-OLD_FILES+=usr/share/man/man8/ftp-proxy.8.gz
-OLD_FILES+=usr/share/man/man8/pfctl.8.gz
-OLD_FILES+=usr/share/man/man8/pflogd.8.gz
-OLD_FILES+=usr/share/man/man8/tftp-proxy.8.gz
-OLD_FILES+=usr/share/snmp/defs/pf_tree.def
-OLD_FILES+=usr/share/snmp/mibs/BEGEMOT-PF-MIB.txt
-.endif
 
 .if ${MK_PKGBOOTSTRAP} == no
 OLD_FILES+=usr/sbin/pkg

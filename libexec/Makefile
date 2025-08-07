@@ -32,7 +32,6 @@ SUBDIR=	${_atf} \
 	${_nuageinit} \
 	${_smrsh} \
 	${_tests} \
-	${_tftp-proxy} \
 	ulog-helper \
 	${_ypxfr}
 
@@ -81,9 +80,6 @@ _ypxfr=		ypxfr
 _pppoed=	pppoed
 .endif
 
-.if ${MK_PF} != "no"
-_tftp-proxy=	tftp-proxy
-.endif
 
 .if !defined(NO_PIC) && !defined(NO_RTLD)
 _rtld-elf=	rtld-elf
