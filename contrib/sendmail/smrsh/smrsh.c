@@ -32,12 +32,12 @@ SM_IDSTR(id, "@(#)$Id: smrsh.c,v 8.66 2013-11-22 20:52:00 ca Exp $")
 **	in your sendmail.cf file.  You then create CMDDIR (owned by
 **	root, mode 755) and put links to any programs you want
 **	available to prog mailers in that directory.  This should
-**	include things like "vacation" and "procmail", but not "sed"
+**	include things like "procmail", but not "sed"
 **	or "sh".
 **
 **	Leading pathnames are stripped from program names so that
 **	existing .forward files that reference things like
-**	"/usr/bin/vacation" will continue to work.
+**	"/usr/local/bin/procmail" will continue to work.
 **
 **	The following characters are completely illegal:
 **		<  >  ^  &  `  (  ) \n \r
@@ -223,7 +223,7 @@ main(argc, argv)
 	{
 		/*
 		**  Strip off a leading pathname on the command name.  For
-		**  example, change /usr/ucb/vacation to vacation.
+		**  example, change /usr/local/bin/procmail to procmail.
 		*/
 
 		/* strip leading spaces */
