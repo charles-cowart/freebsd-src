@@ -51,13 +51,9 @@ main() {
 			outname=${outname%%-lib32_dev}
 			_descr="32-bit Libraries, Development Files"
 			;;
-		libcompat-man|libelftc-man)
-			outname=${outname%%-man}
-			_descr="Manual Pages"
-			;;
-		utilities)
-			uclfile="${uclfile}"
-			;;
+                utilities)
+                        uclfile="${uclfile}"
+                        ;;
 		runtime)
 			outname="runtime"
 			_descr="$(make -C ${srctree}/release/packages -f Makefile.package -V ${outname}_DESCR)"
@@ -87,13 +83,8 @@ main() {
 			_descr="Debugging Symbols"
 			pkgdeps="${outname}"
 			;;
-		*-man)
-			outname="${outname%%-man}"
-			_descr="Manual Pages"
-			pkgdeps="${outname}"
-			;;
-		${origname})
-			;;
+                ${origname})
+                        ;;
 		*)
 			uclfile="${outname##*}${origname}"
 			outname="${outname##*}${origname}"
