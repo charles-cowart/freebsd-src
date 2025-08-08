@@ -35,6 +35,16 @@
 # grep '+=' /usr/src/tools/build/mk/OptionalObsoleteFiles.inc | sort -u) | \
 # sort | uniq -d
 #
+# 20250601: remove biff, mesg, talk, write
+OLD_FILES+=usr/bin/biff
+OLD_FILES+=usr/bin/mesg
+OLD_FILES+=usr/bin/talk
+OLD_FILES+=usr/bin/write
+OLD_FILES+=usr/share/man/man1/biff.1.gz
+OLD_FILES+=usr/share/man/man1/mesg.1.gz
+OLD_FILES+=usr/share/man/man1/talk.1.gz
+OLD_FILES+=usr/share/man/man1/write.1.gz
+
 # 20251120: remove ftpd and pam_ftpusers
 OLD_FILES+=etc/ftpusers
 OLD_FILES+=etc/pam.d/ftpd
