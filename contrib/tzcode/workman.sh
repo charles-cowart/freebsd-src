@@ -32,9 +32,7 @@ if (type nroff && type perl) >/dev/null 2>&1; then
 		$didprint = 1;
 	}
   '
-elif (type mandoc && type col) >/dev/null 2>&1; then
-  mandoc -man -T ascii "$@" | col -bx
 else
-  echo >&2 "$0: please install nroff and perl, or mandoc and col"
+  echo >&2 "$0: please install nroff and perl"
   exit 1
 fi

@@ -26,7 +26,6 @@ S.${MK_LOADER_LUA}+=	lua
 S.yes+=			defaults
 S.yes+=			fonts
 S.yes+=			images
-S.yes+=			man
 
 .if ${MK_FORTH} != "no"
 INTERP_DEPENDS+=	forth

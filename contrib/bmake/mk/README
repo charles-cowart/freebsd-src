@@ -79,11 +79,11 @@ links.
 It has a single target:
 
 	maninstall:
-		Install the manual pages and their links.
+		Install documentation and associated links.
 
 It sets/uses the following variables:
 
-MANDIR		Base path for manual installation.
+MANDIR          Base path for documentation installation.
 
 MANGRP		Manual group.
 
@@ -133,7 +133,7 @@ BINMODE		Binary mode. [555]
 
 NONBINMODE	Mode for non-executable files. [444]
 
-MANDIR		Base path for manual installation. [/usr/share/man/cat]
+MANDIR          Base path for documentation installation. [/usr/share/doc]
 
 MANGRP		Manual group. [bin]
 

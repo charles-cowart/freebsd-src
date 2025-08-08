@@ -63,7 +63,6 @@ This will create the em-x.x.x directory.
 3. To install man page:
 
    # cd em-x.x.x
-   # gzip -c em.4 > /usr/share/man/man4/em.4.gz
 
 4. To load the driver onto a running system:
 

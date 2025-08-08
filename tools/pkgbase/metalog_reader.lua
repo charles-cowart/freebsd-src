@@ -183,7 +183,7 @@ end
 -- all fields in the table are strings
 -- sample output:
 --	{
---		filename = ./usr/share/man/man3/inet6_rthdr_segments.3.gz
+--		filename = ./usr/share/doc/README
 --		lineno = 5
 --		attrs = {
 --			gname = 'wheel'

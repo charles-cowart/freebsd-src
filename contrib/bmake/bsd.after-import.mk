@@ -101,7 +101,6 @@ _makefile:	bootstrap ${MAKEFILE}
 	${BMAKE_SRC}/Makefile; \
 	echo; echo '# override some simple things'; \
 	echo 'BINDIR= /usr/bin'; \
-	echo 'MANDIR= ${MANDIR:U/usr/share/man}'; \
 	echo; echo '# make sure we get this'; \
 	echo 'CFLAGS+= $${COPTS.$${.IMPSRC:T}}'; \
 	echo; echo 'after-import: ${_this:S,${SRCTOP},\${SRCTOP},}'; \

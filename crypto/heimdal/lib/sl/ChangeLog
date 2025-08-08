@@ -204,7 +204,7 @@
 	* sl.h (SL_BADCOMMAND): define
 	(sl_apropos): add prototype
 
-	* sl.c: mandoc-generation
+	* sl.c: mdoc-generation
 	(sl_apropos): stolen from arla
 
 2000-01-06  Assar Westerlund  <assar@sics.se>

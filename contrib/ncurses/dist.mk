@@ -97,7 +97,7 @@ doc/hackguide.doc: doc/html/hackguide.html
 # If that conflicts with the --without-manpage-renames, you can install those
 # in a different location using the --with-install-prefix option of the
 # configure script.
-MANPROG	= tbl | nroff -mandoc -rHY=0 -rLL=78n -rLT=78n -Tascii
+MANPROG     = tbl | nroff -mdoc -rHY=0 -rLL=78n -rLT=78n -Tascii
 
 manhtml:
 	@for f in doc/html/man/*.html; do \

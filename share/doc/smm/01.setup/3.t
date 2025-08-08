@@ -330,7 +330,7 @@ lfC l.
 /usr/share/doc	(\*(4B manual sources)
 /usr/share/games	(games text files)
 /usr/share/groff_font	(groff font information)
-/usr/share/man	(typeset manual pages)
+# historical manual pages location removed
 /usr/share/misc	(dumping ground for random text files)
 /usr/share/mk	(templates for \*(4B makefiles)
 /usr/share/skel	(template user home directory files)

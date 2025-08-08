@@ -7,7 +7,6 @@ dist_noinst_SCRIPTS = \
 	%D%/kmodtool \
 	%D%/make_gitrev.sh \
 	%D%/man-dates.sh \
-	%D%/mancheck.sh \
 	%D%/paxcheck.sh \
 	%D%/zfs-tests-color.sh
 

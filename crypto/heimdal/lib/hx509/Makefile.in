@@ -455,7 +455,7 @@ LIB_setpcred = @LIB_setpcred@
 HESIODLIB = @HESIODLIB@
 HESIODINCLUDE = @HESIODINCLUDE@
 libexec_heimdaldir = $(libexecdir)/heimdal
-NROFF_MAN = groff -mandoc -Tascii
+NROFF_MAN = groff -mdoc -Tascii
 LIB_kafs = $(top_builddir)/lib/kafs/libkafs.la $(AIX_EXTRA_KAFS)
 @KRB5_TRUE@LIB_krb5 = $(top_builddir)/lib/krb5/libkrb5.la \
 @KRB5_TRUE@	$(top_builddir)/lib/asn1/libasn1.la

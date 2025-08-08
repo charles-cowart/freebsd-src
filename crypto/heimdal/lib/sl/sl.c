@@ -37,7 +37,7 @@
 #include <setjmp.h>
 
 static void
-mandoc_template(SL_cmd *cmds,
+mdoc_template(SL_cmd *cmds,
 		const char *extra_string)
 {
     SL_cmd *c, *prev;
@@ -134,7 +134,7 @@ sl_help (SL_cmd *cmds, int argc, char **argv)
     SL_cmd *c, *prev_c;
 
     if (getenv("SLMANDOC")) {
-	mandoc_template(cmds, NULL);
+    mdoc_template(cmds, NULL);
 	return;
     }
 

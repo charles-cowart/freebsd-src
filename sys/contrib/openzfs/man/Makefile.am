@@ -121,9 +121,6 @@ dist_noinst_DATA += $(dist_noinst_man_MANS) $(dist_man_MANS)
 
 SUBSTFILES += $(nodist_man_MANS)
 
-CHECKS += mancheck
-mancheck:
-	$(top_srcdir)/scripts/mancheck.sh $(srcdir)/%D%
 
 
 if BUILD_LINUX

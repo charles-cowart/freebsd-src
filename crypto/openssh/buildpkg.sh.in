@@ -76,16 +76,10 @@ SYSTEM_DIR="/etc	\
 /usr/lib		\
 /usr/sbin		\
 /usr/share		\
-/usr/share/man		\
-/usr/share/man/man1	\
-/usr/share/man/man8	\
 /usr/local		\
 /usr/local/bin		\
 /usr/local/etc		\
 /usr/local/libexec	\
-/usr/local/man		\
-/usr/local/man/man1	\
-/usr/local/man/man8	\
 /usr/local/sbin		\
 /usr/local/share	\
 /var			\

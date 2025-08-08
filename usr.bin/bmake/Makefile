@@ -139,7 +139,7 @@ COPTS.var.c += -Wno-format-nonliteral
 # Force these
 SHAREDIR= ${SHAREDIR.bmake:U${prefix}/share}
 BINDIR= ${BINDIR.bmake:U${prefix}/bin}
-MANDIR= ${MANDIR.bmake:U${SHAREDIR}/man}
+MANDIR= ${MANDIR.bmake:U${SHAREDIR}/doc}
 
 ${OBJS}: config.h
 
@@ -170,7 +170,6 @@ test: utobj
 
 # override some simple things
 BINDIR= /usr/bin
-MANDIR= /usr/share/man/man
 
 # make sure we get this
 CFLAGS+= ${COPTS.${.IMPSRC:T}}
