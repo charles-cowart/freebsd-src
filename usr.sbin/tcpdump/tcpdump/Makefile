@@ -215,11 +215,6 @@ CFLAGS+= -DHAVE_LIBCRYPTO -DHAVE_OPENSSL_EVP_H
 CFLAGS+= -DOPENSSL_API_COMPAT=0x10100000L
 .endif
 
-.if ${MK_PF} != "no"
-SRCS+=	print-pflog.c \
-	print-pfsync.c
-CFLAGS+= -DHAVE_NET_PFVAR_H -DHAVE_NET_IF_PFLOG_H
-.endif
 
 version.c: ${TCPDUMP_DISTDIR}/VERSION
 	rm -f version.c ; \

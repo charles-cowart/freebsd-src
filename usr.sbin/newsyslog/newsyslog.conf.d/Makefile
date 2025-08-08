@@ -13,12 +13,6 @@ CONFS=
 CONFS+=		opensm.conf
 .endif
 
-.if ${MK_PF} != "no"
-CONFGROUPS+=	PF
-PF+=		pf.conf
-PFPACKAGE=	pf
-PFDIR=		/etc/newsyslog.conf.d
-.endif
 
 
 .if ${MK_SENDMAIL} != "no"

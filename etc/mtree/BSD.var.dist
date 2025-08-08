@@ -22,7 +22,6 @@
         remote          uname=auditdistd gname=wheel mode=0700
         ..
     ..
-    authpf              uname=root gname=authpf mode=0770
     ..
 /set gname=wheel
     backups

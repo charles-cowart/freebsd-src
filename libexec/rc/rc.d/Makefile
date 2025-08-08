@@ -288,9 +288,6 @@ SSH=		sshd
 SSHPACKAGE=	ssh
 .endif
 
-.if ${MK_PF} != "no"
-CONFS+=		ftp-proxy
-.endif
 
 .if ${MK_ROUTED} != "no"
 CONFS+=		routed
@@ -298,47 +295,3 @@ CONFS+=		routed
 
 .if ${MK_SENDMAIL} != "no"
 CONFGROUPS+=	SMRCD
-SMRCD=		sendmail
-SMRCDPACKAGE=	sendmail
-.endif
-
-.if ${MK_NUAGEINIT} != "no"
-CONFGROUPS+=	NIUAGEINIT
-NIUAGEINIT=		nuageinit
-NIUAGEINITPACKAGE=	nuageinit
-.endif
-
-.if ${MK_UNBOUND} != "no"
-CONFGROUPS+=	UNBOUND
-UNBOUND+=	local_unbound
-UNBOUNDPACKAGE=	unbound
-.endif
-
-.if ${MK_UTMPX} != "no"
-_utx=		utx
-.endif
-
-
-.if ${MK_WIRELESS} != "no"
-CONFS+=		hostapd
-CONFS+=		wpa_supplicant
-.endif
-
-.if ${MK_ZFS} != "no"
-CONFGROUPS+=	ZFS
-ZFS+=		zfs
-ZFS+=		zfsbe
-ZFS+=		zfsd
-ZFS+=		zfskeys
-ZFS+=		zpool
-ZFS+=		zpoolreguid
-ZFS+=		zpoolupgrade
-ZFS+=		zvol
-ZFSPACKAGE=	rc
-.endif
-
-.for fg in ${CONFGROUPS}
-${fg}MODE?=	${BINMODE}
-.endfor
-
-.include <bsd.prog.mk>

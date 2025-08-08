@@ -4,35 +4,34 @@
 
 .include <bsd.compat.pre.mk>
 
-SUBDIR=	${_atf} \
-	${_atrun} \
-	${_blacklistd-helper} \
-	${_comsat} \
-	${_dma} \
-	flua \
-	getty \
-	${_hyperv} \
-	kgdb \
-	${_mail.local} \
-	${_mknetid} \
-	${_phttpget} \
-	rc \
-	revnetgroup \
-	${_rlogind} \
-	rpc.rquotad \
-	rpc.rstatd \
-	rpc.rusersd \
-	rpc.rwalld \
-	rpc.sprayd \
-	${_rshd} \
-	${_rtld-elf} \
-	save-entropy \
-	${_nuageinit} \
-	${_smrsh} \
-	${_tests} \
-	${_tftp-proxy} \
-	ulog-helper \
-	${_ypxfr}
+SUBDIR= ${_atf} \
+        ${_atrun} \
+        ${_blacklistd-helper} \
+        ${_comsat} \
+        ${_dma} \
+        flua \
+        getty \
+        ${_hyperv} \
+        kgdb \
+        ${_mail.local} \
+        ${_mknetid} \
+        ${_phttpget} \
+        rc \
+        revnetgroup \
+        ${_rlogind} \
+        rpc.rquotad \
+        rpc.rstatd \
+        rpc.rusersd \
+        rpc.rwalld \
+        rpc.sprayd \
+        ${_rshd} \
+        ${_rtld-elf} \
+        save-entropy \
+        ${_nuageinit} \
+        ${_smrsh} \
+        ${_tests} \
+        ulog-helper \
+        ${_ypxfr}
 
 .if ${MK_AT} != "no"
 _atrun=		atrun
@@ -69,10 +68,6 @@ _mknetid=	mknetid
 _ypxfr=		ypxfr
 .endif
 
-
-.if ${MK_PF} != "no"
-_tftp-proxy=	tftp-proxy
-.endif
 
 .if !defined(NO_PIC) && !defined(NO_RTLD)
 _rtld-elf=	rtld-elf

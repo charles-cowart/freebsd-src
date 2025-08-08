@@ -34,11 +34,6 @@ IPFW+=		500.ipfwdenied \
 IPFWPACKAGE=	ipfw
 .endif
 
-.if ${MK_PF} != "no"
-CONFGROUPS+=	PF
-PF+=		520.pfdenied
-PFPACKAGE=	pf
-.endif
 
 .if ${MK_INETD} != "no" && ${MK_TCP_WRAPPERS} != "no"
 CONFS+=	900.tcpwrap

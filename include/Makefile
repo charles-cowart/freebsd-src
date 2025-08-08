@@ -210,12 +210,6 @@ IPFILTER=	ip_auth.h \
 		radix_ipf.h
 IPFILTERDIR=	${INCLUDEDIR}/netinet
 
-.PATH: ${SRCTOP}/sys/netpfil/pf
-PF=		pf.h \
-		pf_altq.h \
-		pf_mtag.h
-PFPACKAGE=	pf
-PFDIR=	${INCLUDEDIR}/netpfil/pf
 
 .PATH: ${SRCTOP}/sys/rpc
 RPC=		rpcsec_tls.h \
@@ -265,9 +259,6 @@ INCSGROUPS=	INCS \
 INCSGROUPS+=	IPFILTER
 .endif
 
-.if ${MK_PF} != "no"
-INCSGROUPS+=	PF
-.endif
 
 .if ${MK_CDDL} != "no"
 INCSGROUPS+=	NVPAIR
@@ -433,11 +424,6 @@ symlinks: .PHONY .META
 	cd ${SRCTOP}; ${INSTALL_SYMLINK} ${TAG_ARGS:D${TAG_ARGS},dev} \
 	    $$(printf '../../../%s ' sys/netpfil/ipfilter/netinet/*.h) \
 	    ${SDESTDIR}${INCLUDEDIR}/netinet;
-.endif
-.if ${MK_PF} != "no"
-	cd ${SRCTOP}; ${INSTALL_SYMLINK} ${TAG_ARGS:D${TAG_ARGS},dev} \
-	    $$(printf '../../../../%s ' sys/netpfil/pf/*.h) \
-	    ${SDESTDIR}${INCLUDEDIR}/netpfil/pf;
 .endif
 	${INSTALL_SYMLINK} ${TAG_ARGS:D${TAG_ARGS},dev} ../../../sys/opencrypto/cryptodev.h \
 	    ${SDESTDIR}${INCLUDEDIR}/crypto; \
