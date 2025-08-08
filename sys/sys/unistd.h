@@ -154,7 +154,6 @@
 #define	_PC_CAP_PRESENT		61
 #define	_PC_INF_PRESENT		62
 #define	_PC_MAC_PRESENT		63
-#define	_PC_ACL_NFS4		64
 #define	_PC_DEALLOC_PRESENT	65
 #endif
 

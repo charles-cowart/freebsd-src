@@ -421,21 +421,17 @@ ufs_accessx(
 		return (EPERM);
 
 #ifdef UFS_ACL
-	if ((vp->v_mount->mnt_flag & (MNT_ACLS | MNT_NFS4ACLS)) != 0) {
-		if (vp->v_mount->mnt_flag & MNT_NFS4ACLS)
 			type = ACL_TYPE_NFS4;
 		else
 			type = ACL_TYPE_ACCESS;
 
 		acl = acl_alloc(M_WAITOK);
 		if (type == ACL_TYPE_NFS4)
-			error = ufs_getacl_nfs4_internal(vp, acl, ap->a_td);
 		else
 			error = VOP_GETACL(vp, type, acl, ap->a_cred, ap->a_td);
 		switch (error) {
 		case 0:
 			if (type == ACL_TYPE_NFS4) {
-				error = vaccess_acl_nfs4(vp->v_type, ip->i_uid,
 				    ip->i_gid, acl, accmode, ap->a_cred);
 			} else {
 				error = vfs_unixify_accmode(&accmode);
@@ -813,7 +809,6 @@ ufs_update_nfs4_acl_after_mode_change(struct vnode *vp, int mode,
 	struct acl *aclp;
 
 	aclp = acl_alloc(M_WAITOK);
-	error = ufs_getacl_nfs4_internal(vp, aclp, td);
 	/*
 	 * We don't have to handle EOPNOTSUPP here, as the filesystem claims
 	 * it supports ACLs.
@@ -821,8 +816,6 @@ ufs_update_nfs4_acl_after_mode_change(struct vnode *vp, int mode,
 	if (error)
 		goto out;
 
-	acl_nfs4_sync_acl_from_mode(aclp, mode, file_owner_id);
-	error = ufs_setacl_nfs4_internal(vp, aclp, td);
 
 out:
 	acl_free(aclp);
@@ -899,7 +892,6 @@ ufs_chmod(struct vnode *vp, int mode, struct ucred *cred, struct thread *td)
 	DIP_SET(ip, i_mode, ip->i_mode);
 	UFS_INODE_SET_FLAG(ip, IN_CHANGE);
 #ifdef UFS_ACL
-	if ((vp->v_mount->mnt_flag & MNT_NFS4ACLS) != 0)
 		error = ufs_update_nfs4_acl_after_mode_change(vp, mode, ip->i_uid, cred, td);
 #endif
 	if (error == 0 && (ip->i_flag & IN_CHANGE) != 0)
@@ -1976,12 +1968,9 @@ ufs_do_nfs4_acl_inheritance(struct vnode *dvp, struct vnode *tvp,
 	parent_aclp = acl_alloc(M_WAITOK);
 	child_aclp = acl_alloc(M_WAITOK | M_ZERO);
 
-	error = ufs_getacl_nfs4_internal(dvp, parent_aclp, td);
 	if (error)
 		goto out;
-	acl_nfs4_compute_inherited_acl(parent_aclp, child_aclp,
 	    child_mode, VTOI(tvp)->i_uid, tvp->v_type == VDIR);
-	error = ufs_setacl_nfs4_internal(tvp, child_aclp, td);
 	if (error)
 		goto out;
 out:
@@ -2160,7 +2149,6 @@ ufs_mkdir(
 		    cnp->cn_cred, curthread);
 		if (error)
 			goto bad;
-	} else if (dvp->v_mount->mnt_flag & MNT_NFS4ACLS) {
 		error = ufs_do_nfs4_acl_inheritance(dvp, tvp, dmode,
 		    cnp->cn_cred, curthread);
 		if (error)
@@ -2679,8 +2667,6 @@ ufs_pathconf(
 		else
 			*ap->a_retval = 0;
 		break;
-	case _PC_ACL_NFS4:
-		if (ap->a_vp->v_mount->mnt_flag & MNT_NFS4ACLS)
 			*ap->a_retval = 1;
 		else
 			*ap->a_retval = 0;
@@ -2688,7 +2674,6 @@ ufs_pathconf(
 #endif
 	case _PC_ACL_PATH_MAX:
 #ifdef UFS_ACL
-		if (ap->a_vp->v_mount->mnt_flag & (MNT_ACLS | MNT_NFS4ACLS))
 			*ap->a_retval = ACL_MAX_ENTRIES;
 		else
 			*ap->a_retval = 3;
@@ -2912,7 +2897,6 @@ ufs_makeinode(int mode, struct vnode *dvp, struct vnode **vpp,
 		    cnp->cn_cred, curthread);
 		if (error)
 			goto bad;
-	} else if (dvp->v_mount->mnt_flag & MNT_NFS4ACLS) {
 		error = ufs_do_nfs4_acl_inheritance(dvp, tvp, mode,
 		    cnp->cn_cred, curthread);
 		if (error)

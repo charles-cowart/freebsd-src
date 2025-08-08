@@ -144,7 +144,6 @@ EOF
 	for i in \
 	    boot/device.hints \
 	    boot/kernel/kernel \
-	    boot/kernel/acl_nfs4.ko \
 	    boot/kernel/cryptodev.ko \
 	    boot/kernel/zfs.ko \
 	    boot/kernel/geom_eli.ko; do
@@ -157,7 +156,6 @@ EOF
 	tar -C ${dir} -xf ${CACHE}/$file \
 	    boot/device.hints \
 	    boot/kernel/kernel \
-	    boot/kernel/acl_nfs4.ko \
 	    boot/kernel/cryptodev.ko \
 	    boot/kernel/zfs.ko \
 	    boot/kernel/geom_eli.ko || true

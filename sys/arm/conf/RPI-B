@@ -26,11 +26,8 @@ include 	"../broadcom/bcm2835/std.bcm2835"
 options 	SCHED_4BSD		# 4BSD scheduler
 options 	PLATFORM
 
-# NFS root from boopt/dhcp
 #options 	BOOTP
-#options 	BOOTP_NFSROOT
 #options 	BOOTP_COMPAT
-#options 	BOOTP_NFSV3
 #options 	BOOTP_WIRED_TO=ue0
 
 #options 	ROOTDEVNAME=\"ufs:mmcsd0s2\"

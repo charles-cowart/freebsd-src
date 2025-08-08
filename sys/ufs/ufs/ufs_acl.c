@@ -152,7 +152,6 @@ ufs_sync_inode_from_acl(struct acl *acl, struct inode *ip)
  * or in ufs_vnops.c:ufs_accessx().
  */
 int
-ufs_getacl_nfs4_internal(struct vnode *vp, struct acl *aclp, struct thread *td)
 {
 	int error, len;
 	struct inode *ip = VTOI(vp);
@@ -169,7 +168,6 @@ ufs_getacl_nfs4_internal(struct vnode *vp, struct acl *aclp, struct thread *td)
 		 * Legitimately no ACL set on object, purely
 		 * emulate it through the inode.
 		 */
-		acl_nfs4_sync_acl_from_mode(aclp, ip->i_mode, ip->i_uid);
 
 		return (0);
 	}
@@ -184,17 +182,13 @@ ufs_getacl_nfs4_internal(struct vnode *vp, struct acl *aclp, struct thread *td)
 		 * EPERM since the object DAC protections
 		 * are unsafe.
 		 */
-		printf("ufs_getacl_nfs4(): Loaded invalid ACL ("
 		    "%d bytes), inumber %ju on %s\n", len,
 		    (uintmax_t)ip->i_number, ITOFS(ip)->fs_fsmnt);
 
 		return (EPERM);
 	}
 
-	error = acl_nfs4_check(aclp, vp->v_type == VDIR);
 	if (error) {
-		printf("ufs_getacl_nfs4(): Loaded invalid ACL "
-		    "(failed acl_nfs4_check), inumber %ju on %s\n",
 		    (uintmax_t)ip->i_number, ITOFS(ip)->fs_fsmnt);
 
 		return (EPERM);
@@ -204,18 +198,15 @@ ufs_getacl_nfs4_internal(struct vnode *vp, struct acl *aclp, struct thread *td)
 }
 
 static int
-ufs_getacl_nfs4(struct vop_getacl_args *ap)
 {
 	int error;
 
-	if ((ap->a_vp->v_mount->mnt_flag & MNT_NFS4ACLS) == 0)
 		return (EINVAL);
 
 	error = VOP_ACCESSX(ap->a_vp, VREAD_ACL, ap->a_td->td_ucred, ap->a_td);
 	if (error)
 		return (error);
 
-	error = ufs_getacl_nfs4_internal(ap->a_vp, ap->a_aclp, ap->a_td);
 
 	return (error);
 }
@@ -355,11 +346,9 @@ int
 ufs_getacl(struct vop_getacl_args *ap)
 {
 
-	if ((ap->a_vp->v_mount->mnt_flag & (MNT_ACLS | MNT_NFS4ACLS)) == 0)
 		return (EOPNOTSUPP);
 
 	if (ap->a_type == ACL_TYPE_NFS4)
-		return (ufs_getacl_nfs4(ap));
 
 	return (ufs_getacl_posix1e(ap));
 }
@@ -371,16 +360,12 @@ ufs_getacl(struct vop_getacl_args *ap)
  * in that case, and others are redundant.
  */
 int
-ufs_setacl_nfs4_internal(struct vnode *vp, struct acl *aclp, struct thread *td)
 {
 	int error;
 	mode_t mode, newmode;
 	struct inode *ip = VTOI(vp);
 
-	KASSERT(acl_nfs4_check(aclp, vp->v_type == VDIR) == 0,
-	    ("invalid ACL passed to ufs_setacl_nfs4_internal"));
 
-	if (acl_nfs4_is_trivial(aclp, ip->i_uid)) {
 		error = vn_extattr_rm(vp, IO_NODELOCKED,
 		    NFS4_ACL_EXTATTR_NAMESPACE, NFS4_ACL_EXTATTR_NAME, td);
 
@@ -409,7 +394,6 @@ ufs_setacl_nfs4_internal(struct vnode *vp, struct acl *aclp, struct thread *td)
 
 	mode = ip->i_mode;
 
-	acl_nfs4_sync_mode_from_acl(&mode, aclp);
 
 	newmode = ip->i_mode & ACL_PRESERVE_MASK;
 	newmode |= mode;
@@ -424,12 +408,10 @@ ufs_setacl_nfs4_internal(struct vnode *vp, struct acl *aclp, struct thread *td)
 }
 
 static int
-ufs_setacl_nfs4(struct vop_setacl_args *ap)
 {
 	int error;
 	struct inode *ip = VTOI(ap->a_vp);
 
-	if ((ap->a_vp->v_mount->mnt_flag & MNT_NFS4ACLS) == 0)
 		return (EINVAL);
 
 	if (ap->a_vp->v_mount->mnt_flag & MNT_RDONLY)
@@ -463,7 +445,6 @@ ufs_setacl_nfs4(struct vop_setacl_args *ap)
 	if (ap->a_aclp->acl_cnt > (ACL_MAX_ENTRIES - 6) / 2)
 		return (ENOSPC);
 
-	error = ufs_setacl_nfs4_internal(ap->a_vp, ap->a_aclp, ap->a_td);
 
 	return (error);
 }
@@ -599,11 +580,9 @@ ufs_setacl_posix1e(struct vop_setacl_args *ap)
 int
 ufs_setacl(struct vop_setacl_args *ap)
 {
-	if ((ap->a_vp->v_mount->mnt_flag & (MNT_ACLS | MNT_NFS4ACLS)) == 0)
 		return (EOPNOTSUPP);
 
 	if (ap->a_type == ACL_TYPE_NFS4)
-		return (ufs_setacl_nfs4(ap));
 
 	return (ufs_setacl_posix1e(ap));
 }
@@ -613,7 +592,6 @@ ufs_aclcheck_nfs4(struct vop_aclcheck_args *ap, struct mount *mp)
 {
 	int is_directory = 0;
 
-	if ((mp->mnt_flag & MNT_NFS4ACLS) == 0)
 		return (EINVAL);
 
 	/*
@@ -627,7 +605,6 @@ ufs_aclcheck_nfs4(struct vop_aclcheck_args *ap, struct mount *mp)
 	if (ap->a_vp->v_type == VDIR)
 		is_directory = 1;
 
-	return (acl_nfs4_check(ap->a_aclp, is_directory));
 }
 
 static int
@@ -671,7 +648,6 @@ ufs_aclcheck(struct vop_aclcheck_args *ap)
 	mp = atomic_load_ptr(&ap->a_vp->v_mount);
 	if (mp == NULL)
 		return (EBADF);
-	if ((mp->mnt_flag & (MNT_ACLS | MNT_NFS4ACLS)) == 0)
 		return (EOPNOTSUPP);
 
 	if (ap->a_type == ACL_TYPE_NFS4)

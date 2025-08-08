@@ -355,7 +355,6 @@ struct mntoptnames {
 	{ MNT_SUJ,		"journaled soft-updates" },		\
 	{ MNT_MULTILABEL,	"multilabel" },				\
 	{ MNT_ACLS,		"acls" },				\
-	{ MNT_NFS4ACLS,		"nfsv4acls" },				\
 	{ MNT_GJOURNAL,		"gjournal" },				\
 	{ MNT_AUTOMOUNTED,	"automounted" },			\
 	{ MNT_VERIFIED,		"verified" },				\
@@ -377,7 +376,6 @@ struct mntoptnames {
 #define	MNT_SYNCHRONOUS	0x0000000000000002ULL /* fs written synchronously */
 #define	MNT_NOEXEC	0x0000000000000004ULL /* can't exec from filesystem */
 #define	MNT_NOSUID	0x0000000000000008ULL /* don't honor setuid fs bits */
-#define	MNT_NFS4ACLS	0x0000000000000010ULL /* enable NFS version 4 ACLs */
 #define	MNT_UNION	0x0000000000000020ULL /* union with underlying fs */
 #define	MNT_ASYNC	0x0000000000000040ULL /* fs written asynchronously */
 #define	MNT_SUIDDIR	0x0000000000100000ULL /* special SUID dir handling */
@@ -430,7 +428,6 @@ struct mntoptnames {
 			MNT_NOCLUSTERW	| MNT_SUIDDIR	| MNT_SOFTDEP	| \
 			MNT_IGNORE	| MNT_EXPUBLIC	| MNT_NOSYMFOLLOW | \
 			MNT_GJOURNAL	| MNT_MULTILABEL | MNT_ACLS	| \
-			MNT_NFS4ACLS	| MNT_AUTOMOUNTED | MNT_VERIFIED | \
 			MNT_UNTRUSTED)
 
 /* Mask of flags that can be updated. */
@@ -439,7 +436,6 @@ struct mntoptnames {
 			MNT_NOATIME | \
 			MNT_NOSYMFOLLOW	| MNT_IGNORE	| \
 			MNT_NOCLUSTERR	| MNT_NOCLUSTERW | MNT_SUIDDIR	| \
-			MNT_ACLS	| MNT_USER	| MNT_NFS4ACLS	| \
 			MNT_AUTOMOUNTED | MNT_UNTRUSTED)
 
 /*

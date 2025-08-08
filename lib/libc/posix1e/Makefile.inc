@@ -3,8 +3,6 @@
 
 CFLAGS+=-D_ACL_PRIVATE
 
-# Copy kern/subr_acl_nfs4.c to the libc object directory.
-subr_acl_nfs4.c: ${SRCTOP}/sys/kern/subr_acl_nfs4.c
 	cat ${.ALLSRC} > ${.TARGET}
 
 CONFS+=	posix1e/mac.conf
@@ -39,7 +37,6 @@ SRCS+=	acl_branding.c			\
 	mac_exec.c			\
 	mac_get.c			\
 	mac_set.c			\
-	subr_acl_nfs4.c
 
 SYM_MAPS+=${LIBC_SRCTOP}/posix1e/Symbol.map
 
@@ -131,4 +128,3 @@ MLINKS+=acl_create_entry.3 acl_create_entry_np.3\
 	mac_text.3 mac_from_text.3		\
 	mac_text.3 mac_to_text.3
 
-CLEANFILES+=	subr_acl_nfs4.c

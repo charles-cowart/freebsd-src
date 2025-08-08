@@ -29,10 +29,7 @@ options 	SOC_MV_ARMADAXP
 options 	SCHED_ULE		# ULE scheduler
 options 	SMP			# Enable multiple cores
 
-# NFS root from boopt/dhcp
 options 	BOOTP
-options 	BOOTP_NFSROOT
-options 	BOOTP_NFSV3
 options 	BOOTP_WIRED_TO=mge0
 
 options 	ROOTDEVNAME=\"ufs:/dev/da0p1\"

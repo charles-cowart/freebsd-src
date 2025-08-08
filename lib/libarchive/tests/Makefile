@@ -27,7 +27,6 @@ CFLAGS.test_utils.c+=	-Wno-cast-align
 .PATH: ${_LIBARCHIVEDIR}/libarchive/test
 TESTS_SRCS= \
 	test_7zip_filename_encoding.c		\
-	test_acl_nfs4.c				\
 	test_acl_pax.c				\
 	test_acl_platform_nfs4.c		\
 	test_acl_platform_posix1e.c		\
@@ -395,7 +394,6 @@ ${PACKAGE}FILES+=	test_compat_plexus_archiver_tar.tar.uu
 ${PACKAGE}FILES+=	test_compat_solaris_pax_sparse_1.pax.Z.uu
 ${PACKAGE}FILES+=	test_compat_solaris_pax_sparse_2.pax.Z.uu
 ${PACKAGE}FILES+=	test_compat_solaris_tar_acl.tar.uu
-${PACKAGE}FILES+=	test_compat_star_acl_nfs4.tar.uu
 ${PACKAGE}FILES+=	test_compat_star_acl_posix1e.tar.uu
 ${PACKAGE}FILES+=	test_compat_tar_directory_1.tar.uu
 ${PACKAGE}FILES+=	test_compat_tar_hardlink_1.tar.uu
