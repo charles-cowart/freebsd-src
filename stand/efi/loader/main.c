@@ -1782,7 +1782,7 @@ extern struct in_addr servip;
 static int
 command_netserver(int argc, char *argv[])
 {
-	char *proto;
+       const char *proto;
 	n_long rootaddr;
 
 	if (argc > 2) {
@@ -1790,9 +1790,9 @@ command_netserver(int argc, char *argv[])
 		return (CMD_ERROR);
 	}
 	if (argc < 2) {
-		proto = netproto == NET_TFTP ? "tftp://" : "nfs://";
-		printf("Netserver URI: %s%s%s\n", proto, intoa(rootip.s_addr),
-		    rootpath);
+               proto = "tftp://";
+               printf("Netserver URI: %s%s%s\n", proto, intoa(rootip.s_addr),
+                   rootpath);
 		return (CMD_OK);
 	}
 	if (argc == 2) {

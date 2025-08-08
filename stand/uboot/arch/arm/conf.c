@@ -56,9 +56,6 @@ struct fs_ops *file_system[] = {
 #if defined(LOADER_EXT2FS_SUPPORT)
 	&ext2fs_fsops,
 #endif
-#if defined(LOADER_NFS_SUPPORT)
-	&nfs_fsops,
-#endif
 #if defined(LOADER_TFTP_SUPPORT)
 	&tftp_fsops,
 #endif

@@ -69,9 +69,6 @@ struct fs_ops *file_system[] = {
 #if defined(LOADER_MSDOS_SUPPORT)
     &dosfs_fsops,
 #endif
-#if defined(LOADER_NFS_SUPPORT)
-    &nfs_fsops,
-#endif
 #if defined(LOADER_TFTP_SUPPORT)
     &tftp_fsops,
 #endif
