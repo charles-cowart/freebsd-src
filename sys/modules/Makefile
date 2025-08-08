@@ -280,7 +280,7 @@ SUBDIR=	\
 	netlink \
 	${_netgraph} \
 	${_nfe} \
-	nfscl \
+
 	nfscommon \
 	nfsd \
 	nfslockd \

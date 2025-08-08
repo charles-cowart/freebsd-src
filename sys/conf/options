@@ -293,9 +293,7 @@ KGSSAPI_DEBUG	opt_kgssapi.h
 # sys/i386/i386/autoconf.c.  If any of these filesystems are
 # statically compiled into the kernel, code for mounting them as root
 # filesystems will be enabled - but look below.
-# NFSCL - client
 # NFSD - server
-NFSCL		opt_nfs.h
 NFSD		opt_nfs.h
 
 # filesystems and libiconv bridge

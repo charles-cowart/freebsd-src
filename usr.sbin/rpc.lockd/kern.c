@@ -58,7 +58,6 @@
 
 #include "lockd.h"
 #include "lockd_lock.h"
-#include <nfsclient/nfs.h>
 
 #define DAEMON_USERNAME	"daemon"
 

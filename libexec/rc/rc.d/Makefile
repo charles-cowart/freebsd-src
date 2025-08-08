@@ -60,7 +60,6 @@ CONFS=	DAEMON \
 	netoptions \
 	netwait \
 	newsyslog \
-	nfsclient \
 	nfscbd \
 	nfsd \
 	nfsuserd \

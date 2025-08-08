@@ -3,7 +3,7 @@
 #
 
 # PROVIDE: automount
-# REQUIRE: nfsclient automountd
+# REQUIRE: automountd
 # BEFORE: DAEMON
 # KEYWORD: nojail shutdown
 

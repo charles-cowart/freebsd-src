@@ -16,17 +16,13 @@ start_precmd="mountcritremote_precmd"
 
 # Mount NFS filesystems if present in /etc/fstab
 #
-# XXX When the vfsload() issues with nfsclient support and related sysctls
-# have been resolved, this block can be removed, and the condition that
-# skips nfs in the following block (for "other network filesystems") can
-# be removed.
 #
 mountcritremote_precmd()
 {
 	case "`mount -d -a -t nfs 2> /dev/null`" in
 	*mount_nfs*)
 		# Handle absent nfs client support
-		load_kld -m nfs nfscl || return 1
+		load_kld -m nfs || return 1
 		;;
 	esac
 	return 0
