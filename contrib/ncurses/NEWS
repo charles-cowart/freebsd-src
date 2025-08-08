@@ -14220,8 +14220,6 @@ it is not possible to add this information.
 970412
 	+ corrected ifdef'ing of inline (cf: 970321) for TRACE vs C++.
 	+ corrected toggle_attr_off() macro (patch by Andries Brouwer).
-	+ modify treatment of empty token in $MANPATH to /usr/man (reported by
-	  <Andries.Brouwer@cwi.nl>)
 	+ modify traces that record functions-called so that chtype and attr_t
 	  values are expressed symbolically, to simplify reuse of generated
 	  test-scripts on SVr4 regression testing.

@@ -3006,7 +3006,6 @@ bool Generic_GCC::GCCInstallationDetector::ScanGentooGccConfig(
       // Typical content of the GCC config file:
       // LDPATH="/usr/lib/gcc/x86_64-pc-linux-gnu/4.9.x:/usr/lib/gcc/
       // (continued from previous line) x86_64-pc-linux-gnu/4.9.x/32"
-      // MANPATH="/usr/share/gcc-data/x86_64-pc-linux-gnu/4.9.x/man"
       // INFOPATH="/usr/share/gcc-data/x86_64-pc-linux-gnu/4.9.x/info"
       // STDCXX_INCDIR="/usr/lib/gcc/x86_64-pc-linux-gnu/4.9.x/include/g++-v4"
       // We are looking for the paths listed in LDPATH=... .
