@@ -7800,9 +7800,6 @@ OLD_DIRS+=usr/share/terminfo/
 
 # 20210316: remove obsolete NFS headers
 OLD_FILES+=usr/include/nfs/nfs_common.h
-OLD_FILES+=usr/include/nfsserver/nfs_fha_old.h
-OLD_FILES+=usr/include/nfsserver/nfsm_subs.h
-OLD_FILES+=usr/include/nfsserver/nfsrvcache.h
 
 # 20210315: Remove kernel-only crypto headers from /usr/include
 OLD_FILES+=usr/include/crypto/_cryptodev.h
@@ -15622,8 +15619,6 @@ OLD_FILES+=usr/share/man/man5/cvs.5.gz
 OLD_FILES+=usr/share/man/man8/cvsbug.8.gz
 # 20130607: WITH_DEBUG_FILES added
 OLD_FILES+=lib/libufs.so.6.symbols
-# 20130417: nfs fha moved from nfsserver to nfs
-OLD_FILES+=usr/include/nfsserver/nfs_fha.h
 # 20130411: new clang import which bumps version from 3.2 to 3.3
 OLD_FILES+=usr/include/clang/3.2/__wmmintrin_aes.h
 OLD_FILES+=usr/include/clang/3.2/__wmmintrin_pclmul.h
@@ -15984,7 +15979,6 @@ OLD_FILES+=usr/share/man/man9/vm_page_copy.9.gz
 OLD_FILES+=usr/share/man/man9/vm_page_protect.9.gz
 OLD_FILES+=usr/share/man/man9/vm_page_zero_fill.9.gz
 # 20110707: script no longer needed by /etc/rc.d/nfsd
-OLD_FILES+=etc/rc.d/nfsserver
 # 20110705: files moved so both NFS clients can share them
 # 20110705: the switch of default NFS client to the new one
 OLD_FILES+=sbin/mount_newnfs

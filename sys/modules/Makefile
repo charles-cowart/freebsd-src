@@ -282,7 +282,6 @@ SUBDIR=	\
 	${_nfe} \
 
 	nfscommon \
-	nfsd \
 	nfslockd \
 	nfssvc \
 	nlsysevent \

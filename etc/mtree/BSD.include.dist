@@ -326,7 +326,6 @@
     nfs
     ..
     ..
-    nfsserver
     ..
     opencsd
         c_api

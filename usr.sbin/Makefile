@@ -43,25 +43,17 @@ SUBDIR=	adduser \
 	mfiutil \
 	mixer \
 	mlxcontrol \
-	mountd \
-	mount_smbfs \
+       mount_smbfs \
 	mpsutil \
 	mptutil \
 	mtest \
 	newsyslog \
-	nfscbd \
-	nfsd \
-	nfsdumpstate \
-	nfsrevoke \
-	nfsuserd \
+       nfscbd \
 	nmtree \
 	nologin \
 	pciconf \
 	periodic \
-	pnfsdscopymr \
-	pnfsdsfile \
-	pnfsdskill \
-	powerd \
+       powerd \
 	prometheus_sysctl_exporter \
 	pstat \
 	pw \

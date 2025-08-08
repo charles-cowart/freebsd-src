@@ -53,16 +53,13 @@ CONFS=	DAEMON \
 	mountlate \
 	mdconfig \
 	mdconfig2 \
-	mountd \
 	msgs \
 	natd \
 	netif \
 	netoptions \
 	netwait \
 	newsyslog \
-	nfscbd \
-	nfsd \
-	nfsuserd \
+       nfscbd \
 	nisdomain \
 	${_nscd} \
 	ntpdate \
