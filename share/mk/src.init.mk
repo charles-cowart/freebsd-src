@@ -11,7 +11,6 @@ buildenv: .PHONY
 .if ${.MAKE.OS} != "FreeBSD"
 # these won't work anyway - see tools/build/mk/Makefile.boot.pre
 MK_DEBUG_FILES= no
-MK_MAN= no
 MK_PIE= no
 MK_RETPOLINE= no
 NO_SHARED= no

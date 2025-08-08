@@ -494,8 +494,7 @@ MK_LOADER_VERIEXEC_PASS_MANIFEST := no
 # MK_* options whose default value depends on another option.
 #
 .for vv in \
-    GSSAPI/KERBEROS \
-    MAN_UTILS/MAN
+    GSSAPI/KERBEROS
 .if defined(WITH_${vv:H})
 MK_${vv:H}:=	yes
 .elif defined(WITHOUT_${vv:H})

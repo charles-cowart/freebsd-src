@@ -221,9 +221,7 @@ lint: ${LOBJS}
 .include <files.mk>
 .endif
 
-.if ${MK_MAN} != "no"
 .include <man.mk>
-.endif
 
 .if ${MK_NLS} != "no"
 .include <nls.mk>

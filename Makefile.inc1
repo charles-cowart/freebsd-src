@@ -746,16 +746,14 @@ BSARGS= 	DESTDIR= \
 		MK_CLANG_EXTRAS=no \
 		MK_CLANG_FORMAT=no \
 		MK_CLANG_FULL=no \
-		MK_HTML=no \
-		MK_MAN=no \
-		MK_PROFILE=no \
-		MK_RETPOLINE=no \
-		MK_SSP=no \
-		MK_TESTS=no \
-		MK_UBSAN=no \
-		MK_WERROR=no \
-		MK_INCLUDES=yes \
-		MK_MAN_UTILS=yes
+                MK_HTML=no \
+                MK_PROFILE=no \
+                MK_RETPOLINE=no \
+                MK_SSP=no \
+                MK_TESTS=no \
+                MK_UBSAN=no \
+                MK_WERROR=no \
+                MK_INCLUDES=yes
 
 BMAKE=		\
 		${TIME_ENV} ${BMAKEENV} ${MAKE} ${WORLD_FLAGS} -f Makefile.inc1 \
@@ -813,13 +811,12 @@ KTMAKE=		${TIME_ENV} \
 		-DNO_LINT \
 		-DNO_PIC \
 		-DNO_SHARED \
-		MK_CTF=no \
-		MK_HTML=no \
-		MK_MAN=no \
-		MK_PROFILE=no \
-		MK_SSP=no \
-		MK_RETPOLINE=no \
-		MK_WERROR=no
+                MK_CTF=no \
+                MK_HTML=no \
+                MK_PROFILE=no \
+                MK_SSP=no \
+                MK_RETPOLINE=no \
+                MK_WERROR=no
 
 # world stage
 WMAKEENV=	${CROSSENV} \
@@ -1188,8 +1185,8 @@ _libraries:
 	@echo ">>> stage 4.2: building libraries"
 	@echo "--------------------------------------------------------------"
 	${_+_}cd ${.CURDIR}; \
-	    ${WMAKE} -DNO_FSCHG MK_HTML=no -DNO_LINT MK_MAN=no \
-	    MK_PROFILE=no MK_TESTS=no MK_TESTS_SUPPORT=${MK_TESTS_SUPPORT} \
+            ${WMAKE} -DNO_FSCHG MK_HTML=no -DNO_LINT \
+            MK_PROFILE=no MK_TESTS=no MK_TESTS_SUPPORT=${MK_TESTS_SUPPORT} \
 	    libraries
 everything: .PHONY
 	@echo
@@ -1379,10 +1376,6 @@ ITOOLS=	[ awk cap_mkdb cat chflags chmod chown cmp cp \
 
 .if ${MK_ZONEINFO} != "no"
 ITOOLS+=tzsetup
-.endif
-
-# Needed for share/man
-.if ${MK_MAN_UTILS} != "no"
 .endif
 
 ITOOLS+=${LOCAL_ITOOLS}
@@ -2979,16 +2972,14 @@ NXBMAKEARGS+= \
 	MK_CLANG_EXTRAS=no \
 	MK_CLANG_FORMAT=no \
 	MK_CLANG_FULL=no \
-	MK_CTF=no \
-	MK_DEBUG_FILES=no \
-	MK_HTML=no \
-	MK_LLDB=no \
-	MK_MAN=no \
-	MK_MAN_UTILS=yes \
-	MK_OFED=no \
-	MK_OPENSSH=no \
-	MK_PROFILE=no \
-	MK_RETPOLINE=no \
+        MK_CTF=no \
+        MK_DEBUG_FILES=no \
+        MK_HTML=no \
+        MK_LLDB=no \
+        MK_OFED=no \
+        MK_OPENSSH=no \
+        MK_PROFILE=no \
+        MK_RETPOLINE=no \
 	MK_SENDMAIL=no \
 	MK_SSP=no \
 	MK_TESTS=no \
@@ -3653,8 +3644,8 @@ XDEV_CPUTYPE?=${TARGET_CPUTYPE}
 .endif
 
 NOFUN=-DNO_FSCHG MK_HTML=no -DNO_LINT \
-	MK_MAN=no MK_NLS=no MK_PROFILE=no \
-	MK_KERBEROS=no MK_RESCUE=no MK_TESTS=no MK_WERROR=no \
+        MK_NLS=no MK_PROFILE=no \
+        MK_KERBEROS=no MK_RESCUE=no MK_TESTS=no MK_WERROR=no \
 	TARGET=${TARGET} TARGET_ARCH=${TARGET_ARCH} \
 	CPUTYPE=${XDEV_CPUTYPE}
 

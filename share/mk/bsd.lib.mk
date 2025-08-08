@@ -333,10 +333,8 @@ all:
 all: ${_LIBS}
 .endif
 
-.if ${MK_MAN} != "no" && !defined(LIBRARIES_ONLY)
+.endif
 all: all-man
-.endif
-.endif
 
 CLEANFILES+=	${_LIBS}
 
@@ -477,16 +475,10 @@ SYMLINKGRP?=	${LIBGRP}
 LINKTAGS=	dev
 .include <bsd.links.mk>
 
-.if ${MK_MAN} != "no" && !defined(LIBRARIES_ONLY)
 realinstall: maninstall
 .ORDER: beforeinstall maninstall
-.endif
 
-.endif
-
-.if ${MK_MAN} != "no" && !defined(LIBRARIES_ONLY)
 .include <bsd.man.mk>
-.endif
 
 .if defined(LIB) && !empty(LIB)
 OBJS_DEPEND_GUESS+= ${SRCS:M*.h}

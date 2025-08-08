@@ -556,10 +556,8 @@ libinstall:
 .endif
 .endif
 
-.if ${MK_MAN} != "no"
 install: maninstall _SUBDIRUSE
 maninstall: afterinstall
-.endif
 afterinstall: realinstall
 libinstall: beforeinstall
 realinstall: beforeinstall
@@ -569,9 +567,7 @@ realinstall: beforeinstall
 .include <files.mk>
 .endif
 
-.if ${MK_MAN} != "no"
 .include <man.mk>
-.endif
 
 .if ${MK_NLS} != "no"
 .include <nls.mk>

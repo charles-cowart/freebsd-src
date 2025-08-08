@@ -236,9 +236,6 @@ MK_PICINSTALL=	no
 MK_PROFILE=	no
 .endif
 
-.if ${MK_MAN} == "no"
-MK_CATPAGES=	no
-.endif
 
 .if ${MK_OBJ} == "no"
 MK_OBJDIRS=	no
@@ -249,7 +246,6 @@ MK_AUTO_OBJ=	no
 MK_CATPAGES=	no
 MK_DOC=		no
 MK_INFO=	no
-MK_MAN=		no
 MK_NLS=		no
 .endif
 

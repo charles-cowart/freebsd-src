@@ -42,19 +42,17 @@ BSARGS= 	DESTDIR= \
 		-DNO_LINT \
 		-DNO_PIC \
 		-DNO_SHARED \
-		MK_CTF=no \
-		MK_CLANG_EXTRAS=no \
-		MK_CLANG_FORMAT=no \
-		MK_CLANG_FULL=no \
-		MK_HTML=no \
-		MK_MAN=no \
-		MK_PROFILE=no \
-		MK_RETPOLINE=no \
-		MK_SSP=no \
-		MK_TESTS=no \
-		MK_WERROR=no \
-		MK_INCLUDES=yes \
-		MK_MAN_UTILS=yes
+                MK_CTF=no \
+                MK_CLANG_EXTRAS=no \
+                MK_CLANG_FORMAT=no \
+                MK_CLANG_FULL=no \
+                MK_HTML=no \
+                MK_PROFILE=no \
+                MK_RETPOLINE=no \
+                MK_SSP=no \
+                MK_TESTS=no \
+                MK_WERROR=no \
+                MK_INCLUDES=yes
 
 # We will handle building the toolchain and cross-compiler.
 BSARGS+= MK_CROSS_COMPILER=no MK_CLANG=no MK_LLDB=no

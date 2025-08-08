@@ -689,7 +689,7 @@ EOF
 # XXX
 cp /boot/device.hints ${DESTDIR}/boot/device.hints
 # Assume we're already built
-make install DESTDIR=${DESTDIR} MK_MAN=no MK_INSTALL_AS_USER=yes WITHOUT_DEBUG_FILES=yes
+make install DESTDIR=${DESTDIR} MK_INSTALL_AS_USER=yes WITHOUT_DEBUG_FILES=yes
 if [ $? -ne 0 ]; then
         echo "make install failed"
         exit 1

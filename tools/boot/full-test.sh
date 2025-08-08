@@ -201,9 +201,9 @@ make_freebsd_test_trees()
 	cd ${SRCTOP}/stand
 	# Indirection needed because our build system is too complex
 #	SHELL="make clean" make buildenv TARGET=${m} TARGET_ARCH=${ma}
-	SHELL="make -j 100 all" make buildenv TARGET=${m} TARGET_ARCH=${ma}
-	SHELL="make install DESTDIR=${dir} MK_MAN=no MK_INSTALL_AS_USER=yes WITHOUT_DEBUG_FILES=yes" \
-	     make buildenv TARGET=${m} TARGET_ARCH=${ma}
+        SHELL="make -j 100 all" make buildenv TARGET=${m} TARGET_ARCH=${ma}
+        SHELL="make install DESTDIR=${dir} MK_INSTALL_AS_USER=yes WITHOUT_DEBUG_FILES=yes" \
+             make buildenv TARGET=${m} TARGET_ARCH=${ma}
 	rm -rf ${dir}/bin ${dir}/[ac-z]*	# Don't care about anything here
     done
 }
