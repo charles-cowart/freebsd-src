@@ -49,8 +49,8 @@
  * the normal ip_input processing path. We should only be called from
  * interfaces connected to the outside world.
  *
- * Firewalling is fully supported including divert, ipfw fwd and ipfilter
- * ipnat and address rewrite.
+ * Firewalling is fully supported including divert, ipfw fwd and
+ * address rewrite.
  *
  * IPSEC is not supported if this host is a tunnel broker. IPSEC is
  * supported for connections to/from local host.
@@ -304,7 +304,7 @@ ip_tryforward(struct mbuf *m)
 	osrc.s_addr = ip->ip_src.s_addr;
 
 	/*
-	 * Run through list of ipfilter hooks for input packets
+     * Run through list of pfil hooks for input packets
 	 */
 	if (!PFIL_HOOKED_IN(V_inet_pfil_head))
 		goto passin;
