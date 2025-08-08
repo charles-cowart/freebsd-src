@@ -10,6 +10,13 @@ newline.  Entries should be separated by a newline.
 
 Changes to this file should not be MFCed.
 
+ad18bdb020f3:
+	The mandoc-based manual page utilities (man, apropos,
+	makewhatis, manpath, whatis, and related programs), along
+	with the base system's manual pages, have been removed.
+	Manual page functionality is now available through
+	packages such as textproc/mandoc.
+
 1ee62f354ab0:
 	ps(1)'s options '-a' and '-A', when combined with any other one
 	affecting the selection of processes except for '-X' and '-x', would

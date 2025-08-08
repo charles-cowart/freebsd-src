@@ -12,6 +12,13 @@ Items affecting the ports and packages system can be found in
 /usr/ports/UPDATING.  Please read that file before updating system packages
 and/or ports.
 
+20250830:
+	The mandoc-based manual page utilities (man, apropos,
+	makewhatis, manpath, whatis, and related tools) have been
+	removed from the base system along with bundled manual pages.
+	Users requiring manual pages should install them from packages
+	such as textproc/mandoc.
+
 20250702:
 	14.3-RELEASE-p1	EN-25:10.zfs
 
