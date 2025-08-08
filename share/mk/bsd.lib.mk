@@ -475,10 +475,7 @@ SYMLINKGRP?=	${LIBGRP}
 LINKTAGS=	dev
 .include <bsd.links.mk>
 
-realinstall: maninstall
-.ORDER: beforeinstall maninstall
-
-.include <bsd.man.mk>
+# Manual pages are no longer installed by this file.
 
 .if defined(LIB) && !empty(LIB)
 OBJS_DEPEND_GUESS+= ${SRCS:M*.h}
