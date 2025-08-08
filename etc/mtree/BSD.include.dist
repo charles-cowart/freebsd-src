@@ -321,12 +321,7 @@
         ..
     ..
     netipsec
-    ..
-    netpfil
-        pf
-        ..
-    ..
-    netsmb
+    ..    netsmb
     ..
     nfs
     ..

@@ -20,8 +20,6 @@ idletime:*:48:
 bind:*:53:
 unbound:*:59:
 proxy:*:62:
-authpf:*:63:
-_pflogd:*:64:
 _dhcp:*:65:
 uucp:*:66:
 dialer:*:68:

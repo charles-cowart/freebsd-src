@@ -151,7 +151,6 @@ shim6	140	SHIM6		# Shim6 Protocol (RFC5533)
 wesp	141	WESP		# Wrapped Encapsulating Security Payload (RFC5840)
 rohc	142	ROHC		# Robust Header Compression (RFC5858)
 #	138-254			# Unassigned
-pfsync	240	PFSYNC		# PF Synchronization
 #	253-254			# Use for experimentation and testing (RFC3692)
 #	255			# Reserved
 divert	258	DIVERT		# Divert pseudo-protocol [non IANA]

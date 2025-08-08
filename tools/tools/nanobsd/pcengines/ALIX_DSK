@@ -94,7 +94,6 @@ options         ALTQ_PRIQ
 
 device          pf
 device          pflog
-device          pfsync                                                          
 device          carp                                                            
 device          if_bridge
 
