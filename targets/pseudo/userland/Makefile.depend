@@ -142,7 +142,6 @@ DIRDEPS+= \
 	usr.bin/banner \
 	usr.bin/basename \
 	usr.bin/bc \
-	usr.bin/biff \
 	usr.bin/bintrans \
 	usr.bin/bluetooth/bthost \
 	usr.bin/bluetooth/btsockstat \
@@ -258,7 +257,6 @@ DIRDEPS+= \
 	usr.bin/lzmainfo \
 	usr.bin/m4 \
 	usr.bin/mail \
-	usr.bin/mesg \
 	usr.bin/minigzip \
 	usr.bin/ministat \
 	usr.bin/mkcsmapper \
@@ -330,7 +328,6 @@ DIRDEPS+= \
 	usr.bin/systat \
 	usr.bin/tabs \
 	usr.bin/tail \
-	usr.bin/talk \
 	usr.bin/tar \
 	usr.bin/tcopy \
 	usr.bin/tee \
@@ -375,7 +372,6 @@ DIRDEPS+= \
 	usr.bin/which \
 	usr.bin/who \
 	usr.bin/whois \
-	usr.bin/write \
 	usr.bin/xargs \
 	usr.bin/xinstall \
 	usr.bin/xo \
