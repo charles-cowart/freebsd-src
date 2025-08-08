@@ -20,7 +20,6 @@ SRCS+=	acl_branding.c			\
 	acl_free.c			\
 	acl_from_mode_np.c		\
 	acl_from_text.c			\
-	acl_from_text_nfs4.c		\
 	acl_get.c			\
 	acl_id_to_name.c		\
 	acl_init.c			\
@@ -28,9 +27,7 @@ SRCS+=	acl_branding.c			\
 	acl_set.c			\
 	acl_strip.c			\
 	acl_support.c			\
-	acl_support_nfs4.c		\
 	acl_to_text.c			\
-	acl_to_text_nfs4.c		\
 	acl_valid.c			\
 	extattr.c			\
 	mac.c				\

@@ -273,7 +273,6 @@ MAN+=	abort2.2 \
 	msync.2 \
 	munmap.2 \
 	nanosleep.2 \
-	nfssvc.2 \
 	ntp_adjtime.2 \
 	open.2 \
 	pathconf.2 \

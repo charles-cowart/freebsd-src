@@ -6,15 +6,13 @@
 PACKAGE=	tests
 
 ${PACKAGE}FILES= \
-     tst.call.d  \
-     tst.call3.d  \
+    tst.call.d  \
 
 TESTEXES= \
 
 
 CFILES= \
-     tst.call.c  \
-     tst.call3.c  \
+    tst.call.c  \
 
 
 .include "../../dtrace.test.mk"

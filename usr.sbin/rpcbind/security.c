@@ -19,10 +19,11 @@
  */
 #include <rpcsvc/mount.h>
 #include <rpcsvc/rquota.h>
-#include <rpcsvc/nfs_prot.h>
 #include <rpcsvc/yp.h>
 #include <rpcsvc/ypclnt.h>
 #include <rpcsvc/yppasswd.h>
+
+#define NFS_PROGRAM 100003
 
 #include "rpcbind.h"
 

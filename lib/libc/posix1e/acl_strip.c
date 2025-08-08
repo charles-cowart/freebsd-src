@@ -34,29 +34,6 @@
 
 #include "acl_support.h"
 
-/*
- * and libc.
- */
-	    int canonical_six);
-
-static acl_t
-_nfs4_acl_strip_np(const acl_t aclp, int canonical_six)
-{
-	acl_t newacl;
-	mode_t mode = 0;
-
-	newacl = acl_init(ACL_MAX_ENTRIES);
-	if (newacl == NULL) {
-		errno = ENOMEM;
-		return (NULL);
-	}
-
-	_acl_brand_as(newacl, ACL_BRAND_NFS4);
-
-
-	return (newacl);
-}
-
 static acl_t
 _posix1e_acl_strip_np(const acl_t aclp, int recalculate_mask)
 {
@@ -128,17 +105,11 @@ fail:
 acl_t
 acl_strip_np(const acl_t aclp, int recalculate_mask)
 {
-	switch (_acl_brand(aclp)) {
-	case ACL_BRAND_NFS4:
-		return (_nfs4_acl_strip_np(aclp, 0));
-
-	case ACL_BRAND_POSIX:
-		return (_posix1e_acl_strip_np(aclp, recalculate_mask));
-
-	default:
-		errno = EINVAL;
-		return (NULL);
-	}
+        if (_acl_brand(aclp) != ACL_BRAND_POSIX) {
+                errno = EINVAL;
+                return (NULL);
+        }
+        return (_posix1e_acl_strip_np(aclp, recalculate_mask));
 }
 
 /*
@@ -151,68 +122,20 @@ acl_strip_np(const acl_t aclp, int recalculate_mask)
 int
 acl_is_trivial_np(const acl_t aclp, int *trivialp)
 {
-	acl_t tmpacl;
-	int differs;
+        if (aclp == NULL || trivialp == NULL) {
+                errno = EINVAL;
+                return (-1);
+        }
 
-	if (aclp == NULL || trivialp == NULL) {
-		errno = EINVAL;
-		return (-1);
-	}
+        if (_acl_brand(aclp) != ACL_BRAND_POSIX) {
+                errno = EINVAL;
+                return (-1);
+        }
 
-	switch (_acl_brand(aclp)) {
-	case ACL_BRAND_POSIX:
-		if (aclp->ats_acl.acl_cnt == 3)
-			*trivialp = 1;
-		else
-			*trivialp = 0;
+        if (aclp->ats_acl.acl_cnt == 3)
+                *trivialp = 1;
+        else
+                *trivialp = 0;
 
-		return (0);
-
-	case ACL_BRAND_NFS4:
-		/*
-		 * If the ACL has more than canonical six entries,
-		 * it's non trivial by definition.
-		 */
-		if (aclp->ats_acl.acl_cnt > 6) {
-			*trivialp = 0;
-			return (0);
-		}
-			
-		/*
-		 * Calculate trivial ACL - using acl_strip_np(3) - and compare
-		 * with the original.
-		 */
-		tmpacl = _nfs4_acl_strip_np(aclp, 0);
-		if (tmpacl == NULL)
-			return (-1);
-
-		differs = _acl_differs(aclp, tmpacl);
-		acl_free(tmpacl);
-
-		if (differs == 0) {
-			*trivialp = 1;
-			return (0);
-		}
-
-		/*
-		 * Try again with an old-style, "canonical six" trivial ACL.
-		 */
-		tmpacl = _nfs4_acl_strip_np(aclp, 1);
-		if (tmpacl == NULL)
-			return (-1);
-
-		differs = _acl_differs(aclp, tmpacl);
-		acl_free(tmpacl);
-
-		if (differs)
-			*trivialp = 0;
-		else
-			*trivialp = 1;
-
-		return (0);
-
-	default:
-		errno = EINVAL;
-		return (-1);
-	}
+        return (0);
 }

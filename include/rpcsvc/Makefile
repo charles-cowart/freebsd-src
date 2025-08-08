@@ -4,11 +4,11 @@
 
 RPCCOM=	RPCGEN_CPP=${CPP:Q} rpcgen -C
 
-HDRS= key_prot.h mount.h nfs_prot.h rex.h rnusers.h \
+HDRS= key_prot.h mount.h rex.h rnusers.h \
       rquota.h rstat.h rwall.h spray.h yppasswd.h yp.h \
       ypxfrd.h ypupdate_prot.h nis.h nis_cache.h nis_callback.h \
       bootparam_prot.h crypt.h
-XFILES= bootparam_prot.x key_prot.x mount.x nfs_prot.x \
+XFILES= bootparam_prot.x key_prot.x mount.x \
       rex.x rnusers.x rquota.x rstat.x rwall.x spray.x \
       yppasswd.x yp.x ypxfrd.x ypupdate_prot.x nis.x nis_cache.x nis_object.x \
       nis_callback.x crypt.x

@@ -49,7 +49,6 @@
  * a non-POSIX.1e semantics ACL.
  */
 
-char *_nfs4_acl_to_text_np(const acl_t acl, ssize_t *len_p, int flags);
 
 static char *
 _posix1e_acl_to_text(acl_t acl, ssize_t *len_p, int flags)
@@ -241,15 +240,11 @@ acl_to_text_np(acl_t acl, ssize_t *len_p, int flags)
 		return(NULL);
 	}
 
-	switch (_acl_brand(acl)) {
-	case ACL_BRAND_POSIX:
-		return (_posix1e_acl_to_text(acl, len_p, flags));
-	case ACL_BRAND_NFS4:
-		return (_nfs4_acl_to_text_np(acl, len_p, flags));
-	default:
-		errno = EINVAL;
-		return (NULL);
-	}
+        if (_acl_brand(acl) != ACL_BRAND_POSIX) {
+                errno = EINVAL;
+                return (NULL);
+        }
+        return (_posix1e_acl_to_text(acl, len_p, flags));
 }
 
 char *

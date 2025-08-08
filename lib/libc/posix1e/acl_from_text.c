@@ -45,8 +45,6 @@
 
 static acl_tag_t acl_string_to_tag(char *tag, char *qualifier);
 
-int _nfs4_acl_entry_from_text(acl_t aclp, char *entry);
-int _text_could_be_nfs4_acl(const char *entry);
 
 static acl_tag_t
 acl_string_to_tag(char *tag, char *qualifier)
@@ -163,25 +161,6 @@ _posix1e_acl_entry_from_text(acl_t aclp, char *entry)
 	return (0);
 }
 
-static int
-_text_is_nfs4_entry(const char *entry)
-{
-	int count = 0;
-
-	assert(strlen(entry) > 0);
-
-	while (*entry != '\0') {
-		if (*entry == ':' || *entry == '@')
-			count++;
-		entry++;
-	}
-
-	if (count <= 2)
-		return (0);
-
-	return (1);
-}
-
 /*
  * acl_from_text -- Convert a string into an ACL.
  * Postpone most validity checking until the end and call acl_valid() to do
@@ -219,29 +198,17 @@ acl_from_text(const char *buf_p)
 			if (strlen(string_skip_whitespace(entry)) == 0)
 				continue;
 
-			if (_acl_brand(acl) == ACL_BRAND_UNKNOWN) {
-				if (_text_is_nfs4_entry(entry))
-					_acl_brand_as(acl, ACL_BRAND_NFS4);
-				else
-					_acl_brand_as(acl, ACL_BRAND_POSIX);
-			}
+                        if (_acl_brand(acl) == ACL_BRAND_UNKNOWN)
+                                _acl_brand_as(acl, ACL_BRAND_POSIX);
 
-			switch (_acl_brand(acl)) {
-			case ACL_BRAND_NFS4:
-				error = _nfs4_acl_entry_from_text(acl, entry);
-				break;
+                        if (_acl_brand(acl) != ACL_BRAND_POSIX) {
+                                error = EINVAL;
+                                goto error_label;
+                        }
 
-			case ACL_BRAND_POSIX:
-				error = _posix1e_acl_entry_from_text(acl, entry);
-				break;
-
-			default:
-				error = EINVAL;
-				break;
-			}
-
-			if (error)
-				goto error_label;
+                        error = _posix1e_acl_entry_from_text(acl, entry);
+                        if (error)
+                                goto error_label;
 		}
 	}
 
