@@ -777,7 +777,7 @@ https://lists.freebsd.org/archives/freebsd-current/2021-June/000153.html
 	your Makefiles and scripts to define MK_<var>=no instead as required.
 
 	One exception to this is that program or library Makefiles should
-	define MAN to empty rather than setting MK_MAN=no.
+    define MAN to empty.
 
 20200108:
 	Clang/LLVM is now the default compiler and LLD the default

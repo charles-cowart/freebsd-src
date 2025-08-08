@@ -9,7 +9,6 @@ CXXFLAGS+= -std=c++2a
 LIBADD= bsnmp
 
 CFLAGS += -DBOGUS_CVE_2019_5610_FIX
-MK_MAN= no
 
 .include <bsd.prog.mk>
 

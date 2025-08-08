@@ -63,9 +63,7 @@ _timedef=	timedef
 _mk=		mk
 .endif
 
-.if ${MK_MAN} != "no"
 _man=		man
-.endif
 
 .if ${MK_SENDMAIL} != "no"
 _sendmail=	 sendmail

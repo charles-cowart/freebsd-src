@@ -32,9 +32,7 @@ FREEBSD=COPYRIGHT
 DESTDIR:=	${DESTDIR:C://*:/:g}
 
 afterinstall:
-.if ${MK_MAN} != "no"
-	${_+_}cd ${SRCTOP}/share/man; ${MAKE} makedb
-.endif
+        ${_+_}cd ${SRCTOP}/share/man; ${MAKE} makedb
 
 distribute:
 	# Avoid installing tests here; "make distribution" will do this and
