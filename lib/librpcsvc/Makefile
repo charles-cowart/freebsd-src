@@ -8,9 +8,9 @@ PACKAGE=	runtime
 
 LIB=    rpcsvc
 
-RPCSRCS= mount.x nfs_prot.x rex.x rnusers.x \
-	rquota.x rstat.x rwall.x spray.x yppasswd.x ypxfrd.x \
-	ypupdate_prot.x
+RPCSRCS= mount.x rex.x rnusers.x \
+        rquota.x rstat.x rwall.x spray.x yppasswd.x ypxfrd.x \
+        ypupdate_prot.x
 
 OTHERSRCS=  rnusers.c rstat.c rwall.c
 SECRPCSRCS= secretkey.c xcrypt.c
