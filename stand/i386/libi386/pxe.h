@@ -49,7 +49,6 @@
 
 #define	S_SIZE(s)	s, sizeof(s) - 1
 
-#define	PXENFSROOTPATH	"/pxeroot"
 
 typedef struct {
 	uint16_t		offset;

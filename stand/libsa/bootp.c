@@ -506,9 +506,6 @@ static struct dhcp_opt vndr_opt[] = { /* Vendor Specific Options */
 	{13,	__TXT,	"rc.conf7"},
 	{14,	__TXT,	"rc.conf8"},
 	{15,	__TXT,	"rc.conf9"},
-
-	{20,	__TXT,  "boot.nfsroot.options"},
-
 	{245,	__INDIR, ""},
 	{246,	__INDIR, ""},
 	{247,	__INDIR, ""},

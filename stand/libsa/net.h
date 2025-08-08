@@ -46,9 +46,8 @@
 #define BA { 0xff, 0xff, 0xff, 0xff, 0xff, 0xff }
 
 enum net_proto {
-	NET_NONE,
-	NET_NFS,
-	NET_TFTP
+        NET_NONE,
+        NET_TFTP
 };
 
 /* Returns true if n_long's on the same net */

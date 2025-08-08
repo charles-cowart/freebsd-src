@@ -45,9 +45,8 @@ to allow flexible configuration of the DHCP server.
 The
 .Nm
 bootloader retrieves the kernel, modules,
-and other files either via NFS over UDP or by TFTP,
-selectable through compile-time options.
-In combination with a memory file system image or NFS-mounted root file system,
+and other files via TFTP.
+In combination with a memory file system image,
 .Nm
 allows for easy,
 EEPROM-burner free construction of diskless machines.
@@ -81,12 +80,11 @@ subnet 10.0.0.0 netmask 255.255.255.0 {
 .Ed
 .Va next-server
 is the IP address of the next server in the bootstrap process, i.e.
-your TFTP server or NFS server.
+your TFTP server.
 .Nm
 recognizes
 .Va option root-path
-directives as the server and path to NFS mount for file requests,
-respectively, or the server to make TFTP requests to.
+directives as the server to make TFTP requests to.
 Note that
 .Nm
 expects to fetch
@@ -97,30 +95,12 @@ Valid
 .Va option root-path
 syntax is the following
 .Bl -tag -width <scheme>://ip/path
-.It /path
-path to the root filesystem on the NFS server
-.It ip://path
-path to the root filesystem on the NFS server
-.Ar ip
-.It nfs://path
-path to the root filesystem on the NFS server
-.It nfs://ip/path
-path to the root filesystem on the NFS server
-.Ar ip
 .It tftp://path
 path to the root filesystem on the TFTP server
 .It tftp://ip/path
 path to the root filesystem on the TFTP server
 .Ar ip
 .El
-.Pp
-.Nm
-defaults to a conservative 1024 byte NFS data packet size.
-This may be changed by setting the
-.Va nfs.read_size
-variable in
-.Pa /boot/loader.conf .
-Valid values range from 1024 to 16384 bytes.
 .Pp
 In all other respects,
 .Nm
