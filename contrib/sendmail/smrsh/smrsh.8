@@ -50,18 +50,9 @@ It allows ``||'' and ``&&'' to enable commands like:
 ``"|exec /usr/local/bin/filter || exit 75"''
 .PP
 Initial pathnames on programs are stripped,
-so forwarding to ``/usr/bin/vacation'',
-``/home/server/mydir/bin/vacation'',
-and
-``vacation''
-all actually forward to
-``/usr/libexec/sm.bin/vacation''.
 .PP
 System administrators should be conservative about populating
 the sm.bin directory.
-For example, a reasonable additions is
-.IR vacation (1),
-and the like.
 No matter how brow-beaten you may be,
 never include any shell or shell-like program
 (such as

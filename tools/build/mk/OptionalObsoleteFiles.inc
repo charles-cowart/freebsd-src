@@ -6854,7 +6854,6 @@ OLD_FILES+=etc/rc.d/sendmail
 .if ${MK_MAILWRAPPER} == no
 OLD_FILES+=bin/rmail
 .endif
-OLD_FILES+=usr/bin/vacation
 OLD_FILES+=usr/include/libmilter/mfapi.h
 OLD_FILES+=usr/include/libmilter/mfdef.h
 OLD_DIRS+=usr/include/libmilter
@@ -6875,7 +6874,6 @@ OLD_FILES+=usr/share/examples/sendmail/mailer.conf
 OLD_DIRS+=usr/share/examples/sendmail
 OLD_FILES+=usr/share/man/man1/mailq.1.gz
 OLD_FILES+=usr/share/man/man1/newaliases.1.gz
-OLD_FILES+=usr/share/man/man1/vacation.1.gz
 OLD_FILES+=usr/share/man/man5/aliases.5.gz
 OLD_FILES+=usr/share/man/man8/editmap.8.gz
 OLD_FILES+=usr/share/man/man8/hoststat.8.gz
@@ -7950,9 +7948,7 @@ OLD_FILES+=usr/share/man/man1/ul.1.gz
 .endif
 
 .if ${MK_TFTP} == no
-OLD_FILES+=usr/bin/tftp
 OLD_FILES+=usr/libexec/tftpd
-OLD_FILES+=usr/share/man/man1/tftp.1.gz
 OLD_FILES+=usr/share/man/man8/tftpd.8.gz
 .endif
 
