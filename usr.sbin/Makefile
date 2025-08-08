@@ -12,7 +12,6 @@ SUBDIR=	adduser \
 	chown \
 	chroot \
 	ckdist \
-	clear_locks \
 	crashinfo \
 	cron \
 	daemon \
@@ -63,8 +62,6 @@ SUBDIR=	adduser \
 	rarpd \
 	rmt \
 	rpcbind \
-	rpc.lockd \
-	rpc.statd \
 	rpc.umntall \
 	rtprio \
 	rwhod \

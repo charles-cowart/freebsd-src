@@ -4416,7 +4416,7 @@ sys_getfh(struct thread *td, struct getfh_args *uap)
 }
 
 /*
- * syscall for the rpc.lockd to use to translate an open descriptor into
+ * syscall to translate an open descriptor into
  * a NFS file handle.
  *
  * warning: do not remove the priv_check() call or this becomes one giant
@@ -4564,7 +4564,7 @@ sys_fhreadlink(struct thread *td, struct fhreadlink_args *uap)
 }
 
 /*
- * syscall for the rpc.lockd to use to translate a NFS file handle into an
+ * syscall to translate a NFS file handle into an
  * open descriptor.
  *
  * warning: do not remove the priv_check() call or this becomes one giant

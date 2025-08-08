@@ -52,7 +52,7 @@ pgrep -q nfscbd || { echo "nfscbd is not running"; exit 0; }
 
 mount | grep "$mntpoint" | grep -q nfs && umount $mntpoint
 opt="-o nocto"
-opt="$opt -o nolockd -o nfsv4"
+opt="$opt  -o nfsv4"
 mount $opt $nfs_export $mntpoint || exit 1
 sleep .2
 

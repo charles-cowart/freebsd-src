@@ -61,7 +61,7 @@ mount | grep "on $mntpoint " | grep nfs > /dev/null && umount $mntpoint
 
 [ $# -ne 0 ] &&
     # Problem only seen with lockd
-    { echo "Not using lockd"; debug="-o nolockd"; }
+    { echo "Not using lockd"; debug=""; }
 mount -t nfs -o tcp -o retrycnt=3 -o soft -o rw $debug \
     $nfs_export $mntpoint
 sleep 2

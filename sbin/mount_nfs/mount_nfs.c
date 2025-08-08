@@ -169,7 +169,7 @@ main(int argc, char *argv[])
 	gssname = NULL;
 
 	while ((c = getopt(argc, argv,
-	    "23a:bcdD:g:I:iLlNo:PR:r:sTt:w:x:U")) != -1)
+	    "23a:bcdD:g:I:ilNo:PR:r:sTt:w:x:U")) != -1)
 		switch (c) {
 		case '2':
 			mountmode = V2;
@@ -213,10 +213,6 @@ main(int argc, char *argv[])
 			printf("-i deprecated, use -o intr\n");
 			build_iovec(&iov, &iovlen, "intr", NULL, 0);
 			softintr = true;
-			break;
-		case 'L':
-			printf("-L deprecated, use -o nolockd\n");
-			build_iovec(&iov, &iovlen, "nolockd", NULL, 0);
 			break;
 		case 'l':
 			printf("-l deprecated, -o rdirplus\n");
@@ -1161,7 +1157,7 @@ static void
 usage(void)
 {
 	(void)fprintf(stderr, "%s\n%s\n%s\n%s\n",
-"usage: mount_nfs [-23bcdiLlNPsTU] [-a maxreadahead] [-D deadthresh]",
+"usage: mount_nfs [-23bcdilNPsTU] [-a maxreadahead] [-D deadthresh]",
 "                 [-g maxgroups] [-I readdirsize] [-o options] [-R retrycnt]",
 "                 [-r readsize] [-t timeout] [-w writesize] [-x retrans]",
 "                 rhost:path node");

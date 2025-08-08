@@ -491,9 +491,7 @@ DIRDEPS+= \
 	usr.sbin/chkgrp \
 	usr.sbin/chown \
 	usr.sbin/chroot \
-	usr.sbin/ckdist \
-	usr.sbin/clear_locks \
-	usr.sbin/config \
+	usr.sbin/ckdist \	usr.sbin/config \
 	usr.sbin/crashinfo \
 	usr.sbin/cron/cron \
 	usr.sbin/cron/crontab \
@@ -639,10 +637,7 @@ DIRDEPS+= \
 	usr.sbin/rmt \
 	usr.sbin/rndc \
 	usr.sbin/rndc-confgen \
-	usr.sbin/route6d \
-	usr.sbin/rpc.lockd \
-	usr.sbin/rpc.statd \
-	usr.sbin/rpc.umntall \
+	usr.sbin/route6d \	usr.sbin/rpc.umntall \
 	usr.sbin/rpc.yppasswdd \
 	usr.sbin/rpc.ypupdated \
 	usr.sbin/rpc.ypxfrd \

@@ -64,7 +64,7 @@ umount $mntpoint
 
 if ping -c 2 `echo $nfs_export | sed 's/:.*//'` > /dev/null 2>&1; then
 	echo "Testing nfs"
-	mount -t nfs -o nfsv3,tcp,nolockd,retrycnt=3,soft,timeout=1 \
+	mount -t nfs -o nfsv3,tcp,retrycnt=3,soft,timeout=1 \
 	    $nfs_export $mntpoint
 	/tmp/readdir $mntpoint
 	umount $mntpoint
