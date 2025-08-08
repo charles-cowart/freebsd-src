@@ -10,7 +10,7 @@ files for anything tricky.
 
 There are two main types of make include files.  One type is the generally
 usable make include files, such as bsd.prog.mk and bsd.lib.mk.  The other is
-the internal make include files, such as bsd.files.mk and bsd.man.mk, which
+the internal make include files, such as bsd.files.mk, which
 can not/should not be used directly but are used by the other make include
 files.  In most cases it is only interesting to include bsd.prog.mk or
 bsd.lib.mk.
@@ -33,7 +33,6 @@ bsd.kmod.mk		- building loadable kernel modules
 bsd.lib.mk		- support for building libraries
 bsd.libnames.mk		- define library names
 bsd.links.mk		- install of links (sym/hard)
-bsd.man.mk		- install of manual pages and their links
 bsd.nls.mk		- build and install of NLS catalogs
 bsd.obj.mk		- creating 'obj' directories and cleaning up
 bsd.own.mk		- define common variables
@@ -175,46 +174,10 @@ architectures, if they exist. It will include the first of the following
 files that it finds: Makefile.${MACHINE}, Makefile.${MACHINE_ARCH},
 Makefile.${MACHINE_CPUARCH}
 
-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-
-The include file <bsd.man.mk> handles installing manual pages and their
-links.
-
-It has three targets:
-
-	all-man:
-		build manual pages.
-	maninstall:
-		install the manual pages and their links.
-	manlint:
-		verify the validity of manual pages.
-
-It sets/uses the following variables:
-
-MAN		The manual pages to be installed (use a .1 - .9 suffix).
-
-MANDIR		Base path for manual installation.
-
-MANGRP		Manual group.
-
-MANMODE		Manual mode.
-
-MANOWN		Manual owner.
-
-MANSUBDIR	Subdirectory under the manual page section, i.e. "/vax"
-		or "/tahoe" for machine specific manual pages.
-
-MLINKS		List of manual page links (using a .1 - .9 suffix).  The
-		linked-to file must come first, the linked file second,
-		and there may be multiple pairs.  The files are hard-linked.
-
-The include file <bsd.man.mk> includes a file named "../Makefile.inc" if
-it exists.
 
 =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
-The include file <bsd.own.mk> contains the owners, groups, etc. for both
-manual pages and binaries.
+The include file <bsd.own.mk> contains the owners, groups, etc. for binaries.
 
 It has no targets.
 
@@ -225,14 +188,6 @@ BINGRP		Binary group.
 BINMODE		Binary mode.
 
 BINOWN		Binary owner.
-
-MANDIR		Base path for manual installation.
-
-MANGRP		Manual group.
-
-MANMODE		Manual mode.
-
-MANOWN		Manual owner.
 
 INSTALL_LINK	Command to install a hard link.
 
@@ -375,8 +330,6 @@ LINKGRP		Group of links created with LINKS [${BINGRP}].
 LINKMODE	Mode of links created with LINKS [${BINMODE}].
 
 
-MAN		Manual pages.  If no MAN variable is defined,
-		"MAN=${PROG}.1" is assumed. See bsd.man.mk for more details.
 
 PROG		The name of the program to build.  If not supplied, nothing
 		is built.
@@ -414,8 +367,6 @@ PROGS_CXX	PROG and PROG_CXX in one Makefile.  To define
 		- LDFLAGS
 		- LIBADD
 		- LINKS
-		- MAN
-		- MLINKS
 		- MK_WERROR=no
 		- PROGNAME
 		- SRCS
@@ -441,23 +392,15 @@ SUBDIR		A list of subdirectories that should be built as well.
 		subdirectories.
 
 The include file <bsd.prog.mk> includes the file named "../Makefile.inc"
-if it exists, as well as the include file <bsd.man.mk>.
+if it exists.
 
 Some simple examples:
 
-To build foo from foo.c with a manual page foo.1, use:
+To build foo from foo.c, use:
 
 	PROG=	foo
 
 	.include <bsd.prog.mk>
-
-To build foo from foo.c with a manual page foo.2, add the line:
-
-	MAN=	foo.2
-
-If foo does not have a manual page at all, add the line:
-
-	MAN=
 
 If foo has multiple source files, add the line:
 
@@ -611,8 +554,6 @@ LINKGRP		Group of links created with LINKS [${LIBGRP}].
 
 LINKMODE	Mode of links created with LINKS [${LIBMODE}].
 
-MAN		The manual pages to be installed. See bsd.man.mk for more
-		details.
 
 SHLIB		Like LIB but only builds a shared library.
 
@@ -628,7 +569,7 @@ SRCS		List of source files to build the library.  Suffix types
 		versions of make.)
 
 The include file <bsd.lib.mk> includes the file named "../Makefile.inc"
-if it exists, as well as the include file <bsd.man.mk>.
+if it exists.
 
 It has rules for building profiled objects; profiled libraries are
 built by default.

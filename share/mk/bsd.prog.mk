@@ -358,12 +358,13 @@ LINKGRP?=	${BINGRP}
 LINKMODE?=	${BINMODE}
 .include <bsd.links.mk>
 
-realinstall: maninstall
-.ORDER: beforeinstall maninstall
+realinstall:
+.ORDER: beforeinstall
+
+# Manual pages are no longer installed by default.
 
 .endif	# !target(install)
 
-.include <bsd.man.mk>
 
 .if defined(HAS_TESTS)
 MAKE+=			MK_MAKE_CHECK_USE_SANDBOX=yes
