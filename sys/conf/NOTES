@@ -1061,9 +1061,7 @@ options 	TCP_SIGNATURE		#include support for RFC 2385
 # DUMMYNET enables the "dummynet" bandwidth limiter.  You need IPFIREWALL
 # as well.  See dummynet(4) and ipfw(8) for more info.  When you run
 # DUMMYNET, HZ/kern.hz should be at least 1000 for adequate response.
-options 	DUMMYNET
 
-# The DEBUGNET option enables a basic debug/panic-time networking API.  It
 # is used by NETDUMP and NETGDB.
 options 	DEBUGNET
 
@@ -2309,7 +2307,6 @@ device		pcfclock
 
 # General Purpose I/O pins
 device		dwgpio		# Synopsys DesignWare APB GPIO Controller
-device  	gpio		# gpio interfaces and bus support
 device  	gpiobacklight	# sysctl control of gpio-based backlight
 device  	gpioiic		# i2c via gpio bitbang
 device  	gpiokeys	# kbd(4) glue for gpio-based key input

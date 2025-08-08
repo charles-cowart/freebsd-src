@@ -23,7 +23,6 @@ options		SMP			#Symmetric Multi Processing
 options		INET			#InterNETworking
 options		INET6			#IPv6 communications protocols
 options		FFS			#Berkeley Fast Filesystem
-options		NFSCL			#New Network Filesystem Client
 options		SOFTUPDATES		#Enable FFS soft updates support
 options		PROCFS			#Process filesystem (requires PSEUDOFS)
 options		PSEUDOFS		#Pseudo-filesystem framework
@@ -64,7 +63,6 @@ options		BOOTP
 options		BOOTP_NFSROOT
 options		BOOTP_NFSV3
 options		BOOTP_WIRED_TO=dtsec3
-options		NFS_ROOT
 
 # Block devices
 device		mmc

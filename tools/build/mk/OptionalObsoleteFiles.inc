@@ -1490,7 +1490,6 @@ OLD_FILES+=usr/share/dtrace/disklatency
 OLD_FILES+=usr/share/dtrace/disklatencycmd
 OLD_FILES+=usr/share/dtrace/hotopen
 OLD_FILES+=usr/share/dtrace/nfsattrstats
-OLD_FILES+=usr/share/dtrace/nfsclienttime
 OLD_FILES+=usr/share/dtrace/siftr
 OLD_FILES+=usr/share/dtrace/toolkit/execsnoop
 OLD_FILES+=usr/share/dtrace/toolkit/hotkernel

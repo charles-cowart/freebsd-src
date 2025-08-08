@@ -4,7 +4,7 @@
 #
 
 # PROVIDE: lockd
-# REQUIRE: nfsclient rpcbind statd
+# REQUIRE: rpcbind statd
 # BEFORE:  DAEMON
 # KEYWORD: nojail shutdown
 

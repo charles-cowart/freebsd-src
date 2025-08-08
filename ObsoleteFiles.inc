@@ -7800,8 +7800,6 @@ OLD_DIRS+=usr/share/terminfo/
 
 # 20210316: remove obsolete NFS headers
 OLD_FILES+=usr/include/nfs/nfs_common.h
-OLD_FILES+=usr/include/nfsclient/nfsm_subs.h
-OLD_FILES+=usr/include/nfsclient/nlminfo.h
 OLD_FILES+=usr/include/nfsserver/nfs_fha_old.h
 OLD_FILES+=usr/include/nfsserver/nfsm_subs.h
 OLD_FILES+=usr/include/nfsserver/nfsrvcache.h
@@ -15988,12 +15986,9 @@ OLD_FILES+=usr/share/man/man9/vm_page_zero_fill.9.gz
 # 20110707: script no longer needed by /etc/rc.d/nfsd
 OLD_FILES+=etc/rc.d/nfsserver
 # 20110705: files moved so both NFS clients can share them
-OLD_FILES+=usr/include/nfsclient/krpc.h
-OLD_FILES+=usr/include/nfsclient/nfsdiskless.h
 # 20110705: the switch of default NFS client to the new one
 OLD_FILES+=sbin/mount_newnfs
 OLD_FILES+=usr/share/man/man8/mount_newnfs.8.gz
-OLD_FILES+=usr/include/nfsclient/nfs_kdtrace.h
 # 20110628: calendar.msk removed
 OLD_FILES+=usr/share/calendar/ru_RU.KOI8-R/calendar.msk
 # 20110517: libpkg removed
@@ -16129,8 +16124,6 @@ OLD_FILES+=usr/share/man/man3/cftime.3.gz
 OLD_FILES+=usr/share/man/man3/getpw.3.gz
 # 20100725: acpi_aiboost(4) removal
 OLD_FILES+=usr/share/man/man4/acpi_aiboost.4.gz
-# 20100724: nfsclient/nfs_lock.h moved to nfs/nfs_lock.h
-OLD_FILES+=usr/include/nfsclient/nfs_lock.h
 # 20100720: new clang import which bumps version from 2.0 to 2.8
 OLD_FILES+=usr/include/clang/2.0/emmintrin.h
 OLD_FILES+=usr/include/clang/2.0/mm_malloc.h

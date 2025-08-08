@@ -49,9 +49,6 @@
 #include <ufs/ufs/ufsmount.h>
 #include <fs/devfs/devfs.h>
 #include <fs/devfs/devfs_int.h>
-#include <nfs/nfsproto.h>
-#include <nfsclient/nfs.h>
-#include <nfsclient/nfsnode.h>
 
 #include <assert.h>
 #include <err.h>
@@ -62,7 +59,6 @@
 #include <libprocstat.h>
 #include "common_kvm.h"
 
-int
 kvm_read_all(kvm_t *kd, unsigned long addr, void *buf, size_t nbytes)
 {
 	ssize_t error;
@@ -73,7 +69,6 @@ kvm_read_all(kvm_t *kd, unsigned long addr, void *buf, size_t nbytes)
 	return (error == (ssize_t)(nbytes));
 }
 
-int
 kdevtoname(kvm_t *kd, struct cdev *dev, char *buf)
 {
 	struct cdev si;
@@ -85,7 +80,6 @@ kdevtoname(kvm_t *kd, struct cdev *dev, char *buf)
 	return (0);
 }
 
-int
 ufs_filestat(kvm_t *kd, struct vnode *vp, struct vnstat *vn)
 {
 	struct inode inode;
@@ -111,7 +105,6 @@ ufs_filestat(kvm_t *kd, struct vnode *vp, struct vnstat *vn)
 	return (0);
 }
 
-int
 devfs_filestat(kvm_t *kd, struct vnode *vp, struct vnstat *vn)
 {
 	struct devfs_dirent devfs_dirent;
@@ -136,50 +129,6 @@ devfs_filestat(kvm_t *kd, struct vnode *vp, struct vnstat *vn)
 	return (0);
 }
 
-int
-nfs_filestat(kvm_t *kd, struct vnode *vp, struct vnstat *vn)
-{
-	struct nfsnode nfsnode;
-	mode_t mode;
-
-	if (!kvm_read_all(kd, (unsigned long)VTONFS(vp), &nfsnode,
-	    sizeof(nfsnode))) {
-		warnx("can't read nfsnode at %p",
-		    (void *)VTONFS(vp));
-		return (1);
-	}
-	vn->vn_fsid = nfsnode.n_vattr.va_fsid;
-	vn->vn_fileid = nfsnode.n_vattr.va_fileid;
-	vn->vn_size = nfsnode.n_size;
-	mode = (mode_t)nfsnode.n_vattr.va_mode;
-	switch (vp->v_type) {
-	case VREG:
-		mode |= S_IFREG;
-		break;
-	case VDIR:
-		mode |= S_IFDIR;
-		break;
-	case VBLK:
-		mode |= S_IFBLK;
-		break;
-	case VCHR:
-		mode |= S_IFCHR;
-		break;
-	case VLNK:
-		mode |= S_IFLNK;
-		break;
-	case VSOCK:
-		mode |= S_IFSOCK;
-		break;
-	case VFIFO:
-		mode |= S_IFIFO;
-		break;
-	default:
-		break;
-	};
-	vn->vn_mode = mode;
-	return (0);
-}
 
 /*
  * Read the cdev structure in the kernel in order to work out the
