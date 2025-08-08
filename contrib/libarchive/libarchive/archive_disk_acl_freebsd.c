@@ -63,7 +63,6 @@ static const int acl_posix_perm_map_size =
     (int)(sizeof(acl_posix_perm_map)/sizeof(acl_posix_perm_map[0]));
 
 #if ARCHIVE_ACL_FREEBSD_NFS4
-static const acl_perm_map_t acl_nfs4_perm_map[] = {
 	{ARCHIVE_ENTRY_ACL_EXECUTE, ACL_EXECUTE},
 	{ARCHIVE_ENTRY_ACL_READ_DATA, ACL_READ_DATA},
 	{ARCHIVE_ENTRY_ACL_LIST_DIRECTORY, ACL_LIST_DIRECTORY},
@@ -83,10 +82,7 @@ static const acl_perm_map_t acl_nfs4_perm_map[] = {
 	{ARCHIVE_ENTRY_ACL_SYNCHRONIZE, ACL_SYNCHRONIZE}
 };
 
-static const int acl_nfs4_perm_map_size =
-    (int)(sizeof(acl_nfs4_perm_map)/sizeof(acl_nfs4_perm_map[0]));
 
-static const acl_perm_map_t acl_nfs4_flag_map[] = {
 	{ARCHIVE_ENTRY_ACL_ENTRY_FILE_INHERIT, ACL_ENTRY_FILE_INHERIT},
 	{ARCHIVE_ENTRY_ACL_ENTRY_DIRECTORY_INHERIT, ACL_ENTRY_DIRECTORY_INHERIT},
 	{ARCHIVE_ENTRY_ACL_ENTRY_NO_PROPAGATE_INHERIT, ACL_ENTRY_NO_PROPAGATE_INHERIT},
@@ -98,8 +94,6 @@ static const acl_perm_map_t acl_nfs4_flag_map[] = {
 #endif
 };
 
-static const int acl_nfs4_flag_map_size =
-    (int)(sizeof(acl_nfs4_flag_map)/sizeof(acl_nfs4_flag_map[0]));
 #endif /* ARCHIVE_ACL_FREEBSD_NFS4 */
 
 static int
@@ -260,16 +254,13 @@ translate_acl(struct archive_read_disk *a,
 				    "ACL entry");
 				return (ARCHIVE_WARN);
 			}
-			for (i = 0; i < acl_nfs4_flag_map_size; ++i) {
 				r = acl_get_flag_np(acl_flagset,
-				    acl_nfs4_flag_map[i].p_perm);
 				if (r == -1) {
 					archive_set_error(&a->archive, errno,
 					    "Failed to check flag in a NFSv4 "
 					    "ACL flagset");
 					return (ARCHIVE_WARN);
 				} else if (r)
-					ae_perm |= acl_nfs4_flag_map[i].a_perm;
 			}
 		}
 #endif
@@ -282,8 +273,6 @@ translate_acl(struct archive_read_disk *a,
 
 #if ARCHIVE_ACL_FREEBSD_NFS4
 		if (default_entry_acl_type & ARCHIVE_ENTRY_ACL_TYPE_NFS4) {
-			perm_map_size = acl_nfs4_perm_map_size;
-			perm_map = acl_nfs4_perm_map;
 		} else {
 #endif
 			perm_map_size = acl_posix_perm_map_size;
@@ -473,8 +462,6 @@ set_acl(struct archive *a, int fd, const char *name,
 		}
 #if ARCHIVE_ACL_FREEBSD_NFS4
 		if (ae_requested_type == ARCHIVE_ENTRY_ACL_TYPE_NFS4) {
-			perm_map_size = acl_nfs4_perm_map_size;
-			perm_map = acl_nfs4_perm_map;
 		} else {
 #endif
 			perm_map_size = acl_posix_perm_map_size;
@@ -514,10 +501,7 @@ set_acl(struct archive *a, int fd, const char *name,
 				ret = ARCHIVE_FAILED;
 				goto exit_free;
 			}
-			for (i = 0; i < acl_nfs4_flag_map_size; ++i) {
-				if (ae_permset & acl_nfs4_flag_map[i].a_perm) {
 					if (acl_add_flag_np(acl_flagset,
-					    acl_nfs4_flag_map[i].p_perm) != 0) {
 						archive_set_error(a, errno,
 						    "Failed to add flag to "
 						    "NFSv4 ACL flagset");

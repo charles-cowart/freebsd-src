@@ -3861,7 +3861,6 @@ zfs_pathconf(vnode_t *vp, int cmd, ulong_t *valp, cred_t *cr,
 #endif
 		return (0);
 
-	case _PC_ACL_NFS4:
 		zp = VTOZ(vp);
 		zfsvfs = zp->z_zfsvfs;
 		if ((error = zfs_enter_verify_zp(zfsvfs, zp, FTAG)) != 0)
@@ -5900,7 +5899,6 @@ zfs_freebsd_setacl(struct vop_setacl_args *ap)
 	if (ap->a_aclp->acl_cnt * 2 + 6 > ACL_MAX_ENTRIES)
 		return (ENOSPC);
 
-	error = acl_nfs4_check(ap->a_aclp, ap->a_vp->v_type == VDIR);
 	if (error != 0)
 		return (error);
 

@@ -232,35 +232,17 @@ typedef void *acl_t;
 #define	ACL_WRITE_SET		(ACL_WRITE_DATA | ACL_APPEND_DATA | \
     ACL_WRITE_NAMED_ATTRS | ACL_WRITE_ATTRIBUTES)
 
-#define	ACL_NFS4_PERM_BITS	ACL_FULL_SET
-
 /*
  * Possible entry_id values for acl_get_entry(3).
  */
-#define	ACL_FIRST_ENTRY		0
-#define	ACL_NEXT_ENTRY		1
-
-/*
- * Possible values in ae_flags field; valid only for NFSv4 ACLs.
- */
-#define	ACL_ENTRY_FILE_INHERIT		0x0001
-#define	ACL_ENTRY_DIRECTORY_INHERIT	0x0002
-#define	ACL_ENTRY_NO_PROPAGATE_INHERIT	0x0004
-#define	ACL_ENTRY_INHERIT_ONLY		0x0008
-#define	ACL_ENTRY_SUCCESSFUL_ACCESS	0x0010
-#define	ACL_ENTRY_FAILED_ACCESS		0x0020
-#define	ACL_ENTRY_INHERITED		0x0080
-
-#define	ACL_FLAGS_BITS			(ACL_ENTRY_FILE_INHERIT | \
-    ACL_ENTRY_DIRECTORY_INHERIT | ACL_ENTRY_NO_PROPAGATE_INHERIT | \
-    ACL_ENTRY_INHERIT_ONLY | ACL_ENTRY_SUCCESSFUL_ACCESS | \
-    ACL_ENTRY_FAILED_ACCESS | ACL_ENTRY_INHERITED)
+#define ACL_FIRST_ENTRY         0
+#define ACL_NEXT_ENTRY          1
 
 /*
  * Undefined value in ae_id field.  ae_id should be set to this value
  * iff ae_tag is ACL_USER_OBJ, ACL_GROUP_OBJ, ACL_OTHER or ACL_EVERYONE.
  */
-#define	ACL_UNDEFINED_ID	((uid_t)-1)
+#define ACL_UNDEFINED_ID        ((uid_t)-1)
 
 /*
  * Possible values for _flags parameter in acl_to_text_np(3).
@@ -297,16 +279,6 @@ mode_t			acl_posix1e_newfilemode(mode_t cmode,
 struct acl		*acl_alloc(int flags);
 void			acl_free(struct acl *aclp);
 
-void			acl_nfs4_sync_acl_from_mode(struct acl *aclp,
-			    mode_t mode, int file_owner_id);
-void			acl_nfs4_sync_mode_from_acl(mode_t *mode,
-			    const struct acl *aclp);
-int			acl_nfs4_is_trivial(const struct acl *aclp,
-			    int file_owner_id);
-void			acl_nfs4_compute_inherited_acl(
-			    const struct acl *parent_aclp,
-			    struct acl *child_aclp, mode_t mode,
-			    int file_owner_id, int is_directory);
 int __result_use_check	acl_copy_oldacl_into_acl(const struct oldacl *source,
 			    struct acl *dest);
 int __result_use_check	acl_copy_acl_into_oldacl(const struct acl *source,
@@ -320,7 +292,6 @@ MALLOC_DECLARE(M_ACL);
  * Filesystem-independent syntax check for a POSIX.1e ACL.
  */
 int			acl_posix1e_check(struct acl *acl);
-int 			acl_nfs4_check(const struct acl *aclp, int is_directory);
 
 #else /* !_KERNEL */
 

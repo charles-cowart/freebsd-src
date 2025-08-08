@@ -724,8 +724,6 @@ int	vaccess(__enum_uint8(vtype) type, mode_t file_mode, uid_t file_uid,
 	    gid_t file_gid, accmode_t accmode, struct ucred *cred);
 int	vaccess_vexec_smr(mode_t file_mode, uid_t file_uid, gid_t file_gid,
 	    struct ucred *cred);
-int	vaccess_acl_nfs4(__enum_uint8(vtype) type, uid_t file_uid, gid_t file_gid,
-	    struct acl *aclp, accmode_t accmode, struct ucred *cred);
 int	vaccess_acl_posix1e(__enum_uint8(vtype) type, uid_t file_uid,
 	    gid_t file_gid, struct acl *acl, accmode_t accmode,
 	    struct ucred *cred);

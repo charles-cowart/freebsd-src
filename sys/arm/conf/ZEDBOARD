@@ -27,14 +27,10 @@ makeoptions	MODULES_EXTRA="dtb/zynq"
 
 options 	SCHED_ULE		# ULE scheduler
 options 	PLATFORM		# Platform based SoC
-#options 	NFSSD			# Network Filesystem Server
 options 	SMP			# Enable multiple cores
 
-# NFS root from boopt/dhcp
 #options 	BOOTP
-#options 	BOOTP_NFSROOT
 #options 	BOOTP_COMPAT
-#options 	BOOTP_NFSV3
 
 options 	ROOTDEVNAME=\"ufs:mmcsd0s2a\"
 

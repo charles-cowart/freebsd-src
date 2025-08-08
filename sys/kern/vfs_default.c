@@ -449,7 +449,6 @@ vop_stdpathconf(struct vop_pathconf_args *ap)
 			*ap->a_retval = PATH_MAX;
 			return (0);
 		case _PC_ACL_EXTENDED:
-		case _PC_ACL_NFS4:
 		case _PC_CAP_PRESENT:
 		case _PC_DEALLOC_PRESENT:
 		case _PC_INF_PRESENT:

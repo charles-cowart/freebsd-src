@@ -766,7 +766,6 @@ zfsctl_common_pathconf(struct vop_pathconf_args *ap)
 		*ap->a_retval = 0;
 		return (0);
 
-	case _PC_ACL_NFS4:
 		*ap->a_retval = 1;
 		return (0);
 
@@ -794,9 +793,7 @@ zfsctl_common_getacl(struct vop_getacl_args *ap)
 	if (ap->a_type != ACL_TYPE_NFS4)
 		return (EINVAL);
 
-	acl_nfs4_sync_acl_from_mode(ap->a_aclp, zfsctl_ctldir_mode, 0);
 	/*
-	 * acl_nfs4_sync_acl_from_mode assumes that the owner can always modify
 	 * attributes.  That is not the case for the ctldir, so we must clear
 	 * those bits.  We also must clear ACL_READ_NAMED_ATTRS, because xattrs
 	 * aren't supported by the ctldir.

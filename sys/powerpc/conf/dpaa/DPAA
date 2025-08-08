@@ -60,8 +60,6 @@ options		WITNESS			#Enable checks to detect deadlocks and cycles
 
 # Netbooting
 options		BOOTP
-options		BOOTP_NFSROOT
-options		BOOTP_NFSV3
 options		BOOTP_WIRED_TO=dtsec3
 
 # Block devices

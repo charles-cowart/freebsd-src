@@ -93,7 +93,6 @@ zfs_extra()
 cryptodev_load=YES
 zfs_load=YES
 EOF
-    cp /boot/kernel/acl_nfs4.ko ${dst}/boot/kernel/acl_nfs4.ko
     cp /boot/kernel/cryptodev.ko ${dst}/boot/kernel/cryptodev.ko
     cp /boot/kernel/zfs.ko ${dst}/boot/kernel/zfs.ko
 }
@@ -413,7 +412,6 @@ cryptodev_load=YES
 zfs_load=YES
 geom_eli_load=YES
 EOF
-    cp /boot/kernel/acl_nfs4.ko ${mntpt}/boot/kernel/acl_nfs4.ko
     cp /boot/kernel/cryptodev.ko ${mntpt}/boot/kernel/cryptodev.ko
     cp /boot/kernel/zfs.ko ${mntpt}/boot/kernel/zfs.ko
     cp /boot/kernel/geom_eli.ko ${mntpt}/boot/kernel/geom_eli.ko
@@ -462,7 +460,6 @@ cryptodev_load=YES
 zfs_load=YES
 geom_eli_load=YES
 EOF
-    cp /boot/kernel/acl_nfs4.ko ${mntpt}/boot/kernel/acl_nfs4.ko
     cp /boot/kernel/cryptodev.ko ${mntpt}/boot/kernel/cryptodev.ko
     cp /boot/kernel/zfs.ko ${mntpt}/boot/kernel/zfs.ko
     cp /boot/kernel/geom_eli.ko ${mntpt}/boot/kernel/geom_eli.ko
@@ -507,7 +504,6 @@ cryptodev_load=YES
 zfs_load=YES
 geom_eli_load=YES
 EOF
-    cp /boot/kernel/acl_nfs4.ko ${mntpt}/boot/kernel/acl_nfs4.ko
     cp /boot/kernel/cryptodev.ko ${mntpt}/boot/kernel/cryptodev.ko
     cp /boot/kernel/zfs.ko ${mntpt}/boot/kernel/zfs.ko
     cp /boot/kernel/geom_eli.ko ${mntpt}/boot/kernel/geom_eli.ko

@@ -407,7 +407,6 @@ ffs_mount(struct mount *mp)
 			    "are mutually exclusive");
 			return (EINVAL);
 		}
-		mntorflags |= MNT_NFS4ACLS;
 	}
 
 	MNT_ILOCK(mp);
@@ -699,7 +698,6 @@ ffs_mount(struct mount *mp)
 		if ((fs->fs_flags & FS_NFS4ACLS) != 0) {
 			/* XXX: Set too late ? */
 			MNT_ILOCK(mp);
-			mp->mnt_flag |= MNT_NFS4ACLS;
 			MNT_IUNLOCK(mp);
 		}
 
@@ -711,7 +709,6 @@ ffs_mount(struct mount *mp)
 	 */
 	if ((mp->mnt_kern_flag & MNTK_FPLOOKUP) != 0)
 		panic("MNTK_FPLOOKUP set on mount %p when it should not be", mp);
-	if ((mp->mnt_flag & (MNT_ACLS | MNT_NFS4ACLS | MNT_UNION)) == 0)
 		mp->mnt_kern_flag |= MNTK_FPLOOKUP;
 	MNT_IUNLOCK(mp);
 
@@ -1046,11 +1043,9 @@ ffs_mountfs(struct vnode *odevvp, struct mount *mp, struct thread *td)
 #ifdef UFS_ACL
 		MNT_ILOCK(mp);
 
-		if (mp->mnt_flag & MNT_NFS4ACLS)
 			printf("WARNING: %s: ACLs flag on fs conflicts with "
 			    "\"nfsv4acls\" mount option; option ignored\n",
 			    mp->mnt_stat.f_mntonname);
-		mp->mnt_flag &= ~MNT_NFS4ACLS;
 		mp->mnt_flag |= MNT_ACLS;
 
 		MNT_IUNLOCK(mp);
@@ -1068,7 +1063,6 @@ ffs_mountfs(struct vnode *odevvp, struct mount *mp, struct thread *td)
 			    "with \"acls\" mount option; option ignored\n",
 			    mp->mnt_stat.f_mntonname);
 		mp->mnt_flag &= ~MNT_ACLS;
-		mp->mnt_flag |= MNT_NFS4ACLS;
 
 		MNT_IUNLOCK(mp);
 #else

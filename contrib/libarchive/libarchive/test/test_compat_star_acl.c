@@ -279,9 +279,7 @@ DEFINE_TEST(test_compat_star_acl_posix1e)
 	assertEqualInt(ARCHIVE_OK, archive_read_free(a));
 }
 
-DEFINE_TEST(test_compat_star_acl_nfs4)
 {
-	char name[] = "test_compat_star_acl_nfs4.tar";
 	struct archive *a;
 	struct archive_entry *ae;
 
