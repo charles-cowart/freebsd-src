@@ -1430,7 +1430,7 @@ dnl Check if groff is available, for cases (such as html output) where nroff
 dnl is not enough.
 AC_DEFUN([CF_PROG_GROFF],[
 AC_PATH_PROG(GROFF_PATH,groff,no)
-AC_PATH_PROGS(NROFF_PATH,nroff mandoc,no)
+AC_PATH_PROGS(NROFF_PATH,nroff,no)
 AC_PATH_PROG(TBL_PATH,tbl,cat)
 if test "x$GROFF_PATH" = xno
 then

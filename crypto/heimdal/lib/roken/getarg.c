@@ -85,7 +85,7 @@ print_arg (char *string,
 }
 
 static void
-mandoc_template(struct getargs *args,
+mdoc_template(struct getargs *args,
 		size_t num_args,
 		const char *progname,
 		const char *extra_string,
@@ -235,7 +235,7 @@ arg_printusage_i18n (struct getargs *args,
 	i18n = builtin_i18n;
 
     if(getenv("GETARGMANDOC")){
-	mandoc_template(args, num_args, progname, extra_string, i18n);
+    mdoc_template(args, num_args, progname, extra_string, i18n);
 	return;
     }
     if(get_window_size(2, NULL, &columns) == -1)

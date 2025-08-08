@@ -24,7 +24,6 @@ DEV_PACKAGE	= $(ACTUAL_PROG)-dev
 BINDIR		= /usr/bin
 LIBDIR		= /usr/lib
 LOCALE		= /usr/share/locale
-MANDIR		= /usr/share/man
 HEADER		= /usr/include
 
 ifneq (,$(findstring noopt,$(DEB_BUILD_OPTIONS)))

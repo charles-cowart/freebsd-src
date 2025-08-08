@@ -28,7 +28,6 @@
 
 atf_test_case defaults__build_and_install
 defaults__build_and_install_head() {
-	atf_set "require.progs" "/usr/bin/mandoc"
 }
 defaults__build_and_install_body() {
 	if [ ! -e /usr/bin/gcc -a -e /usr/bin/clang ]; then
@@ -39,10 +38,6 @@ defaults__build_and_install_body() {
 #include <stdio.h>
 int main(void) { printf("Hello, test!\n"); return 0; }
 EOF
-	cat >hello.1 <<EOF
-Manpage of hello(1).
-EOF
-
 	cat >Makefile <<EOF
 BINDIR = /the/bin/dir
 PROG = hello
@@ -51,16 +46,10 @@ EOF
 
 	atf_check -o ignore make
 	mkdir -p root/the/bin/dir
-	mkdir -p root/usr/share/man/man1
-	mkdir -p root/usr/share/man/html1
-	create_make_conf mk.conf owngrp DESTDIR="$(pwd)/root"
-	atf_check -o ignore make install
+       create_make_conf mk.conf owngrp DESTDIR="$(pwd)/root"
+       atf_check -o ignore make install
 
-	atf_check -o inline:'Hello, test!\n' ./root/the/bin/dir/hello
-	atf_check -o inline:'Manpage of hello(1).\n' \
-	    cat root/usr/share/man/man1/hello.1
-	atf_check -o match:'Manpage of hello' \
-	    cat root/usr/share/man/html1/hello.html
+       atf_check -o inline:'Hello, test!\n' ./root/the/bin/dir/hello
 }
 
 atf_test_case without_man__build_and_install

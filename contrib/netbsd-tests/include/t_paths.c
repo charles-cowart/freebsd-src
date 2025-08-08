@@ -77,7 +77,6 @@ static const struct {
 	{ _PATH_KVMDB,		PATH_FILE		},
 	{ _PATH_LOCALE,		PATH_DIR		},
 	{ _PATH_MAILDIR,	PATH_DIR		},
-	{ _PATH_MAN,		PATH_DIR		},
 	{ _PATH_MEM,		PATH_DEV | PATH_ROOT	},
 	{ _PATH_MIXER,		PATH_DEV		},
 	{ _PATH_MIXER0,		PATH_DEV		},

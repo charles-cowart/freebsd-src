@@ -23492,7 +23492,7 @@ else
 END
 
 if test "$NROFF" ; then
-	for i in "-mdoc" "-mandoc"; do
+  for i in "-mdoc"; do
 		if "$NROFF" $i conftest.1 2> /dev/null | \
 			grep Jan > /dev/null 2>&1 ; then
 			ac_cv_sys_man_format="$NROFF $i"
@@ -23501,7 +23501,7 @@ if test "$NROFF" ; then
 	done
 fi
 if test "$ac_cv_sys_man_format" = "" -a "$GROFF" ; then
-	for i in "-mdoc" "-mandoc"; do
+  for i in "-mdoc"; do
 		if "$GROFF" -Tascii $i conftest.1 2> /dev/null | \
 			grep Jan > /dev/null 2>&1 ; then
 			ac_cv_sys_man_format="$GROFF -Tascii $i"

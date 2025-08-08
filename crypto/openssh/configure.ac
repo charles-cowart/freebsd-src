@@ -61,17 +61,10 @@ AC_PATH_PROG([SH], [ksh])
 AC_PATH_PROG([SH], [sh])
 AC_PATH_PROG([GROFF], [groff])
 AC_PATH_PROG([NROFF], [nroff awf])
-AC_PATH_PROG([MANDOC], [mandoc])
 AC_PATH_TOOL([PKGCONFIG], [pkg-config], [no])
 AC_SUBST([TEST_SHELL], [sh])
 
-dnl select manpage formatter to be used to build "cat" format pages.
-if test "x$MANDOC" != "x" ; then
-        MANFMT="$MANDOC"
-else
-        AC_MSG_WARN([mandoc not found; disabling manpage generation])
-        MANFMT="false"
-fi
+MANFMT="false"
 AC_SUBST([MANFMT])
 
 dnl for buildpkg.sh
@@ -5130,9 +5123,7 @@ AC_ARG_WITH([mantype],
 	]
 )
 if test -z "$MANTYPE"; then
-	if ${MANDOC} ${srcdir}/ssh.1 >/dev/null 2>&1; then
-		MANTYPE=doc
-	elif ${NROFF} -mdoc ${srcdir}/ssh.1 >/dev/null 2>&1; then
+	if ${NROFF} -mdoc ${srcdir}/ssh.1 >/dev/null 2>&1; then
 		MANTYPE=doc
 	elif ${NROFF} -man ${srcdir}/ssh.1 >/dev/null 2>&1; then
 		MANTYPE=man

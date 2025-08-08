@@ -76,7 +76,6 @@
 #define	_PATH_LOCALE	"/usr/share/locale"
 #define	_PATH_LOGIN	"/usr/bin/login"
 #define	_PATH_MAILDIR	"/var/mail"
-#define	_PATH_MAN	"/usr/share/man"
 #define	_PATH_MDCONFIG	"/sbin/mdconfig"
 #define	_PATH_MEM	"/dev/mem"
 #define	_PATH_MKSNAP_FFS	"/sbin/mksnap_ffs"
