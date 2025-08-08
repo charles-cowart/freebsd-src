@@ -445,5 +445,4 @@ smrsh		The "sendmail restricted shell", which can be used as
 		increased security control.  NOT PART OF SENDMAIL!
 sendmail	Source for the sendmail program itself.
 test		Some test scripts (currently only for compilation aids).
-vacation	Source for the vacation program.  NOT PART OF SENDMAIL!
 
