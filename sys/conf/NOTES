@@ -2609,7 +2609,7 @@ options 	DCONS_FORCE_CONSOLE=0	# force to be the primary console
 options 	DCONS_FORCE_GDB=1	# force to be the gdb device
 
 #####################################################################
-# crypto subsystem
+options    INIT_PATH=/sbin/init
 #
 # This is a port of the OpenBSD crypto framework.  Include this when
 # configuring IPSEC and when you have a h/w crypto device to accelerate

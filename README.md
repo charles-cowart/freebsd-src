@@ -30,7 +30,6 @@ Source Roadmap:
 | lib | System libraries. |
 | libexec | System daemons. |
 | release | Release building Makefile & associated tools. |
-| rescue | Build system for statically linked /rescue utilities. |
 | sbin | System commands. |
 | secure | Cryptographic libraries and commands. |
 | share | Shared resources. |

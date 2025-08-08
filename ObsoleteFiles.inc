@@ -4194,7 +4194,6 @@ OLD_FILES+=usr/share/man/man8/iscontrol.8.gz
 
 # 20211022
 OLD_FILES+=etc/rc.d/sppp
-OLD_FILES+=rescue/spppcontrol
 OLD_FILES+=sbin/spppcontrol
 .if ${TARGET_ARCH} == "i386"
 OLD_FILES+=usr/include/machine/cserial.h
@@ -11894,7 +11893,6 @@ OLD_FILES+=usr/share/man/man7/mailaddr.7.gz
 OLD_FILES+=usr/share/man/man3/NgSendMsgReply.3.gz
 # 20171108: badsect(8) removal
 OLD_FILES+=sbin/badsect
-OLD_FILES+=rescue/badsect
 OLD_FILES+=usr/share/man/man8/badsect.8.gz
 # 20171105: fixing lib/libclang_rt CRTARCH for arm:armv[67]
 .if ${MACHINE_ARCH:Marmv[67]*} != "" && \
@@ -11949,7 +11947,6 @@ OLD_FILES+=usr/include/stand.h
 OLD_FILES+=usr/share/man/man3/libstand.3.gz
 # 20171003: remove RCMDS
 OLD_FILES+=bin/rcp
-OLD_FILES+=rescue/rcp
 OLD_FILES+=usr/bin/rlogin
 OLD_FILES+=usr/bin/rsh
 OLD_FILES+=usr/libexec/rlogind
@@ -12838,7 +12835,6 @@ OLD_FILES+=usr/share/man/man8/rc.atm.8.gz
 # 20170426: UMA_ZONE_REFCNT removed
 OLD_FILES+=usr/share/man/man9/uma_find_refcnt.9.gz
 # 20170424: NATM support removed
-OLD_FILES+=rescue/atmconfig
 OLD_FILES+=sbin/atmconfig
 OLD_FILES+=usr/include/bsnmp/snmp_atm.h
 OLD_FILES+=usr/include/dev/utopia/idtphy.h
@@ -15652,7 +15648,6 @@ OLD_FILES+=usr/include/clang/3.2/xopintrin.h
 OLD_DIRS+=usr/include/clang/3.2
 # 20130404: legacy ATA stack removed
 OLD_FILES+=etc/periodic/daily/405.status-ata-raid
-OLD_FILES+=rescue/atacontrol
 OLD_FILES+=sbin/atacontrol
 OLD_FILES+=usr/share/man/man8/atacontrol.8.gz
 OLD_FILES+=usr/share/man/man4/atapicam.4.gz
@@ -15705,7 +15700,6 @@ OLD_FILES+=usr/share/man/man1/ncplogin.1.gz
 OLD_FILES+=usr/share/man/man1/ncplogout.1.gz
 OLD_FILES+=usr/share/man/man8/mount_nwfs.8.gz
 # 20130302: NTFS support removed
-OLD_FILES+=rescue/mount_ntfs
 OLD_FILES+=sbin/mount_ntfs
 OLD_FILES+=usr/include/fs/ntfs/ntfs.h
 OLD_FILES+=usr/include/fs/ntfs/ntfs_compr.h
@@ -16577,8 +16571,6 @@ OLD_FILES+=usr/share/man/man9/VOP_LEASE.9.gz
 # 20090406: usb_sw_transfer.h removed
 OLD_FILES+=usr/include/dev/usb/usb_sw_transfer.h
 # 20090405: removal of if_ppp(4) and if_sl(4)
-OLD_FILES+=sbin/slattach rescue/slattach
-OLD_FILES+=sbin/startslip rescue/startslip
 OLD_FILES+=usr/include/net/if_ppp.h
 OLD_FILES+=usr/include/net/if_pppvar.h
 OLD_FILES+=usr/include/net/if_slvar.h
@@ -16701,7 +16693,6 @@ OLD_FILES+=usr/share/man/man9/uminor.9.gz
 OLD_FILES+=usr/share/man/man9/suser.9.gz
 OLD_FILES+=usr/share/man/man9/suser_cred.9.gz
 # 20080913: pax removed from rescue
-OLD_FILES+=rescue/pax
 # 20080823: removal of unneeded pt_chown, to implement grantpt(3)
 OLD_FILES+=usr/libexec/pt_chown
 # 20080822: ntp 4.2.4p5 import
@@ -16968,9 +16959,6 @@ OLD_FILES+=usr/include/machine/interruptvar.h
 # 20070801: fast_ipsec.4 gone
 OLD_FILES+=usr/share/man/man4/fast_ipsec.4.gz
 # 20070715: netatm temporarily disconnected (removed 20080525)
-OLD_FILES+=rescue/atm
-OLD_FILES+=rescue/fore_dnld
-OLD_FILES+=rescue/ilmid
 OLD_FILES+=sbin/atm
 OLD_FILES+=sbin/fore_dnld
 OLD_FILES+=sbin/ilmid
@@ -17074,7 +17062,6 @@ OLD_DIRS+=usr/include/netkey
 OLD_FILES+=usr/sbin/wicontrol
 OLD_FILES+=usr/share/man/man8/wicontrol.8.gz
 # 20070625: umapfs removal
-OLD_FILES+=rescue/mount_umapfs
 OLD_FILES+=sbin/mount_umapfs
 OLD_FILES+=usr/include/fs/umapfs/umap.h
 OLD_FILES+=usr/share/man/man8/mount_umapfs.8.gz
@@ -17495,12 +17482,6 @@ OLD_FILES+=sbin/mount_fdescfs
 OLD_FILES+=sbin/mount_linprocfs
 OLD_FILES+=sbin/mount_procfs
 OLD_FILES+=sbin/mount_std
-OLD_FILES+=rescue/mount_devfs
-OLD_FILES+=rescue/mount_ext2fs
-OLD_FILES+=rescue/mount_fdescfs
-OLD_FILES+=rescue/mount_linprocfs
-OLD_FILES+=rescue/mount_procfs
-OLD_FILES+=rescue/mount_std
 OLD_FILES+=usr/share/man/man8/mount_devfs.8.gz
 OLD_FILES+=usr/share/man/man8/mount_ext2fs.8.gz
 OLD_FILES+=usr/share/man/man8/mount_fdescfs.8.gz
@@ -17625,8 +17606,6 @@ OLD_FILES+=usr/include/pccard/pccard_nbk.h
 OLD_FILES+=usr/include/pccard/pcic_pci.h
 OLD_FILES+=usr/include/pccard/pcicvar.h
 OLD_FILES+=usr/include/pccard/slot.h
-# 20051215: rescue/nextboot.sh renamed to rescue/nextboot
-OLD_FILES+=rescue/nextboot.sh
 # 20051214: usbd(8) removed
 OLD_FILES+=etc/rc.d/usbd
 OLD_FILES+=etc/usbd.conf
@@ -17669,10 +17648,6 @@ OLD_FILES+=sbin/omshell
 OLD_FILES+=usr/share/man/man1/omshell.1.gz
 OLD_FILES+=usr/share/man/man5/dhcp-eval.5.gz
 # 200504XX: ipf tools moved from /usr to /
-OLD_FILES+=rescue/ipfs
-OLD_FILES+=rescue/ipfstat
-OLD_FILES+=rescue/ipmon
-OLD_FILES+=rescue/ipnat
 OLD_FILES+=usr/sbin/ipftest
 OLD_FILES+=usr/sbin/ipresend
 OLD_FILES+=usr/sbin/ipsend
@@ -17704,7 +17679,6 @@ OLD_FILES+=usr/share/games/fortune/fortunes2.dat
 OLD_FILES+=usr/libexec/getNAME
 # 200411XX: gvinum replaces vinum
 OLD_FILES+=bin/vinum
-OLD_FILES+=rescue/vinum
 OLD_FILES+=sbin/vinum
 OLD_FILES+=usr/share/man/man8/vinum.8.gz
 # 200411XX: libxpg4 removal

@@ -15,7 +15,6 @@ SUBDIR.${MK_TESTS}+= tests
 SUBDIR.${MK_ZFS}+= \
 	libavl \
 	libicp \
-	libicp_rescue \
 	libnvpair \
 	libtpool \
 	libumem \

@@ -52,8 +52,6 @@ static	ioctlfunc_t	iocfunctions[IPL_LOGSIZE] = { ioctl, ioctl, ioctl,
 						      ioctl, ioctl, ioctl,
 						      ioctl, ioctl };
 
-/* XXX	The following was added to satisfy a rescue/rescue/ build
-   XXX	requirement.  */
 int	nohdrfields;
 
 static void usage()

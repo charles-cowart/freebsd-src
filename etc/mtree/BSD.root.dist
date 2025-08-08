@@ -125,7 +125,6 @@
     ..
     proc            mode=0555
     ..
-    rescue
     ..
     root            mode=0750
     ..

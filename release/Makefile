@@ -183,7 +183,7 @@ disc1: packagesystem
 	    MK_INSTALLLIB=no MK_MAIL=no \
 	    ${_ALL_LIBCOMPATS:@v@MK_LIB$v=no@} \
 	    MK_TOOLCHAIN=no MK_PROFILE=no \
-	    MK_RESCUE=no MK_DICT=no \
+	    MK_DICT=no \
 	    MK_KERNEL_SYMBOLS=no MK_TESTS=no MK_DEBUG_FILES=no \
 	    -DDB_FROM_SRC )
 # Copy distfiles
@@ -226,7 +226,7 @@ bootonly: packagesystem
 	    MK_INSTALLLIB=no MK_MAIL=no \
 	    ${_ALL_LIBCOMPATS:@v@MK_LIB$v=no@} \
 	    MK_TOOLCHAIN=no MK_PROFILE=no \
-	    MK_RESCUE=no MK_DICT=no \
+	    MK_DICT=no \
 	    MK_KERNEL_SYMBOLS=no MK_TESTS=no MK_DEBUG_FILES=no \
 	    -DDB_FROM_SRC )
 # Copy manifest only (no distfiles) to get checksums
@@ -256,7 +256,7 @@ dvd: packagesystem
 # Install system
 	mkdir -p ${.TARGET}
 	( cd ${WORLDDIR} && ${IMAKE} installworld installkernel distribution \
-		DESTDIR=${.OBJDIR}/${.TARGET} MK_RESCUE=no MK_KERNEL_SYMBOLS=no \
+		DESTDIR=${.OBJDIR}/${.TARGET} MK_KERNEL_SYMBOLS=no \
 		MK_TESTS=no MK_DEBUG_FILES=no \
 		-DDB_FROM_SRC )
 # Copy distfiles
