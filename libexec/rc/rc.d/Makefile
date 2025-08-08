@@ -59,9 +59,8 @@ CONFS=	DAEMON \
 	netoptions \
 	netwait \
 	newsyslog \
-       nfscbd \
-	nisdomain \
-	${_nscd} \
+       nisdomain \
+        ${_nscd} \
 	ntpdate \
 	${_opensm} \
 	os-release \
