@@ -67,14 +67,10 @@ AC_SUBST([TEST_SHELL], [sh])
 
 dnl select manpage formatter to be used to build "cat" format pages.
 if test "x$MANDOC" != "x" ; then
-	MANFMT="$MANDOC"
-elif test "x$NROFF" != "x" ; then
-	MANFMT="$NROFF -mandoc"
-elif test "x$GROFF" != "x" ; then
-	MANFMT="$GROFF -mandoc -Tascii"
+        MANFMT="$MANDOC"
 else
-	AC_MSG_WARN([no manpage formatter found])
-	MANFMT="false"
+        AC_MSG_WARN([mandoc not found; disabling manpage generation])
+        MANFMT="false"
 fi
 AC_SUBST([MANFMT])
 

@@ -4,6 +4,10 @@
 # SPDX-License-Identifier: BSD-2-Clause
 
 find_program(MANDOC_PATH mandoc)
+if(NOT MANDOC_PATH)
+    message(STATUS "mandoc not found; skipping manual pages")
+    return()
+endif()
 find_program(GZIP_PATH gzip)
 
 message(STATUS "MANDOC_PATH: ${MANDOC_PATH}")
