@@ -289,17 +289,8 @@ defaults(void)
 		}
 	}
 
-       /* -m defaults to $MANPATH if set */
-       if (!mandirs && (cp = getenv("MANPATH")) != NULL) {
-               b = strdup(cp);
-               if (b == NULL)
-                       abort();
-               nele = 0;
-               decolonify(b, &mandirs, &nele);
-       }
-
-	/* -s defaults to precompiled list, plus subdirs of /usr/ports */
-	if (!sourcedirs) {
+       /* -s defaults to precompiled list, plus subdirs of /usr/ports */
+       if (!sourcedirs) {
 		b = strdup(sourcepath);
 		if (b == NULL)
 			abort();
@@ -393,14 +384,13 @@ main(int argc, char **argv)
 	if (opt_m + opt_b + opt_s == 0)
 		errx(EX_DATAERR, "no directories to search");
 
-	if (opt_m) {
-		setenv("MANPATH", colonify(mandirs), 1);
-		if ((i = regcomp(&re, MANWHEREISMATCH, REG_EXTENDED)) != 0) {
-			regerror(i, &re, buf, BUFSIZ - 1);
-			errx(EX_UNAVAILABLE, "regcomp(%s) failed: %s",
-			     MANWHEREISMATCH, buf);
-		}
-	}
+       if (opt_m) {
+               if ((i = regcomp(&re, MANWHEREISMATCH, REG_EXTENDED)) != 0) {
+                       regerror(i, &re, buf, BUFSIZ - 1);
+                       errx(EX_UNAVAILABLE, "regcomp(%s) failed: %s",
+                            MANWHEREISMATCH, buf);
+               }
+       }
 
 	for (; (name = *query) != NULL; query++) {
 		/* strip leading path name component */
