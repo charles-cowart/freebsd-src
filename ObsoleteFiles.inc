@@ -35,25 +35,6 @@
 # grep '+=' /usr/src/tools/build/mk/OptionalObsoleteFiles.inc | sort -u) | \
 # sort | uniq -d
 #
-# 20250615: remove chat, banner, cal, ncal, tftp, vacation, diff3
-OLD_FILES+=usr/bin/banner
-OLD_FILES+=usr/bin/cal
-OLD_FILES+=usr/bin/chat
-OLD_FILES+=usr/bin/diff3
-OLD_FILES+=usr/bin/ncal
-OLD_FILES+=usr/bin/tftp
-OLD_FILES+=usr/bin/vacation
-OLD_FILES+=usr/share/man/man1/cal.1.gz
-OLD_FILES+=usr/share/man/man1/diff3.1.gz
-OLD_FILES+=usr/share/man/man1/ncal.1.gz
-OLD_FILES+=usr/share/man/man1/tftp.1.gz
-OLD_FILES+=usr/share/man/man1/vacation.1.gz
-OLD_FILES+=usr/share/man/man6/banner.6.gz
-OLD_FILES+=usr/share/man/man8/chat.8.gz
-OLD_DIRS+=usr/tests/usr.bin/diff3
-OLD_DIRS+=usr/tests/usr.bin/ncal
-OLD_DIRS+=usr/tests/usr.bin/tftp
-
 # 20250601: remove biff, mesg, talk, write
 OLD_FILES+=usr/bin/biff
 OLD_FILES+=usr/bin/mesg

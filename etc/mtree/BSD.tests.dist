@@ -1054,6 +1054,8 @@
         ..
         diff
         ..
+        diff3
+        ..
         dirname
         ..
         du
@@ -1106,6 +1108,10 @@
         ..
         mktemp
         ..
+        ncal
+        ..
+        opensm
+        ..
         patch
         ..
         pr
@@ -1140,7 +1146,11 @@
         ..
         tee
         ..
+        tftp
+        ..
         touch
+        ..
+        tr
         ..
         truncate
         ..
