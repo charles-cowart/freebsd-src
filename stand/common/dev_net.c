@@ -31,20 +31,16 @@
 
 /*-
  * This module implements a "raw device" interface suitable for
- * use by the stand-alone I/O library NFS code.  This interface
- * does not support any "block" access, and exists only for the
- * purpose of initializing the network interface, getting boot
- * parameters, and performing the NFS mount.
+ * network booting.  This interface does not support any "block"
+ * access, and exists only for the purpose of initializing the
+ * network interface and getting boot parameters.
  *
  * At open time, this does:
  *
  * find interface      - netif_open()
  * RARP for IP address - rarp_getipaddress()
  * RPC/bootparams      - callrpc(d, RPC_BOOTPARAMS, ...)
- * RPC/mountd          - nfs_mount(sock, ip, path)
  *
- * the root file handle from mountd is saved in a global
- * for use by the NFS open code (NFS/lookup).
  */
 
 #include <machine/stdarg.h>
@@ -95,11 +91,10 @@ struct devsw netdev = {
 };
 
 static struct uri_scheme {
-	const char *scheme;
-	int proto;
+        const char *scheme;
+        int proto;
 } uri_schemes[] = {
-	{ "tftp:/", NET_TFTP },
-	{ "nfs:/", NET_NFS },
+        { "tftp:/", NET_TFTP },
 };
 
 static int
@@ -163,25 +158,22 @@ net_open(struct open_file *f, ...)
 				return (error);
 			}
 		}
-		/*
-		 * Set the variables required by the kernel's nfs_diskless
-		 * mechanism.  This is the minimum set of variables required to
-		 * mount a root filesystem without needing to obtain additional
-		 * info from bootp or other sources.
-		 */
+               /*
+                * Set the variables required by the kernel's diskless
+                * mechanism.  This is the minimum set of variables required to
+                * mount a root filesystem without needing to obtain additional
+                * info from bootp or other sources.
+                */
 		d = socktodesc(netdev_sock);
 		setenv("boot.netif.hwaddr", ether_sprintf(d->myea), 1);
 		setenv("boot.netif.ip", inet_ntoa(myip), 1);
 		setenv("boot.netif.netmask", intoa(netmask), 1);
 		setenv("boot.netif.gateway", inet_ntoa(gateip), 1);
 		setenv("boot.netif.server", inet_ntoa(rootip), 1);
-		if (netproto == NET_TFTP) {
-			setenv("boot.tftproot.server", inet_ntoa(rootip), 1);
-			setenv("boot.tftproot.path", rootpath, 1);
-		} else if (netproto == NET_NFS) {
-			setenv("boot.nfsroot.server", inet_ntoa(rootip), 1);
-			setenv("boot.nfsroot.path", rootpath, 1);
-		}
+               if (netproto == NET_TFTP) {
+                       setenv("boot.tftproot.server", inet_ntoa(rootip), 1);
+                       setenv("boot.tftproot.path", rootpath, 1);
+               }
 		if (intf_mtu != 0) {
 			char mtu[16];
 			snprintf(mtu, sizeof(mtu), "%u", intf_mtu);
@@ -237,14 +229,13 @@ net_strategy(void *devdata, int rw, daddr_t blk, size_t size, char *buf,
 #define SUPPORT_BOOTP
 
 /*
- * Get info for NFS boot: our IP address, our hostname,
- * server IP address, and our root path on the server.
- * There are two ways to do this:  The old, Sun way,
- * and the more modern, BOOTP way. (RFC951, RFC1048)
+ * Get network boot information: our IP address, hostname,
+ * server IP address, and root path on the server.
+ * There are two ways to do this: the old Sun way, and the more modern
+ * BOOTP way (RFC951, RFC1048).
  *
- * The default is to use the Sun bootparams RPC
- * (because that is what the kernel will do).
- * MD code can make try_bootp initialied data,
+ * The default is to use the Sun bootparams RPC.
+ * MD code can make try_bootp initialized data,
  * which will override this common definition.
  */
 #ifdef	SUPPORT_BOOTP
@@ -375,13 +366,13 @@ net_print(int verbose)
  * <scheme>://ip/path
  * <scheme>:/path
  *
- * For compatibility with previous behaviour it also accepts as an NFS scheme
+ * For compatibility, it also accepts the forms:
  * ip:/path
  * /path
  *
  * If an ip is set it returns it in network byte order.
- * The default scheme defined in the global netproto, if not set it defaults to
- * NFS.
+ * The default scheme is defined in the global netproto; if not set it defaults
+ * to TFTP.
  * It leaves just the pathname in the global rootpath.
  */
 uint32_t
@@ -403,19 +394,19 @@ net_parse_rootpath(void)
 		break;
 	}
 	ptr = rootpath;
-	/* Fallback for compatibility mode */
-	if (netproto == NET_NONE) {
-		netproto = NET_NFS;
-		(void)strsep(&ptr, ":");
-		if (ptr != NULL) {
-			addr = inet_addr(rootpath);
-			bcopy(ptr, rootpath, strlen(ptr) + 1);
-		}
-	} else {
-		ptr += strlen(uri_schemes[i].scheme);
-		if (*ptr == '/') {
-			/* we are in the form <scheme>://, we do expect an ip */
-			ptr++;
+       /* Fallback for compatibility mode */
+       if (netproto == NET_NONE) {
+               netproto = NET_TFTP;
+               (void)strsep(&ptr, ":");
+               if (ptr != NULL) {
+                       addr = inet_addr(rootpath);
+                       bcopy(ptr, rootpath, strlen(ptr) + 1);
+               }
+       } else {
+               ptr += strlen(uri_schemes[i].scheme);
+               if (*ptr == '/') {
+                       /* we are in the form <scheme>://, we do expect an ip */
+                       ptr++;
 			/*
 			 * XXX when http will be there we will need to check for
 			 * a port, but right now we do not need it yet

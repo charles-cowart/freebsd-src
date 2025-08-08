@@ -42,7 +42,6 @@
 
 #include <net.h>
 #include <netif.h>
-#include <nfsv2.h>
 #include <iodesc.h>
 
 #include <bootp.h>
