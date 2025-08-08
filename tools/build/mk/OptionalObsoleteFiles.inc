@@ -1311,6 +1311,7 @@ OLD_DIRS+=${DEBUG_DIRS}
 OLD_FILES+=${DEBUG_FILES}
 OLD_LIBS+=${DEBUG_LIBS}
 .endif
+.endif
 
 .if ${MK_DIALOG} == no
 OLD_FILES+=usr/bin/dialog
@@ -1946,6 +1947,11 @@ OLD_FILES+=usr/tests/usr.bin/dc/Kyuafile
 OLD_FILES+=usr/tests/usr.bin/dc/bcode
 OLD_FILES+=usr/tests/usr.bin/dc/inout
 OLD_DIRS+=usr/tests/usr.bin/dc
+.endif
+
+.if ${MK_GNU_DIFF} == no
+OLD_FILES+=usr/bin/diff3
+OLD_FILES+=usr/share/man/man1/diff3.1.gz
 .endif
 
 .if ${MK_GOOGLETEST} == no
@@ -6848,6 +6854,7 @@ OLD_FILES+=etc/rc.d/sendmail
 .if ${MK_MAILWRAPPER} == no
 OLD_FILES+=bin/rmail
 .endif
+OLD_FILES+=usr/bin/vacation
 OLD_FILES+=usr/include/libmilter/mfapi.h
 OLD_FILES+=usr/include/libmilter/mfdef.h
 OLD_DIRS+=usr/include/libmilter
@@ -6868,6 +6875,7 @@ OLD_FILES+=usr/share/examples/sendmail/mailer.conf
 OLD_DIRS+=usr/share/examples/sendmail
 OLD_FILES+=usr/share/man/man1/mailq.1.gz
 OLD_FILES+=usr/share/man/man1/newaliases.1.gz
+OLD_FILES+=usr/share/man/man1/vacation.1.gz
 OLD_FILES+=usr/share/man/man5/aliases.5.gz
 OLD_FILES+=usr/share/man/man8/editmap.8.gz
 OLD_FILES+=usr/share/man/man8/hoststat.8.gz
@@ -7942,7 +7950,9 @@ OLD_FILES+=usr/share/man/man1/ul.1.gz
 .endif
 
 .if ${MK_TFTP} == no
+OLD_FILES+=usr/bin/tftp
 OLD_FILES+=usr/libexec/tftpd
+OLD_FILES+=usr/share/man/man1/tftp.1.gz
 OLD_FILES+=usr/share/man/man8/tftpd.8.gz
 .endif
 

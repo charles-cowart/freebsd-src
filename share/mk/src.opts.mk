@@ -101,6 +101,7 @@ __DEFAULT_YES_OPTIONS = \
     FTP \
     GAMES \
     GH_BC \
+    GNU_DIFF \
     GOOGLETEST \
     GPIO \
     HAST \

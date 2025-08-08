@@ -139,6 +139,7 @@ DIRDEPS+= \
 	usr.bin/atf/atf-version \
 	usr.bin/atm/sscop \
 	usr.bin/awk \
+	usr.bin/banner \
 	usr.bin/basename \
 	usr.bin/bc \
 	usr.bin/bintrans \
@@ -156,6 +157,7 @@ DIRDEPS+= \
 	usr.bin/c99 \
 	usr.bin/calendar \
 	usr.bin/cap_mkdb \
+	usr.bin/chat \
 	usr.bin/checknr \
 	usr.bin/chkey \
 	usr.bin/chpass \
@@ -269,6 +271,7 @@ DIRDEPS+= \
 	usr.bin/msgs \
 	usr.bin/mt \
 	usr.bin/nc \
+	usr.bin/ncal \
 	usr.bin/netstat \
 	usr.bin/newgrp \
 	usr.bin/newkey \
@@ -329,6 +332,7 @@ DIRDEPS+= \
 	usr.bin/tcopy \
 	usr.bin/tee \
 	usr.bin/telnet \
+	usr.bin/tftp \
 	usr.bin/time \
 	usr.bin/timeout \
 	usr.bin/tip/tip \
@@ -353,6 +357,7 @@ DIRDEPS+= \
 	usr.bin/usbhidaction \
 	usr.bin/usbhidctl \
 	usr.bin/users \
+	usr.bin/vacation \
 	usr.bin/vgrind \
 	usr.bin/vi \
 	usr.bin/vi/catalog \

@@ -2,7 +2,7 @@
 
 SHELL= /bin/sh
 SUBDIRS= libsm libsmutil libsmdb sendmail editmap mail.local \
-	 mailstats makemap praliases rmail smrsh
+	 mailstats makemap praliases rmail smrsh vacation
 # libmilter: requires pthread
 BUILD=   ./Build
 OPTIONS= $(CONFIG) $(FLAGS)

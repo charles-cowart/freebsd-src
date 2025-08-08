@@ -71,6 +71,7 @@ infrastructure in FreeBSD:
 	share/sendmail/Makefile
 	tools/build/mk/OptionalObsoleteFiles.inc
 	usr.bin/Makefile
+	usr.bin/vacation/Makefile
 	usr.sbin/Makefile
 	usr.sbin/editmap/Makefile
 	usr.sbin/mailstats/Makefile
