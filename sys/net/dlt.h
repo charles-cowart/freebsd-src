@@ -333,11 +333,6 @@
 #define DLT_ECONET	115
 
 /*
- * Reserved for use with OpenBSD ipfilter.
- */
-#define DLT_IPFILTER	116
-
-/*
  * OpenBSD DLT_PFLOG.
  */
 #define DLT_PFLOG	117
