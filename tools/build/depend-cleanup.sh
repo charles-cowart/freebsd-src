@@ -161,12 +161,6 @@ if [ -e "$OBJTOP"/tests/sys/fs/fusefs/mockfs.o ] && \
 	run rm -rf "$OBJTOP"/tests/sys/fs/fusefs
 fi
 
-# 20240416  2fda3ab0ac19    WITH_NVME: Remove from broken
-if [ -f "$OBJTOP"/rescue/rescue/rescue.mk ] && \
-    ! grep -q 'nvme_util.o' "$OBJTOP"/rescue/rescue/rescue.mk; then
-	echo "removing rescue.mk without nvme_util.o"
-	run rm -f "$OBJTOP"/rescue/rescue/rescue.mk
-fi
 
 # 20241018  5deeebd8c6ca   Merge llvm-project release/19.x llvmorg-19.1.2-0-g7ba7d8e2f7b6
 p="$OBJTOP"/lib/clang/libclang/clang/Basic

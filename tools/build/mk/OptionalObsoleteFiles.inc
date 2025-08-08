@@ -749,7 +749,6 @@ OLD_LIBS+=lib/libcap_syslog.so.1
 
 .if ${MK_CCD} == no
 OLD_FILES+=etc/rc.d/ccd
-OLD_FILES+=rescue/ccdconfig
 OLD_FILES+=sbin/ccdconfig
 OLD_FILES+=usr/share/man/man4/ccd.4.gz
 OLD_FILES+=usr/share/man/man8/ccdconfig.8.gz
@@ -2432,8 +2431,6 @@ OLD_FILES+=usr/share/man/man8/traceroute6.8.gz
 .endif
 
 .if ${MK_INET6_SUPPORT} == no
-OLD_FILES+=rescue/ping6
-OLD_FILES+=rescue/rtsol
 .endif
 
 .if ${MK_INETD} == no
@@ -2452,7 +2449,6 @@ OLD_FILES+=etc/rc.d/ipfs
 OLD_FILES+=etc/rc.d/ipmon
 OLD_FILES+=etc/rc.d/ipnat
 OLD_FILES+=etc/rc.d/ippool
-OLD_FILES+=rescue/ipf
 OLD_FILES+=sbin/ipf
 OLD_FILES+=sbin/ipfs
 OLD_FILES+=sbin/ipfstat
@@ -2550,8 +2546,6 @@ OLD_FILES+=usr/share/man/man8/natd.8.gz
 .if ${MK_ISCSI} == no
 OLD_FILES+=etc/rc.d/iscsictl
 OLD_FILES+=etc/rc.d/iscsid
-OLD_FILES+=rescue/iscsictl
-OLD_FILES+=rescue/iscsid
 OLD_FILES+=usr/bin/iscsictl
 OLD_FILES+=usr/sbin/iscsid
 OLD_FILES+=usr/share/man/man4/iscsi.4.gz
@@ -5345,7 +5339,6 @@ OLD_FILES+=usr/share/man/whatis
 OLD_FILES+=usr/share/openssl/man/whatis
 
 .if ${MK_NETCAT} == no
-OLD_FILES+=rescue/nc
 OLD_FILES+=usr/bin/nc
 OLD_FILES+=usr/share/man/man1/nc.1.gz
 .endif
@@ -6642,7 +6635,6 @@ OLD_FILES+=usr/lib/libheimsqlite_p.a
 OLD_FILES+=usr/lib/libhistory_p.a
 OLD_FILES+=usr/lib/libhx509_p.a
 OLD_FILES+=usr/lib/libicp_p.a
-OLD_FILES+=usr/lib/libicp_rescue_p.a
 OLD_FILES+=usr/lib/libipsec_p.a
 OLD_FILES+=usr/lib/libipt_p.a
 OLD_FILES+=usr/lib/libjail_p.a
@@ -6824,19 +6816,9 @@ OLD_FILES+=usr/libexec/rbootd
 OLD_FILES+=usr/share/man/man8/rbootd.8.gz
 .endif
 
-.if ${MK_RESCUE} == no
-. if exists(${DESTDIR}${TESTSBASE})
-RESCUE_DIRS!=find ${DESTDIR}/rescue -type d 2>/dev/null | sed -e 's,^${DESTDIR}/,,'; echo
-OLD_DIRS+=${RESCUE_DIRS}
-RESCUE_FILES!=find ${DESTDIR}/rescue \! -type d 2>/dev/null | sed -e 's,^${DESTDIR}/,,'; echo
-OLD_FILES+=${RESCUE_FILES}
-. endif
-.endif
 
 .if ${MK_ROUTED} == no
 OLD_FILES+=etc/rc.d/routed
-OLD_FILES+=rescue/routed
-OLD_FILES+=rescue/rtquery
 OLD_FILES+=sbin/routed
 OLD_FILES+=sbin/rtquery
 OLD_FILES+=usr/share/man/man8/routed.8.gz
@@ -8811,9 +8793,6 @@ OLD_LIBS+=lib/libzfs.so.2
 OLD_LIBS+=lib/libzfs.so.3
 OLD_LIBS+=lib/libzfs_core.so.2
 OLD_LIBS+=lib/libzpool.so.2
-OLD_FILES+=rescue/zdb
-OLD_FILES+=rescue/zfs
-OLD_FILES+=rescue/zpool
 OLD_FILES+=sbin/bectl
 OLD_FILES+=sbin/zfs
 OLD_FILES+=sbin/zpool
