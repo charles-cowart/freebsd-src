@@ -5,11 +5,10 @@
 SUBDIR=	alias \
 	apply \
 	asa \
-	awk \
-	backlight \
-	banner \
-	basename \
-	beep \
+awk \
+backlight \
+basename \
+beep \
 	bintrans \
 	brandelf \
 	bsdcat \
@@ -17,9 +16,8 @@ SUBDIR=	alias \
 	bsdiff \
 	bzip2 \
 	bzip2recover \
-	cap_mkdb \
-	chat \
-	chpass \
+cap_mkdb \
+chpass \
 	cksum \
 	cmp \
 	col \
@@ -94,10 +92,9 @@ SUBDIR=	alias \
 	mkfifo \
 	mkimg \
 	mktemp \
-	mkuzip \
-	mt \
-	ncal \
-	ncurses \
+mkuzip \
+mt \
+ncurses \
 	netstat \
 	newgrp \
 	nfsstat \
@@ -227,11 +224,9 @@ SUBDIR.${MK_OPENSSH}+=	ssh-copy-id
 SUBDIR.${MK_OPENSSL}+=	chkey
 SUBDIR.${MK_OPENSSL}+=	newkey
 SUBDIR.${MK_QUOTAS}+=	quota
-SUBDIR.${MK_SENDMAIL}+=	vacation
 SUBDIR.${MK_TESTS_SUPPORT}+=	kyua
 SUBDIR.${MK_TESTS}+=	tests
 SUBDIR.${MK_TEXTPROC}+=	ul
-SUBDIR.${MK_TFTP}+=	tftp
 .if ${MK_LLVM_BINUTILS} == "no"
 # Only build the elftoolchain tools if we aren't using the LLVM ones.
 SUBDIR.${MK_TOOLCHAIN}+=	addr2line

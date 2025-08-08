@@ -2533,16 +2533,11 @@ upgrade_merge () {
 				# after updates are installed.
 				cp merge/old/${F} merge/new/${F}
 				;;
-			*)
-				if ! diff3 -E -m -L "current version"	\
-				    -L "${OLDRELNUM}" -L "${RELNUM}"	\
-				    merge/old/${F}			\
-				    merge/${OLDRELNUM}/${F}		\
-				    merge/${RELNUM}/${F}		\
-				    > merge/new/${F} 2>/dev/null; then
-					echo ${F} >> failed.merges
-				fi
-				;;
+                        *)
+                                mkdir -p "$(dirname merge/new/${F})"
+                                cp merge/old/${F} merge/new/${F}
+                                echo ${F} >> failed.merges
+                                ;;
 			esac
 		done < $1-paths
 		echo " done."

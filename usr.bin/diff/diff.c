@@ -301,7 +301,7 @@ main(int argc, char **argv)
 			usage();
 			break;
 		case OPT_HORIZON_LINES:
-			break; /* XXX TODO for compatibility with GNU diff3 */
+                        break; /* XXX TODO for compatibility with GNU diff */
 		case OPT_IGN_FN_CASE:
 			ignore_file_case = true;
 			break;

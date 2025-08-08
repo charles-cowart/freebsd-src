@@ -324,7 +324,6 @@ DIRDEPS= \
       usr.bin/csplit/tests \
       usr.bin/cut/tests \
       usr.bin/diff/tests \
-      usr.bin/diff3/tests \
       usr.bin/dirname/tests \
       usr.bin/du/tests \
       usr.bin/file2c/tests \
@@ -340,7 +339,6 @@ DIRDEPS= \
       usr.bin/limits/tests \
       usr.bin/m4/tests \
       usr.bin/mkimg/tests \
-      usr.bin/ncal/tests \
       usr.bin/pr/tests \
       usr.bin/printf/tests \
       usr.bin/procstat/tests \
