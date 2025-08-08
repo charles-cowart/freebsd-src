@@ -65,10 +65,8 @@ static struct syscall_helper_data nfssvc_syscalls[] = {
  * the nfsd_call_xxx function pointers non-NULL.
  */
 
-int (*nfsd_call_nfsserver)(struct thread *, struct nfssvc_args *) = NULL;
 int (*nfsd_call_nfscommon)(struct thread *, struct nfssvc_args *) = NULL;
 int (*nfsd_call_nfscl)(struct thread *, struct nfssvc_args *) = NULL;
-int (*nfsd_call_nfsd)(struct thread *, struct nfssvc_args *) = NULL;
 
 /*
  * Nfs server pseudo system call for the nfsd's
@@ -89,24 +87,14 @@ sys_nfssvc(struct thread *td, struct nfssvc_args *uap)
 			return (error);
 	}
 	error = EINVAL;
-	if ((uap->flag & (NFSSVC_ADDSOCK | NFSSVC_OLDNFSD | NFSSVC_NFSD)) &&
-	    nfsd_call_nfsserver != NULL)
-		error = (*nfsd_call_nfsserver)(td, uap);
-	else if ((uap->flag & (NFSSVC_CBADDSOCK | NFSSVC_NFSCBD |
-	    NFSSVC_DUMPMNTOPTS | NFSSVC_FORCEDISM)) && nfsd_call_nfscl != NULL)
-		error = (*nfsd_call_nfscl)(td, uap);
-	else if ((uap->flag & (NFSSVC_IDNAME | NFSSVC_GETSTATS |
-	    NFSSVC_GSSDADDPORT | NFSSVC_GSSDADDFIRST | NFSSVC_GSSDDELETEALL |
-	    NFSSVC_NFSUSERDPORT | NFSSVC_NFSUSERDDELPORT)) &&
-	    nfsd_call_nfscommon != NULL)
-		error = (*nfsd_call_nfscommon)(td, uap);
-	else if ((uap->flag & (NFSSVC_NFSDNFSD | NFSSVC_NFSDADDSOCK |
-	    NFSSVC_PUBLICFH | NFSSVC_V4ROOTEXPORT | NFSSVC_NOPUBLICFH |
-	    NFSSVC_STABLERESTART | NFSSVC_ADMINREVOKE |
-	    NFSSVC_DUMPCLIENTS | NFSSVC_DUMPLOCKS | NFSSVC_BACKUPSTABLE |
-	    NFSSVC_SUSPENDNFSD | NFSSVC_RESUMENFSD | NFSSVC_PNFSDS)) &&
-	    nfsd_call_nfsd != NULL)
-		error = (*nfsd_call_nfsd)(td, uap);
+       if ((uap->flag & (NFSSVC_CBADDSOCK | NFSSVC_NFSCBD |
+           NFSSVC_DUMPMNTOPTS | NFSSVC_FORCEDISM)) && nfsd_call_nfscl != NULL)
+               error = (*nfsd_call_nfscl)(td, uap);
+       else if ((uap->flag & (NFSSVC_IDNAME | NFSSVC_GETSTATS |
+           NFSSVC_GSSDADDPORT | NFSSVC_GSSDADDFIRST | NFSSVC_GSSDDELETEALL |
+           NFSSVC_NFSUSERDPORT | NFSSVC_NFSUSERDDELPORT)) &&
+           nfsd_call_nfscommon != NULL)
+               error = (*nfsd_call_nfscommon)(td, uap);
 	if (error == EINTR || error == ERESTART)
 		error = 0;
 	return (error);
@@ -127,8 +115,7 @@ nfssvc_modevent(module_t mod, int type, void *data)
 		break;
 
 	case MOD_UNLOAD:
-		if (nfsd_call_nfsserver != NULL || nfsd_call_nfscommon != NULL
-		    || nfsd_call_nfscl != NULL || nfsd_call_nfsd != NULL) {
+               if (nfsd_call_nfscommon != NULL || nfsd_call_nfscl != NULL) {
 			error = EBUSY;
 			break;
 		}

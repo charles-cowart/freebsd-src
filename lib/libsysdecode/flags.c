@@ -52,7 +52,6 @@
 #include <netinet/tcp.h>
 #include <netinet/udp.h>
 #include <netinet/udplite.h>
-#include <nfsserver/nfs.h>
 #include <ufs/ufs/quota.h>
 #include <vm/vm.h>
 #include <vm/vm_param.h>

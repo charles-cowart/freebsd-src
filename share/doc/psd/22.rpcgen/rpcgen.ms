@@ -859,7 +859,6 @@ Here is an example of a procedure that replies only if it
 thinks it is an NFS server:
 .ID
 void *
-reply_if_nfsserver()
 {
 	char notnull;	/* \fIjust here so we can use its address\fP */
 .sp .5

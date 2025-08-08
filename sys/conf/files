@@ -3509,14 +3509,6 @@ fs/nfs/nfs_commonkrpc.c		optional nfslockd | nfsd
 fs/nfs/nfs_commonsubs.c		optional nfslockd | nfsd
 fs/nfs/nfs_commonport.c		optional nfslockd | nfsd
 fs/nfs/nfs_commonacl.c		optional nfslockd | nfsd
-fs/nfsserver/nfs_fha_new.c	optional nfsd inet
-fs/nfsserver/nfs_nfsdsocket.c	optional nfsd inet
-fs/nfsserver/nfs_nfsdsubs.c	optional nfsd inet
-fs/nfsserver/nfs_nfsdstate.c	optional nfsd inet
-fs/nfsserver/nfs_nfsdkrpc.c	optional nfsd inet
-fs/nfsserver/nfs_nfsdserv.c	optional nfsd inet
-fs/nfsserver/nfs_nfsdport.c	optional nfsd inet
-fs/nfsserver/nfs_nfsdcache.c	optional nfsd inet
 fs/nullfs/null_subr.c		optional nullfs
 fs/nullfs/null_vfsops.c		optional nullfs
 fs/nullfs/null_vnops.c		optional nullfs
