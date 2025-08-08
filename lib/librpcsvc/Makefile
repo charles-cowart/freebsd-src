@@ -8,8 +8,8 @@ PACKAGE=	runtime
 
 LIB=    rpcsvc
 
-RPCSRCS= klm_prot.x mount.x nfs_prot.x nlm_prot.x rex.x rnusers.x \
-	rquota.x rstat.x rwall.x sm_inter.x spray.x yppasswd.x ypxfrd.x \
+RPCSRCS= mount.x nfs_prot.x rex.x rnusers.x \
+	rquota.x rstat.x rwall.x spray.x yppasswd.x ypxfrd.x \
 	ypupdate_prot.x
 
 OTHERSRCS=  rnusers.c rstat.c rwall.c

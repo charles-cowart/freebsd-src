@@ -63,7 +63,7 @@ cd $here
 
 mount | grep "on $mntpoint " | grep nfs > /dev/null && umount $mntpoint
 
-mount -t nfs -o tcp -o retrycnt=3 -o intr,soft -o rw -o nolockd \
+mount -t nfs -o tcp -o retrycnt=3 -o intr,soft -o rw  \
     $nfs_export $mntpoint || exit 1
 sleep 2
 wd=$mntpoint/nfs15.dir

@@ -39,7 +39,7 @@ ping -c 2 `echo $nfs_export | sed 's/:.*//'` > /dev/null 2>&1 ||
 
 [ ! -d $mntpoint ] &&  mkdir $mntpoint
 mount | grep "$mntpoint" | grep nfs > /dev/null && umount $mntpoint
-mount -t nfs -o nfsv3,tcp,nolockd -o retrycnt=3 -o intr,soft -o rw \
+mount -t nfs -o nfsv3,tcp -o retrycnt=3 -o intr,soft -o rw \
     $nfs_export $mntpoint
 sleep .2
 

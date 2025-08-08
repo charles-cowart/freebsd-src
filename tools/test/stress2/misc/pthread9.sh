@@ -44,7 +44,7 @@ rm -f pthread9.c
 
 status=0
 if ping -c 2 `echo $nfs_export | sed 's/:.*//'` > /dev/null 2>&1; then
-	mount -t nfs -o nfsv3,tcp,nolockd,retrycnt=3,intr $nfs_export \
+	mount -t nfs -o nfsv3,tcp,retrycnt=3,intr $nfs_export \
 	    $mntpoint || exit 1
 	sleep .5
 	echo "Expect core dumps"
