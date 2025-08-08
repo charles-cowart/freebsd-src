@@ -40,16 +40,15 @@ SUBDIR=	adduser \
 	memcontrol \
 	mergemaster \
 	mfiutil \
-	mixer \
-	mlxcontrol \
+       mixer \
+       mlxcontrol \
        mount_smbfs \
-	mpsutil \
-	mptutil \
-	mtest \
-	newsyslog \
-       nfscbd \
-	nmtree \
-	nologin \
+       mpsutil \
+       mptutil \
+       mtest \
+       newsyslog \
+       nmtree \
+       nologin \
 	pciconf \
 	periodic \
        powerd \

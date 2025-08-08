@@ -95,11 +95,10 @@ SUBDIR=	alias \
        mkuzip \
        mt \
        ncurses \
-	netstat \
-	newgrp \
-	nfsstat \
-	nice \
-	nl \
+       netstat \
+       newgrp \
+       nice \
+       nl \
 	nohup \
 	pagesize \
 	passwd \

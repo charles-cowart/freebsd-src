@@ -100,15 +100,13 @@ DIRDEPS+= \
 	sbin/mount_cd9660 \
 	sbin/mount_fusefs \
 	sbin/mount_msdosfs \
-	sbin/mount_nfs \
-	sbin/mount_nullfs \
-	sbin/mount_udf \
-	sbin/mount_unionfs \
-	sbin/natd \
-	sbin/newfs \
-	sbin/newfs_msdos \
-	sbin/nfsiod \
-	sbin/nos-tun \
+       sbin/mount_nullfs \
+       sbin/mount_udf \
+       sbin/mount_unionfs \
+       sbin/natd \
+       sbin/newfs \
+       sbin/newfs_msdos \
+       sbin/nos-tun \
 	sbin/ping \
 	sbin/ping6 \
 	sbin/quotacheck \
@@ -269,12 +267,11 @@ DIRDEPS+= \
 	usr.bin/msgs \
 	usr.bin/mt \
 	usr.bin/nc \
-	usr.bin/netstat \
-	usr.bin/newgrp \
-	usr.bin/newkey \
-	usr.bin/nfsstat \
-	usr.bin/nice \
-	usr.bin/nl \
+       usr.bin/netstat \
+       usr.bin/newgrp \
+       usr.bin/newkey \
+       usr.bin/nice \
+       usr.bin/nl \
 	usr.bin/nohup \
 	usr.bin/opieinfo \
 	usr.bin/opiekey \
@@ -578,14 +575,13 @@ DIRDEPS+= \
 	usr.sbin/named-checkzone \
 	usr.sbin/named-journalprint \
 	usr.sbin/ndp \
-	usr.sbin/newsyslog \
-	usr.sbin/nfscbd \
-	usr.sbin/nfsd \
-	usr.sbin/nfsdumpstate \
-	usr.sbin/nfsrevoke \
-	usr.sbin/nfsuserd \
-	usr.sbin/ngctl \
-	usr.sbin/nghook \
+       usr.sbin/newsyslog \
+       usr.sbin/nfsd \
+       usr.sbin/nfsdumpstate \
+       usr.sbin/nfsrevoke \
+       usr.sbin/nfsuserd \
+       usr.sbin/ngctl \
+        usr.sbin/nghook \
 	usr.sbin/nmtree \
 	usr.sbin/nologin \
 	usr.sbin/nscd \

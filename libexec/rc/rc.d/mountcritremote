@@ -3,7 +3,7 @@
 #
 
 # PROVIDE: mountcritremote
-# REQUIRE: NETWORKING FILESYSTEMS ipsec netwait nfscbd
+# REQUIRE: NETWORKING FILESYSTEMS ipsec netwait
 # KEYWORD: nojail
 
 . /etc/rc.subr
