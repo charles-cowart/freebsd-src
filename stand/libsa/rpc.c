@@ -34,7 +34,7 @@
  */
 
 /*
- * RPC functions used by NFS and bootparams.
+ * RPC functions used by bootparams.
  * Note that bootparams requires the ability to find out the
  * address of the server from which its response has come.
  * This is supported by keeping the IP/UDP headers in the
