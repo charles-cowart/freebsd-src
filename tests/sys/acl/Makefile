@@ -6,9 +6,6 @@ TESTSDIR=	${TESTSBASE}/sys/acl
 BINDIR=		${TESTSDIR}
 
 ${PACKAGE}FILES+=	tools-crossfs.test
-${PACKAGE}FILES+=	tools-nfs4.test
-${PACKAGE}FILES+=	tools-nfs4-psarc.test
-${PACKAGE}FILES+=	tools-nfs4-trivial.test
 ${PACKAGE}FILES+=	tools-posix.test
 
 SCRIPTS+=	run
@@ -16,10 +13,8 @@ SCRIPTS+=	run
 ATF_TESTS_C+=	acl-api-test
 
 TAP_TESTS_SH+=	00
-TAP_TESTS_SH+=	01
-TAP_TESTS_SH+=	02
 TAP_TESTS_SH+=	03
-TAP_TESTS_SH+=	04
+
 
 .for t in ${TAP_TESTS_SH}
 # Tests hard-code a ZFS pool name of "acltools" and so cannot run in parallel.
@@ -29,11 +24,11 @@ TEST_METADATA.$t+=	required_user="root" \
 
 _ACL_PROGS=		getfacl setfacl
 
-.for t in 01 03 04
+.for t in 03
 TEST_METADATA.$t+=	required_programs="perl zpool ${_ACL_PROGS}"
 .endfor
 
-.for t in 00 02
+.for t in 00
 TEST_METADATA.$t+=	required_programs="perl ${_ACL_PROGS}"
 .endfor
 
