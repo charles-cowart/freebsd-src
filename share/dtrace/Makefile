@@ -10,7 +10,6 @@ SCRIPTS=	blocking \
 		disklatency \
 		disklatencycmd \
 		hotopen \
-		nfsattrstats \
 		siftr \
 		tcpconn \
 		tcpdebug \
