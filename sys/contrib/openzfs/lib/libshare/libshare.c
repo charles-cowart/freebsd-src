@@ -50,13 +50,13 @@
 	if ((proto) < 0 || (proto) >= SA_PROTOCOL_COUNT) \
 		return __VA_ARGS__
 
-const char *const sa_protocol_names[SA_PROTOCOL_COUNT] = {
+	const char *const sa_protocol_names[SA_PROTOCOL_COUNT] = {
 	[SA_PROTOCOL_NFS] = "nfs",
 	[SA_PROTOCOL_SMB] = "smb",
 };
 
 static const sa_fstype_t *fstypes[SA_PROTOCOL_COUNT] =
-	{&libshare_nfs_type, &libshare_smb_type};
+        {NULL, &libshare_smb_type};
 
 int
 sa_enable_share(const char *zfsname, const char *mountpoint,
@@ -64,8 +64,10 @@ sa_enable_share(const char *zfsname, const char *mountpoint,
 {
 	VALIDATE_PROTOCOL(protocol, SA_INVALID_PROTOCOL);
 
+	if (fstypes[protocol] == NULL)
+		return (SA_NOT_SUPPORTED);
 	const struct sa_share_impl args =
-	    init_share(zfsname, mountpoint, shareopts);
+    init_share(zfsname, mountpoint, shareopts);
 	return (fstypes[protocol]->enable_share(&args));
 }
 
@@ -74,6 +76,8 @@ sa_disable_share(const char *mountpoint, enum sa_protocol protocol)
 {
 	VALIDATE_PROTOCOL(protocol, SA_INVALID_PROTOCOL);
 
+	if (fstypes[protocol] == NULL)
+	return (SA_NOT_SUPPORTED);
 	const struct sa_share_impl args = init_share(NULL, mountpoint, NULL);
 	return (fstypes[protocol]->disable_share(&args));
 }
@@ -83,6 +87,8 @@ sa_is_shared(const char *mountpoint, enum sa_protocol protocol)
 {
 	VALIDATE_PROTOCOL(protocol, B_FALSE);
 
+	if (fstypes[protocol] == NULL)
+	return (B_FALSE);
 	const struct sa_share_impl args = init_share(NULL, mountpoint, NULL);
 	return (fstypes[protocol]->is_shared(&args));
 }
@@ -93,6 +99,7 @@ sa_commit_shares(enum sa_protocol protocol)
 	/* CSTYLED */
 	VALIDATE_PROTOCOL(protocol, );
 
+	if (fstypes[protocol] != NULL)
 	fstypes[protocol]->commit_shares();
 }
 
@@ -102,8 +109,9 @@ sa_truncate_shares(enum sa_protocol protocol)
 	/* CSTYLED */
 	VALIDATE_PROTOCOL(protocol, );
 
-	if (fstypes[protocol]->truncate_shares != NULL)
-		fstypes[protocol]->truncate_shares();
+	if (fstypes[protocol] != NULL &&
+    fstypes[protocol]->truncate_shares != NULL)
+	fstypes[protocol]->truncate_shares();
 }
 
 int
@@ -111,6 +119,8 @@ sa_validate_shareopts(const char *options, enum sa_protocol protocol)
 {
 	VALIDATE_PROTOCOL(protocol, SA_INVALID_PROTOCOL);
 
+	if (fstypes[protocol] == NULL)
+	return (SA_NOT_SUPPORTED);
 	return (fstypes[protocol]->validate_shareopts(options));
 }
 
@@ -119,7 +129,7 @@ sa_validate_shareopts(const char *options, enum sa_protocol protocol)
  *
  * convert an error value to an error string
  */
-const char *
+	const char *
 sa_errorstr(int err)
 {
 	static char errstr[32];

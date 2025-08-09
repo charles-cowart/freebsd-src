@@ -42,6 +42,6 @@ typedef struct {
 	void (*const truncate_shares)(void);
 } sa_fstype_t;
 
-extern const sa_fstype_t libshare_nfs_type, libshare_smb_type;
+extern const sa_fstype_t libshare_smb_type;
 
 #endif /* _LIBSPL_LIBSHARE_IMPL_H */
