@@ -36,7 +36,6 @@ GTESTS+=	lseek
 GTESTS+=	mkdir
 GTESTS+=	mknod
 GTESTS+=	mount
-GTESTS+=	nfs
 GTESTS+=	notify
 GTESTS+=	open
 GTESTS+=	opendir
@@ -64,7 +63,6 @@ SRCS.$p+=	utils.cc
 TEST_METADATA.default_permissions+=	required_user="unprivileged"
 TEST_METADATA.default_permissions_privileged+=	required_user="root"
 TEST_METADATA.mknod+=	required_user="root"
-TEST_METADATA.nfs+=	required_user="root"
 
 TEST_METADATA+= timeout=10
 

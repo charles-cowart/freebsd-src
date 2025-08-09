@@ -19,7 +19,6 @@ mkdir -p `dirname $allconfig`
 	echo '# Local stress2 config file'
 	echo '# Overwrite default values in stress2/default.cfg'
 	echo
-	echo '# nfs_export=${nfs_export:-t1:/tmp}'
 	echo '# BLASTHOST=${BLASTHOST:-t1}'
 	echo '# RUNDIR=${RUNDIR:-/work/stressX}'
 	echo '# diskimage=${diskimage:-/work/diskfile}'
