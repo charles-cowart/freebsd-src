@@ -1,4 +1,4 @@
-SUBDIR=	fortune strfile datfiles unstr
+SUBDIR=	strfile datfiles unstr
 
 SUBDIR_DEPEND_datfiles=	strfile
 
