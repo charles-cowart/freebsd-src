@@ -197,7 +197,6 @@ SUBDIR.${MK_FILE}+=	file
 SUBDIR.${MK_FTP}+=	ftp
 SUBDIR.${MK_GAMES}+=	caesar
 SUBDIR.${MK_GAMES}+=	factor
-SUBDIR.${MK_GAMES}+=	fortune
 SUBDIR.${MK_GAMES}+=	grdc
 SUBDIR.${MK_GAMES}+=	morse
 SUBDIR.${MK_GAMES}+=	number
