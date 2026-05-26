@@ -7712,10 +7712,11 @@ OLD_FILES+=usr/share/nls/uk_UA.KOI8-U/tcsh.cat
 OLD_FILES+=usr/share/nls/uk_UA.UTF-8/tcsh.cat
 .endif
 
-.if ${MK_TELNET} == no
 OLD_FILES+=usr/bin/telnet
 OLD_FILES+=usr/share/man/man1/telnet.1.gz
-.endif
+OLD_FILES+=usr/lib/libtelnet.a
+OLD_FILES+=usr/lib/libtelnet_p.a
+OLD_FILES+=usr/libdata/pkgconfig/libtelnet.pc
 
 .if ${MK_TESTS} == yes
 OLD_FILES+=usr/bin/atf-sh
