@@ -93,11 +93,6 @@ SRCS		 = arch.c \
 		   html.c \
 		   lib.c \
 		   main.c \
-		   man.c \
-		   man_html.c \
-		   man_macro.c \
-		   man_term.c \
-		   man_validate.c \
 		   mandoc.c \
 		   mandoc_aux.c \
 		   mandoc_dbg.c \
@@ -105,7 +100,6 @@ SRCS		 = arch.c \
 		   mandoc_ohash.c \
 		   mandoc_xr.c \
 		   mandocd.c \
-		   mandocdb.c \
 		   manpath.c \
 		   mansearch.c \
 		   mdoc.c \
@@ -148,7 +142,6 @@ DISTFILES	 = INSTALL \
 		   Makefile.depend \
 		   NEWS \
 		   TODO \
-		   apropos.1 \
 		   catman.8 \
 		   cgi.h.example \
 		   compat_fts.h \
@@ -172,19 +165,12 @@ DISTFILES	 = INSTALL \
 		   libmandoc.h \
 		   libmdoc.h \
 		   main.h \
-		   makewhatis.8 \
-		   man.1 \
-		   man.7 \
 		   man.cgi.3 \
 		   man.cgi.8 \
 		   man.conf.5 \
-		   man.h \
-		   man.options.1 \
 		   manconf.h \
-		   mandoc.1 \
 		   mandoc.3 \
 		   mandoc.css \
-		   mandoc.db.5 \
 		   mandoc.h \
 		   mandoc_aux.h \
 		   mandoc_char.7 \
