@@ -37,13 +37,6 @@ LPDIR=		/etc/syslog.d
 LPPACKAGE=	lp
 .endif
 
-.if ${MK_PPP} != "no"
-CONFGROUPS+=	PPP
-PPP+=		ppp.conf
-PPPDIR=		/etc/syslog.d
-PPPPACKAGE=	ppp
-.endif
-
 CFLAGS+= -I${SRCTOP}/usr.bin/wall
 
 HAS_TESTS=
