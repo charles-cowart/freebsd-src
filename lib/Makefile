@@ -80,7 +80,6 @@ SUBDIR=	${SUBDIR_BOOTSTRAP} \
 	libnv \
 	libnvmf \
 	libopenbsd \
-	libpam \
 	libpathconv \
 	libpcap \
 	libpjdlog \
@@ -205,6 +204,7 @@ SUBDIR.${MK_EFI}+=	libefivar
 SUBDIR.${MK_GOOGLETEST}+=	googletest
 SUBDIR.${MK_NETGRAPH}+=	libnetgraph
 SUBDIR.${MK_NIS}+=	libypclnt
+SUBDIR.${MK_PAM}+=	libpam
 
 .if ${MACHINE_CPUARCH} == "i386" || ${MACHINE_CPUARCH} == "amd64"
 _libvgl=	libvgl
