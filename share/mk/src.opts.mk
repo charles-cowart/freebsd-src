@@ -182,7 +182,6 @@ __DEFAULT_YES_OPTIONS = \
     TCSH \
     TELNET \
     TEXTPROC \
-    TFTP \
     UNBOUND \
     USB \
     UTMPX \
