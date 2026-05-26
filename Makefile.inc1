@@ -464,10 +464,7 @@ SUBDIR+=	${_DIR}
 .endif
 .endfor
 
-# We must do etc/ last as it hooks into building the man whatis file
-# by calling 'makedb' in share/man.  This is only relevant for
-# install/distribute so they build the whatis file after every manpage is
-# installed.
+# etc/ remains ordered after install/distribute targets.
 .if make(installworld) || make(install) || make(distributeworld) || make(distribute)
 SUBDIR+=.WAIT
 .endif
@@ -1413,11 +1410,6 @@ ITOOLS=	[ awk cap_mkdb cat chflags chmod chown cmp cp \
 
 .if ${MK_ZONEINFO} != "no"
 ITOOLS+=tzsetup
-.endif
-
-# Needed for share/man
-.if ${MK_MAN_UTILS} != "no"
-ITOOLS+=makewhatis
 .endif
 
 ITOOLS+=${LOCAL_ITOOLS}
@@ -2755,7 +2747,6 @@ ${_bt}-${_tool}: ${_bt}-usr.bin/yacc ${_bt_lex_depend}
 .endfor
 .endif
 
-${_bt}-usr.bin/mandoc: ${_bt}-lib/libopenbsd
 
 # The tools listed in _basic_bootstrap_tools will generally not be
 # bootstrapped unless BOOTSTRAP_ALL_TOOL is set. However, when building on a
@@ -2902,7 +2893,6 @@ bootstrap-tools: ${_bt}-links .PHONY
     lib/libopenbsd \
     lib/libucl \
     lib/libyaml \
-    usr.bin/mandoc \
     usr.bin/rpcgen \
     ${_yacc} \
     ${_m4} \
@@ -3143,7 +3133,6 @@ NXBDIRS+= \
     usr.bin/id \
     usr.bin/lex \
     usr.bin/limits \
-    usr.bin/mandoc \
     usr.bin/mktemp \
     usr.bin/mt \
     usr.bin/nm \
