@@ -27,7 +27,11 @@ LIB=		tacplus
 SRCS=		taclib.c
 INCS=		taclib.h
 CFLAGS+=	-Wall
-LIBADD=		md pam
+LIBADD=		md
+
+.if ${MK_PAM} != "no"
+LIBADD+=		pam
+.endif
 SHLIB_MAJOR=	5
 
 MAN=		libtacplus.3
