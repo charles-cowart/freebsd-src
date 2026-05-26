@@ -100,7 +100,6 @@ __DEFAULT_YES_OPTIONS = \
     FLOPPY \
     FORTH \
     FREEBSD_UPDATE \
-    FTP \
     GAMES \
     GNU_DIFF \
     GOOGLETEST \

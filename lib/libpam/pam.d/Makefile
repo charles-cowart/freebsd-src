@@ -22,9 +22,5 @@ CONFGROUPS.${MK_AT}+=	AT
 AT=		atrun
 ATPACKAGE=	at
 
-CONFGROUPS.${MK_FTP}+=	FTP
-FTP=		ftp ftpd
-# Do not put these in the ftp package, since ports also use them.
-FTPPACKAGE=	pam
 
 .include <bsd.prog.mk>

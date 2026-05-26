@@ -194,7 +194,6 @@ SUBDIR+=	clang
 SUBDIR.${MK_DIALOG}+=	dpv
 SUBDIR.${MK_EE}+=	ee
 SUBDIR.${MK_FILE}+=	file
-SUBDIR.${MK_FTP}+=	ftp
 SUBDIR.${MK_GAMES}+=	caesar
 SUBDIR.${MK_GAMES}+=	factor
 SUBDIR.${MK_GAMES}+=	grdc
