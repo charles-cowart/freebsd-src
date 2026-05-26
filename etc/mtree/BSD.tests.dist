@@ -483,7 +483,6 @@
             rtld_deepbind
             ..
         ..
-        tftpd
         ..
     ..
     sbin
@@ -1235,7 +1234,6 @@
         ..
         tee
         ..
-        tftp
         ..
         touch
         ..

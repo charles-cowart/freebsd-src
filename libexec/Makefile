@@ -98,10 +98,6 @@ _makewhatis.local=	makewhatis.local
 SUBDIR+=	tcpd
 .endif
 
-.if ${MK_TFTP} != "no"
-SUBDIR+=	tftpd
-.endif
-
 .if ${MK_TESTS} != "no"
 _tests=		tests
 .endif
