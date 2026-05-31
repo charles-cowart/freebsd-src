@@ -164,7 +164,6 @@ __DEFAULT_YES_OPTIONS = \
     RBOOTD \
     RESCUE \
     ROUTED \
-    SENDMAIL \
     SERVICESDB \
     SETUID_LOGIN \
     SHAREDOCS \
@@ -388,6 +387,9 @@ BROKEN_OPTIONS+=BHYVE_SNAPSHOT
 
 .include <bsd.mkopt.mk>
 
+# Sendmail is no longer a build option.
+MK_SENDMAIL:=	no
+
 #
 # Force some options off if their dependencies are off.
 # Order is somewhat important.
@@ -434,7 +436,6 @@ MK_CTF:=	no
 
 .if ${MK_MAIL} == "no"
 MK_MAILWRAPPER:= no
-MK_SENDMAIL:=	no
 MK_DMAGENT:=	no
 .endif
 
