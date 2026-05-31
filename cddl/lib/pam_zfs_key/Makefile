@@ -26,5 +26,5 @@ CFLAGS+= -include ${SRCTOP}/sys/modules/zfs/zfs_config.h
 CFLAGS+= -I${SRCTOP}/sys/contrib/openzfs/include/os/freebsd/zfs
 CFLAGS+= -DRUNSTATEDIR=\"/var/run\"
 
-.include "../../lib/libpam/modules/Makefile.inc"
+.include "${SRCTOP}/lib/libpam/modules/Makefile.inc"
 .include <bsd.lib.mk>
