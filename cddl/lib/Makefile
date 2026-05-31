@@ -26,7 +26,9 @@ SUBDIR.${MK_ZFS}+= \
 	libzpool \
 	libzutil
 
-SUBDIR.${MK_ZFS}.${MK_OPENSSL} = pam_zfs_key
+.if ${MK_ZFS} == "yes" && ${MK_OPENSSL} == "yes" && ${MK_PAM} == "yes"
+SUBDIR+=	pam_zfs_key
+.endif
 
 SUBDIR_DEPEND_libavl=		libspl
 SUBDIR_DEPEND_libctf=		libspl
