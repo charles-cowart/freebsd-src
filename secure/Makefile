@@ -10,6 +10,7 @@ SUBDIR.${MK_CAROOT}+= caroot
 
 # These are the programs which depend on crypto, but not Kerberos.
 SPROGS=	lib/libfetch lib/libpam lib/libradius	\
+	bin/ed usr.bin/fetch usr.sbin/tcpdump/tcpdump
 .if ${MK_SENDMAIL} != "no"
 SPROGS+=usr.sbin/sendmail
 .endif
