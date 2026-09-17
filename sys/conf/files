@@ -390,7 +390,6 @@ cddl/dev/sdt/sdt.c			optional dtrace_sdt      | dtraceall compile-with "${CDDL_C
 cddl/dev/fbt/fbt.c			optional dtrace_fbt      | dtraceall compile-with "${FBT_C}"
 cddl/dev/systrace/systrace.c		optional dtrace_systrace | dtraceall compile-with "${CDDL_C}"
 cddl/dev/prototype.c			optional dtrace_prototype | dtraceall compile-with "${CDDL_C}"
-fs/nfsclient/nfs_clkdtrace.c		optional dtnfscl nfscl   | dtraceall nfscl compile-with "${CDDL_C}"
 compat/freebsd32/freebsd32_abort2.c	optional compat_freebsd32
 compat/freebsd32/freebsd32_capability.c	optional compat_freebsd32
 compat/freebsd32/freebsd32_ioctl.c	optional compat_freebsd32
@@ -3571,29 +3570,6 @@ fs/msdosfs/msdosfs_iconv.c	optional msdosfs_iconv
 fs/msdosfs/msdosfs_lookup.c	optional msdosfs
 fs/msdosfs/msdosfs_vfsops.c	optional msdosfs
 fs/msdosfs/msdosfs_vnops.c	optional msdosfs
-fs/nfs/nfs_commonkrpc.c		optional nfscl | nfslockd | nfsd
-fs/nfs/nfs_commonsubs.c		optional nfscl | nfslockd | nfsd
-fs/nfs/nfs_commonport.c		optional nfscl | nfslockd | nfsd
-fs/nfs/nfs_commonacl.c		optional nfscl | nfslockd | nfsd
-fs/nfsclient/nfs_clcomsubs.c	optional nfscl
-fs/nfsclient/nfs_clsubs.c	optional nfscl
-fs/nfsclient/nfs_clstate.c	optional nfscl
-fs/nfsclient/nfs_clkrpc.c	optional nfscl
-fs/nfsclient/nfs_clrpcops.c	optional nfscl
-fs/nfsclient/nfs_clvnops.c	optional nfscl
-fs/nfsclient/nfs_clnode.c	optional nfscl
-fs/nfsclient/nfs_clvfsops.c	optional nfscl
-fs/nfsclient/nfs_clport.c	optional nfscl
-fs/nfsclient/nfs_clbio.c	optional nfscl
-fs/nfsclient/nfs_clnfsiod.c	optional nfscl
-fs/nfsserver/nfs_fha_new.c	optional nfsd inet
-fs/nfsserver/nfs_nfsdsocket.c	optional nfsd inet
-fs/nfsserver/nfs_nfsdsubs.c	optional nfsd inet
-fs/nfsserver/nfs_nfsdstate.c	optional nfsd inet
-fs/nfsserver/nfs_nfsdkrpc.c	optional nfsd inet
-fs/nfsserver/nfs_nfsdserv.c	optional nfsd inet
-fs/nfsserver/nfs_nfsdport.c	optional nfsd inet
-fs/nfsserver/nfs_nfsdcache.c	optional nfsd inet
 fs/nullfs/null_subr.c		optional nullfs
 fs/nullfs/null_vfsops.c		optional nullfs
 fs/nullfs/null_vnops.c		optional nullfs
@@ -3867,7 +3843,7 @@ kern/sched_ule.c		optional sched_ule
 kern/serdev_if.m		standard
 kern/stack_protector.c		standard \
 	compile-with "${NORMAL_C:N-fstack-protector*}"
-kern/subr_acl_nfs4.c		optional ufs_acl | zfs | nfscl
+kern/subr_acl_nfs4.c		optional ufs_acl | zfs
 kern/subr_acl_posix1e.c		optional ufs_acl
 kern/subr_asan.c		optional kasan \
 	compile-with "${NOSAN_C:N-fstack-protector*}"
@@ -4485,17 +4461,6 @@ netsmb/smb_smb.c		optional netsmb
 netsmb/smb_subr.c		optional netsmb
 netsmb/smb_trantcp.c		optional netsmb
 netsmb/smb_usr.c		optional netsmb
-nfs/bootp_subr.c		optional bootp nfscl
-nfs/krpc_subr.c			optional bootp nfscl
-nfs/nfs_diskless.c		optional nfscl nfs_root
-nfs/nfs_nfssvc.c		optional nfscl | nfslockd | nfsd
-nlm/nlm_advlock.c		optional nfslockd | nfsd
-nlm/nlm_prot_clnt.c		optional nfslockd | nfsd
-nlm/nlm_prot_impl.c		optional nfslockd | nfsd
-nlm/nlm_prot_server.c		optional nfslockd | nfsd
-nlm/nlm_prot_svc.c		optional nfslockd | nfsd
-nlm/nlm_prot_xdr.c		optional nfslockd | nfsd
-nlm/sm_inter_xdr.c		optional nfslockd | nfsd
 
 # Linux Kernel Programming Interface
 compat/linuxkpi/common/src/linux_80211.c	optional compat_linuxkpi wlan \
@@ -5035,62 +5000,62 @@ crypto/libsodium/randombytes.c	optional crypto \
 crypto/libsodium/utils.c	optional crypto \
 	compile-with "${NORMAL_C} -I$S/contrib/libsodium/src/libsodium/include -I$S/crypto/libsodium"
 
-rpc/auth_none.c			optional krpc | nfslockd | nfscl | nfsd
-rpc/auth_unix.c			optional krpc | nfslockd | nfscl | nfsd
-rpc/authunix_prot.c		optional krpc | nfslockd | nfscl | nfsd
-rpc/clnt_bck.c			optional krpc | nfslockd | nfscl | nfsd
-rpc/clnt_dg.c			optional krpc | nfslockd | nfscl | nfsd
-rpc/clnt_nl.c			optional krpc | nfslockd | nfscl | nfsd
-rpc/clnt_rc.c			optional krpc | nfslockd | nfscl | nfsd
-rpc/clnt_vc.c			optional krpc | nfslockd | nfscl | nfsd
-rpc/getnetconfig.c		optional krpc | nfslockd | nfscl | nfsd
-rpc/replay.c			optional krpc | nfslockd | nfscl | nfsd
-rpc/rpc_callmsg.c		optional krpc | nfslockd | nfscl | nfsd
-rpc/rpc_generic.c		optional krpc | nfslockd | nfscl | nfsd
-rpc/rpc_prot.c			optional krpc | nfslockd | nfscl | nfsd
-rpc/rpcb_clnt.c			optional krpc | nfslockd | nfscl | nfsd
-rpc/rpcb_prot.c			optional krpc | nfslockd | nfscl | nfsd
-rpc/svc.c			optional krpc | nfslockd | nfscl | nfsd
-rpc/svc_auth.c			optional krpc | nfslockd | nfscl | nfsd
-rpc/svc_auth_unix.c		optional krpc | nfslockd | nfscl | nfsd
-rpc/svc_dg.c			optional krpc | nfslockd | nfscl | nfsd
-rpc/svc_generic.c		optional krpc | nfslockd | nfscl | nfsd
-rpc/svc_vc.c			optional krpc | nfslockd | nfscl | nfsd
+rpc/auth_none.c			optional krpc
+rpc/auth_unix.c			optional krpc
+rpc/authunix_prot.c		optional krpc
+rpc/clnt_bck.c			optional krpc
+rpc/clnt_dg.c			optional krpc
+rpc/clnt_nl.c			optional krpc
+rpc/clnt_rc.c			optional krpc
+rpc/clnt_vc.c			optional krpc
+rpc/getnetconfig.c		optional krpc
+rpc/replay.c			optional krpc
+rpc/rpc_callmsg.c		optional krpc
+rpc/rpc_generic.c		optional krpc
+rpc/rpc_prot.c			optional krpc
+rpc/rpcb_clnt.c			optional krpc
+rpc/rpcb_prot.c			optional krpc
+rpc/svc.c			optional krpc
+rpc/svc_auth.c			optional krpc
+rpc/svc_auth_unix.c		optional krpc
+rpc/svc_dg.c			optional krpc
+rpc/svc_generic.c		optional krpc
+rpc/svc_vc.c			optional krpc
 #
 # Kernel RPC-over-TLS
 #
-rpctlscd.h			optional krpc | nfslockd | nfscl | nfsd	\
+rpctlscd.h			optional krpc	\
 	dependency		"$S/rpc/rpcsec_tls/rpctlscd.x"			\
 	compile-with		"RPCGEN_CPP='${CPP}' rpcgen -hM $S/rpc/rpcsec_tls/rpctlscd.x | grep -v pthread.h > rpctlscd.h" \
 	no-obj no-implicit-rule before-depend local			\
 	clean			"rpctlscd.h"
-rpctlscd_xdr.c			optional krpc | nfslockd | nfscl | nfsd	\
+rpctlscd_xdr.c			optional krpc	\
 	dependency		"$S/rpc/rpcsec_tls/rpctlscd.x rpctlscd.h"		\
 	compile-with		"RPCGEN_CPP='${CPP}' rpcgen -c $S/rpc/rpcsec_tls/rpctlscd.x -o rpctlscd_xdr.c" no-ctfconvert \
 	no-implicit-rule before-depend local				\
 	clean			"rpctlscd_xdr.c"
-rpctlscd_clnt.c			optional krpc | nfslockd | nfscl | nfsd	\
+rpctlscd_clnt.c			optional krpc	\
 	dependency		"$S/rpc/rpcsec_tls/rpctlscd.x rpctlscd.h"		\
 	compile-with		"RPCGEN_CPP='${CPP}' rpcgen -lM $S/rpc/rpcsec_tls/rpctlscd.x | grep -v string.h > rpctlscd_clnt.c" no-ctfconvert \
 	no-implicit-rule before-depend local				\
 	clean			"rpctlscd_clnt.c"
-rpctlssd.h			optional krpc | nfslockd | nfscl | nfsd	\
+rpctlssd.h			optional krpc	\
 	dependency		"$S/rpc/rpcsec_tls/rpctlssd.x"			\
 	compile-with		"RPCGEN_CPP='${CPP}' rpcgen -hM $S/rpc/rpcsec_tls/rpctlssd.x | grep -v pthread.h > rpctlssd.h" \
 	no-obj no-implicit-rule before-depend local			\
 	clean			"rpctlssd.h"
-rpctlssd_xdr.c			optional krpc | nfslockd | nfscl | nfsd	\
+rpctlssd_xdr.c			optional krpc	\
 	dependency		"$S/rpc/rpcsec_tls/rpctlssd.x rpctlssd.h"		\
 	compile-with		"RPCGEN_CPP='${CPP}' rpcgen -c $S/rpc/rpcsec_tls/rpctlssd.x -o rpctlssd_xdr.c" no-ctfconvert \
 	no-implicit-rule before-depend local				\
 	clean			"rpctlssd_xdr.c"
-rpctlssd_clnt.c			optional krpc | nfslockd | nfscl | nfsd	\
+rpctlssd_clnt.c			optional krpc	\
 	dependency		"$S/rpc/rpcsec_tls/rpctlssd.x rpctlssd.h"		\
 	compile-with		"RPCGEN_CPP='${CPP}' rpcgen -lM $S/rpc/rpcsec_tls/rpctlssd.x | grep -v string.h > rpctlssd_clnt.c" no-ctfconvert \
 	no-implicit-rule before-depend local				\
 	clean			"rpctlssd_clnt.c"
-rpc/rpcsec_tls/rpctls_impl.c	optional krpc | nfslockd | nfscl | nfsd
-rpc/rpcsec_tls/auth_tls.c	optional krpc | nfslockd | nfscl | nfsd
+rpc/rpcsec_tls/rpctls_impl.c	optional krpc
+rpc/rpcsec_tls/auth_tls.c	optional krpc
 security/audit/audit.c		optional audit
 security/audit/audit_arg.c	optional audit
 security/audit/audit_bsm.c	optional audit
@@ -5211,9 +5176,9 @@ xen/xenbus/xenbusb.c		optional xenhvm
 xen/xenbus/xenbusb_front.c	optional xenhvm
 xen/xenbus/xenbusb_back.c	optional xenhvm
 xen/xenmem/xenmem_if.m		optional xenhvm
-xdr/xdr.c			optional xdr | krpc | nfslockd | nfscl | nfsd | zfs
-xdr/xdr_array.c			optional xdr | krpc | nfslockd | nfscl | nfsd | zfs
-xdr/xdr_mbuf.c			optional xdr | krpc | nfslockd | nfscl | nfsd | zfs
-xdr/xdr_mem.c			optional xdr | krpc | nfslockd | nfscl | nfsd | zfs
-xdr/xdr_reference.c		optional xdr | krpc | nfslockd | nfscl | nfsd | zfs
-xdr/xdr_sizeof.c		optional xdr | krpc | nfslockd | nfscl | nfsd | zfs
+xdr/xdr.c			optional xdr | krpc | zfs
+xdr/xdr_array.c			optional xdr | krpc | zfs
+xdr/xdr_mbuf.c			optional xdr | krpc | zfs
+xdr/xdr_mem.c			optional xdr | krpc | zfs
+xdr/xdr_reference.c		optional xdr | krpc | zfs
+xdr/xdr_sizeof.c		optional xdr | krpc | zfs

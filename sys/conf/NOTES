@@ -1016,11 +1016,7 @@ options 	TCP_SIGNATURE		#include support for RFC 2385
 # DUMMYNET enables the "dummynet" bandwidth limiter.  You need IPFIREWALL
 # as well.  See dummynet(4) and ipfw(8) for more info.  When you run
 # DUMMYNET, HZ/kern.hz should be at least 1000 for adequate response.
-options 	DUMMYNET
 
-# The DEBUGNET option enables a basic debug/panic-time networking API.  It
-# is used by NETDUMP and NETGDB.
-options 	DEBUGNET
 
 # The NETDUMP option enables netdump(4) client support in the kernel.
 # This allows a panicking kernel to transmit a kernel dump to a remote host.
@@ -1102,12 +1098,6 @@ options 	UFS_GJOURNAL
 # used. That is to say MD_ROOT_SIZE KB will be allocated in the kernel and
 # later, the filesystem image passed in as the MFS_IMAGE makeoption will be
 # dd'd into the reserved space if it fits.
-options 	MD_ROOT_SIZE=10
-
-# Make the md device a potential root device, either with preloaded
-# images of type mfs_root or md_root.
-options 	MD_ROOT
-
 # Write-protect the md root device so that it may not be mounted writeable.
 options 	MD_ROOT_READONLY
 
@@ -2258,10 +2248,6 @@ device		pcfclock
 
 # General Purpose I/O pins
 device		dwgpio		# Synopsys DesignWare APB GPIO Controller
-device  	gpio		# gpio interfaces and bus support
-device  	gpiobacklight	# sysctl control of gpio-based backlight
-device  	gpioiic		# i2c via gpio bitbang
-device  	gpiokeys	# kbd(4) glue for gpio-based key input
 device  	gpioled		# led(4) gpio glue
 device  	gpiopower	# event handler for gpio-based powerdown
 device  	gpiopps		# Pulse per second input from gpio pin

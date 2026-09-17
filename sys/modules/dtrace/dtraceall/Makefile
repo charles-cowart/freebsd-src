@@ -1,7 +1,7 @@
 SYSDIR?=	${SRCTOP}/sys
 
 KMOD=		dtraceall
-SRCS=		dtraceall.c opt_nfs.h
+SRCS=		dtraceall.c
 
 CFLAGS+=	-I${SYSDIR}
 
