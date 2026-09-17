@@ -2604,10 +2604,9 @@ sosend_generic(struct socket *so, struct sockaddr *addr, struct uio *uio,
 /*
  * Send to a socket from a kernel thread.
  *
- * XXXGL: in almost all cases uio is NULL and the mbuf is supplied.
- * Exception is nfs/bootp_subr.c.  It is arguable that the VNET context needs
- * to be set at all.  This function should just boil down to a static inline
- * calling the protocol method.
+ * XXXGL: in almost all cases uio is NULL and the mbuf is supplied.  It is
+ * arguable that the VNET context needs to be set at all.  This function should
+ * just boil down to a static inline calling the protocol method.
  */
 int
 sosend(struct socket *so, struct sockaddr *addr, struct uio *uio,

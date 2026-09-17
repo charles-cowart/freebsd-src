@@ -165,7 +165,7 @@ systems mounted to get access to the
 .Va local_startup
 directories; for example when
 .Pa /usr/local
-is NFS mounted.
+is mounted from a remote file server.
 For
 .Pa rc.conf
 within a
@@ -1742,8 +1742,8 @@ by default.
 After the file systems are checked at boot time, the root file system
 is remounted as read-write if this is set to
 .Dq Li YES .
-Diskless systems that mount their root file system from a read-only remote
-NFS share should set this to
+Diskless systems that mount their root file system from read-only remote
+storage should set this to
 .Dq Li NO
 in their
 .Pa rc.conf .
@@ -1993,191 +1993,20 @@ If set to
 .Dq Li NO ,
 .Pa /var/run/motd
 will not be updated.
-.It Va nfs_client_enable
-.Pq Vt bool
-If set to
-.Dq Li YES ,
-run the NFS client daemons at boot time.
-.It Va nfs_access_cache
-.Pq Vt int
-If
-.Va nfs_client_enable
-is set to
-.Dq Li YES ,
-this can be set to
-.Dq Li 0
-to disable NFS ACCESS RPC caching, or to the number of seconds for which
-NFS ACCESS
-results should be cached.
-A value of 2-10 seconds will substantially reduce network
-traffic for many NFS operations.
-.It Va nfs_server_enable
-.Pq Vt bool
-If set to
-.Dq Li YES ,
-run the NFS server daemons at boot time.
-.It Va nfs_server_flags
-.Pq Vt str
-If
-.Va nfs_server_enable
-is set to
-.Dq Li YES ,
-these are the flags to pass to the
-.Xr nfsd 8
-daemon.
-.It Va nfsv4_server_enable
-.Pq Vt bool
-If
-.Va nfs_server_enable
-is set to
-.Dq Li YES
-and
-.Va nfsv4_server_enable
-is set to
-.Dq Li YES ,
-enable the server for NFSv4 as well as NFSv2 and NFSv3.
-.It Va nfsv4_server_only
-.Pq Vt bool
-If
-.Va nfs_server_enable
-is set to
-.Dq Li YES
-and
-.Va nfsv4_server_only
-is set to
-.Dq Li YES ,
-enable the NFS server for NFSv4 only.
-.It Va nfs_server_maxio
-.Pq Vt int
-value to set vfs.nfsd.srvmaxio to, which is the
-maximum I/O size for the NFS server.
 .It Va tlsclntd_enable
 .Pq Vt bool
 If set to
 .Dq Li YES ,
 run the
 .Xr rpc.tlsclntd 8
-daemon, which is needed for NFS-over-TLS NFS mounts.
+daemon for client-side kernel RPC-over-TLS.
 .It Va tlsservd_enable
 .Pq Vt bool
 If set to
 .Dq Li YES ,
 run the
 .Xr rpc.tlsservd 8
-daemon, which is needed for the
-.Xr nfsd 8
-to support NFS-over-TLS NFS mounts.
-.It Va nfsuserd_enable
-.Pq Vt bool
-If
-.Va nfsuserd_enable
-is set to
-.Dq Li YES ,
-run the nfsuserd daemon, which is needed for NFSv4 in order
-to map between user/group names vs uid/gid numbers.
-If
-.Va nfsv4_server_enable
-is set to
-.Dq Li YES ,
-this will be forced enabled.
-.It Va nfsuserd_flags
-.Pq Vt str
-If
-.Va nfsuserd_enable
-is set to
-.Dq Li YES ,
-these are the flags to pass to the
-.Xr nfsuserd 8
-daemon.
-.It Va nfscbd_enable
-.Pq Vt bool
-If
-.Va nfscbd_enable
-is set to
-.Dq Li YES ,
-run the nfscbd daemon, which enables callbacks/delegations for the NFSv4 client.
-.It Va nfscbd_flags
-.Pq Vt str
-If
-.Va nfscbd_enable
-is set to
-.Dq Li YES ,
-these are the flags to pass to the
-.Xr nfscbd 8
-daemon.
-.It Va mountd_enable
-.Pq Vt bool
-If set to
-.Dq Li YES ,
-and no
-.Va nfs_server_enable
-is set, start
-.Xr mountd 8 ,
-but not
-.Xr nfsd 8
-daemon.
-It is commonly needed to run CFS without real NFS used.
-.It Va mountd_flags
-.Pq Vt str
-If
-.Va mountd_enable
-is set to
-.Dq Li YES ,
-these are the flags to pass to the
-.Xr mountd 8
-daemon.
-.It Va weak_mountd_authentication
-.Pq Vt bool
-If set to
-.Dq Li YES ,
-allow services like PCNFSD to make non-privileged mount
-requests.
-.It Va nfs_reserved_port_only
-.Pq Vt bool
-If set to
-.Dq Li YES ,
-provide NFS services only on a secure port.
-.It Va nfs_bufpackets
-.Pq Vt int
-If set to a number, indicates the number of packets worth of
-socket buffer space to reserve on an NFS client.
-The kernel default is typically 4.
-Using a higher number may be
-useful on gigabit networks to improve performance.
-The minimum value is
-2 and the maximum is 64.
-.It Va rpc_lockd_enable
-.Pq Vt bool
-If set to
-.Dq Li YES
-and also an NFS server or client, run
-.Xr rpc.lockd 8
-at boot time.
-.It Va rpc_lockd_flags
-.Pq Vt str
-If
-.Va rpc_lockd_enable
-is set to
-.Dq Li YES ,
-these are the flags to pass to the
-.Xr rpc.lockd 8
-daemon.
-.It Va rpc_statd_enable
-.Pq Vt bool
-If set to
-.Dq Li YES
-and also an NFS server or client, run
-.Xr rpc.statd 8
-at boot time.
-.It Va rpc_statd_flags
-.Pq Vt str
-If
-.Va rpc_statd_enable
-is set to
-.Dq Li YES ,
-these are the flags to pass to the
-.Xr rpc.statd 8
-daemon.
+daemon for server-side kernel RPC-over-TLS.
 .It Va rpcbind_program
 .Pq Vt str
 Path to
@@ -4230,11 +4059,9 @@ to
 .Xr mdconfig 8 ,
 .Xr mdmfs 8 ,
 .Xr mixer 8 ,
-.Xr mountd 8 ,
 .Xr moused 8 ,
 .Xr newfs 8 ,
 .Xr newsyslog 8 ,
-.Xr nfsd 8 ,
 .Xr ntpd 8 ,
 .Xr ntpdate 8 ,
 .Xr pflogd 8 ,
@@ -4248,8 +4075,6 @@ to
 .Xr route 8 ,
 .Xr route6d 8 ,
 .Xr routed 8 ,
-.Xr rpc.lockd 8 ,
-.Xr rpc.statd 8 ,
 .Xr rpc.tlsclntd 8 ,
 .Xr rpc.tlsservd 8 ,
 .Xr rpcbind 8 ,

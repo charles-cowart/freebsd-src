@@ -99,10 +99,7 @@ fileio(const atf_tc_t *tc, const char *mp)
 	char buf[FUNSIZE+1];
 	int expected;
 
-	if (FSTYPE_NFSRO(tc))
-		expected = EACCES;
-	else
-		expected = EROFS;
+	expected = EROFS;
 
 	FSTEST_ENTER();
 	RL(fd = rump_sys_open(AFILE, O_RDONLY));

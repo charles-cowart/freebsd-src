@@ -552,8 +552,6 @@ int	 mkstemps(char *, int);
 char	*mktemp(char *);
 #define	_MKTEMP_DECLARED
 #endif
-int	 nfssvc(int, void *);
-int	 nlm_syscall(int, int, int, char **);
 int	 pipe2(int *, int);
 int	 profil(char *, size_t, vm_offset_t, int);
 int	 rcmd(char **, int, const char *, const char *, const char *, int *);

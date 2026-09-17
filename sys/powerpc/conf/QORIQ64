@@ -21,7 +21,6 @@ options 	MAXCPU=32
 options 	_KPOSIX_PRIORITY_SCHEDULING
 options 	ALT_BREAK_TO_DEBUGGER
 options 	BREAK_TO_DEBUGGER
-options 	BOOTP
 options 	CD9660
 #options 	COMPAT_43
 options 	COMPAT_FREEBSD32	#Compatible with FreeBSD/powerpc binaries

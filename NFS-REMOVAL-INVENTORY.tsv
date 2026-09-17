@@ -8,53 +8,59 @@ complete	edit	2	kernel-modules	sys/modules/dtrace/Makefile	Stop traversing the N
 complete	edit	2	kernel-modules	sys/modules/dtrace/dtraceall/*	Remove the dtnfscl dependency and obsolete opt_nfs header.
 complete	edit	2	header-install	include/Makefile	Stop installing NFS public kernel headers.
 complete	edit	2	developer-tools	sys/Makefile	Remove NFS and NLM directories from kernel cscope/TAGS traversal.
-pending	delete	3	kernel-common	sys/fs/nfs/**	NFS protocol, RPC, state, ID mapping, and wire helpers.
-pending	delete	3	kernel-client	sys/fs/nfsclient/**	Current NFS client VFS, vnode, RPC, state, I/O, and tracing implementation.
-pending	delete	3	kernel-client	sys/nfsclient/**	Legacy client compatibility headers.
-pending	delete	3	kernel-server	sys/fs/nfsserver/**	NFS server dispatch, state, cache, socket, and pNFS implementation.
-pending	delete	3	kernel-server	sys/nfsserver/**	Legacy server compatibility and statistics headers.
-pending	delete	3	kernel-root	sys/nfs/**	NFS-root, diskless, nfssvc, protocol, and legacy RPC implementation.
-pending	delete	3	kernel-locking	sys/nlm/**	NFS Network Lock Manager implementation.
-pending	delete	3	kernel-modules	sys/modules/{nfscl,nfscommon,nfsd,nfslockd,nfssvc}/**	Disconnected NFS kernel module makefiles.
-pending	delete	3	kernel-modules	sys/modules/dtrace/dtnfscl/**	Disconnected NFS client DTrace module.
-pending	edit	4	abi	sys/kern/syscalls.master	Retire nfssvc while reserving syscall slot 155; assess nlm_syscall slot 154 similarly.
-pending	edit	4	abi	lib/libsys/**	Remove exported nfssvc interface without renumbering the syscall ABI.
-pending	edit	4	abi	include/unistd.h	Remove the public nfssvc declaration.
-pending	edit	4	observability	lib/libsysdecode/**	Remove NFSSVC flag decoding.
-pending	edit	4	observability	usr.bin/{kdump,truss}/**	Remove NFS syscall decoding paths.
-pending	delete	5	client-userland	sbin/{mount_nfs,nfsiod}/**	NFS mount helper and client I/O daemon.
-pending	delete	5	client-userland	usr.bin/{nfsstat,showmount}/**	NFS statistics and export inspection utilities.
-pending	delete	5	server-userland	usr.sbin/{mountd,nfscbd,nfsd,nfsdumpstate,nfsrevoke,nfsuserd}/**	NFS service and administration programs.
-pending	delete	5	server-userland	usr.sbin/{pnfsdscopymr,pnfsdsfile,pnfsdskill}/**	pNFS data-server administration programs.
-pending	delete	5	locking-userland	usr.sbin/{clear_locks,rpc.lockd,rpc.statd,rpc.umntall}/**	NFS locking and mount-protocol programs.
-pending	delete	5	quota-service	libexec/rpc.rquotad/**	NFS remote quota service; retain local quota support.
-pending	edit	5	shared-userland	sbin/umount/**	Remove forced NFS dismount and unmount-RPC behavior while preserving generic unmount.
-pending	edit	5	installer	usr.sbin/bsdconfig/**	Remove NFS installation media and networking support.
-pending	delete	6	startup	libexec/rc/rc.d/{lockd,mountd,nfscbd,nfsclient,nfsd,nfsuserd,statd}	NFS-specific startup services.
-pending	edit	6	configuration	libexec/rc/rc.conf	Remove NFS client/server/mountd/lockd/statd settings.
-pending	edit	6	configuration	share/man/man5/rc.conf.5	Remove documentation for deleted NFS settings.
-pending	delete	6	packaging	release/packages/ucl/nfs-all.ucl	NFS package definition.
-pending	edit	6	upgrade	ObsoleteFiles.inc	Record all removed installed NFS artifacts for upgrades.
-pending	edit	6	upgrade	UPDATING	Document removed facilities and invalid local kernel options.
-pending	delete	7	loader	stand/libsa/{nfs.c,nfsv2.h}	Standalone NFS client and protocol support.
-pending	edit	7	loader	stand/**	Remove NFS filesystem registration and NFS-root paths.
-pending	edit	7	diskless	libexec/rc/rc.initdiskless	Remove NFS-root assumptions while preserving generic diskless setup where possible.
-pending	delete	8	tests	contrib/netbsd-tests/fs/nfs/**	Imported NFS service and mount tests.
-pending	delete	8	tests	tools/regression/nfsmmap/**	NFS mmap regression tests.
-pending	delete	8	tracing	share/dtrace/{nfsattrstats,nfsclienttime}	NFS client tracing scripts.
-pending	delete	8	tracing	cddl/lib/libdtrace/{nfs.d,nfssrv.d}	NFS DTrace translators/providers.
-pending	delete	8	documentation	share/doc/{psd/27.nfsrpc,smm/06.nfs}/**	Historical NFS implementation documents, subject to documentation-retention policy.
-pending	delete	8	protocol	include/rpcsvc/nfs_prot.x	NFS RPC protocol definition once no remaining consumer exists.
+complete	delete	3	kernel-common	sys/fs/nfs/**	NFS protocol, RPC, state, ID mapping, and wire helpers.
+complete	delete	3	kernel-client	sys/fs/nfsclient/**	Current NFS client VFS, vnode, RPC, state, I/O, and tracing implementation.
+complete	delete	3	kernel-client	sys/nfsclient/**	Legacy client compatibility headers.
+complete	delete	3	kernel-server	sys/fs/nfsserver/**	NFS server dispatch, state, cache, socket, and pNFS implementation.
+complete	delete	3	kernel-server	sys/nfsserver/**	Legacy server compatibility and statistics headers.
+complete	delete	3	kernel-root	sys/nfs/**	NFS-root, diskless, nfssvc, protocol, and legacy RPC implementation.
+complete	delete	3	kernel-locking	sys/nlm/**	NFS Network Lock Manager implementation.
+complete	delete	3	kernel-modules	sys/modules/{nfscl,nfscommon,nfsd,nfslockd,nfssvc}/**	Disconnected NFS kernel module makefiles.
+complete	delete	3	kernel-modules	sys/modules/dtrace/dtnfscl/**	Disconnected NFS client DTrace module.
+complete	edit	4	abi	sys/kern/syscalls.master	Retire nfssvc while reserving syscall slot 155; assess nlm_syscall slot 154 similarly.
+complete	edit	4	abi	lib/libsys/**	Remove exported nfssvc interface without renumbering the syscall ABI.
+complete	edit	4	abi	include/unistd.h	Remove the public nfssvc declaration.
+complete	edit	4	observability	lib/libsysdecode/**	Remove NFSSVC flag decoding.
+complete	edit	4	observability	usr.bin/{kdump,truss}/**	Remove NFS syscall decoding paths.
+complete	delete	5	client-userland	sbin/{mount_nfs,nfsiod}/**	NFS mount helper and client I/O daemon.
+complete	delete	5	client-userland	usr.bin/{nfsstat,showmount}/**	NFS statistics and export inspection utilities.
+complete	delete	5	server-userland	usr.sbin/{mountd,nfscbd,nfsd,nfsdumpstate,nfsrevoke,nfsuserd}/**	NFS service and administration programs.
+complete	delete	5	server-userland	usr.sbin/{pnfsdscopymr,pnfsdsfile,pnfsdskill}/**	pNFS data-server administration programs.
+complete	delete	5	locking-userland	usr.sbin/{clear_locks,rpc.lockd,rpc.statd,rpc.umntall}/**	NFS locking and mount-protocol programs.
+complete	delete	5	quota-service	libexec/rpc.rquotad/**	NFS remote quota service; retain local quota support.
+complete	edit	5	shared-userland	sbin/umount/**	Remove forced NFS dismount and unmount-RPC behavior while preserving generic unmount.
+complete	edit	5	installer	usr.sbin/bsdconfig/**	Remove NFS installation media and networking support.
+complete	delete	6	startup	libexec/rc/rc.d/{lockd,mountd,nfscbd,nfsclient,nfsd,nfsuserd,statd}	NFS-specific startup services.
+complete	edit	6	configuration	libexec/rc/rc.conf	Remove NFS client/server/mountd/lockd/statd settings.
+complete	edit	6	configuration	share/man/man5/rc.conf.5	Remove documentation for deleted NFS settings.
+complete	delete	6	packaging	release/packages/ucl/nfs-all.ucl	NFS package definition.
+complete	edit	6	upgrade	ObsoleteFiles.inc	Record all removed installed NFS artifacts for upgrades.
+complete	edit	6	upgrade	UPDATING	Document removed facilities and invalid local kernel options.
+complete	delete	7	loader	stand/libsa/{nfs.c,nfsv2.h}	Standalone NFS client and protocol support.
+complete	edit	7	loader	stand/**	Remove NFS filesystem registration and NFS-root paths.
+complete	edit	7	diskless	libexec/rc/rc.initdiskless	Remove NFS-root assumptions while preserving generic diskless setup where possible.
+complete	delete	8	tests	contrib/netbsd-tests/fs/nfs/**	Imported NFS service and mount tests.
+complete	delete	8	tests	tools/regression/nfsmmap/**	NFS mmap regression tests.
+complete	delete	8	tracing	share/dtrace/{nfsattrstats,nfsclienttime}	NFS client tracing scripts.
+complete	delete	8	tracing	cddl/lib/libdtrace/{nfs.d,nfssrv.d}	NFS DTrace translators/providers.
+complete	delete	8	documentation	share/doc/{psd/27.nfsrpc,smm/06.nfs}/**	Historical NFS implementation documents, subject to documentation-retention policy.
+complete	delete	8	protocol	include/rpcsvc/{klm_prot,mount,nfs_prot,nlm_prot,sm_inter}.x	Remove NFS mount and lock-manager RPC definitions after their consumers are gone.
+complete	delete	8	tests	cddl/contrib/opensolaris/cmd/dtrace/test/tst/common/nfs/**	NFS provider regression tests.
+complete	edit	8	tests	contrib/netbsd-tests/fs/common/**	Remove NFS and read-only NFS backends from the shared filesystem test matrix.
+complete	delete	8	tests	tests/sys/cddl/zfs/tests/{cli_root/{zfs_share,zfs_unshare},cli_user/misc/zfs_{share,unshare}_001_neg.ksh}	Legacy NFS share and unshare tests that require the removed server.
+complete	edit	8	protocol	lib/librpcsvc/**	Stop generating XDR routines for removed NFS mount and lock-manager protocols.
 preserve	keep	all	shared-rpc	usr.sbin/rpcbind/**	Generic ONC RPC portmapper used independently of NFS.
 preserve	keep	all	shared-rpc	lib/lib{c,rpcsec_gss}/**	Generic RPC, XDR, and GSS functionality; edit only NFS-specific branches.
 investigate	review	11	acl	sys/kern/subr_acl_nfs4.c	Preserve through NFS removal, then reassess UFS and ZFS consumers, naming, ABI, and semantics.
 investigate	review	11	acl	lib/libc/posix1e/acl_*_nfs4.c	Preserve through NFS removal, then reassess the public ACL API and compatibility requirements.
 preserve	keep	all	hardware	sys/dev/nfsmb/**	NVIDIA nForce SMBus controller is unrelated to Network File System.
 preserve	keep	all	filesystem	sys/fs/unionfs/**	Union filesystem is unrelated despite the name suffix.
-investigate	review	8	imported-decoder	contrib/tcpdump/{nfs.h,nfsfh.h,parsenfsfh.c,print-nfs.c}	Decide whether literal all-code scope outweighs preserving passive upstream protocol analysis.
-investigate	review	5	automounter	usr.sbin/autofs/**	Preserve generic autofs but remove NFS-specific maps and /net behavior.
-investigate	review	7	appliance-config	tools/tools/nanobsd/pcengines/ALIX_NFS	Remove or replace this NFS-root-only sample configuration during loader/diskless cleanup.
+preserve	keep	all	imported-decoder	contrib/tcpdump/{nfs.h,nfsfh.h,parsenfsfh.c,print-nfs.c}	Passive upstream packet decoding remains useful independently of the removed NFS implementation.
+complete	edit	5	automounter	usr.sbin/autofs/**	Preserve generic autofs but remove NFS-specific maps and /net behavior.
+complete	delete	7	appliance-config	tools/tools/nanobsd/pcengines/ALIX_NFS	Remove or replace this NFS-root-only sample configuration during loader/diskless cleanup.
 investigate	review	11	acl	{bin,lib,sys,tests}/**	Audit NFSv4 ACL consumers in UFS, OpenZFS, libc, utilities, archives, and tests before retaining, renaming, or removing the implementation.
-investigate	review	11	bootp-kernel	sys/{conf,netinet,nfs,*/conf}/**	After NFS-root removal, determine whether kernel BOOTP has a non-NFS consumer and remove or relocate it accordingly.
-investigate	review	11	bootp-loader	stand/**	Retain BOOTP/DHCP only for tested non-NFS loader paths and reassess obsolete RARP/RPC fallback behavior.
-investigate	review	11	bootp-tools	tools/**	Remove NFS-root appliance examples and reassess remaining BOOTP examples and cleanup manifests.
+complete	delete	11	bootp-kernel	sys/{conf,netinet,nfs,*/conf}/**	Remove kernel BOOTP options, compatibility hooks, and configuration examples; no non-NFS kernel consumer remains.
+complete	delete	11	bootp-loader	stand/**	Remove the standalone BOOTP/DHCP client while retaining separately reviewed network mechanisms.
+complete	delete	11	bootp-tools	tools/**	Remove BOOTP-only examples and diskless template integration.
+complete	edit	11	bootp-userland	sbin/dhclient/**	Reject legacy BOOTP replies and remove BOOTP lease/configuration support while retaining DHCP.
+preserve	keep	all	dhcp-wire	contrib/{tcpdump,wpa,libpcap}/**	Retain imported DHCP implementations and decoders whose wire structures inherit BOOTP terminology; these do not provide BOOTP boot support.

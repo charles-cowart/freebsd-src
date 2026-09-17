@@ -42,7 +42,8 @@ def check_pcp(args, packet):
 	if vlan is None:
 		return False
 
-	if not packet.getlayer(sp.BOOTP):
+	udp = packet.getlayer(sp.UDP)
+	if udp is None or udp.sport != 68 or udp.dport != 67:
 		return False
 
 	if vlan.prio == int(args.expect_pcp[0]):

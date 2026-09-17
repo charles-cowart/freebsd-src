@@ -195,16 +195,6 @@ CONFGROUPS+=			NEWSYSLOG
 NEWSYSLOGPACKAGE=		newsyslog
 NEWSYSLOG=	newsyslog
 
-CONFGROUPS+=			NFS
-NFSPACKAGE=			nfs
-NFS=		lockd \
-		mountd \
-		nfscbd \
-		nfsclient \
-		nfsd \
-		nfsuserd \
-		statd
-
 CONFGROUPS.${MK_NS_CACHING}+=	NSCD
 NSCD=		nscd
 

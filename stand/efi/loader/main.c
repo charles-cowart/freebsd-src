@@ -1990,36 +1990,3 @@ command_chain(int argc, char *argv[])
 }
 
 COMMAND_SET(chain, "chain", "chain load file", command_chain);
-
-#if defined(LOADER_NET_SUPPORT)
-extern struct in_addr servip;
-static int
-command_netserver(int argc, char *argv[])
-{
-	char *proto;
-	n_long rootaddr;
-
-	if (argc > 2) {
-		command_errmsg = "wrong number of arguments";
-		return (CMD_ERROR);
-	}
-	if (argc < 2) {
-		proto = "nfs://";
-		printf("Netserver URI: %s%s%s\n", proto, intoa(rootip.s_addr),
-		    rootpath);
-		return (CMD_OK);
-	}
-	if (argc == 2) {
-		strncpy(rootpath, argv[1], sizeof(rootpath));
-		rootpath[sizeof(rootpath) -1] = '\0';
-		if ((rootaddr = net_parse_rootpath()) != INADDR_NONE)
-			servip.s_addr = rootip.s_addr = rootaddr;
-		return (CMD_OK);
-	}
-	return (CMD_ERROR);	/* not reached */
-
-}
-
-COMMAND_SET(netserver, "netserver", "change or display netserver URI",
-    command_netserver);
-#endif

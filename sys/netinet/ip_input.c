@@ -30,7 +30,6 @@
  */
 
 #include <sys/cdefs.h>
-#include "opt_bootp.h"
 #include "opt_inet.h"
 #include "opt_ipstealth.h"
 #include "opt_ipsec.h"
@@ -748,14 +747,6 @@ passin:
 				    m->m_pkthdr.len);
 				goto ours;
 			}
-#ifdef BOOTP_COMPAT
-			if (IA_SIN(ia)->sin_addr.s_addr == INADDR_ANY) {
-				counter_u64_add(ia->ia_ifa.ifa_ipackets, 1);
-				counter_u64_add(ia->ia_ifa.ifa_ibytes,
-				    m->m_pkthdr.len);
-				goto ours;
-			}
-#endif
 		}
 		ia = NULL;
 	}

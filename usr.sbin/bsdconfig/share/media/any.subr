@@ -36,7 +36,6 @@ f_include $BSDCFG_SHARE/media/directory.subr
 f_include $BSDCFG_SHARE/media/dos.subr
 f_include $BSDCFG_SHARE/media/http.subr
 f_include $BSDCFG_SHARE/media/httpproxy.subr
-f_include $BSDCFG_SHARE/media/nfs.subr
 f_include $BSDCFG_SHARE/media/options.subr
 f_include $BSDCFG_SHARE/media/ufs.subr
 f_include $BSDCFG_SHARE/media/usb.subr
@@ -72,7 +71,6 @@ f_media_get_type()
 		                '$msg_install_from_an_ftp_server_thru_proxy'
 		'3 $msg_http_direct' '$msg_install_from_an_http_server'
 		'4 $msg_directory' '$msg_install_from_the_existing_filesystem'
-		'6 $msg_nfs'       '$msg_install_over_nfs'
 		'6 $msg_dos'       '$msg_install_from_a_dos_partition'
 		'7 $msg_ufs'       '$msg_install_from_a_ufs_partition'
 		'8 $msg_usb'       '$msg_install_from_a_usb_drive'
@@ -121,7 +119,6 @@ f_media_get_type()
 		?" $msg_http_direct") f_media_set_http ;;
 		?" $msg_directory")   f_media_set_directory ;;
 		?" $msg_dos")         f_media_set_dos ;;
-		?" $msg_nfs")         f_media_set_nfs ;;
 		?" $msg_ufs")         f_media_set_ufs ;;
 		?" $msg_usb")         f_media_set_usb ;;
 		?" $msg_options")

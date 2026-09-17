@@ -102,15 +102,6 @@ A description of the 4.4BSD file system organization,
 design and implementation.
 
 .IP
-.tl 'The 4.4BSD NFS Implementation''SMM:6'
-.if \n(.U \{\
-.br
-.>> <a href="06.nfs/paper.html">06.nfs/paper.html</a>
-.\}
-.QP
-An overview of the design, implementation, and use of NFS on 4.4BSD.
-
-.IP
 .tl 'Line Printer Spooler Manual''SMM:7'
 .QP
 This document describes the structure and installation procedure

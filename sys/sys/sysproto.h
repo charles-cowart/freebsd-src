@@ -458,16 +458,6 @@ struct quotactl_args {
 struct oquota_args {
 	syscallarg_t dummy;
 };
-struct nlm_syscall_args {
-	char debug_level_l_[PADL_(int)]; int debug_level; char debug_level_r_[PADR_(int)];
-	char grace_period_l_[PADL_(int)]; int grace_period; char grace_period_r_[PADR_(int)];
-	char addr_count_l_[PADL_(int)]; int addr_count; char addr_count_r_[PADR_(int)];
-	char addrs_l_[PADL_(char **)]; char ** addrs; char addrs_r_[PADR_(char **)];
-};
-struct nfssvc_args {
-	char flag_l_[PADL_(int)]; int flag; char flag_r_[PADR_(int)];
-	char argp_l_[PADL_(void *)]; void * argp; char argp_r_[PADR_(void *)];
-};
 struct lgetfh_args {
 	char fname_l_[PADL_(const char *)]; const char * fname; char fname_r_[PADR_(const char *)];
 	char fhp_l_[PADL_(struct fhandle *)]; struct fhandle * fhp; char fhp_r_[PADR_(struct fhandle *)];
@@ -2021,8 +2011,6 @@ int	sys_utimes(struct thread *, struct utimes_args *);
 int	sys_adjtime(struct thread *, struct adjtime_args *);
 int	sys_setsid(struct thread *, struct setsid_args *);
 int	sys_quotactl(struct thread *, struct quotactl_args *);
-int	sys_nlm_syscall(struct thread *, struct nlm_syscall_args *);
-int	sys_nfssvc(struct thread *, struct nfssvc_args *);
 int	sys_lgetfh(struct thread *, struct lgetfh_args *);
 int	sys_getfh(struct thread *, struct getfh_args *);
 int	sysarch(struct thread *, struct sysarch_args *);
@@ -2979,8 +2967,6 @@ int	freebsd14_setgroups(struct thread *, struct freebsd14_setgroups_args *);
 #define	SYS_AUE_quotactl	AUE_QUOTACTL
 #define	SYS_AUE_oquota	AUE_O_QUOTA
 #define	SYS_AUE_ogetsockname	AUE_GETSOCKNAME
-#define	SYS_AUE_nlm_syscall	AUE_NULL
-#define	SYS_AUE_nfssvc	AUE_NFS_SVC
 #define	SYS_AUE_ogetdirentries	AUE_GETDIRENTRIES
 #define	SYS_AUE_freebsd4_statfs	AUE_STATFS
 #define	SYS_AUE_freebsd4_fstatfs	AUE_FSTATFS

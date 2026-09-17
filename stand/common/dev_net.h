@@ -29,6 +29,5 @@
 
 extern struct devsw netdev;
 
-uint32_t net_parse_rootpath(void);
 
 #endif

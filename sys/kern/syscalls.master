@@ -973,22 +973,9 @@
 		);
 	}
 151-153	AUE_NULL	RESERVED
-; 154 is initialised by the NLM code, if present.
-154	AUE_NULL	NOSTD {
-		int nlm_syscall(
-		    int debug_level,
-		    int grace_period,
-		    int addr_count,
-		    _In_reads_(addr_count) char **addrs
-		);
-	}
-; 155 is initialized by the NFS code, if present.
-155	AUE_NFS_SVC	NOSTD {
-		int nfssvc(
-		    int flag,
-		    _In_ void *argp
-		);
-	}
+; Slots 154 and 155 are retained to preserve the system call ABI.
+154	AUE_NULL	OBSOL	nlm_syscall
+155	AUE_NULL	OBSOL	nfssvc
 156	AUE_GETDIRENTRIES	COMPAT|CAPENABLED {
 		int getdirentries(
 		    int fd,

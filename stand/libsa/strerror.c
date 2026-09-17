@@ -54,7 +54,7 @@ static struct
     {EROFS,		"read-only filesystem"},
     {EOPNOTSUPP,	"operation not supported"},
     {ETIMEDOUT,		"operation timed out"},
-    {ESTALE,		"stale NFS file handle"},
+    {ESTALE,		"stale file handle"},
     {EBADRPC,		"RPC struct is bad"},
     {EFTYPE,		"inappropriate file type or format"},
 

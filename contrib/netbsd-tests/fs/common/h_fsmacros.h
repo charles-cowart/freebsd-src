@@ -54,8 +54,6 @@ FSPROTOS(ffs);
 FSPROTOS(ffslog);
 FSPROTOS(lfs);
 FSPROTOS(msdosfs);
-FSPROTOS(nfs);
-FSPROTOS(nfsro);
 FSPROTOS(p2k_ffs);
 FSPROTOS(puffs);
 FSPROTOS(rumpfs);
@@ -162,7 +160,6 @@ do {									\
   ATF_TC_FSADD(ffslog,MOUNT_FFS,func,desc)				\
   ATF_TC_FSADD(lfs,MOUNT_LFS,func,desc)					\
   ATF_TC_FSADD(msdosfs,MOUNT_MSDOS,func,desc)				\
-  ATF_TC_FSADD(nfs,MOUNT_NFS,func,desc)					\
   ATF_TC_FSADD(puffs,MOUNT_PUFFS,func,desc)				\
   ATF_TC_FSADD(p2k_ffs,MOUNT_PUFFS,func,desc)				\
   ATF_TC_FSADD(rumpfs,MOUNT_RUMPFS,func,desc)				\
@@ -177,7 +174,6 @@ do {									\
   ATF_TP_FSADD(ffslog,func);						\
   ATF_TP_FSADD(lfs,func);						\
   ATF_TP_FSADD(msdosfs,func);						\
-  ATF_TP_FSADD(nfs,func);						\
   ATF_TP_FSADD(puffs,func);						\
   ATF_TP_FSADD(p2k_ffs,func);						\
   ATF_TP_FSADD(rumpfs,func);						\
@@ -220,8 +216,6 @@ do {									\
   ATF_TC_FSADD_RO(ffs,MOUNT_FFS,func,desc,gen)				\
   ATF_TC_FSADD_RO(ffslog,MOUNT_FFS,func,desc,gen)			\
   ATF_TC_FSADD_RO(msdosfs,MOUNT_MSDOS,func,desc,gen)			\
-  ATF_TC_FSADD_RO(nfs,MOUNT_NFS,func,desc,gen)				\
-  ATF_TC_FSADD_RO(nfsro,MOUNT_NFS,func,desc,gen)			\
   ATF_TC_FSADD_RO(sysvbfs,MOUNT_SYSVBFS,func,desc,gen)			\
   ATF_TC_FSADD_RO(udf,MOUNT_UDF,func,desc,gen)			\
   ATF_TC_FSADD_RO(v7fs,MOUNT_V7FS,func,desc,gen)
@@ -231,8 +225,6 @@ do {									\
   ATF_TP_FSADD(ffs,func);						\
   ATF_TP_FSADD(ffslog,func);						\
   ATF_TP_FSADD(msdosfs,func);						\
-  ATF_TP_FSADD(nfs,func);						\
-  ATF_TP_FSADD(nfsro,func);						\
   ATF_TP_FSADD(sysvbfs,func);						\
   ATF_TP_FSADD(udf,func);						\
   ATF_TP_FSADD(v7fs,func);
@@ -269,10 +261,6 @@ atf_check_fstype(const atf_tc_t *tc, const char *fs)
     (strcmp(atf_tc_get_md_var(tc, "X-fs.type"), "lfs") == 0)
 #define FSTYPE_MSDOS(tc)\
     (strcmp(atf_tc_get_md_var(tc, "X-fs.type"), "msdosfs") == 0)
-#define FSTYPE_NFS(tc)\
-    (strcmp(atf_tc_get_md_var(tc, "X-fs.type"), "nfs") == 0)
-#define FSTYPE_NFSRO(tc)\
-    (strcmp(atf_tc_get_md_var(tc, "X-fs.type"), "nfsro") == 0)
 #define FSTYPE_P2K_FFS(tc)\
     (strcmp(atf_tc_get_md_var(tc, "X-fs.type"), "p2k_ffs") == 0)
 #define FSTYPE_PUFFS(tc)\

@@ -313,7 +313,7 @@ inline string strerror[int errno] =
 	errno == EPROCLIM ?		"Too many processes" :
 	errno == EUSERS ?		"Too many users" :
 	errno == EDQUOT ?		"Disc quota exceeded" :
-	errno == ESTALE ?		"Stale NFS file handle" :
+	errno == ESTALE ?		"Stale file handle" :
 	errno == EREMOTE ?		"Too many levels of remote in path" :
 	errno == EBADRPC ?		"RPC struct is bad" :
 	errno == ERPCMISMATCH ?		"RPC version wrong" :

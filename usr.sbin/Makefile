@@ -11,7 +11,6 @@ SUBDIR=	adduser \
 	chown \
 	chroot \
 	ckdist \
-	clear_locks \
 	crashinfo \
 	cron \
 	ctld \
@@ -41,24 +40,15 @@ SUBDIR=	adduser \
 	memcontrol \
 	mfiutil \
 	mlxcontrol \
-	mountd \
 	mount_smbfs \
 	mpsutil \
 	mptutil \
 	mtest \
 	newsyslog \
-	nfscbd \
-	nfsd \
-	nfsdumpstate \
-	nfsrevoke \
-	nfsuserd \
 	nmtree \
 	nologin \
 	pciconf \
 	periodic \
-	pnfsdscopymr \
-	pnfsdsfile \
-	pnfsdskill \
 	powerd \
 	prometheus_sysctl_exporter \
 	pstat \
@@ -69,9 +59,6 @@ SUBDIR=	adduser \
 	rarpd \
 	rmt \
 	rpcbind \
-	rpc.lockd \
-	rpc.statd \
-	rpc.umntall \
 	rtprio \
 	rwhod \
 	service \

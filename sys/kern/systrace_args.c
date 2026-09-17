@@ -780,24 +780,6 @@ systrace_args(int sysnum, void *params, uint64_t *uarg, int *n_args)
 		*n_args = 4;
 		break;
 	}
-	/* nlm_syscall */
-	case 154: {
-		struct nlm_syscall_args *p = params;
-		iarg[a++] = p->debug_level; /* int */
-		iarg[a++] = p->grace_period; /* int */
-		iarg[a++] = p->addr_count; /* int */
-		uarg[a++] = (intptr_t)p->addrs; /* char ** */
-		*n_args = 4;
-		break;
-	}
-	/* nfssvc */
-	case 155: {
-		struct nfssvc_args *p = params;
-		iarg[a++] = p->flag; /* int */
-		uarg[a++] = (intptr_t)p->argp; /* void * */
-		*n_args = 2;
-		break;
-	}
 	/* lgetfh */
 	case 160: {
 		struct lgetfh_args *p = params;
@@ -4784,38 +4766,6 @@ systrace_entry_setargdesc(int sysnum, int ndx, char *desc, size_t descsz)
 			p = "int";
 			break;
 		case 3:
-			p = "userland void *";
-			break;
-		default:
-			break;
-		};
-		break;
-	/* nlm_syscall */
-	case 154:
-		switch (ndx) {
-		case 0:
-			p = "int";
-			break;
-		case 1:
-			p = "int";
-			break;
-		case 2:
-			p = "int";
-			break;
-		case 3:
-			p = "userland char **";
-			break;
-		default:
-			break;
-		};
-		break;
-	/* nfssvc */
-	case 155:
-		switch (ndx) {
-		case 0:
-			p = "int";
-			break;
-		case 1:
 			p = "userland void *";
 			break;
 		default:
@@ -9941,16 +9891,6 @@ systrace_return_setargdesc(int sysnum, int ndx, char *desc, size_t descsz)
 	case 147:
 	/* quotactl */
 	case 148:
-		if (ndx == 0 || ndx == 1)
-			p = "int";
-		break;
-	/* nlm_syscall */
-	case 154:
-		if (ndx == 0 || ndx == 1)
-			p = "int";
-		break;
-	/* nfssvc */
-	case 155:
 		if (ndx == 0 || ndx == 1)
 			p = "int";
 		break;

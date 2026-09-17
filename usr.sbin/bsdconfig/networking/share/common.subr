@@ -41,14 +41,6 @@ f_jailed()
 	! f_quietly ps 1
 }
 
-# f_nfs_mounted
-#
-# Returns true if there are any NFS mounts currently active, otherwise false.
-#
-f_nfs_mounted()
-{
-	[ "$( df -t nfs )" ]
-}
 
 ############################################################ MAIN
 

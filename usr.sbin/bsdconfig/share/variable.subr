@@ -113,9 +113,6 @@ f_variable_set_defaults()
 	setvar $VAR_EDITOR		"${EDITOR:-/usr/bin/vi}"
 	setvar $VAR_HOSTNAME		"$( hostname )"
 	setvar $VAR_MEDIA_TIMEOUT	"300"
-	setvar $VAR_NFS_SECURE		"NO"
-	setvar $VAR_NFS_TCP		"NO"
-	setvar $VAR_NFS_V3		"YES"
 	setvar $VAR_PKG_TMPDIR		"/var/tmp"
 	setvar $VAR_RELNAME		"$UNAME_R"
 
@@ -128,9 +125,6 @@ f_variable_set_defaults()
 			$VAR_EDITOR		\
 			$VAR_HOSTNAME		\
 			$VAR_MEDIA_TIMEOUT	\
-			$VAR_NFS_SECURE		\
-			$VAR_NFS_TCP		\
-			$VAR_NFS_V3		\
 			$VAR_PKG_TMPDIR		\
 			$VAR_RELNAME		\
 		; do
@@ -254,11 +248,6 @@ f_variable_new VAR_NAMESERVER		nameserver
 f_variable_new VAR_NETINTERACTIVE	netInteractive
 f_variable_new VAR_NETMASK		netmask
 f_variable_new VAR_NETWORK_DEVICE	netDev
-f_variable_new VAR_NFS_HOST		nfsHost
-f_variable_new VAR_NFS_PATH		nfsPath
-f_variable_new VAR_NFS_SECURE		nfs_reserved_port_only
-f_variable_new VAR_NFS_TCP		nfs_use_tcp
-f_variable_new VAR_NFS_V3		nfs_use_v3
 f_variable_new VAR_NONINTERACTIVE	nonInteractive
 f_variable_new VAR_NO_CONFIRM		noConfirm
 f_variable_new VAR_NO_ERROR		noError

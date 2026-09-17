@@ -1835,8 +1835,6 @@ lockd		4045/tcp
 #PROBLEM =========================================================
 nuts_dem	4132/tcp   #NUTS Daemon
 nuts_dem	4132/udp   #NUTS Daemon
-nuts_bootp	4133/tcp   #NUTS Bootp Server
-nuts_bootp	4133/udp   #NUTS Bootp Server
 sieve		4190/tcp   #ManageSieve Protocol
 sieve		4190/udp   #ManageSieve Protocol
 nss		4159/tcp   #Network Security Service

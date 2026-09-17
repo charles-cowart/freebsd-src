@@ -63,7 +63,7 @@ static const struct timespec timespec_intmax_ms = {
 static struct timeout *timeouts;
 static struct timeout *free_timeouts;
 static int interfaces_invalidated;
-void (*bootp_packet_handler)(struct interface_info *,
+void (*dhcp_packet_handler)(struct interface_info *,
     struct dhcp_packet *, int, unsigned int,
     struct iaddr, struct hardware *);
 
@@ -150,7 +150,7 @@ reinitialize_interfaces(void)
  * Wait for packets to come in using poll().  When a packet comes in,
  * call receive_packet to receive the packet and possibly strip hardware
  * addressing information from it, and then call through the
- * bootp_packet_handler hook to try to do something with it.
+ * packet handler hook to process it.
  */
 void
 dispatch(void)
@@ -291,11 +291,11 @@ got_one(struct protocol *l)
 	if (result == 0)
 		return;
 
-	if (bootp_packet_handler) {
+	if (dhcp_packet_handler) {
 		ifrom.len = 4;
 		memcpy(ifrom.iabuf, &from.sin_addr, ifrom.len);
 
-		(*bootp_packet_handler)(ip, &u.packet, result,
+		(*dhcp_packet_handler)(ip, &u.packet, result,
 		    from.sin_port, ifrom, &hfrom);
 	}
 }

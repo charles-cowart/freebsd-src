@@ -106,8 +106,6 @@ MIASM =  \
 	adjtime.o \
 	setsid.o \
 	quotactl.o \
-	nlm_syscall.o \
-	nfssvc.o \
 	lgetfh.o \
 	getfh.o \
 	sysarch.o \

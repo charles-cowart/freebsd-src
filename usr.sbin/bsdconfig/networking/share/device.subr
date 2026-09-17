@@ -269,19 +269,6 @@ f_dialog_menu_netdev_edit()
 		1\ *) f_dialog_menu_wlandev_edit \
 		      	"$interface" "${wlans%%[$IFS]*}" ;;
 		2\ *) #
-		      # Proceed cautiously (confirm with the user) if/when NFS-
-		      # mounts are active. If the network on which these mounts
-		      # are made is changed parts of the system may hang.
-		      #
-		      if f_nfs_mounted && ! f_jailed; then
-			local setting
-			f_sprintf setting "$msg_current_dhcp_status" \
-		      	                  "$interface" "$dhcp_status"
-			f_noyes "$msg_nfs_mounts_may_cause_hang" "$setting" ||
-		      		continue
-		      fi
-
-		      #
 		      # Toggle DHCP status
 		      #
 		      if [ "$dhcp_status" = "$msg_enabled" ]; then

@@ -1,7 +1,6 @@
 PACKAGE=	autofs
 
 CONFS=		include_ldap \
-		special_hosts \
 		special_media \
 		special_noauto \
 		special_null

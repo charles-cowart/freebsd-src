@@ -2,8 +2,6 @@
 
 DIRDEPS = \
 	include \
-	include/rpc \
-	include/rpcsvc \
 	include/xlocale \
 	lib/${CSU_DIR} \
 	lib/libc \

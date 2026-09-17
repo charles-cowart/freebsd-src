@@ -81,7 +81,6 @@ read_client_conf(void)
 	top_level_config.retry_interval = 300;
 	top_level_config.backoff_cutoff = 15;
 	top_level_config.initial_interval = 3;
-	top_level_config.bootp_policy = ACCEPT;
 	top_level_config.script_name = client_script_name;
 	top_level_config.requested_options
 	    [top_level_config.requested_option_count++] = DHO_SUBNET_MASK;
@@ -607,7 +606,6 @@ parse_client_lease_statement(FILE *cfile, int is_static)
 
 /*
  * client-lease-declaration :==
- *	BOOTP |
  *	INTERFACE string |
  *	FIXED_ADDR ip_address |
  *	FILENAME string |
@@ -626,9 +624,6 @@ parse_client_lease_declaration(FILE *cfile, struct client_lease *lease,
 	struct interface_info	*ip;
 
 	switch (next_token(&val, cfile)) {
-	case BOOTP:
-		lease->is_bootp = 1;
-		break;
 	case INTERFACE:
 		token = next_token(&val, cfile);
 		if (token != STRING) {
