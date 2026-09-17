@@ -69,37 +69,9 @@ f_media_options_menu()
 	while :; do
 		menu_list=
 
-		f_getvar $VAR_NFS_SECURE cp
-		if [ "$cp" = "YES" ]; then menu_list="$menu_list
-			' $msg_nfs_secure' 'YES'
-			    '$msg_nfs_server_talks_only_on_a_secure_port'"
-		else menu_list="$menu_list
-			' $msg_nfs_secure' 'NO'
-			    '$msg_nfs_server_talks_only_on_a_secure_port'"
-		fi
 
-		f_getvar $VAR_SLOW_ETHER cp
-		if [ "$cp" = "YES" ]; then menu_list="$menu_list
-			' $msg_nfs_slow' 'YES'
-			    '$msg_user_is_using_a_slow_pc_or_ethernet_card'"
-		else menu_list="$menu_list
-			' $msg_nfs_slow' 'NO'
-			    '$msg_user_is_using_a_slow_pc_or_ethernet_card'"
-		fi
 
-		f_getvar $VAR_NFS_TCP cp
-		if [ "$cp" = "YES" ]; then menu_list="$menu_list
-			' $msg_nfs_tcp' 'YES' '$msg_use_tcp_protocol_for_nfs'"
-		else menu_list="$menu_list
-			' $msg_nfs_tcp' 'NO' '$msg_use_tcp_protocol_for_nfs'"
-		fi
 
-		f_getvar $VAR_NFS_V3 cp
-		if [ "$cp" = "YES" ]; then menu_list="$menu_list
-			' $msg_nfs_version_3' 'YES' '$msg_use_nfs_version_3'"
-		else menu_list="$menu_list
-			' $msg_nfs_version_3' 'NO' '$msg_use_nfs_version_3'"
-		fi
 
 		f_getvar $VAR_DEBUG cp
 		if [ "$cp" ]; then menu_list="$menu_list
@@ -157,7 +129,6 @@ f_media_options_menu()
 			$DEVICE_TYPE_CDROM)      cp="$msg_cdrom"       ;;
 			$DEVICE_TYPE_USB)        cp="$msg_usb"         ;;
 			$DEVICE_TYPE_DOS)        cp="$msg_dos"         ;;
-			$DEVICE_TYPE_NFS)        cp="$msg_nfs"         ;;
 			*)
 				cp="<$msg_unknown>"
 			esac
@@ -223,34 +194,6 @@ f_media_options_menu()
 		fi
 
 		case "$mtag" in
-		" $msg_nfs_secure")
-			f_getvar $VAR_NFS_SECURE cp
-			if [ "$cp" = "YES" ]; then
-				export $VAR_NFS_SECURE="NO"
-			else
-				export $VAR_NFS_SECURE="YES"
-			fi ;;
-		" $msg_nfs_slow")
-			f_getvar $VAR_SLOW_ETHER cp
-			if [ "$cp" = "YES" ]; then
-				export $VAR_SLOW_ETHER="NO"
-			else
-				export $VAR_SLOW_ETHER="YES"
-			fi ;;
-		" $msg_nfs_tcp")
-			f_getvar $VAR_NFS_TCP cp
-			if [ "$cp" = "YES" ]; then
-				export $VAR_NFS_TCP="NO"
-			else
-				export $VAR_NFS_TCP="YES"
-			fi ;;
-		" $msg_nfs_version_3")
-			f_getvar $VAR_NFS_V3 cp
-			if [ "$cp" = "YES" ]; then
-				export $VAR_NFS_V3="NO"
-			else
-				export $VAR_NFS_V3="YES"
-			fi ;;
 		" $msg_debugging")
 			if f_getvar $VAR_DEBUG cp && [ "$cp" ]; then
 				unset $VAR_DEBUG

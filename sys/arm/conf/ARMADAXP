@@ -29,8 +29,6 @@ options 	SOC_MV_ARMADAXP
 options 	SCHED_ULE		# ULE scheduler
 options 	SMP			# Enable multiple cores
 
-options 	BOOTP
-options 	BOOTP_WIRED_TO=mge0
 
 options 	ROOTDEVNAME=\"ufs:/dev/da0p1\"
 

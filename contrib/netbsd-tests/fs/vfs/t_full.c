@@ -41,12 +41,6 @@
 #include "../common/h_fsmacros.h"
 #include "h_macros.h"
 
-/*
- * Write this much over the image size.  This is to force an NFS commit,
- * since we might just stuff data into the cache and miss the problem.
- */
-#define NFSBONUS (1<<16)
-
 static void
 fillfs(const atf_tc_t *tc, const char *mp)
 {
@@ -62,8 +56,6 @@ fillfs(const atf_tc_t *tc, const char *mp)
 	}
 
 	bonus = 0;
-	if (FSTYPE_NFS(tc))
-		bonus = NFSBONUS;
 
 	if (rump_sys_chdir(mp) == -1)
 		atf_tc_fail_errno("chdir mountpoint");

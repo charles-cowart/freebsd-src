@@ -212,7 +212,6 @@ autoconfigures
 bdes
 bootblock
 bootimage
-bootp
 bootpath
 bootrom
 bootsd

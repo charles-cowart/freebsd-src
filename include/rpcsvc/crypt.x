@@ -48,7 +48,7 @@
  * One solution for this problem is to do the DES encryption as a system
  * call; no programs need to be changed and we can even supply the DES
  * support as an LKM. But this bloats the kernel. Maybe if we have
- * Secure NFS one day this will be worth it, but for now we should keep
+ * This may be useful one day, but for now we should keep
  * this mess in user space.
  *
  * So we have this second solution: we provide a server that does the

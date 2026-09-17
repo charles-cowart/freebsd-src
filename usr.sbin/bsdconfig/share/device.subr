@@ -83,7 +83,6 @@ setvar DEVICE_TYPE_CDROM	"CDROM"		# GEOM `DISK'
 setvar DEVICE_TYPE_USB		"USB"		# GEOM `PART'
 setvar DEVICE_TYPE_DOS		"DOS"		# GEOM `DISK' `PART' or `LABEL'
 setvar DEVICE_TYPE_UFS		"UFS"		# GEOM `DISK' `PART' or `LABEL'
-setvar DEVICE_TYPE_NFS		"NFS"		# Dynamic network device
 setvar DEVICE_TYPE_HTTP_PROXY	"HTTP_PROXY"	# Dynamic network device
 setvar DEVICE_TYPE_HTTP		"HTTP"		# Dynamic network device
 

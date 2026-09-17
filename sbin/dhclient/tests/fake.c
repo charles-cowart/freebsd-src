@@ -66,10 +66,6 @@ parse_warn(const char *fmt, ...)
 	return ret;
 }
 
-void
-bootp(struct packet *packet)
-{
-}
 
 void
 dhcp(struct packet *packet)

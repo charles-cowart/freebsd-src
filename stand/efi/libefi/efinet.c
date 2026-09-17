@@ -198,7 +198,7 @@ efinet_get(struct iodesc *desc, void **pkt, time_t timeout)
 }
 
 /*
- * Loader uses BOOTP/DHCP and also uses RARP as a fallback to populate
+ * Loader uses firmware network parameters and RARP to populate
  * network parameters and problems with DHCP servers can cause the loader
  * to fail to populate them. Allow the device to ask about the basic
  * network parameters and if present use them.
@@ -208,7 +208,6 @@ efi_env_net_params(struct iodesc *desc)
 {
 	char *envstr;
 	in_addr_t ipaddr, mask, gwaddr, serveraddr;
-	n_long rootaddr;
 
 	if ((envstr = getenv("rootpath")) != NULL)
 		strlcpy(rootpath, envstr, sizeof(rootpath));
@@ -246,17 +245,9 @@ efi_env_net_params(struct iodesc *desc)
 	gateip.s_addr = gwaddr;
 	servip.s_addr = serveraddr;
 
-	/*
-	 * There must be a rootpath. It may be ip:/path or it may be just the
-	 * path in which case the ip needs to be serverip.
-	 */
-	rootaddr = net_parse_rootpath();
-	if (rootaddr == INADDR_NONE)
-		rootaddr = serveraddr;
-	rootip.s_addr = rootaddr;
+	rootip.s_addr = serveraddr;
 
 #ifdef EFINET_DEBUG
-	printf("%s: proto=%d\n", __func__, netproto);
 	printf("%s: ip=%s\n", __func__, inet_ntoa(myip));
 	printf("%s: mask=%s\n", __func__, intoa(netmask));
 	printf("%s: gateway=%s\n", __func__, inet_ntoa(gateip));

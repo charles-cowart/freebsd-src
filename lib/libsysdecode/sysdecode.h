@@ -80,7 +80,6 @@ bool	sysdecode_mmap_prot(FILE *_fp, int _prot, int *_rem);
 bool	sysdecode_mount_flags(FILE *_fp, int _flags, int *_rem);
 bool	sysdecode_msg_flags(FILE *_fp, int _flags, int *_rem);
 bool	sysdecode_msync_flags(FILE *_fp, int _flags, int *_rem);
-const char *sysdecode_nfssvc_flags(int _flags);
 bool	sysdecode_open_flags(FILE *_fp, int _flags, int *_rem);
 const char *sysdecode_pathconf_name(int _name);
 bool	sysdecode_pipe2_flags(FILE *_fp, int _flags, int *_rem);

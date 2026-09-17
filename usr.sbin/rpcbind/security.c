@@ -17,11 +17,14 @@
 /*
  * XXX for special case checks in check_callit.
  */
-#include <rpcsvc/mount.h>
 #include <rpcsvc/rquota.h>
-#include <rpcsvc/nfs_prot.h>
 
 #include "rpcbind.h"
+
+#define	RPCPROG_NFS		100003
+#define	RPCPROG_MOUNT		100005
+#define	RPCPROC_MOUNT_MNT	1
+#define	RPCPROC_MOUNT_UMNT	3
 
 #ifdef LIBWRAP
 # include <tcpd.h>
@@ -244,9 +247,9 @@ check_callit(SVCXPRT *xprt, struct r_rmtcall_args *args, int versnum __unused)
 		if (!insecure)
 			goto deny;
 		break;
-	case MOUNTPROG:
-		if (args->rmt_proc != MOUNTPROC_MNT &&
-		    args->rmt_proc != MOUNTPROC_UMNT)
+	case RPCPROG_MOUNT:
+		if (args->rmt_proc != RPCPROC_MOUNT_MNT &&
+		    args->rmt_proc != RPCPROC_MOUNT_UMNT)
 			break;
 		goto deny;
 	case 100007: /* Legacy domain binding service. */
@@ -254,7 +257,7 @@ check_callit(SVCXPRT *xprt, struct r_rmtcall_args *args, int versnum __unused)
 			break;
 		/* FALLTHROUGH */
 	case 100009: /* Legacy password update service. */
-	case NFS_PROGRAM:
+	case RPCPROG_NFS:
 	case RQUOTAPROG:
 		goto deny;
 	case 100004: /* Legacy directory service. */

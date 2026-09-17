@@ -20,9 +20,8 @@ comment = "File system automounter"
 
 desc = <<EOD
 The autofs(4) facility allows certain filesystem mountpoints to be managed
-dynamically, for example to allow user home directories in /home to be
-mounted automatically from the appropriate remote file server at login
-or to provide automated access to NFS servers via the /net mountpoint.
+dynamically, for example to mount removable media or other explicitly
+configured filesystems on demand.
 
 This package provides the automountd(8) daemon which is responsible for
 managing this, as well as the management utility automount(8).

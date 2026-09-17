@@ -339,8 +339,6 @@ intern(char *atom, int dfv)
 	case 'b':
 		if (!strcasecmp(atom + 1, "ackoff-cutoff"))
 			return (BACKOFF_CUTOFF);
-		if (!strcasecmp(atom + 1, "ootp"))
-			return (BOOTP);
 		if (!strcasecmp(atom + 1, "ooting"))
 			return (BOOTING);
 		if (!strcasecmp(atom + 1, "oot-unknown-clients"))
@@ -366,15 +364,6 @@ intern(char *atom, int dfv)
 				return (DEFAULT);
 			if (!strcasecmp(atom + 7, "-lease-time"))
 				return (DEFAULT_LEASE_TIME);
-			break;
-		}
-		if (!strncasecmp(atom + 1, "ynamic-bootp", 12)) {
-			if (!atom[13])
-				return (DYNAMIC_BOOTP);
-			if (!strcasecmp(atom + 13, "-lease-cutoff"))
-				return (DYNAMIC_BOOTP_LEASE_CUTOFF);
-			if (!strcasecmp(atom + 13, "-lease-length"))
-				return (DYNAMIC_BOOTP_LEASE_LENGTH);
 			break;
 		}
 		break;

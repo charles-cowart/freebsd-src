@@ -58,8 +58,6 @@ options		WITNESS			#Enable checks to detect deadlocks and cycles
 #options		MD_ROOT_SIZE=10240
 
 # Netbooting
-options		BOOTP
-options		BOOTP_WIRED_TO=dtsec3
 
 # Block devices
 device		mmc

@@ -255,7 +255,6 @@
 #define		fchmod				_fchmod
 #define		ftrylockfile			_ftrylockfile
 #define		msync				_msync
-#define		nfssvc				_nfssvc
 #define		pause				_pause
 #define		sched_yield			_sched_yield
 #define		sendfile			_sendfile

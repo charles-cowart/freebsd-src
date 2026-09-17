@@ -228,7 +228,6 @@
 #undef		fchmod
 #undef		ftrylockfile
 #undef		msync
-#undef		nfssvc
 #undef		pause
 #undef		sched_yield
 #undef		sendfile

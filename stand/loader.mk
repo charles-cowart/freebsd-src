@@ -46,7 +46,6 @@ SRCS+=	metadata.c
 # LOADER_MBR_SUPPORT	Add support for MBR partitions
 # LOADER_MSDOS_SUPPORT	Add support for FAT filesystems
 # LOADER_NET_SUPPORT	Adds networking support (useless w/o net drivers sometimes)
-# LOADER_NFS_SUPPORT	Add NFS support
 # LOADER_UFS_SUPPORT	Add support for UFS filesystems
 # LOADER_ZFS_SUPPORT	Add support for ZFS filesystems
 #
@@ -124,9 +123,6 @@ CFLAGS+=	-DLOADER_BZIP2_SUPPORT
 # Network related things
 .if ${LOADER_NET_SUPPORT:Uno} == "yes"
 CFLAGS+=	-DLOADER_NET_SUPPORT
-.endif
-.if ${LOADER_NFS_SUPPORT:Uno} == "yes"
-CFLAGS+=	-DLOADER_NFS_SUPPORT
 .endif
 
 # Partition support

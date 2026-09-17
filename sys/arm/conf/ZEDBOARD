@@ -29,8 +29,6 @@ options 	SCHED_ULE		# ULE scheduler
 options 	PLATFORM		# Platform based SoC
 options 	SMP			# Enable multiple cores
 
-#options 	BOOTP
-#options 	BOOTP_COMPAT
 
 options 	ROOTDEVNAME=\"ufs:mmcsd0s2a\"
 

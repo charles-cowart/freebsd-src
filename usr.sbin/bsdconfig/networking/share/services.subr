@@ -35,17 +35,6 @@ f_include $BSDCFG_SHARE/sysrc.subr
 
 ############################################################ FUNCTIONS
 
-# f_config_pcnfsd
-#
-# Load pcnfsd package and adjust mountd_flags in rc.conf(5).
-#
-f_config_pcnfsd()
-{
-	local funcname=f_config_pcnfsd
-	f_package_add "pcnfsd" || return $?
-	f_eval_catch $funcname f_sysrc_set 'f_sysrc_set mountd_flags -n'
-	return $SUCCESS
-}
 
 ############################################################ MAIN
 

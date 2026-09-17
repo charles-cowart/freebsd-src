@@ -28,9 +28,7 @@ TESTS_SUBDIRS+=	zfs_reservation
 TESTS_SUBDIRS+=	zfs_rollback
 TESTS_SUBDIRS+=	zfs_send
 TESTS_SUBDIRS+=	zfs_set
-TESTS_SUBDIRS+=	zfs_share
 TESTS_SUBDIRS+=	zfs_snapshot
-TESTS_SUBDIRS+=	zfs_unshare
 TESTS_SUBDIRS+=	zfs_unmount
 TESTS_SUBDIRS+=	zfs_upgrade
 

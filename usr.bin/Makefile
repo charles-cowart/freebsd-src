@@ -95,7 +95,6 @@ SUBDIR=	alias \
 	ncurses \
 	netstat \
 	newgrp \
-	nfsstat \
 	nice \
 	nl \
 	nohup \
@@ -130,7 +129,6 @@ SUBDIR=	alias \
 	sdiff \
 	sed \
 	seq \
-	showmount \
 	sockstat \
 	soelim \
 	sort \

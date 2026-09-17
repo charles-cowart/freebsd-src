@@ -26,9 +26,8 @@ whenever an audit discovers another integration point.
   the NLM syscall; never renumber later system calls.
 - Review imported passive protocol decoders separately instead of deleting
   files solely because their names contain `nfs`.
-- Preserve BOOTP functionality that is independent of NFS during the staged
-  removal.  Phase 11 must audit kernel and loader BOOTP consumers after the
-  NFS-root code is gone and remove any implementation left without a purpose.
+- BOOTP was preserved during the staged NFS removal, then removed in Phase 11
+  after the post-NFS consumer audit found no reason to retain it.  DHCP remains.
 
 ## Phase 1 — Inventory and freeze the boundary
 
@@ -57,18 +56,18 @@ whenever an audit discovers another integration point.
 
 ## Later phases
 
-- [ ] Phase 3: delete disconnected kernel implementations and module sources.
-- [ ] Phase 4: retire NFS/NLM syscall APIs while preserving ABI slot numbers.
-- [ ] Phase 5: remove NFS userland programs and shared-utility branches.
-- [ ] Phase 6: remove rc, configuration, package, and installed artifacts.
-- [ ] Phase 7: remove loader and diskless NFS-root support.
-- [ ] Phase 8: remove tests, tracing, protocol data, and documentation.
+- [x] Phase 3: delete disconnected kernel implementations and module sources.
+- [x] Phase 4: retire NFS/NLM syscall APIs while preserving ABI slot numbers.
+- [x] Phase 5: remove NFS userland programs and shared-utility branches.
+- [x] Phase 6: remove rc, configuration, package, and installed artifacts.
+- [x] Phase 7: remove loader and diskless NFS-root support.
+- [x] Phase 8: remove tests, tracing, protocol data, and documentation.
 - [ ] Phase 9: audit residue and classify every remaining match.
 - [ ] Phase 10: complete cross-architecture, upgrade, boot, and runtime tests.
 - [ ] Phase 11: revisit the retained NFSv4 ACL implementation and BOOTP after
       all NFS dependencies have been removed.
 
-## Phase 11 — Revisit NFSv4 ACLs and BOOTP
+## Phase 11 — Revisit NFSv4 ACLs and BOOTP (in progress)
 
 Perform this review only after the removal and validation phases, so decisions
 are based on the actual dependency graph rather than assumptions made while NFS
@@ -81,22 +80,20 @@ is still present.
       filesystem ABI, is renamed to protocol-neutral terminology, or can be
       removed.  Account for user ABI, on-disk behavior, archive interchange,
       ports, and OpenZFS compatibility before changing names or semantics.
+      See `NFSV4-ACL-DECISION.md` for the detailed decision record.
 - [ ] If the ACL implementation remains, update comments and documentation to
       explain why NFS-derived ACL semantics exist without an NFS stack.  If it
       is removed or renamed, provide the required compatibility and obsolete-
       file handling and rerun UFS and ZFS ACL regression tests.
-- [ ] Audit kernel BOOTP options, `opt_bootp.h` consumers, architecture kernel
+- [x] Audit kernel BOOTP options, `opt_bootp.h` consumers, architecture kernel
       configurations, diskless initialization, and loader BOOTP/DHCP/RARP
       support after NFS-root removal.
-- [ ] Determine whether kernel BOOTP has a non-NFS boot consumer.  Remove its
-      options, source, and documentation if none remains; otherwise move any
-      retained implementation out of NFS-owned paths and document its owner.
-- [ ] Preserve loader BOOTP/DHCP only where it still supports a retained network
-      boot path.  Test that path independently of NFS and remove obsolete RARP
-      or RPC fallback behavior rather than retaining it by association.
-- [ ] Record both decisions in this file and update
-      `NFS-REMOVAL-INVENTORY.tsv` from `investigate` to `preserve` or the
-      appropriate completed removal action.
+- [x] Remove kernel BOOTP options and compatibility hooks; the audit found no
+      non-NFS kernel consumer.
+- [x] Remove the standalone loader BOOTP/DHCP client.  Retain RARP and bootparams
+      temporarily as separate network mechanisms for the remaining residue audit.
+- [x] Record the BOOTP decision here and in `NFS-REMOVAL-INVENTORY.tsv`.
+      The independent NFSv4 ACL decision remains pending.
 
 ## Audit commands
 

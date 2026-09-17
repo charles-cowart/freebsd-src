@@ -53,7 +53,7 @@
 #define DHCP_MTU_MAX		1500
 #define DHCP_OPTION_LEN		(DHCP_MTU_MAX - DHCP_FIXED_LEN)
 
-#define BOOTP_MIN_LEN		300
+#define DHCP_MIN_PACKET_LEN	300
 #define DHCP_MIN_LEN		548
 
 struct dhcp_packet {
@@ -76,20 +76,16 @@ struct dhcp_packet {
 				   (actual length dependent on MTU). */
 };
 
-/* BOOTP (rfc951) message types */
+/* DHCP packet operation codes */
 #define BOOTREQUEST	1
 #define BOOTREPLY	2
-
-/* Possible values for flags field... */
-#define BOOTP_BROADCAST 32768L
 
 /* Possible values for hardware type (htype) field... */
 #define HTYPE_ETHER	1		/* Ethernet			*/
 #define HTYPE_IEEE802	6		/* IEEE 802.2 Token Ring...	*/
 #define HTYPE_FDDI	8		/* FDDI...			*/
 
-/* Magic cookie validating dhcp options field (and bootp vendor
-   extensions field). */
+/* Magic cookie validating the DHCP options field. */
 #define DHCP_OPTIONS_COOKIE	"\143\202\123\143"
 
 /* DHCP Option codes: */
