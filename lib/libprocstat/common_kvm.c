@@ -48,9 +48,6 @@
 #include <ufs/ufs/ufsmount.h>
 #include <fs/devfs/devfs.h>
 #include <fs/devfs/devfs_int.h>
-#include <nfs/nfsproto.h>
-#include <nfsclient/nfs.h>
-#include <nfsclient/nfsnode.h>
 
 #include <assert.h>
 #include <err.h>
@@ -132,51 +129,6 @@ devfs_filestat(kvm_t *kd, struct vnode *vp, struct vnstat *vn)
 	vn->vn_fileid = devfs_dirent.de_inode;
 	vn->vn_mode = (devfs_dirent.de_mode & ~S_IFMT) | S_IFCHR;
 	vn->vn_size = 0;
-	return (0);
-}
-
-int
-nfs_filestat(kvm_t *kd, struct vnode *vp, struct vnstat *vn)
-{
-	struct nfsnode nfsnode;
-	mode_t mode;
-
-	if (!kvm_read_all(kd, (unsigned long)VTONFS(vp), &nfsnode,
-	    sizeof(nfsnode))) {
-		warnx("can't read nfsnode at %p",
-		    (void *)VTONFS(vp));
-		return (1);
-	}
-	vn->vn_fsid = nfsnode.n_vattr.va_fsid;
-	vn->vn_fileid = nfsnode.n_vattr.va_fileid;
-	vn->vn_size = nfsnode.n_size;
-	mode = (mode_t)nfsnode.n_vattr.va_mode;
-	switch (vp->v_type) {
-	case VREG:
-		mode |= S_IFREG;
-		break;
-	case VDIR:
-		mode |= S_IFDIR;
-		break;
-	case VBLK:
-		mode |= S_IFBLK;
-		break;
-	case VCHR:
-		mode |= S_IFCHR;
-		break;
-	case VLNK:
-		mode |= S_IFLNK;
-		break;
-	case VSOCK:
-		mode |= S_IFSOCK;
-		break;
-	case VFIFO:
-		mode |= S_IFIFO;
-		break;
-	default:
-		break;
-	};
-	vn->vn_mode = mode;
 	return (0);
 }
 

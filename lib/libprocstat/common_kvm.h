@@ -40,7 +40,6 @@ int	kvm_read_all(kvm_t *kd, unsigned long addr, void *buf,
 int	devfs_filestat(kvm_t *kd, struct vnode *vp, struct vnstat *vn);
 int	isofs_filestat(kvm_t *kd, struct vnode *vp, struct vnstat *vn);
 int	msdosfs_filestat(kvm_t *kd, struct vnode *vp, struct vnstat *vn);
-int	nfs_filestat(kvm_t *kd, struct vnode *vp, struct vnstat *vn);
 int	smbfs_filestat(kvm_t *kd, struct vnode *vp, struct vnstat *vn);
 int	udf_filestat(kvm_t *kd, struct vnode *vp, struct vnstat *vn);
 int	ufs_filestat(kvm_t *kd, struct vnode *vp, struct vnstat *vn);
