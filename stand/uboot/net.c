@@ -87,11 +87,11 @@ static struct uboot_softc uboot_softc;
  *
  * Attempt to obtain all the parms we need for netbooting from the U-Boot
  * environment.  If we fail to obtain the values it may still be possible to
- * netboot; the net_dev code will attempt to get the values from bootp, rarp,
+ * netboot; the net_dev code will attempt to get the values from RARP,
  * and other such sources.
  *
  * If rootip.s_addr is non-zero net_dev assumes the required global variables
- * are set and skips the bootp inquiry.  For that reason, we don't set rootip
+ * are set and skips network discovery.  For that reason, we don't set rootip
  * until we've verified that we have at least the minimum required info.
  *
  * This is called from netif_init() which can result in it getting called
@@ -103,7 +103,7 @@ static void
 get_env_net_params(void)
 {
 	char *envstr;
-	in_addr_t rootaddr, serveraddr;
+	in_addr_t serveraddr;
 
 	/*
 	 * Silently get out right away if we don't have rootpath, because none
@@ -111,7 +111,7 @@ get_env_net_params(void)
 	 *
 	 * If we do have rootpath, copy it into the global var and also set
 	 * dhcp.root-path in the env.  If we don't get all the other info from
-	 * the u-boot env below, we will still try dhcp/bootp, but the server-
+	 * the u-boot env below, we will still try RARP, but the server-
 	 * provided path will not replace the user-provided value we set here.
 	 */
 	if ((envstr = ub_env_get("rootpath")) == NULL)
@@ -157,24 +157,13 @@ get_env_net_params(void)
 			printf("Could not parse serverip '%s'\n", envstr);
 	}
 
-	/*
-	 * There must be a rootpath.  It may be ip:/path or it may be just the
-	 * path in which case the ip needs to be in serverip.
-	 */
-	rootaddr = net_parse_rootpath();
-	if (rootaddr == INADDR_NONE)
-		rootaddr = serveraddr;
-	if (rootaddr == INADDR_NONE) {
-		printf("No server address for rootpath '%s'\n", envstr);
-		return;
-	}
-	rootip.s_addr = rootaddr;
+	rootip.s_addr = serveraddr;
 
 	/*
 	 * Gateway IP is optional unless rootip is on a different net in which
 	 * case whine if it's missing or we can't parse it, and set rootip addr
 	 * to zero, which signals to other network code that network params
-	 * aren't set (so it will try dhcp, bootp, etc).
+	 * aren't set (so it will try RARP, etc).
 	 */
 	envstr = ub_env_get("gatewayip");
 	if (!SAMENET(myip, rootip, netmask)) {

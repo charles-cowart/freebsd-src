@@ -4,13 +4,12 @@
 
 # PROVIDE: tlsclntd
 # REQUIRE: NETWORKING root mountcritlocal sysctl
-# BEFORE: nfscbd
 # KEYWORD: nojail shutdown
 
 . /etc/rc.subr
 
 name="tlsclntd"
-desc="NFS over TLS client side daemon"
+desc="RPC over TLS client side daemon"
 rcvar="tlsclntd_enable"
 command="/usr/sbin/rpc.${name}"
 pidfile="/var/run/rpc.${name}.pid"

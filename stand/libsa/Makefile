@@ -133,10 +133,10 @@ CFLAGS.smbios.c+= -DSMBIOS_NETWORK_ENDIAN_UUID
 SRCS+=	arp.c ether.c ip.c inet_ntoa.c in_cksum.c net.c udp.c netif.c rpc.c
 
 # network info services:
-SRCS+=	bootp.c rarp.c bootparam.c
+SRCS+=	rarp.c bootparam.c
 
 # boot filesystems
-SRCS+=	ufs.c nfs.c cd9660.c gzipfs.c bzipfs.c
+SRCS+=	ufs.c cd9660.c gzipfs.c bzipfs.c
 SRCS+=	dosfs.c ext2fs.c
 SRCS+=	splitfs.c
 SRCS+=	pkgfs.c

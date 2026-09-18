@@ -39,7 +39,6 @@
  * devices are determined (from possibilities mentioned in ioconf.c),
  * and the drivers are initialized.
  */
-#include "opt_bootp.h"
 #include "opt_isa.h"
 #include "opt_bus.h"
 

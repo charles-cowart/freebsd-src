@@ -247,17 +247,6 @@ The Internet RFC specifying ONC RPC, RFC 1050, as provided by Sun
 Microsystems.
 .sp
 .IP
-.tl 'Network File System: Version 2 Protocol Specification''PSD:27'
-.if \n(.U \{\
-.br
-.>> <a href="27.nfsrpc/paper.html">27.nfsrpc/paper.html
-.\}
-.QP
-The Internet RFC specifying NFS, as provided by Sun Microsystems.
-Note that the NFS-compatible filesystem itself, while
-compliant with this specification, was not provided by Sun.
-.sp
-.IP
 .tl 'CVS II: Parallelizing Software Development''PSD:28'
 .if \n(.U \{\
 .br

@@ -89,14 +89,12 @@ DIRDEPS+= \
 	sbin/mount_cd9660 \
 	sbin/mount_fusefs \
 	sbin/mount_msdosfs \
-	sbin/mount_nfs \
 	sbin/mount_nullfs \
 	sbin/mount_udf \
 	sbin/mount_unionfs \
 	sbin/natd \
 	sbin/newfs \
 	sbin/newfs_msdos \
-	sbin/nfsiod \
 	sbin/nos-tun \
 	sbin/ping \
 	sbin/ping6 \
@@ -257,7 +255,6 @@ DIRDEPS+= \
 	usr.bin/netstat \
 	usr.bin/newgrp \
 	usr.bin/newkey \
-	usr.bin/nfsstat \
 	usr.bin/nice \
 	usr.bin/nl \
 	usr.bin/nohup \
@@ -297,7 +294,6 @@ DIRDEPS+= \
 	usr.bin/sed \
 	usr.bin/seq \
 	usr.bin/shar \
-	usr.bin/showmount \
 	usr.bin/smbutil \
 	usr.bin/sockstat \
 	usr.bin/soelim \
@@ -464,7 +460,6 @@ DIRDEPS+= \
 	usr.sbin/chown \
 	usr.sbin/chroot \
 	usr.sbin/ckdist \
-	usr.sbin/clear_locks \
 	usr.sbin/config \
 	usr.sbin/crashinfo \
 	usr.sbin/cron/cron \
@@ -534,7 +529,6 @@ DIRDEPS+= \
 	usr.sbin/mld6query \
 	usr.sbin/mlxcontrol \
 	usr.sbin/mount_smbfs \
-	usr.sbin/mountd \
 	usr.sbin/moused \
 	usr.sbin/mpsutil \
 	usr.sbin/mptutil \
@@ -545,11 +539,6 @@ DIRDEPS+= \
 	usr.sbin/named-journalprint \
 	usr.sbin/ndp \
 	usr.sbin/newsyslog \
-	usr.sbin/nfscbd \
-	usr.sbin/nfsd \
-	usr.sbin/nfsdumpstate \
-	usr.sbin/nfsrevoke \
-	usr.sbin/nfsuserd \
 	usr.sbin/ngctl \
 	usr.sbin/nghook \
 	usr.sbin/nmtree \
@@ -596,9 +585,6 @@ DIRDEPS+= \
 	usr.sbin/rndc \
 	usr.sbin/rndc-confgen \
 	usr.sbin/route6d \
-	usr.sbin/rpc.lockd \
-	usr.sbin/rpc.statd \
-	usr.sbin/rpc.umntall \
 	usr.sbin/rpcbind \
 	usr.sbin/rrenumd \
 	usr.sbin/rtadvctl \

@@ -1,11 +1,10 @@
 PACKAGE=runtime
 PROG=	umount
-SRCS=	umount.c vfslist.c mounttab.c
+SRCS=	umount.c vfslist.c
 
 MOUNT=	${.CURDIR:H}/mount
-UMNTALL= ${SRCTOP}/usr.sbin/rpc.umntall
-CFLAGS+= -I${MOUNT} -I${UMNTALL}
+CFLAGS+= -I${MOUNT}
 
-.PATH: ${MOUNT} ${UMNTALL}
+.PATH: ${MOUNT}
 
 .include <bsd.prog.mk>

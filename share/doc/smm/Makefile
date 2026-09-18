@@ -14,7 +14,6 @@ SUBDIR=	title \
 	03.fsck \
 	04.quotas \
 	05.fastfs \
-	06.nfs \
 	11.timedop \
 	12.timed \
 	18.net

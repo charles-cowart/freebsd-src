@@ -45,11 +45,6 @@
 
 #define BA { 0xff, 0xff, 0xff, 0xff, 0xff, 0xff }
 
-enum net_proto {
-	NET_NONE,
-	NET_NFS
-};
-
 /* Returns true if n_long's on the same net */
 #define	SAMENET(a1, a2, m) ((a1.s_addr & m) == (a2.s_addr & m))
 
@@ -75,12 +70,10 @@ enum net_proto {
 extern	u_char bcea[6];
 extern	char rootpath[FNAME_SIZE];
 extern  int rootport;
-extern	char bootfile[FNAME_SIZE];
 extern	char hostname[FNAME_SIZE];
 extern	int hostnamelen;
 extern	char domainname[FNAME_SIZE];
 extern	int domainnamelen;
-extern	int netproto;
 extern	char ifname[IFNAME_SIZE];
 
 /* All of these are in network order. */
@@ -91,7 +84,6 @@ extern	struct in_addr gateip;
 extern	struct in_addr nameip;
 extern	struct in_addr servip;
 extern	n_long netmask;
-extern	u_int intf_mtu;
 
 extern	int debug;			/* defined in the machdep sources */
 
@@ -116,8 +108,6 @@ ssize_t	sendrecv(struct iodesc *,
 			    void *),
 			void **, void **, void *);
 
-/* bootp/DHCP */
-void	bootp(int);
 
 /* Utilities: */
 char	*ether_sprintf(u_char *);

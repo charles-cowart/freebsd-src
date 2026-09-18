@@ -111,19 +111,15 @@ static int
 try_file_ops(int filefd, int dirfd, cap_rights_t rights)
 {
 	struct stat sb;
-	struct statfs sf;
 	cap_rights_t erights;
 	int fd_cap, fd_capcap, dfd_cap;
 	ssize_t ssize, ssize2;
 	off_t off;
 	void *p;
 	char ch;
-	int ret, is_nfs;
+	int ret;
 	struct pollfd pollfd;
 	int success = -1;
-
-	REQUIRE(fstatfs(filefd, &sf));
-	is_nfs = (strcmp("nfs", sf.f_fstypename) == 0);
 
 	REQUIRE(fd_cap = cap_new(filefd, rights));
 	CHECK(cap_getrights(fd_cap, &erights) == 0);
@@ -283,12 +279,8 @@ try_file_ops(int filefd, int dirfd, cap_rights_t rights)
 	CHECK(ret == -1 || close(ret) == 0);
 	CHECK(unlinkat(dirfd, "cap_fsync", 0) == 0);
 
-	/*
-	 * Note: this is not expected to work over NFS.
-	 */
 	ret = fchflags(fd_cap, UF_NODUMP);
-	CHECK_RESULT(fchflags, CAP_FCHFLAGS,
-	    ret == 0 || (is_nfs && errno == EOPNOTSUPP));
+	CHECK_RESULT(fchflags, CAP_FCHFLAGS, ret == 0);
 
 	ret = openat(dirfd, "cap_chflagsat", O_CREAT, 0600);
 	CHECK(ret >= 0);

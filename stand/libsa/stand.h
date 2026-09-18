@@ -125,7 +125,6 @@ struct fs_ops {
  * libsa-supplied filesystems
  */
 extern struct fs_ops ufs_fsops;
-extern struct fs_ops nfs_fsops;
 extern struct fs_ops cd9660_fsops;
 extern struct fs_ops gzipfs_fsops;
 extern struct fs_ops bzipfs_fsops;

@@ -12,6 +12,18 @@ Items affecting the ports and packages system can be found in
 /usr/ports/UPDATING.  Please read that file before updating system packages
 and/or ports.
 
+20260917:
+	The in-tree NFS client and server, NFS-root support, Network Lock
+	Manager, boot-loader support, userland daemons and utilities,
+	and startup integration have been removed.  Kernel and loader BOOTP
+	support has also been removed; DHCP client support remains.  Remove NFSCL, NFSD, NFS_ROOT, and NFSLOCKD options
+	from custom kernel configurations and remove the corresponding rc.conf
+	settings.  The nfssvc and nlm_syscall system call numbers remain
+	reserved as obsolete ABI slots.  Generic ONC RPC, rpcbind, autofs,
+	and RPC-over-TLS support remain, but autofs no longer supplies the
+	NFS-specific /net map.  Run delete-old after installing the new kernel
+	and world to remove obsolete modules, headers, programs, and rc scripts.
+
 20260914:
 	Kernel support for PPP, PPPoE, PPTP GRE, L2TP, asynchronous PPP
 	framing, and the associated Netgraph compression nodes has been

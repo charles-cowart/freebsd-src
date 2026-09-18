@@ -1262,13 +1262,6 @@ ktrsyscall_freebsd(struct ktr_syscall *ktr, register_t **resip,
 				narg--;
 				c = ',';
 				break;
-			case SYS_nfssvc:
-				putchar('(');
-				print_integer_arg(sysdecode_nfssvc_flags, *ip);
-				ip++;
-				narg--;
-				c = ',';
-				break;
 			case SYS_rtprio:
 			case SYS_rtprio_thread:
 				putchar('(');

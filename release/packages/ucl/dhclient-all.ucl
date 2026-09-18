@@ -36,7 +36,7 @@ comment = "Dynamic Host Configuration Protocol (DHCP) client"
 
 desc = <<EOD
 The dhclient(8) utility provides a means for configuring network interfaces
-using DHCP, BOOTP, or if these protocols fail, by statically assigning an
+using DHCP or, if that protocol fails, by statically assigning an
 address.
 
 The DHCP client is typically started automatically on boot, or by devd(8)

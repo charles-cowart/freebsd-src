@@ -567,7 +567,7 @@ main(int argc, char *argv[])
 	ifi->client->state = S_INIT;
 	state_reboot(ifi);
 
-	bootp_packet_handler = do_packet;
+	dhcp_packet_handler = do_packet;
 
 	dispatch();
 
@@ -620,7 +620,7 @@ state_reboot(void *ipp)
 	struct interface_info *ip = ipp;
 
 	/* If we don't remember an active lease, go straight to INIT. */
-	if (!ip->client->active || ip->client->active->is_bootp) {
+	if (!ip->client->active) {
 		state_init(ip);
 		return;
 	}
@@ -967,25 +967,6 @@ state_bound(void *ipp)
 	send_request(ip);
 }
 
-void
-bootp(struct packet *packet)
-{
-	struct iaddrlist *ap;
-
-	if (packet->raw->op != BOOTREPLY)
-		return;
-
-	/* If there's a reject list, make sure this packet's sender isn't
-	   on it. */
-	for (ap = packet->interface->client->config->reject_list;
-	    ap; ap = ap->next) {
-		if (addr_eq(packet->client_addr, ap->addr)) {
-			note("BOOTREPLY from %s rejected.", piaddr(ap->addr));
-			return;
-		}
-	}
-	dhcpoffer(packet);
-}
 
 void
 dhcp(struct packet *packet)
@@ -1075,10 +1056,6 @@ dhcpoffer(struct packet *packet)
 		return;
 	}
 
-	/* If this lease was acquired through a BOOTREPLY, record that
-	   fact. */
-	if (!packet->options[DHO_DHCP_MESSAGE_TYPE].len)
-		lease->is_bootp = 1;
 
 	/* Record the medium under which this lease was offered. */
 	lease->medium = ip->client->medium;
@@ -1751,9 +1728,9 @@ make_discover(struct interface_info *ip, struct client_lease *lease)
 
 	/* Set up the option buffer... */
 	ip->client->packet_length = cons_options(NULL, &ip->client->packet, 0,
-	    options, 0, 0, 0, NULL, 0);
-	if (ip->client->packet_length < BOOTP_MIN_LEN)
-		ip->client->packet_length = BOOTP_MIN_LEN;
+	    options, 0, 0, NULL, 0);
+	if (ip->client->packet_length < DHCP_MIN_PACKET_LEN)
+		ip->client->packet_length = DHCP_MIN_PACKET_LEN;
 
 	ip->client->packet.op = BOOTREQUEST;
 	ip->client->packet.htype = ip->hw_address.htype;
@@ -1874,9 +1851,9 @@ make_request(struct interface_info *ip, struct client_lease * lease)
 
 	/* Set up the option buffer... */
 	ip->client->packet_length = cons_options(NULL, &ip->client->packet, 0,
-	    options, 0, 0, 0, NULL, 0);
-	if (ip->client->packet_length < BOOTP_MIN_LEN)
-		ip->client->packet_length = BOOTP_MIN_LEN;
+	    options, 0, 0, NULL, 0);
+	if (ip->client->packet_length < DHCP_MIN_PACKET_LEN)
+		ip->client->packet_length = DHCP_MIN_PACKET_LEN;
 
 	ip->client->packet.op = BOOTREQUEST;
 	ip->client->packet.htype = ip->hw_address.htype;
@@ -1958,9 +1935,9 @@ make_decline(struct interface_info *ip, struct client_lease *lease)
 
 	/* Set up the option buffer... */
 	ip->client->packet_length = cons_options(NULL, &ip->client->packet, 0,
-	    options, 0, 0, 0, NULL, 0);
-	if (ip->client->packet_length < BOOTP_MIN_LEN)
-		ip->client->packet_length = BOOTP_MIN_LEN;
+	    options, 0, 0, NULL, 0);
+	if (ip->client->packet_length < DHCP_MIN_PACKET_LEN)
+		ip->client->packet_length = DHCP_MIN_PACKET_LEN;
 
 	ip->client->packet.op = BOOTREQUEST;
 	ip->client->packet.htype = ip->hw_address.htype;
@@ -2061,8 +2038,6 @@ write_client_lease(struct interface_info *ip, struct client_lease *lease,
 	}
 
 	fprintf(leaseFile, "lease {\n");
-	if (lease->is_bootp)
-		fprintf(leaseFile, "  bootp;\n");
 	fprintf(leaseFile, "  interface \"%s\";\n", ip->name);
 	fprintf(leaseFile, "  fixed-address %s;\n", piaddr(lease->address));
 	if (lease->nextserver.len == sizeof(inaddr_any) &&

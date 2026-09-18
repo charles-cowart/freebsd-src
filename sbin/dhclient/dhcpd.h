@@ -129,7 +129,6 @@ struct client_lease {
 	char			*filename;
 	struct string_list	*medium;
 	unsigned int		 is_static : 1;
-	unsigned int		 is_bootp : 1;
 	struct option_data	 options[256];
 };
 
@@ -167,8 +166,6 @@ struct client_config {
 	time_t			 backoff_cutoff;
 	struct string_list	*media;
 	char			*script_name;
-	enum { IGNORE, ACCEPT, PREFER }
-				 bootp_policy;
 	struct string_list	*medium;
 	struct iaddrlist	*reject_list;
 };
@@ -256,7 +253,7 @@ struct hash_table {
 
 /* options.c */
 int cons_options(struct packet *, struct dhcp_packet *, int,
-    struct tree_cache **, int, int, int, u_int8_t *, int);
+    struct tree_cache **, int, int, u_int8_t *, int);
 const char *pretty_print_option(unsigned int,
     unsigned char *, int, int, int);
 void do_packet(struct interface_info *, struct dhcp_packet *,
@@ -313,7 +310,7 @@ ssize_t receive_packet(struct interface_info *, unsigned char *, size_t,
     struct sockaddr_in *, struct hardware *);
 
 /* dispatch.c */
-extern void (*bootp_packet_handler)(struct interface_info *,
+extern void (*dhcp_packet_handler)(struct interface_info *,
     struct dhcp_packet *, int, unsigned int, struct iaddr, struct hardware *);
 void discover_interfaces(struct interface_info *);
 void reinitialize_interfaces(void);
@@ -415,7 +412,6 @@ struct client_lease *packet_to_lease(struct packet *);
 void go_daemon(void);
 void client_location_changed(void);
 
-void bootp(struct packet *);
 void dhcp(struct packet *);
 
 /* packet.c */

@@ -30,21 +30,7 @@
  */
 
 /*-
- * This module implements a "raw device" interface suitable for
- * use by the stand-alone I/O library NFS code.  This interface
- * does not support any "block" access, and exists only for the
- * purpose of initializing the network interface, getting boot
- * parameters, and performing the NFS mount.
- *
- * At open time, this does:
- *
- * find interface      - netif_open()
- * RARP for IP address - rarp_getipaddress()
- * RPC/bootparams      - callrpc(d, RPC_BOOTPARAMS, ...)
- * RPC/mountd          - nfs_mount(sock, ip, path)
- *
- * the root file handle from mountd is saved in a global
- * for use by the NFS open code (NFS/lookup).
+ * Raw network device support for standalone network boot protocols.
  */
 
 #include <sys/param.h>
@@ -60,15 +46,10 @@
 #include <string.h>
 #include <net.h>
 #include <netif.h>
-#include <bootp.h>
 #include <bootparam.h>
 
 #include "dev_net.h"
 #include "bootstrap.h"
-
-#ifndef NETPROTO_DEFAULT
-# define NETPROTO_DEFAULT NET_NFS
-#endif
 
 static char *netdev_name;
 static int netdev_sock = -1;
@@ -93,13 +74,6 @@ struct devsw netdev = {
 	.dv_ioctl = noioctl,
 	.dv_print = net_print,
 	.dv_cleanup = net_cleanup,
-};
-
-static struct uri_scheme {
-	const char *scheme;
-	int proto;
-} uri_schemes[] = {
-	{ "nfs:/", NET_NFS },
 };
 
 static int
@@ -147,10 +121,10 @@ net_open(struct open_file *f, ...)
 		}
 		/*
 		 * If network params were not set by netif_open(), try to get
-		 * them via bootp, rarp, etc.
+		 * them via RARP and bootparams.
 		 */
 		if (rootip.s_addr == 0) {
-			/* Get root IP address, and path, etc. */
+			/* Get network parameters. */
 			error = net_getparams(netdev_sock);
 			if (error) {
 				/* getparams makes its own noise */
@@ -160,29 +134,13 @@ net_open(struct open_file *f, ...)
 				return (error);
 			}
 		}
-		/*
-		 * Set the variables required by the kernel's nfs_diskless
-		 * mechanism.  This is the minimum set of variables required to
-		 * mount a root filesystem without needing to obtain additional
-		 * info from bootp or other sources.
-		 */
+		/* Export the network parameters obtained during initialization. */
 		d = socktodesc(netdev_sock);
 		setenv("boot.netif.hwaddr", ether_sprintf(d->myea), 1);
 		setenv("boot.netif.ip", inet_ntoa(myip), 1);
 		setenv("boot.netif.netmask", intoa(netmask), 1);
 		setenv("boot.netif.gateway", inet_ntoa(gateip), 1);
 		setenv("boot.netif.server", inet_ntoa(rootip), 1);
-		if (netproto == NET_NFS) {
-			setenv("boot.nfsroot.server", inet_ntoa(rootip), 1);
-			setenv("boot.nfsroot.path", rootpath, 1);
-		}
-		if (intf_mtu != 0) {
-			char mtu[16];
-			snprintf(mtu, sizeof(mtu), "%u", intf_mtu);
-			setenv("boot.netif.mtu", mtu, 1);
-		}
-
-		DEBUG_PRINTF(1,("%s: netproto=%d\n", __func__, netproto));
 	}
 	netdev_opens++;
 	dev->d_opendata = &netdev_sock;
@@ -223,44 +181,13 @@ net_strategy(void *devdata, int rw, daddr_t blk, size_t size, char *buf,
 	return (EIO);
 }
 
-#define SUPPORT_BOOTP
-
-/*
- * Get info for NFS boot: our IP address, our hostname,
- * server IP address, and our root path on the server.
- * There are two ways to do this:  The old, Sun way,
- * and the more modern, BOOTP way. (RFC951, RFC1048)
- *
- * The default is to use the Sun bootparams RPC
- * (because that is what the kernel will do).
- * MD code can make try_bootp initialied data,
- * which will override this common definition.
- */
-#ifdef	SUPPORT_BOOTP
-int try_bootp = 1;
-#endif
-
 extern n_long ip_convertaddr(char *p);
 
 static int
 net_getparams(int sock)
 {
 	char buf[MAXHOSTNAMELEN];
-	n_long rootaddr, smask;
-
-#ifdef	SUPPORT_BOOTP
-	/*
-	 * Try to get boot info using BOOTP.  If we succeed, then
-	 * the server IP address, gateway, and root path will all
-	 * be initialized.  If any remain uninitialized, we will
-	 * use RARP and RPC/bootparam (the Sun way) to get them.
-	 */
-	if (try_bootp)
-		bootp(sock);
-	if (myip.s_addr != 0)
-		goto exit;
-	DEBUG_PRINTF(1,("%s: BOOTP failed, trying RARP/RPC...\n", __func__));
-#endif
+	n_long smask;
 
 	/*
 	 * Use RARP to get our IP address.  This also sets our
@@ -298,16 +225,6 @@ net_getparams(int sock)
 		DEBUG_PRINTF(1,("%s: net gateway: %s\n", __func__,
 			inet_ntoa(gateip)));
 
-	/* Get the root server and pathname. */
-	if (bp_getfile(sock, "root", &rootip, rootpath)) {
-		printf("%s: bootparam/getfile RPC failed\n", __func__);
-		return (EIO);
-	}
-exit:
-	if ((rootaddr = net_parse_rootpath()) != htonl(INADDR_NONE))
-		rootip.s_addr = rootaddr;
-
-	DEBUG_PRINTF(1,("%s: proto: %d\n", __func__, netproto));
 	DEBUG_PRINTF(1,("%s: server addr: %s\n", __func__, inet_ntoa(rootip)));
 	DEBUG_PRINTF(1,("%s: server port: %d\n", __func__, rootport));
 	DEBUG_PRINTF(1,("%s: server path: %s\n", __func__, rootpath));
@@ -343,81 +260,4 @@ net_print(int verbose)
 		}
 	}
 	return (ret);
-}
-
-/*
- * Parses the rootpath if present
- *
- * The rootpath format can be in the form
- * <scheme>://ip[:port]/path
- * <scheme>:/path
- *
- * For compatibility with previous behaviour it also accepts as an NFS scheme
- * ip:/path
- * /path
- *
- * If an ip is set it returns it in network byte order.
- * The default scheme defined in the global netproto, if not set it defaults to
- * NFS.
- * It leaves just the pathname in the global rootpath.
- */
-uint32_t
-net_parse_rootpath(void)
-{
-	n_long addr = 0;
-	size_t i;
-	char ip[FNAME_SIZE];
-	char *ptr, *portp, *val;
-
-	netproto = NET_NONE;
-
-	for (i = 0; i < nitems(uri_schemes); i++) {
-		if (strncmp(rootpath, uri_schemes[i].scheme,
-		    strlen(uri_schemes[i].scheme)) != 0)
-			continue;
-
-		netproto = uri_schemes[i].proto;
-		break;
-	}
-	ptr = rootpath;
-	/* Fallback for compatibility mode */
-	if (netproto == NET_NONE) {
-		netproto = NETPROTO_DEFAULT;
-		(void)strsep(&ptr, ":");
-		if (ptr != NULL) {
-			addr = inet_addr(rootpath);
-			DEBUG_PRINTF(1,("rootpath=%s addr=%#x\n",
-				rootpath, addr));
-			bcopy(ptr, rootpath, strlen(ptr) + 1);
-		}
-	} else {
-		ptr += strlen(uri_schemes[i].scheme);
-		if (*ptr == '/') {
-			/* we are in the form <scheme>://, we do expect an ip */
-			ptr++;
-			portp = val = strchr(ptr, ':');
-			if (val != NULL) {
-				val++;
-				rootport = strtol(val, NULL, 10);
-			}
-			val = strchr(ptr, '/');
-			if (val != NULL) {
-				if (portp == NULL)
-					portp = val;
-				snprintf(ip, sizeof(ip), "%.*s",
-				    (int)(portp - ptr),
-				    ptr);
-				addr = inet_addr(ip);
-				DEBUG_PRINTF(1,("ip=%s addr=%#x\n",
-					ip, addr));
-				bcopy(val, rootpath, strlen(val) + 1);
-			}
-		} else {
-			ptr--;
-			bcopy(ptr, rootpath, strlen(ptr) + 1);
-		}
-	}
-	if (addr == 0)
-		addr = htonl(INADDR_NONE);
-	return (addr);
 }

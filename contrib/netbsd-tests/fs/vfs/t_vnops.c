@@ -224,10 +224,7 @@ dir_rmdirdotdot(const atf_tc_t *tc, const char *mp)
 	md(pb, sizeof(pb), mp, "test");
 	RL(rump_sys_rmdir(pb));
 
-	if (FSTYPE_NFS(tc))
-		xerrno = ESTALE;
-	else
-		xerrno = ENOENT;
+	xerrno = ENOENT;
 	ATF_REQUIRE_ERRNO(xerrno, rump_sys_chdir("..") == -1);
 	FSTEST_EXIT();
 }

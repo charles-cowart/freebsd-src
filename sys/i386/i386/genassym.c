@@ -63,9 +63,6 @@
 #include <sys/proc.h>
 #include <net/if.h>
 #include <netinet/in.h>
-#include <nfs/nfsproto.h>
-#include <nfsclient/nfs.h>
-#include <nfs/nfsdiskless.h>
 #ifdef DEV_APIC
 #include <x86/apicreg.h>
 #endif
@@ -178,8 +175,6 @@ ASSYM(MAXPATHLEN, MAXPATHLEN);
 ASSYM(BOOTINFO_SIZE, sizeof(struct bootinfo));
 ASSYM(BI_VERSION, offsetof(struct bootinfo, bi_version));
 ASSYM(BI_KERNELNAME, offsetof(struct bootinfo, bi_kernelname));
-ASSYM(BI_NFS_DISKLESS, offsetof(struct bootinfo, bi_nfs_diskless));
-ASSYM(NFSDISKLESS_SIZE, sizeof(struct nfs_diskless));
 ASSYM(BI_SIZE, offsetof(struct bootinfo, bi_size));
 ASSYM(BI_SYMTAB, offsetof(struct bootinfo, bi_symtab));
 ASSYM(BI_ESYMTAB, offsetof(struct bootinfo, bi_esymtab));

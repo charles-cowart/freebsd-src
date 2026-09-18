@@ -52,7 +52,6 @@
 #include <netinet/tcp.h>
 #include <netinet/udp.h>
 #include <netinet/udplite.h>
-#include <nfsserver/nfs.h>
 #include <ufs/ufs/quota.h>
 #include <vm/vm.h>
 #include <vm/vm_param.h>
@@ -554,13 +553,6 @@ sysdecode_msync_flags(FILE *fp, int flags, int *rem)
 {
 
 	return (print_mask_int(fp, msyncflags, flags, rem));
-}
-
-const char *
-sysdecode_nfssvc_flags(int flags)
-{
-
-	return (lookup_value(nfssvcflags, flags));
 }
 
 static struct name_table pipe2flags[] = {

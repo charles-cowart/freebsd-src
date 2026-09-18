@@ -907,36 +907,6 @@ DEC 5000:    boot 5/tz6 m           # 6 is the SCSI id of the TK50
 .DE
 The `m' argument tells the kernel to look for a root filesystem in memory.
 Next you should proceed to section 2.4.3 to build a disk-based root filesystem.
-.Sh 4 "Procedure C: bootstrap over the network"
-.PP
-You will need a host machine that is running the \fIbootp\fP server 
-with the
-.Pn kernel.net
-file installed in the default directory defined by the
-configuration file for
-.Xr bootp .
-Here are two example PROM commands to boot across the net:
-.DS
-.ft CW
-DEC 3100:	boot \-f tftp()kernel.net m
-DEC 5000:	boot 6/tftp/kernel.net m
-.DE
-This command should load the kernel and mini-root into memory and
-run the same as the tape install (procedure B).
-The rest of the steps are the same except
-you will need to start the network
-(if you are unsure how to fill in the <name> fields below,
-see sections 4.4 and 5).
-Execute the following to start the networking:
-.DS
-.ft CW
-# mount \-uw /
-# echo 127.0.0.1 localhost >> /etc/hosts
-# echo <your.host.inet.number> myname.my.domain myname >> /etc/hosts
-# echo <friend.host.inet.number> myfriend.my.domain myfriend >> /etc/hosts
-# ifconfig le0 inet myname
-.DE
-Next you should proceed to section 2.4.3 to build a disk-based root filesystem.
 .Sh 3 "Label disk and create the root filesystem"
 .LP
 There are five steps to create a disk-based root filesystem.

@@ -414,32 +414,6 @@ zfs_set_001_neg_cleanup()
 }
 
 
-atf_test_case zfs_share_001_neg cleanup
-zfs_share_001_neg_head()
-{
-	atf_set "descr" "zfs share returns an error when run as a user"
-	atf_set "require.progs" "ksh93 zfs fgrep zpool"
-	atf_set "require.user" root
-	atf_set "require.config" unprivileged_user
-}
-zfs_share_001_neg_body()
-{
-	. $(atf_get_srcdir)/../../../include/default.cfg
-	. $(atf_get_srcdir)/misc.cfg
-
-	verify_disk_count "$DISKS" 1
-	ksh93 $(atf_get_srcdir)/setup.ksh || atf_fail "Setup failed"
-	ksh93 $(atf_get_srcdir)/zfs_share_001_neg.ksh || atf_fail "Testcase failed"
-}
-zfs_share_001_neg_cleanup()
-{
-	. $(atf_get_srcdir)/../../../include/default.cfg
-	. $(atf_get_srcdir)/misc.cfg
-
-	ksh93 $(atf_get_srcdir)/cleanup.ksh || atf_fail "Cleanup failed"
-}
-
-
 atf_test_case zfs_snapshot_001_neg cleanup
 zfs_snapshot_001_neg_head()
 {
@@ -510,32 +484,6 @@ zfs_unmount_001_neg_body()
 	ksh93 $(atf_get_srcdir)/zfs_unmount_001_neg.ksh || atf_fail "Testcase failed"
 }
 zfs_unmount_001_neg_cleanup()
-{
-	. $(atf_get_srcdir)/../../../include/default.cfg
-	. $(atf_get_srcdir)/misc.cfg
-
-	ksh93 $(atf_get_srcdir)/cleanup.ksh || atf_fail "Cleanup failed"
-}
-
-
-atf_test_case zfs_unshare_001_neg cleanup
-zfs_unshare_001_neg_head()
-{
-	atf_set "descr" "zfs unshare returns an error when run as a user"
-	atf_set "require.progs" "ksh93 zfs fgrep share zpool"
-	atf_set "require.user" root
-	atf_set "require.config" unprivileged_user
-}
-zfs_unshare_001_neg_body()
-{
-	. $(atf_get_srcdir)/../../../include/default.cfg
-	. $(atf_get_srcdir)/misc.cfg
-
-	verify_disk_count "$DISKS" 1
-	ksh93 $(atf_get_srcdir)/setup.ksh || atf_fail "Setup failed"
-	ksh93 $(atf_get_srcdir)/zfs_unshare_001_neg.ksh || atf_fail "Testcase failed"
-}
-zfs_unshare_001_neg_cleanup()
 {
 	. $(atf_get_srcdir)/../../../include/default.cfg
 	. $(atf_get_srcdir)/misc.cfg
@@ -1141,11 +1089,9 @@ atf_init_test_cases()
 	atf_add_test_case zfs_rollback_001_neg
 	atf_add_test_case zfs_send_001_neg
 	atf_add_test_case zfs_set_001_neg
-	atf_add_test_case zfs_share_001_neg
 	atf_add_test_case zfs_snapshot_001_neg
 	atf_add_test_case zfs_unallow_001_neg
 	atf_add_test_case zfs_unmount_001_neg
-	atf_add_test_case zfs_unshare_001_neg
 	atf_add_test_case zfs_upgrade_001_neg
 	atf_add_test_case zpool_001_neg
 	atf_add_test_case zpool_add_001_neg

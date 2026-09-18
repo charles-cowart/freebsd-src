@@ -1,33 +1,5 @@
 The following options may be set from this screen.
 
-NFS Secure:   NFS server talks only on a secure port
-
-    This is most commonly used when talking to Sun workstations, which
-    will not talk NFS over "non privileged" ports.
-
-
-NFS Slow:     User is using a slow PC or Ethernet card
-
-    Use this option if you have a slow PC (386) or an Ethernet card
-    with poor performance being "fed" by NFS on a higher-performance
-    workstation.  This will throttle the workstation back to prevent
-    the PC from becoming swamped with data.
-
-
-NFS TCP:      Use TCP for the NFS mount
-
-    This option can be used if your NFS server supports TCP
-    connections; not all do!  This may be useful if your NFS server
-    is at a remote site in which case it may offer some additional
-    stability.
-
-
-NFS version 3:   Use NFS version 3
-
-    This option forces the use of NFS version 3 and is on by default.
-    If your NFS server only supports NFS version 2, disable this option.
-
-
 Debugging:    Turn on the extra debugging flag
 
     This turns on a lot of extra noise in between dialogs (unless

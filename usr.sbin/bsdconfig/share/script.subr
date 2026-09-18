@@ -171,7 +171,6 @@ f_resword_new mediaGetType	f_media_get_type         # media/any.subr
 f_resword_new mediaSetCDROM	f_media_set_cdrom        # media/cdrom.subr
 f_resword_new mediaSetDOS	f_media_set_dos          # media/dos.subr
 f_resword_new mediaSetDirectory	f_media_set_directory    # media/directory.subr
-f_resword_new mediaSetNFS	f_media_set_nfs          # media/nfs.subr
 f_resword_new mediaSetUFS	f_media_set_ufs          # media/ufs.subr
 f_resword_new mediaSetUSB	f_media_set_usb          # media/usb.subr
 f_resword_new optionsEditor	f_media_options_menu     # media/options.subr
@@ -184,7 +183,6 @@ f_resword_new mediaSetHTTP	f_media_set_http
 f_resword_new mediaSetHTTPProxy	f_media_set_http_proxy
 
 # networking/services.subr
-f_resword_new configPCNFSD	f_config_pcnfsd
 
 # packages/packages.subr
 f_resword_new configPackages	f_package_config

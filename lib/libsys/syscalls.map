@@ -195,10 +195,6 @@ FBSDprivate_1.0 {
 	__sys_setsid;
 	_quotactl;
 	__sys_quotactl;
-	_nlm_syscall;
-	__sys_nlm_syscall;
-	_nfssvc;
-	__sys_nfssvc;
 	_lgetfh;
 	__sys_lgetfh;
 	_getfh;

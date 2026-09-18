@@ -25,7 +25,6 @@ Not everything's been converted to the new style.  In particular;
    ccd/
    some of geom_*/
    some of netinet/
-   nfsmmap/
    p1003_1b/
    some of pipe/
    security/

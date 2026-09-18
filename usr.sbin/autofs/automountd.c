@@ -174,7 +174,7 @@ handle_request(const struct autofs_daemon_request *adr, char *cmdline_options,
 	const char *map;
 	struct node *root, *parent, *node;
 	FILE *f;
-	char *key, *options, *fstype, *nobrowse, *retrycnt, *tmp;
+	char *key, *options, *fstype, *nobrowse, *tmp;
 	int error;
 	bool wildcards;
 
@@ -320,29 +320,8 @@ handle_request(const struct autofs_daemon_request *adr, char *cmdline_options,
 	 * Figure out fstype.
 	 */
 	fstype = pick_option("fstype=", &options);
-	if (fstype == NULL) {
-		log_debugx("fstype not specified in options; "
-		    "defaulting to \"nfs\"");
-		fstype = checked_strdup("nfs");
-	}
-
-	if (strcmp(fstype, "nfs") == 0) {
-		/*
-		 * The mount_nfs(8) command defaults to retry undefinitely.
-		 * We do not want that behaviour, because it leaves mount_nfs(8)
-		 * instances and automountd(8) children hanging forever.
-		 * Disable retries unless the option was passed explicitly.
-		 */
-		retrycnt = pick_option("retrycnt=", &options);
-		if (retrycnt == NULL) {
-			log_debugx("retrycnt not specified in options; "
-			    "defaulting to 1");
-			options = concat(options, ',', "retrycnt=1");
-		} else {
-			options = concat(options, ',',
-			    concat("retrycnt", '=', retrycnt));
-		}
-	}
+	if (fstype == NULL)
+		log_errx(1, "fstype not specified in options");
 
 	f = auto_popen("mount", "-t", fstype, "-o", options,
 	    node->n_location, adr->adr_path, NULL);

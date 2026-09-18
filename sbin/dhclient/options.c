@@ -381,7 +381,7 @@ int
 cons_options(struct packet *inpacket, struct dhcp_packet *outpacket,
     int mms, struct tree_cache **options,
     int overload, /* Overload flags that may be set. */
-    int terminate, int bootpp, u_int8_t *prl, int prl_len)
+    int terminate, u_int8_t *prl, int prl_len)
 {
 	unsigned char priority_list[300], buffer[4096];
 	unsigned priority_len;
@@ -390,12 +390,8 @@ cons_options(struct packet *inpacket, struct dhcp_packet *outpacket,
 	int length;
 
 	/*
-	 * If the client has provided a maximum DHCP message size, use
-	 * that; otherwise, if it's BOOTP, only 64 bytes; otherwise use
-	 * up to the minimum IP MTU size (576 bytes).
-	 *
-	 * XXX if a BOOTP client specifies a max message size, we will
-	 * honor it.
+	 * If the client provided a maximum DHCP message size, use it;
+	 * otherwise use up to the minimum IP MTU size (576 bytes).
 	 */
 	if (!mms &&
 	    inpacket &&
@@ -407,8 +403,6 @@ cons_options(struct packet *inpacket, struct dhcp_packet *outpacket,
 
 	if (mms)
 		main_buffer_size = mms - DHCP_FIXED_LEN;
-	else if (bootpp)
-		main_buffer_size = 64;
 	else
 		main_buffer_size = 576 - DHCP_FIXED_LEN;
 
@@ -891,8 +885,6 @@ do_packet(struct interface_info *interface, struct dhcp_packet *packet,
 		tp.packet_type = tp.options[DHO_DHCP_MESSAGE_TYPE].data[0];
 	if (tp.packet_type)
 		dhcp(&tp);
-	else
-		bootp(&tp);
 
 	/* Free the data associated with the options. */
 	for (i = 0; i < 256; i++)

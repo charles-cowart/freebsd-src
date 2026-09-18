@@ -291,7 +291,7 @@ bp_getfile(int sockfd, char *key, struct in_addr *serv_addr, char *pathname)
 		goto done;
 	}
 
-	/* server IP address (mountd/NFS) */
+	/* server IP address */
 	if (xdr_inaddr_decode(&rdata, serv_addr)) {
 		RPC_PRINTF(("bp_getfile: bad server addr\n"));
 		goto done;

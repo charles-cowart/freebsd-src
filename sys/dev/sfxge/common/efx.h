@@ -1729,7 +1729,7 @@ efx_bootcfg_write(
 	__in			size_t size);
 
 /*
- * Processing routines for buffers arranged in the DHCP/BOOTP option format
+ * Processing routines for buffers arranged in the DHCP option format
  * (see https://tools.ietf.org/html/rfc1533)
  *
  * Summarising the format: the buffer is a sequence of options. All options

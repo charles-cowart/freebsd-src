@@ -10,7 +10,6 @@ DIRDEPS = \
 	libexec/getty \
 	libexec/hyperv \
 	libexec/rlogind \
-	libexec/rpc.rquotad \
 	libexec/rpc.rstatd \
 	libexec/rpc.rusersd \
 	libexec/rpc.rwalld \

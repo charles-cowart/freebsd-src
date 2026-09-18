@@ -31,7 +31,6 @@ SUBDIR+=22.rpcgen \
 	24.xdr \
 	25.xdrrfc \
 	26.rpcrfc \
-	27.nfsrpc
 
 SUBDIR_PARALLEL=
 

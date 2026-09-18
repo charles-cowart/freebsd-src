@@ -10,7 +10,6 @@ SUBDIR=	${_atf} \
 	${_hyperv} \
 	rc \
 	${_rlogind} \
-	rpc.rquotad \
 	rpc.rstatd \
 	rpc.rusersd \
 	rpc.rwalld \

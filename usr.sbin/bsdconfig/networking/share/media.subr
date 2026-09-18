@@ -108,19 +108,6 @@ f_dialog_input_options()
 {
 	local interface="$1"
 
-	#
-	# Return with-error when there are NFS-mounts currently active. If the
-	# options are changed while NFS-exported directories are mounted,
-	# the system may hang (if any NFS mounts are using that interface).
-	#
-	if f_nfs_mounted && ! f_jailed; then
-		local setting
-		f_sprintf setting "$msg_current_options" \
-		                  "$interface" "$options"
-		f_noyes "$msg_nfs_mounts_may_cause_hang" "$setting" ||
-			return $DIALOG_CANCEL
-	fi
-
 	local msg
 	f_sprintf msg "$msg_please_enter_mediaopts" "$interface"
 	local hline="$hline_alnum_punc_tab_enter"
@@ -156,19 +143,6 @@ f_dialog_menu_media_options()
 	# when available we should prompt the user to select from a list
 	# of available options (or none, as is the first/default option).
 	#
-
-	#
-	# Return with-error when there are NFS-mounts currently active. If the
-	# media options are changed while NFS-exported directories are mounted,
-	# the system may hang (if any NFS mounts are using that interface).
-	#
-	if f_nfs_mounted && ! f_jailed; then
-		local setting
-		f_sprintf setting "$msg_current_options" \
-		                  "$interface" "$_options"
-		f_noyes "$msg_nfs_mounts_may_cause_hang" "$setting" ||
-			return $DIALOG_CANCEL
-	fi
 
 	#
 	# Build list of additional media options

@@ -77,8 +77,6 @@ unmount_by_statfs(const struct statfs *sb, bool force)
 	free(fsid_str);
 	if (error != 0)
 		log_warn("cannot unmount %s", sb->f_mntonname);
-	else
-		rpc_umntall();
 
 	return (error);
 }
