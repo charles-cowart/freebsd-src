@@ -108,6 +108,13 @@ OLD_FILES+=usr/share/man/man8/smpdump.8.gz
 OLD_FILES+=usr/share/man/man8/smpquery.8.gz
 OLD_FILES+=usr/share/man/man8/vendstat.8.gz
 
+# 20260919: Remove libibmad
+OLD_FILES+=usr/include/infiniband/mad.h
+OLD_FILES+=usr/include/infiniband/mad_osd.h
+OLD_FILES+=usr/lib/libibmad.a
+OLD_FILES+=usr/lib/libibmad.so
+OLD_LIBS+=usr/lib/libibmad.so.5
+
 # 20260919: Remove installed OpenSM program
 OLD_FILES+=usr/bin/opensm
 OLD_FILES+=usr/lib/libopensm.a

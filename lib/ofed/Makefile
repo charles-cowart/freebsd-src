@@ -4,7 +4,6 @@ SUBDIR= \
 	libibcm \
 	libibumad \
 	librdmacm \
-	libibmad \
 	complib \
 	libcxgb4 \
 	libmlx4 \
@@ -13,7 +12,6 @@ SUBDIR= \
 	libirdma 
 SUBDIR_DEPEND_libibcm= libibverbs
 SUBDIR_DEPEND_librdmacm= libibverbs
-SUBDIR_DEPEND_libibmad= libibumad
 SUBDIR_DEPEND_libbnxtre= libibverbs
 SUBDIR_DEPEND_libcxgb4= libibverbs
 SUBDIR_DEPEND_libmlx4= libibverbs
