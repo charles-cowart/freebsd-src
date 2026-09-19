@@ -52,6 +52,7 @@
 # done
 
 # 20260919: Remove libibnetdisc and its consumers
+# 20260919: Remove InfiniBand diagnostic programs
 OLD_FILES+=usr/bin/dump_fts
 OLD_FILES+=usr/bin/ibaddr
 OLD_FILES+=usr/bin/ibcacheedit
