@@ -3884,8 +3884,6 @@ OLD_FILES+=usr/share/examples/etc/ntp.conf
 .endif
 
 .if ${MK_OFED} == no
-OLD_FILES+=etc/newsyslog.conf.d/opensm.conf
-OLD_FILES+=etc/rc.d/opensm
 OLD_FILES+=usr/bin/ibstat
 OLD_FILES+=usr/bin/ibv_asyncwatch
 OLD_FILES+=usr/bin/ibv_devices
@@ -4085,7 +4083,6 @@ OLD_LIBS+=usr/lib/librdmacm.so.1
 .endif
 
 .if ${MK_OFED_EXTRA} == no
-OLD_FILES+=etc/rc.d/opensm
 OLD_FILES+=usr/bin/dump_fts
 OLD_FILES+=usr/bin/ibaddr
 OLD_FILES+=usr/bin/ibcacheedit

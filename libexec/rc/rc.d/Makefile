@@ -192,9 +192,6 @@ NTPPACKAGE=			ntp
 NTP=		ntpd \
 		ntpdate
 
-CONFGROUPS.${MK_OFED_EXTRA}+=	OPENSM
-OPENSM=	opensm
-
 CONFGROUPS+=			POWERD
 POWERDPACKAGE=			powerd
 POWERD=		powerd
