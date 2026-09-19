@@ -85,7 +85,7 @@ EOF
 	cat > $TEST/etc/login.conf <<EOF
 default:\\
 	:passwd_format=md5:\\
-        :welcome=/etc/motd:
+        :setenv=BLOCKSIZE=K:
 EOF
 
 	$COMMAND -r -d $WORKDIR -D $TEST >/dev/null
@@ -248,7 +248,7 @@ cat > $CONFLICTS/etc/login.conf <<EOF
 default:\\
 	:passwd_format=md5:\\
 	:copyright=/etc/COPYRIGHT\\
-        :welcome=/etc/motd:
+        :setenv=BLOCKSIZE=K:
 EOF
 
 echo 'r' | $COMMAND resolve -d $WORKDIR -D $TEST >/dev/null

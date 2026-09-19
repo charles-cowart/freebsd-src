@@ -29,7 +29,6 @@ login.conf	- login class capabilities database (see login.conf(5))
 mac.conf	- TrustedBSD MAC userland policy configuration file
 mail.rc		- systemwide initialization files for mail(1)
 make.conf	- example configuration variables for system builds
-motd		- sample Message of the Day
 netconfig	- network configuration data base
 netstart	- network startup script run from /etc/rc
 network.subr	- routines for network configuration scripts

@@ -51,6 +51,10 @@
 #   xargs -n1 | sort | uniq -d;
 # done
 
+# 20260919: Remove message-of-the-day support
+OLD_FILES+=etc/motd.template
+OLD_FILES+=etc/rc.d/motd
+
 # 20260919: Remove boot0cfg
 OLD_FILES+=usr/sbin/boot0cfg
 
