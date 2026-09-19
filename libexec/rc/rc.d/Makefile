@@ -36,7 +36,6 @@ CONFS=	DAEMON \
 	linux \
 	local \
 	localpkg \
-	motd \
 	mountcritlocal \
 	mountcritremote \
 	mountlate \
