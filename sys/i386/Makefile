@@ -11,7 +11,7 @@ all:
 	@echo "make links or tags only"
 
 # Directories in which to place i386 tags links
-DI386=	apm i386 include isa linux
+DI386=	i386 include isa linux
 
 links::
 	-for i in ${COMMDIR1}; do \

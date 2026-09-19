@@ -59,7 +59,6 @@ acpi_machdep_init(device_t dev)
 
 	sc = device_get_softc(dev);
 
-	acpi_apm_init(sc);
 	acpi_install_wakeup_handler(sc);
 
 	if (intr_model != ACPI_INTR_PIC)

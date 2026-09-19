@@ -720,6 +720,16 @@ acpi_attach(device_t dev)
 			      "acpi");
     sc->acpi_dev_t->si_drv1 = sc;
 
+    /* Create the suspend notification state used by devd(8). */
+    STAILQ_INIT(&sc->acpi_cdevs);
+    sc->acpi_clone = malloc(sizeof(*sc->acpi_clone), M_ACPIDEV,
+        M_WAITOK | M_ZERO);
+    sc->acpi_clone->cdev = sc->acpi_dev_t;
+    sc->acpi_clone->flags = ACPI_EVF_DEVD | ACPI_EVF_WRITE;
+    sc->acpi_clone->notify_status = ACPI_EV_NONE;
+    sc->acpi_clone->acpi_sc = sc;
+    STAILQ_INSERT_TAIL(&sc->acpi_cdevs, sc->acpi_clone, entries);
+
     if ((error = acpi_machdep_init(dev)))
 	goto out;
 
@@ -3154,8 +3164,8 @@ acpi_sleep_force(void *arg)
 #endif
 
 /*
- * Request that the system enter the given suspend state.  All /dev/apm
- * devices and devd(8) will be notified.  Userland then has a chance to
+ * Request that the system enter the given suspend state.  devd(8) will be
+ * notified.  Userland then has a chance to
  * save state and acknowledge the request.  The system sleeps once all
  * acks are in.
  */
@@ -3163,7 +3173,7 @@ int
 acpi_ReqSleepState(struct acpi_softc *sc, int state)
 {
 #if defined(__amd64__) || defined(__i386__)
-    struct apm_clone_data *clone;
+    struct acpi_clone_data *clone;
     ACPI_STATUS status;
 
     if (state < ACPI_STATE_S1 || state > ACPI_S_STATES_MAX)
@@ -3195,9 +3205,9 @@ acpi_ReqSleepState(struct acpi_softc *sc, int state)
 	return (ACPI_SUCCESS(status) ? 0 : ENXIO);
     }
 
-    /* Record the pending state and notify all apm devices. */
-    STAILQ_FOREACH(clone, &sc->apm_cdevs, entries) {
-	clone->notify_status = APM_EV_NONE;
+    /* Record the pending state and notify all control devices. */
+    STAILQ_FOREACH(clone, &sc->acpi_cdevs, entries) {
+	clone->notify_status = ACPI_EV_NONE;
 	if ((clone->flags & ACPI_EVF_DEVD) == 0) {
 	    selwakeuppri(&clone->sel_read, PZERO);
 	    KNOTE_LOCKED(&clone->sel_read.si_note, 0);
@@ -3239,7 +3249,7 @@ acpi_ReqSleepState(struct acpi_softc *sc, int state)
  * we suspend the system.
  */
 int
-acpi_AckSleepState(struct apm_clone_data *clone, int error)
+acpi_AckSleepState(struct acpi_clone_data *clone, int error)
 {
 #if defined(__amd64__) || defined(__i386__)
     struct acpi_softc *sc;
@@ -3270,10 +3280,10 @@ acpi_AckSleepState(struct apm_clone_data *clone, int error)
      * are writable since read-only devices couldn't ack the request.
      */
     sleeping = TRUE;
-    clone->notify_status = APM_EV_ACKED;
-    STAILQ_FOREACH(clone, &sc->apm_cdevs, entries) {
+    clone->notify_status = ACPI_EV_ACKED;
+    STAILQ_FOREACH(clone, &sc->acpi_cdevs, entries) {
 	if ((clone->flags & ACPI_EVF_WRITE) != 0 &&
-	    clone->notify_status != APM_EV_ACKED) {
+	    clone->notify_status != ACPI_EV_ACKED) {
 	    sleeping = FALSE;
 	    break;
 	}

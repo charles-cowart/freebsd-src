@@ -51,6 +51,17 @@
 #   xargs -n1 | sort | uniq -d;
 # done
 
+# 20260919: Remove APM support
+OLD_FILES+=etc/apmd.conf
+OLD_FILES+=etc/rc.d/apm
+OLD_FILES+=etc/rc.d/apmd
+OLD_FILES+=usr/sbin/apm
+OLD_FILES+=usr/sbin/apmd
+OLD_FILES+=usr/share/examples/etc/apmd.conf
+OLD_FILES+=usr/share/man/man4/apm.4.gz
+OLD_FILES+=usr/share/man/man8/apm.8.gz
+OLD_FILES+=usr/share/man/man8/apmd.8.gz
+
 # 20260919: Remove message-of-the-day support
 OLD_FILES+=etc/motd.template
 OLD_FILES+=etc/rc.d/motd

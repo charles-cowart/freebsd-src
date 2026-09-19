@@ -47,7 +47,7 @@
 #include <machine/bus.h>
 #include <machine/resource.h>
 
-struct apm_clone_data;
+struct acpi_clone_data;
 struct acpi_softc {
     device_t		acpi_dev;
     struct cdev		*acpi_dev_t;
@@ -75,8 +75,8 @@ struct acpi_softc {
     vm_paddr_t		acpi_wakephys;
 
     int			acpi_next_sstate;	/* Next suspend Sx state. */
-    struct apm_clone_data *acpi_clone;		/* Pseudo-dev for devd(8). */
-    STAILQ_HEAD(,apm_clone_data) apm_cdevs;	/* All apm/apmctl/acpi cdevs. */
+    struct acpi_clone_data *acpi_clone;		/* Pseudo-dev for devd(8). */
+    STAILQ_HEAD(,acpi_clone_data) acpi_cdevs;	/* ACPI control devices. */
     struct callout	susp_force_to;		/* Force suspend if no acks. */
 
     /* System Resources */
@@ -108,18 +108,17 @@ struct intr_map_data_acpi {
 
 #endif
 
-/* Track device (/dev/{apm,apmctl} and /dev/acpi) notification status. */
-struct apm_clone_data {
-    STAILQ_ENTRY(apm_clone_data) entries;
+/* Track /dev/acpi notification status. */
+struct acpi_clone_data {
+    STAILQ_ENTRY(acpi_clone_data) entries;
     struct cdev 	*cdev;
     int			flags;
-#define	ACPI_EVF_NONE	0	/* /dev/apm semantics */
 #define	ACPI_EVF_DEVD	1	/* /dev/acpi is handled via devd(8) */
 #define	ACPI_EVF_WRITE	2	/* Device instance is opened writable. */
     int			notify_status;
-#define	APM_EV_NONE	0	/* Device not yet aware of pending sleep. */
-#define	APM_EV_NOTIFIED	1	/* Device saw next sleep state. */
-#define	APM_EV_ACKED	2	/* Device agreed sleep can occur. */
+#define	ACPI_EV_NONE	0	/* Device not yet aware of pending sleep. */
+#define	ACPI_EV_NOTIFIED	1	/* Device saw next sleep state. */
+#define	ACPI_EV_ACKED	2	/* Device agreed sleep can occur. */
     struct acpi_softc	*acpi_sc;
     struct selinfo	sel_read;
 };
@@ -412,7 +411,7 @@ ACPI_STATUS	acpi_EvaluateOSC(ACPI_HANDLE handle, uint8_t *uuid,
 ACPI_STATUS	acpi_OverrideInterruptLevel(UINT32 InterruptNumber);
 ACPI_STATUS	acpi_SetIntrModel(int model);
 int		acpi_ReqSleepState(struct acpi_softc *sc, int state);
-int		acpi_AckSleepState(struct apm_clone_data *clone, int error);
+int		acpi_AckSleepState(struct acpi_clone_data *clone, int error);
 ACPI_STATUS	acpi_SetSleepState(struct acpi_softc *sc, int state);
 int		acpi_wake_set_enable(device_t dev, int enable);
 int		acpi_parse_prw(ACPI_HANDLE h, struct acpi_prw_data *prw);
@@ -493,9 +492,6 @@ ACPI_STATUS	acpi_pwr_wake_enable(ACPI_HANDLE consumer, int enable);
 ACPI_STATUS	acpi_pwr_switch_consumer(ACPI_HANDLE consumer, int state);
 acpi_pwr_for_sleep_t	acpi_device_pwr_for_sleep;
 int		acpi_set_powerstate(device_t child, int state);
-
-/* APM emulation */
-void		acpi_apm_init(struct acpi_softc *);
 
 /* Misc. */
 static __inline struct acpi_softc *
