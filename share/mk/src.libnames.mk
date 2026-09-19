@@ -223,7 +223,6 @@ _LIBRARIES+= \
 		cxgb4 \
 		ibcm \
 		ibmad \
-		ibnetdisc \
 		ibumad \
 		ibverbs \
 		irdma \
@@ -231,8 +230,7 @@ _LIBRARIES+= \
 		mlx5 \
 		bnxtre \
 		rdmacm \
-		osmcomp \
-		osmvendor
+		osmcomp 
 .endif
 
 .if ${MK_BEARSSL} == "yes"
@@ -405,7 +403,6 @@ _DP_iscsiutil=	md
 _DP_cxgb4=	ibverbs pthread
 _DP_ibcm=	ibverbs
 _DP_ibmad=	ibumad
-_DP_ibnetdisc=	osmcomp ibmad ibumad
 _DP_ibumad=
 _DP_ibverbs=
 _DP_irdma=	ibverbs pthread
@@ -414,7 +411,6 @@ _DP_mlx5=	ibverbs pthread
 _DP_bnxtre=	ibverbs pthread
 _DP_rdmacm=	ibverbs
 _DP_osmcomp=	pthread
-_DP_osmvendor=	ibumad pthread
 .endif
 
 # Define special cases
@@ -667,7 +663,6 @@ LIBTPOOLDIR=	${_LIB_OBJTOP}/cddl/lib/libtpool
 LIBCXGB4DIR=	${_LIB_OBJTOP}/lib/ofed/libcxgb4
 LIBIBCMDIR=	${_LIB_OBJTOP}/lib/ofed/libibcm
 LIBIBMADDIR=	${_LIB_OBJTOP}/lib/ofed/libibmad
-LIBIBNETDISCDIR=${_LIB_OBJTOP}/lib/ofed/libibnetdisc
 LIBIBUMADDIR=	${_LIB_OBJTOP}/lib/ofed/libibumad
 LIBIBVERBSDIR=	${_LIB_OBJTOP}/lib/ofed/libibverbs
 LIBIRDMADIR=	${_LIB_OBJTOP}/lib/ofed/libirdma
@@ -676,8 +671,6 @@ LIBMLX5DIR=	${_LIB_OBJTOP}/lib/ofed/libmlx5
 LIBBNXTREDIR=	${_LIB_OBJTOP}/lib/ofed/libbnxtre
 LIBRDMACMDIR=	${_LIB_OBJTOP}/lib/ofed/librdmacm
 LIBOSMCOMPDIR=	${_LIB_OBJTOP}/lib/ofed/complib
-LIBOSMVENDORDIR=${_LIB_OBJTOP}/lib/ofed/libvendor
-
 LIBSSPDIR=	${_LIB_OBJTOP}/lib/libssp
 LIBSSP_NONSHAREDDIR=	${_LIB_OBJTOP}/lib/libssp_nonshared
 LIBATF_CDIR=	${_LIB_OBJTOP}/lib/atf/libatf-c

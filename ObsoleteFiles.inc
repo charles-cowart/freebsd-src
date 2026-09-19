@@ -51,13 +51,19 @@
 #   xargs -n1 | sort | uniq -d;
 # done
 
+# 20260919: Remove libibnetdisc and its consumers
 # 20260919: Remove InfiniBand diagnostic programs
+OLD_FILES+=usr/bin/dump_fts
 OLD_FILES+=usr/bin/ibaddr
+OLD_FILES+=usr/bin/ibcacheedit
 OLD_FILES+=usr/bin/ibccconfig
 OLD_FILES+=usr/bin/ibccquery
+OLD_FILES+=usr/bin/iblinkinfo
 OLD_FILES+=usr/bin/ibmirror
+OLD_FILES+=usr/bin/ibnetdiscover
 OLD_FILES+=usr/bin/ibping
 OLD_FILES+=usr/bin/ibportstate
+OLD_FILES+=usr/bin/ibqueryerrors
 OLD_FILES+=usr/bin/ibroute
 OLD_FILES+=usr/bin/ibstat
 OLD_FILES+=usr/bin/ibsysstat
@@ -68,11 +74,29 @@ OLD_FILES+=usr/bin/sminfo
 OLD_FILES+=usr/bin/smpdump
 OLD_FILES+=usr/bin/smpquery
 OLD_FILES+=usr/bin/vendstat
+OLD_FILES+=usr/include/infiniband/ibnetdisc.h
+OLD_FILES+=usr/include/infiniband/ibnetdisc_osd.h
+OLD_FILES+=usr/lib/libibnetdisc.a
+OLD_FILES+=usr/lib/libibnetdisc.so
+OLD_LIBS+=usr/lib/libibnetdisc.so.5
+OLD_FILES+=usr/share/man/man3/ibnd_debug.3.gz
+OLD_FILES+=usr/share/man/man3/ibnd_destroy_fabric.3.gz
+OLD_FILES+=usr/share/man/man3/ibnd_discover_fabric.3.gz
+OLD_FILES+=usr/share/man/man3/ibnd_find_node_dr.3.gz
+OLD_FILES+=usr/share/man/man3/ibnd_find_node_guid.3.gz
+OLD_FILES+=usr/share/man/man3/ibnd_iter_nodes.3.gz
+OLD_FILES+=usr/share/man/man3/ibnd_iter_nodes_type.3.gz
+OLD_FILES+=usr/share/man/man3/ibnd_show_progress.3.gz
+OLD_FILES+=usr/share/man/man8/dump_fts.8.gz
 OLD_FILES+=usr/share/man/man8/ibaddr.8.gz
+OLD_FILES+=usr/share/man/man8/ibcacheedit.8.gz
 OLD_FILES+=usr/share/man/man8/ibccconfig.8.gz
 OLD_FILES+=usr/share/man/man8/ibccquery.8.gz
+OLD_FILES+=usr/share/man/man8/iblinkinfo.8.gz
+OLD_FILES+=usr/share/man/man8/ibnetdiscover.8.gz
 OLD_FILES+=usr/share/man/man8/ibping.8.gz
 OLD_FILES+=usr/share/man/man8/ibportstate.8.gz
+OLD_FILES+=usr/share/man/man8/ibqueryerrors.8.gz
 OLD_FILES+=usr/share/man/man8/ibroute.8.gz
 OLD_FILES+=usr/share/man/man8/ibstat.8.gz
 OLD_FILES+=usr/share/man/man8/ibsysstat.8.gz
