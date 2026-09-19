@@ -254,10 +254,6 @@
         ..
         iba             tags=package=utilities-dev
         ..
-        opensm          tags=package=utilities-dev
-        ..
-        vendor          tags=package=utilities-dev
-        ..
     ..
     isofs
         cd9660
