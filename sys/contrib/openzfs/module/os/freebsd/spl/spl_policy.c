@@ -425,5 +425,5 @@ int
 secpolicy_smb(cred_t *cr)
 {
 
-	return (priv_check_cred(cr, PRIV_NETSMB));
+	return (priv_check_cred(cr, PRIV_VFS_ADMIN));
 }

@@ -423,11 +423,6 @@
 #define	PRIV_NETNCP		530	/* Use another user's connection. */
 
 /*
- * SMB privileges.
- */
-#define	PRIV_NETSMB		540	/* Use another user's connection. */
-
-/*
  * VM86 privileges.
  */
 #define	PRIV_VM86_INTCALL	550	/* Allow invoking vm86 int handlers. */
