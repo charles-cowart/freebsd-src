@@ -51,6 +51,22 @@
 #   xargs -n1 | sort | uniq -d;
 # done
 
+# 20260919: Remove libibmad and libibumad
+OLD_FILES+=usr/include/infiniband/mad.h
+OLD_FILES+=usr/include/infiniband/mad_osd.h
+OLD_FILES+=usr/include/infiniband/umad.h
+OLD_FILES+=usr/include/infiniband/umad_cm.h
+OLD_FILES+=usr/include/infiniband/umad_sa.h
+OLD_FILES+=usr/include/infiniband/umad_sm.h
+OLD_FILES+=usr/include/infiniband/umad_str.h
+OLD_FILES+=usr/include/infiniband/umad_types.h
+OLD_FILES+=usr/include/infiniband/vendor/osm_vendor_ibumad.h
+OLD_FILES+=usr/lib/libibmad.a
+OLD_FILES+=usr/lib/libibmad.so
+OLD_LIBS+=usr/lib/libibmad.so.5
+OLD_FILES+=usr/lib/libibumad.a
+OLD_FILES+=usr/lib/libibumad.so
+OLD_LIBS+=usr/lib/libibumad.so.1
 # 20260919: Remove libibnetdisc and its consumers
 # 20260919: Remove InfiniBand diagnostic programs
 OLD_FILES+=usr/bin/dump_fts
