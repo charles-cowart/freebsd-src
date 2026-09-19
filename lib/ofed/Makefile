@@ -11,7 +11,6 @@ SUBDIR= \
 	libmlx5 \
 	libbnxtre \
 	libirdma \
-	libibnetdisc \
 	libopensm
 
 SUBDIR_DEPEND_libibcm= libibverbs
@@ -22,9 +21,6 @@ SUBDIR_DEPEND_libcxgb4= libibverbs
 SUBDIR_DEPEND_libmlx4= libibverbs
 SUBDIR_DEPEND_libmlx5= libibverbs
 SUBDIR_DEPEND_libirdma= libibverbs
-SUBDIR_DEPEND_libibnetdisc= libibmad libibumad complib
-
 SUBDIR_PARALLEL=
 
 .include <bsd.subdir.mk>
-
