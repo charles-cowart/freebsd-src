@@ -32,7 +32,6 @@
 #include "opt_ddb.h"
 #include "opt_inet.h"
 #include "opt_inet6.h"
-#include "opt_nfs.h"
 
 #include <sys/param.h>
 #include <sys/types.h>
