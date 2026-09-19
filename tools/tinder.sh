@@ -33,11 +33,6 @@
 #
 # cd /usr/src
 # make toolchains		# build toolchain for all arches
-# sh tools/tinder.sh gnu/lib/libdialog usr.sbin/sade NO_CLEAN=yes
-#				# build libdialog and sade for all architectures
-#				# without making clean
-# sh tools/tinder.sh gnu/lib/libdialog usr.sbin/sade TARGETS="amd64 i386"
-#				# build libdialog and sade only for amd64 and i386
 #
 
 if [ $# -eq 0 ]; then

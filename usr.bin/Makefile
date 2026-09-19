@@ -187,7 +187,6 @@ SUBDIR.${MK_BSD_CPIO}+=	cpio
     ${MK_LLD} != "no" || ${MK_LLDB} != "no"
 SUBDIR+=	clang
 .endif
-SUBDIR.${MK_DIALOG}+=	dpv
 SUBDIR.${MK_FILE}+=	file
 SUBDIR+=		gh-bc
 SUBDIR.${MK_HESIOD}+=	hesinfo

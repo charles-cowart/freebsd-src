@@ -10,7 +10,6 @@ DIRDEPS = \
 	cddl/lib/libzutil \
 	cddl/usr.bin/zinject \
 	cddl/usr.sbin/zdb \
-	gnu/lib/libdialog \
 	include \
 	include/arpa \
 	include/protocols \
@@ -53,7 +52,6 @@ DIRDEPS = \
 	lib/libdevdctl \
 	lib/libdevinfo \
 	lib/libdevstat \
-	lib/libdpv \
 	lib/libdwarf \
 	lib/libedit \
 	lib/libedit/readline \
@@ -62,7 +60,6 @@ DIRDEPS = \
 	lib/libexecinfo \
 	lib/libexpat \
 	lib/libfetch \
-	lib/libfigpar \
 	lib/libgeom \
 	lib/libgpio \
 	lib/libjail \

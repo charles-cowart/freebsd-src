@@ -165,7 +165,6 @@ DIRDEPS+= \
 	usr.bin/diff3 \
 	usr.bin/dig \
 	usr.bin/dirname \
-	usr.bin/dpv \
 	usr.bin/drill \
 	usr.bin/dtc \
 	usr.bin/du \
