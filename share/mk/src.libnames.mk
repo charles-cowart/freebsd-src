@@ -222,7 +222,6 @@ _LIBRARIES+= \
 _LIBRARIES+= \
 		cxgb4 \
 		ibcm \
-		ibumad \
 		ibverbs \
 		irdma \
 		mlx4 \
@@ -400,7 +399,6 @@ _DP_iscsiutil=	md
 .if ${MK_OFED} != "no"
 _DP_cxgb4=	ibverbs pthread
 _DP_ibcm=	ibverbs
-_DP_ibumad=
 _DP_ibverbs=
 _DP_irdma=	ibverbs pthread
 _DP_mlx4=	ibverbs pthread
@@ -658,7 +656,6 @@ LIBTPOOLDIR=	${_LIB_OBJTOP}/cddl/lib/libtpool
 # OFED support
 LIBCXGB4DIR=	${_LIB_OBJTOP}/lib/ofed/libcxgb4
 LIBIBCMDIR=	${_LIB_OBJTOP}/lib/ofed/libibcm
-LIBIBUMADDIR=	${_LIB_OBJTOP}/lib/ofed/libibumad
 LIBIBVERBSDIR=	${_LIB_OBJTOP}/lib/ofed/libibverbs
 LIBIRDMADIR=	${_LIB_OBJTOP}/lib/ofed/libirdma
 LIBMLX4DIR=	${_LIB_OBJTOP}/lib/ofed/libmlx4

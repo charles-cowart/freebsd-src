@@ -3282,7 +3282,6 @@ lib/libedit__L:		lib/ncurses/ncurses__L
 .if ${MK_OFED} != "no"
 _prebuild_libs+= \
 	lib/ofed/libibverbs \
-	lib/ofed/libibumad \
 	lib/ofed/complib \
 	lib/ofed/libbnxtre \
 	lib/ofed/libmlx5

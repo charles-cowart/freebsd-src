@@ -15,8 +15,6 @@ an explicit, independently justified change.
 
 - `OFED` is in the default-yes lists in `share/mk/src.opts.mk` and
   `sys/conf/kern.opts.mk`; it is only marked broken on 32-bit ARM.
-- `OFED_EXTRA` defaults off and is forced off by `WITHOUT_OFED`.  It selects
-  OpenSM and most InfiniBand diagnostic programs.
 - Userland is rooted at `lib/ofed`, `usr.bin/ofed`, and `contrib/ofed`.  It
   installs libraries plus public `infiniband/` and `rdma/` headers.
 - Kernel core and IPoIB/SDP live under `sys/ofed`; other consumers and providers
@@ -60,8 +58,7 @@ an explicit, independently justified change.
 ## Step 2 — Make OFED opt-in for one transition cycle
 
 - [ ] Move `OFED` from default-yes to default-no in both source and kernel
-      option machinery.  Retain `WITH_OFED` temporarily and continue forcing
-      `OFED_EXTRA` off whenever OFED is off.
+      option machinery.  Retain `WITH_OFED` temporarily.
 - [ ] Update the source input for `src.conf(5)` (not only generated output) to
       describe the new default and deprecation period.
 - [ ] Gate every RDMA module consistently when `MK_OFED=no`, especially
@@ -75,19 +72,15 @@ an explicit, independently justified change.
       obsolete list removes all now-disabled binaries, libraries, links,
       headers, rc scripts, and configuration files.
 
-## Step 3 — Remove OFED_EXTRA and OpenSM
+## Step 3 — Remove OpenSM
 
-- [ ] Remove the `OFED_EXTRA` option, its dependency rule, and its build-option
-      documentation.
 - [ ] Remove OpenSM, the extra InfiniBand diagnostic programs, their rc script,
       `opensm_enable` default, newsyslog fragment, mtree entries, and tests.
 - [ ] Remove the corresponding imported sources in `contrib/ofed/opensm` and
       `contrib/ofed/infiniband-diags` once no retained target refers to them.
 - [ ] Remove OpenSM support libraries and headers (`opensm`, `osmcomp`, and
-      `osmvendor`).  Also remove ibmad, ibumad, and ibnetdisc at this point if
+      `osmvendor`).  Also remove ibmad and ibnetdisc at this point if
       the deliberately retained transition programs no longer need them.
-- [ ] Convert removed `MK_OFED_EXTRA` installed-file cleanup to unconditional
-      obsolete entries, deduplicating files listed under both OFED conditions.
 
 ## Step 4 — Remove upper layers and provider drivers
 
@@ -170,7 +163,7 @@ an explicit, independently justified change.
 Inspect and classify matches; do not feed these directly to a deletion loop.
 
 ```sh
-git grep -n -E 'MK_OFED|WITH_OFED|WITHOUT_OFED|OFED_EXTRA|opt_ofed'
+git grep -n -E 'MK_OFED|WITH_OFED|WITHOUT_OFED|opt_ofed'
 git grep -n -i -E '\b(ofed|infiniband|rdma|ibcore|ipoib|iser|krping)\b'
 git grep -n -E '<(rdma|infiniband)/|sys/ofed|contrib/ofed'
 git grep -n -E 'mlx[45]ib|mthca|irdma|iw_cxgbe|bnxt_re|qlnxr'

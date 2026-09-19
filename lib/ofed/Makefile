@@ -2,7 +2,6 @@ SUBDIR= \
 	include \
 	libibverbs \
 	libibcm \
-	libibumad \
 	librdmacm \
 	libcxgb4 \
 	libmlx4 \
