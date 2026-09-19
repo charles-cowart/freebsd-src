@@ -51,6 +51,39 @@
 #   xargs -n1 | sort | uniq -d;
 # done
 
+# 20260919: Remove InfiniBand diagnostic programs
+OLD_FILES+=usr/bin/ibaddr
+OLD_FILES+=usr/bin/ibccconfig
+OLD_FILES+=usr/bin/ibccquery
+OLD_FILES+=usr/bin/ibmirror
+OLD_FILES+=usr/bin/ibping
+OLD_FILES+=usr/bin/ibportstate
+OLD_FILES+=usr/bin/ibroute
+OLD_FILES+=usr/bin/ibstat
+OLD_FILES+=usr/bin/ibsysstat
+OLD_FILES+=usr/bin/ibtracert
+OLD_FILES+=usr/bin/perfquery
+OLD_FILES+=usr/bin/saquery
+OLD_FILES+=usr/bin/sminfo
+OLD_FILES+=usr/bin/smpdump
+OLD_FILES+=usr/bin/smpquery
+OLD_FILES+=usr/bin/vendstat
+OLD_FILES+=usr/share/man/man8/ibaddr.8.gz
+OLD_FILES+=usr/share/man/man8/ibccconfig.8.gz
+OLD_FILES+=usr/share/man/man8/ibccquery.8.gz
+OLD_FILES+=usr/share/man/man8/ibping.8.gz
+OLD_FILES+=usr/share/man/man8/ibportstate.8.gz
+OLD_FILES+=usr/share/man/man8/ibroute.8.gz
+OLD_FILES+=usr/share/man/man8/ibstat.8.gz
+OLD_FILES+=usr/share/man/man8/ibsysstat.8.gz
+OLD_FILES+=usr/share/man/man8/ibtracert.8.gz
+OLD_FILES+=usr/share/man/man8/perfquery.8.gz
+OLD_FILES+=usr/share/man/man8/saquery.8.gz
+OLD_FILES+=usr/share/man/man8/sminfo.8.gz
+OLD_FILES+=usr/share/man/man8/smpdump.8.gz
+OLD_FILES+=usr/share/man/man8/smpquery.8.gz
+OLD_FILES+=usr/share/man/man8/vendstat.8.gz
+
 # 20260919: Remove installed OpenSM program
 OLD_FILES+=usr/bin/opensm
 

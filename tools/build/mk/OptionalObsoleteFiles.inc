@@ -3884,7 +3884,6 @@ OLD_FILES+=usr/share/examples/etc/ntp.conf
 .endif
 
 .if ${MK_OFED} == no
-OLD_FILES+=usr/bin/ibstat
 OLD_FILES+=usr/bin/ibv_asyncwatch
 OLD_FILES+=usr/bin/ibv_devices
 OLD_FILES+=usr/bin/ibv_devinfo
@@ -4084,25 +4083,10 @@ OLD_LIBS+=usr/lib/librdmacm.so.1
 
 .if ${MK_OFED_EXTRA} == no
 OLD_FILES+=usr/bin/dump_fts
-OLD_FILES+=usr/bin/ibaddr
 OLD_FILES+=usr/bin/ibcacheedit
-OLD_FILES+=usr/bin/ibccconfig
-OLD_FILES+=usr/bin/ibccquery
 OLD_FILES+=usr/bin/iblinkinfo
-OLD_FILES+=usr/bin/ibmirror
 OLD_FILES+=usr/bin/ibnetdiscover
-OLD_FILES+=usr/bin/ibping
-OLD_FILES+=usr/bin/ibportstate
 OLD_FILES+=usr/bin/ibqueryerrors
-OLD_FILES+=usr/bin/ibroute
-OLD_FILES+=usr/bin/ibsysstat
-OLD_FILES+=usr/bin/ibtracert
-OLD_FILES+=usr/bin/perfquery
-OLD_FILES+=usr/bin/saquery
-OLD_FILES+=usr/bin/sminfo
-OLD_FILES+=usr/bin/smpdump
-OLD_FILES+=usr/bin/smpquery
-OLD_FILES+=usr/bin/vendstat
 .endif
 
 .if ${MK_OPENMP} == no

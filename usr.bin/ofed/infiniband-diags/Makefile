@@ -1,33 +1,14 @@
 .include <src.opts.mk>
 
-SUBDIR= \
-	ibstat
-
 .if ${MK_OFED_EXTRA} != "no"
-SUBDIR+= \
+SUBDIR= \
 	dump_fts \
-	ibaddr \
 	ibcacheedit \
-	ibccconfig \
-	ibccquery \
 	iblinkinfo \
-	ibmirror \
 	ibnetdiscover \
-	ibping \
-	ibportstate \
-	ibqueryerrors \
-	ibroute \
-	ibsysstat \
-	ibtracert \
-	perfquery \
-	saquery \
-	sminfo \
-	smpdump \
-	smpquery \
-	vendstat
+	ibqueryerrors
 .endif
 
 SUBDIR_PARALLEL=
 
 .include <bsd.subdir.mk>
-
