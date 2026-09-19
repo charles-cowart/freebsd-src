@@ -12,8 +12,7 @@ SUBDIR= \
 	libmlx5 \
 	libbnxtre \
 	libirdma \
-	libibnetdisc \
-	libopensm
+	libibnetdisc
 
 SUBDIR_DEPEND_libibcm= libibverbs
 SUBDIR_DEPEND_librdmacm= libibverbs

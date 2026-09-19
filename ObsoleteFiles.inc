@@ -86,6 +86,9 @@ OLD_FILES+=usr/share/man/man8/vendstat.8.gz
 
 # 20260919: Remove installed OpenSM program
 OLD_FILES+=usr/bin/opensm
+OLD_FILES+=usr/lib/libopensm.a
+OLD_FILES+=usr/lib/libopensm.so
+OLD_LIBS+=usr/lib/libopensm.so.5
 
 # 20260919: Remove OpenSM service integration
 OLD_FILES+=etc/newsyslog.conf.d/opensm.conf
