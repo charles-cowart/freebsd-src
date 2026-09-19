@@ -47,45 +47,6 @@ ${RDMA}/mlx4-abi.h \
 ${RDMA}/mlx5-abi.h
 RDMAINCSDIR=	${INCLUDEDIR}/rdma
 
-COMPINCS= \
-${OSM}/complib/cl_atomic.h \
-${OSM}/complib/cl_atomic_osd.h \
-${OSM}/complib/cl_byteswap.h \
-${OSM}/complib/cl_byteswap_osd.h \
-${OSM}/complib/cl_comppool.h \
-${OSM}/complib/cl_debug.h \
-${OSM}/complib/cl_debug_osd.h \
-${OSM}/complib/cl_dispatcher.h \
-${OSM}/complib/cl_event.h \
-${OSM}/complib/cl_event_osd.h \
-${OSM}/complib/cl_event_wheel.h \
-${OSM}/complib/cl_fleximap.h \
-${OSM}/complib/cl_list.h \
-${OSM}/complib/cl_log.h \
-${OSM}/complib/cl_map.h \
-${OSM}/complib/cl_math.h \
-${OSM}/complib/cl_nodenamemap.h \
-${OSM}/complib/cl_packoff.h \
-${OSM}/complib/cl_packon.h \
-${OSM}/complib/cl_passivelock.h \
-${OSM}/complib/cl_pool.h \
-${OSM}/complib/cl_ptr_vector.h \
-${OSM}/complib/cl_qcomppool.h \
-${OSM}/complib/cl_qlist.h \
-${OSM}/complib/cl_qmap.h \
-${OSM}/complib/cl_qpool.h \
-${OSM}/complib/cl_spinlock.h \
-${OSM}/complib/cl_spinlock_osd.h \
-${OSM}/complib/cl_thread.h \
-${OSM}/complib/cl_thread_osd.h \
-${OSM}/complib/cl_threadpool.h \
-${OSM}/complib/cl_timer.h \
-${OSM}/complib/cl_timer_osd.h \
-${OSM}/complib/cl_types.h \
-${OSM}/complib/cl_types_osd.h \
-${OSM}/complib/cl_vector.h
-COMPINCSDIR=	${INCLUDEDIR}/infiniband/complib
-
 OSMINCS= \
 ${OSM}/opensm/osm_attrib_req.h \
 ${OSM}/opensm/osm_base.h \
@@ -155,7 +116,6 @@ VENDORINCSDIR=	${INCLUDEDIR}/infiniband/vendor
 INCSGROUPS= \
 IBINCS \
 RDMAINCS \
-COMPINCS \
 OSMINCS \
 IBAINCS \
 VENDORINCS
