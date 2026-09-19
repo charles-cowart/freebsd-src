@@ -233,7 +233,6 @@ _LIBRARIES+= \
 		rdmacm \
 		osmcomp \
 		opensm \
-		osmvendor
 .endif
 
 .if ${MK_BEARSSL} == "yes"
@@ -416,7 +415,6 @@ _DP_bnxtre=	ibverbs pthread
 _DP_rdmacm=	ibverbs
 _DP_osmcomp=	pthread
 _DP_opensm=	pthread
-_DP_osmvendor=	ibumad pthread
 .endif
 
 # Define special cases
@@ -679,7 +677,6 @@ LIBBNXTREDIR=	${_LIB_OBJTOP}/lib/ofed/libbnxtre
 LIBRDMACMDIR=	${_LIB_OBJTOP}/lib/ofed/librdmacm
 LIBOSMCOMPDIR=	${_LIB_OBJTOP}/lib/ofed/complib
 LIBOPENSMDIR=	${_LIB_OBJTOP}/lib/ofed/libopensm
-LIBOSMVENDORDIR=${_LIB_OBJTOP}/lib/ofed/libvendor
 
 LIBSSPDIR=	${_LIB_OBJTOP}/lib/libssp
 LIBSSP_NONSHAREDDIR=	${_LIB_OBJTOP}/lib/libssp_nonshared

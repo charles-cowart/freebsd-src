@@ -150,33 +150,9 @@ ${OSM}/iba/ib_types.h
 IBAINCSDIR=	${INCLUDEDIR}/infiniband/iba
 
 VENDORINCS= \
-${OSM}/vendor/osm_mtl_bind.h \
-${OSM}/vendor/osm_pkt_randomizer.h \
-${OSM}/vendor/osm_ts_useraccess.h \
-${OSM}/vendor/osm_umadt.h \
 ${OSM}/vendor/osm_vendor.h \
-${OSM}/vendor/osm_vendor_al.h \
 ${OSM}/vendor/osm_vendor_api.h \
 ${OSM}/vendor/osm_vendor_ibumad.h \
-${OSM}/vendor/osm_vendor_mlx.h \
-${OSM}/vendor/osm_vendor_mlx_defs.h \
-${OSM}/vendor/osm_vendor_mlx_dispatcher.h \
-${OSM}/vendor/osm_vendor_mlx_hca.h \
-${OSM}/vendor/osm_vendor_mlx_inout.h \
-${OSM}/vendor/osm_vendor_mlx_rmpp_ctx.h \
-${OSM}/vendor/osm_vendor_mlx_sar.h \
-${OSM}/vendor/osm_vendor_mlx_sender.h \
-${OSM}/vendor/osm_vendor_mlx_svc.h \
-${OSM}/vendor/osm_vendor_mlx_transport.h \
-${OSM}/vendor/osm_vendor_mlx_transport_anafa.h \
-${OSM}/vendor/osm_vendor_mlx_txn.h \
-${OSM}/vendor/osm_vendor_mtl.h \
-${OSM}/vendor/osm_vendor_mtl_hca_guid.h \
-${OSM}/vendor/osm_vendor_mtl_transaction_mgr.h \
-${OSM}/vendor/osm_vendor_sa_api.h \
-${OSM}/vendor/osm_vendor_test.h \
-${OSM}/vendor/osm_vendor_ts.h \
-${OSM}/vendor/osm_vendor_umadt.h
 VENDORINCSDIR=	${INCLUDEDIR}/infiniband/vendor
 
 INCSGROUPS= \
