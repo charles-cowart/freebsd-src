@@ -243,15 +243,13 @@ efi_env_net_params(struct iodesc *desc)
 	myip.s_addr = ipaddr;
 	netmask = mask;
 	gateip.s_addr = gwaddr;
-	servip.s_addr = serveraddr;
-
 	rootip.s_addr = serveraddr;
 
 #ifdef EFINET_DEBUG
 	printf("%s: ip=%s\n", __func__, inet_ntoa(myip));
 	printf("%s: mask=%s\n", __func__, intoa(netmask));
 	printf("%s: gateway=%s\n", __func__, inet_ntoa(gateip));
-	printf("%s: server=%s\n", __func__, inet_ntoa(servip));
+	printf("%s: server=%s\n", __func__, inet_ntoa(rootip));
 #endif
 
 	desc->myip = myip;
