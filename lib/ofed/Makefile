@@ -10,9 +10,7 @@ SUBDIR= \
 	libmlx4 \
 	libmlx5 \
 	libbnxtre \
-	libirdma \
-	libopensm
-
+	libirdma 
 SUBDIR_DEPEND_libibcm= libibverbs
 SUBDIR_DEPEND_librdmacm= libibverbs
 SUBDIR_DEPEND_libibmad= libibumad
