@@ -51,6 +51,11 @@
 #   xargs -n1 | sort | uniq -d;
 # done
 
+# 20260919: Remove bsdlabel(8), its compatibility link, and disktab(5)
+OLD_FILES+=etc/disktab
+OLD_FILES+=sbin/bsdlabel
+OLD_FILES+=sbin/disklabel
+
 # 20260917: Remove NFS client, server, locking, and administration support
 OLD_FILES+=usr/share/man/man8/diskless.8.gz
 OLD_FILES+=boot/kernel/dtnfscl.ko
