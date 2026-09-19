@@ -665,7 +665,6 @@ DIRDEPS.amd64= \
 	usr.sbin/bhyve \
 	usr.sbin/bhyvectl \
 	usr.sbin/bhyveload \
-	usr.sbin/boot0cfg \
 	usr.sbin/btxld \
 	usr.sbin/camdd \
 	usr.sbin/cpucontrol \
@@ -698,8 +697,7 @@ DIRDEPS.i386= \
 	usr.sbin/sade \
 	usr.sbin/spkrtest \
 	usr.sbin/zzz \
-	usr.sbin/acpi \
-	usr.sbin/boot0cfg
+	usr.sbin/acpi
 
 DIRDEPS.arm64= \
 	usr.sbin/acpi \

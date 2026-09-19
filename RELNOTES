@@ -10,6 +10,13 @@ newline.  Entries should be separated by a newline.
 
 Changes to this file should not be MFCed.
 
+799bf449c:
+	The boot0cfg(8) utility has been removed.  Supported installations no
+	longer provide the interactive /boot/boot0 MBR selector, including BIOS
+	installations on amd64 and i386.  The installer now defaults to GPT;
+	UEFI installations use an EFI System Partition, while BIOS installations
+	use the GPT-aware pmbr and gptboot or gptzfsboot loaders.
+
 0c370a416b68:
         Update smartpqi(4) to vendor version 14.4690.0.2008 - 15.2.0.2008
         for the SmartArray storage controllers.  This adds support for new 

@@ -51,6 +51,9 @@
 #   xargs -n1 | sort | uniq -d;
 # done
 
+# 20260919: Remove boot0cfg
+OLD_FILES+=usr/sbin/boot0cfg
+
 # 20260917: Remove NFS client, server, locking, and administration support
 OLD_FILES+=usr/share/man/man8/diskless.8.gz
 OLD_FILES+=boot/kernel/dtnfscl.ko
