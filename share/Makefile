@@ -18,7 +18,6 @@ SUBDIR=	${_colldef} \
 	${_msgdef} \
 	${_numericdef} \
 	skel \
-	${_snmp} \
 	\
 	tabset \
 	termcap \
@@ -27,10 +26,6 @@ SUBDIR=	${_colldef} \
 	${_zoneinfo}
 
 # NB: keep these sorted by MK_* knobs
-
-.if ${MK_BSNMP} != "no"
-_snmp=		snmp
-.endif
 
 .if ${MK_CDDL} != "no"
 _dtrace=	dtrace

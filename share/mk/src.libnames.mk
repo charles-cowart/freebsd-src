@@ -41,7 +41,6 @@ _PRIVATELIBS+=	${LOCAL_PRIVATELIBS}
 
 _INTERNALLIBS=	\
 		amu \
-		bsnmptools \
 		c_nossp_pic \
 		cron \
 		der \
@@ -96,11 +95,9 @@ _LIBRARIES=	\
 		avl \
 		BlocksRuntime \
 		be \
-		begemot \
 		bluetooth \
 		bsdxml \
 		bsm \
-		bsnmp \
 		bz2 \
 		c \
 		c_pic \
@@ -293,9 +290,6 @@ _DP_ssh=	crypto crypt z
 _DP_ssh+=	ldns
 .endif
 _DP_edit=	tinfow
-.if ${MK_OPENSSL} != "no"
-_DP_bsnmp=	crypto
-.endif
 _DP_geom=	bsdxml sbuf
 _DP_cam=	sbuf
 _DP_kldelf=	elf
@@ -575,9 +569,6 @@ LIBPARSE?=	${LIBPARSEDIR}/libparse${PIE_SUFFIX}.a
 LIBFIFOLOGDIR=	${_LIB_OBJTOP}/usr.sbin/fifolog/lib
 LIBFIFOLOG?=	${LIBFIFOLOGDIR}/libfifolog${PIE_SUFFIX}.a
 
-LIBBSNMPTOOLSDIR=	${_LIB_OBJTOP}/usr.sbin/bsnmpd/tools/libbsnmptools
-LIBBSNMPTOOLS?=	${LIBBSNMPTOOLSDIR}/libbsnmptools${PIE_SUFFIX}.a
-
 LIBBE?=		${LIBBEDIR}/libbe${PIE_SUFFIX}.a
 
 LIBPKGECCDIR=	${_LIB_OBJTOP}/secure/lib/libpkgecc
@@ -703,7 +694,6 @@ LIBALIASDIR=	${_LIB_OBJTOP}/lib/libalias/libalias
 LIBBLACKLISTDIR=	${_LIB_OBJTOP}/lib/libblacklist
 LIBBLOCKLISTDIR=	${_LIB_OBJTOP}/lib/libblocklist
 LIBBLOCKSRUNTIMEDIR=	${_LIB_OBJTOP}/lib/libblocksruntime
-LIBBSNMPDIR=	${_LIB_OBJTOP}/lib/libbsnmp/libbsnmp
 LIBCASPERDIR=	${_LIB_OBJTOP}/lib/libcasper/libcasper
 LIBCAP_DNSDIR=	${_LIB_OBJTOP}/lib/libcasper/services/cap_dns
 LIBCAP_GRPDIR=	${_LIB_OBJTOP}/lib/libcasper/services/cap_grp

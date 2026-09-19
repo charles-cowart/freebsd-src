@@ -1,6 +1,0 @@
-SHLIB_MAJOR=	6
-PACKAGE=	bsnmp
-
-NO_WMISSING_VARIABLE_DECLARATIONS=
-
-.include "../Makefile.inc"

@@ -107,7 +107,6 @@ SUBDIR.${MK_BLOCKLIST}+=	blocklistctl
 SUBDIR.${MK_BLOCKLIST}+=	blocklistd
 SUBDIR.${MK_BLUETOOTH}+=	bluetooth
 SUBDIR.${MK_BSDINSTALL}+=	bsdinstall
-SUBDIR.${MK_BSNMP}+=	bsnmpd
 .if ${MK_CAROOT} != "no"
 SUBDIR.${MK_OPENSSL}+=	certctl
 .endif

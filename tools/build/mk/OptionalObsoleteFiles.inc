@@ -268,91 +268,6 @@ OLD_FILES+=usr/bin/bsdcpio
 OLD_FILES+=usr/bin/cpio
 .endif
 
-.if ${MK_BSNMP} == no
-OLD_FILES+=etc/snmpd.config
-OLD_FILES+=etc/rc.d/bsnmpd
-OLD_FILES+=usr/bin/bsnmpget
-OLD_FILES+=usr/bin/bsnmpset
-OLD_FILES+=usr/bin/bsnmpwalk
-OLD_FILES+=usr/include/bsnmp/asn1.h
-OLD_FILES+=usr/include/bsnmp/bridge_snmp.h
-OLD_FILES+=usr/include/bsnmp/snmp.h
-OLD_FILES+=usr/include/bsnmp/snmp_mibII.h
-OLD_FILES+=usr/include/bsnmp/snmp_netgraph.h
-OLD_FILES+=usr/include/bsnmp/snmpagent.h
-OLD_FILES+=usr/include/bsnmp/snmpclient.h
-OLD_FILES+=usr/include/bsnmp/snmpmod.h
-OLD_FILES+=usr/lib/libbsnmp.a
-OLD_FILES+=usr/lib/libbsnmp.so
-OLD_LIBS+=usr/lib/libbsnmp.so.7
-OLD_FILES+=usr/lib/libbsnmptools.a
-OLD_FILES+=usr/lib/libbsnmptools.so
-OLD_LIBS+=usr/lib/libbsnmptools.so.0
-OLD_FILES+=usr/lib/snmp_bridge.so
-OLD_LIBS+=usr/lib/snmp_bridge.so.6
-OLD_FILES+=usr/lib/snmp_hast.so
-OLD_LIBS+=usr/lib/snmp_hast.so.6
-OLD_FILES+=usr/lib/snmp_hostres.so
-OLD_LIBS+=usr/lib/snmp_hostres.so.6
-OLD_FILES+=usr/lib/snmp_lm75.so
-OLD_LIBS+=usr/lib/snmp_lm75.so.6
-OLD_FILES+=usr/lib/snmp_mibII.so
-OLD_LIBS+=usr/lib/snmp_mibII.so.6
-OLD_FILES+=usr/lib/snmp_netgraph.so
-OLD_LIBS+=usr/lib/snmp_netgraph.so.6
-OLD_FILES+=usr/lib/snmp_pf.so
-OLD_LIBS+=usr/lib/snmp_pf.so.6
-OLD_FILES+=usr/lib/snmp_target.so
-OLD_LIBS+=usr/lib/snmp_target.so.6
-OLD_FILES+=usr/lib/snmp_usm.so
-OLD_LIBS+=usr/lib/snmp_usm.so.6
-OLD_FILES+=usr/lib/snmp_vacm.so
-OLD_LIBS+=usr/lib/snmp_vacm.so.6
-OLD_FILES+=usr/lib/snmp_wlan.so
-OLD_LIBS+=usr/lib/snmp_wlan.so.6
-OLD_FILES+=usr/sbin/bsnmpd
-OLD_FILES+=usr/sbin/gensnmptree
-OLD_FILES+=usr/share/examples/etc/snmpd.config
-# lib/libbsnmp/libbsnmp
-# usr.sbin/bsnmpd/bsnmpd
-OLD_FILES+=usr/share/snmp/defs/bridge_tree.def
-OLD_FILES+=usr/share/snmp/defs/hast_tree.def
-OLD_FILES+=usr/share/snmp/defs/hostres_tree.def
-OLD_FILES+=usr/share/snmp/defs/lm75_tree.def
-OLD_FILES+=usr/share/snmp/defs/mibII_tree.def
-OLD_FILES+=usr/share/snmp/defs/netgraph_tree.def
-OLD_FILES+=usr/share/snmp/defs/pf_tree.def
-OLD_FILES+=usr/share/snmp/defs/target_tree.def
-OLD_FILES+=usr/share/snmp/defs/tc.def
-OLD_FILES+=usr/share/snmp/defs/tree.def
-OLD_FILES+=usr/share/snmp/defs/usm_tree.def
-OLD_FILES+=usr/share/snmp/defs/vacm_tree.def
-OLD_FILES+=usr/share/snmp/defs/wlan_tree.def
-OLD_FILES+=usr/share/snmp/mibs/BEGEMOT-ATM-FREEBSD-MIB.txt
-OLD_FILES+=usr/share/snmp/mibs/BEGEMOT-ATM.txt
-OLD_FILES+=usr/share/snmp/mibs/BEGEMOT-BRIDGE-MIB.txt
-OLD_FILES+=usr/share/snmp/mibs/BEGEMOT-HAST-MIB.txt
-OLD_FILES+=usr/share/snmp/mibs/BEGEMOT-HOSTRES-MIB.txt
-OLD_FILES+=usr/share/snmp/mibs/BEGEMOT-IP-MIB.txt
-OLD_FILES+=usr/share/snmp/mibs/BEGEMOT-LM75-MIB.txt
-OLD_FILES+=usr/share/snmp/mibs/BEGEMOT-MIB.txt
-OLD_FILES+=usr/share/snmp/mibs/BEGEMOT-MIB2-MIB.txt
-OLD_FILES+=usr/share/snmp/mibs/BEGEMOT-NETGRAPH.txt
-OLD_FILES+=usr/share/snmp/mibs/BEGEMOT-PF-MIB.txt
-OLD_FILES+=usr/share/snmp/mibs/BEGEMOT-SNMPD.txt
-OLD_FILES+=usr/share/snmp/mibs/BEGEMOT-WIRELESS-MIB.txt
-OLD_FILES+=usr/share/snmp/mibs/BRIDGE-MIB.txt
-OLD_FILES+=usr/share/snmp/mibs/FOKUS-MIB.txt
-OLD_FILES+=usr/share/snmp/mibs/FREEBSD-MIB.txt
-OLD_FILES+=usr/share/snmp/mibs/RSTP-MIB.txt
-OLD_FILES+=usr/tests/lib/libbsnmp/bsnmpd_test
-OLD_FILES+=usr/tests/lib/libbsnmp/Kyuafile
-OLD_DIRS+=usr/include/bsnmp
-OLD_DIRS+=usr/share/snmp
-OLD_DIRS+=usr/share/snmp/defs
-OLD_DIRS+=usr/share/snmp/mibs
-OLD_DIRS+=usr/tests/lib/libbsnmp
-.endif
 
 .if ${MK_CASPER} == no
 OLD_LIBS+=lib/libcasper.so.1
@@ -1449,11 +1364,6 @@ OLD_FILES+=usr/share/examples/hast/ucarp_up.sh
 OLD_FILES+=usr/share/examples/hast/vip-down.sh
 OLD_FILES+=usr/share/examples/hast/vip-up.sh
 OLD_DIRS+=usr/share/examples/hast
-# bsnmp
-OLD_FILES+=usr/lib/snmp_hast.so
-OLD_LIBS+=usr/lib/snmp_hast.so.6
-OLD_FILES+=usr/share/snmp/defs/hast_tree.def
-OLD_FILES+=usr/share/snmp/mibs/BEGEMOT-HAST-MIB.txt
 .endif
 
 .if ${MK_HESIOD} == no
@@ -3497,11 +3407,6 @@ OLD_FILES+=etc/rc.d/ipfw_netflow
 .endif
 
 .if ${MK_NETGRAPH_SUPPORT} == no
-OLD_FILES+=usr/include/bsnmp/snmp_netgraph.h
-OLD_FILES+=usr/lib/snmp_netgraph.so
-OLD_LIBS+=usr/lib/snmp_netgraph.so.6
-OLD_FILES+=usr/share/snmp/defs/netgraph_tree.def
-OLD_FILES+=usr/share/snmp/mibs/BEGEMOT-NETGRAPH.txt
 .endif
 
 .if ${MK_NETLINK} == no
@@ -5429,11 +5334,6 @@ OLD_FILES+=usr/share/examples/hostapd/hostapd.conf
 OLD_FILES+=usr/share/examples/hostapd/hostapd.eap_user
 OLD_FILES+=usr/share/examples/hostapd/hostapd.wpa_psk
 OLD_DIRS+=usr/share/examples/hostapd
-OLD_FILES+=usr/lib/snmp_wlan.so
-OLD_LIBS+=usr/lib/snmp_wlan.so.6
-# bsnmp module
-OLD_FILES+=usr/share/snmp/defs/wlan_tree.def
-OLD_FILES+=usr/share/snmp/mibs/BEGEMOT-WIRELESS-MIB.txt
 .endif
 
 .if ${MK_ZFS} == no

@@ -52,7 +52,6 @@ rpc		- see rpc(5)
 security	- script run from crontab to do nightly security checks
 services	- see services(5)
 shells		- list of configurable shells (see shells(5))
-snmpd.config	- example configuration file for bsnmpd(1)
 sysctl.conf	- configuration file for sysctl(8)
 syslog.conf	- configuration file for syslogd(8)
 ttys		- defines port configuration for init(8)

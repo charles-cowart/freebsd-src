@@ -337,8 +337,6 @@
         ..
         libbe
         ..
-        libbsnmp
-        ..
         libc
             c063
             ..

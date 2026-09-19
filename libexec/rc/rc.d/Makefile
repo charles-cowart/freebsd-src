@@ -114,9 +114,6 @@ BLUETOOTH=	bluetooth \
 		sdpd \
 		ubthidhci
 
-CONFGROUPS.${MK_BSNMP}+=	BSNMP
-BSNMPPACKAGE=			bsnmp
-BSNMP=		bsnmpd
 
 CONFGROUPS.${MK_CCD}+=		CCD
 CCDPACKAGE=			ccdconfig
