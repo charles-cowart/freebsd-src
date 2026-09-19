@@ -107,13 +107,53 @@ OLD_FILES+=usr/share/man/man8/sminfo.8.gz
 OLD_FILES+=usr/share/man/man8/smpdump.8.gz
 OLD_FILES+=usr/share/man/man8/smpquery.8.gz
 OLD_FILES+=usr/share/man/man8/vendstat.8.gz
-
 # 20260919: Remove libibmad
 OLD_FILES+=usr/include/infiniband/mad.h
 OLD_FILES+=usr/include/infiniband/mad_osd.h
 OLD_FILES+=usr/lib/libibmad.a
 OLD_FILES+=usr/lib/libibmad.so
 OLD_LIBS+=usr/lib/libibmad.so.5
+# 20260919: Remove osmcomp library and public headers
+OLD_FILES+=usr/include/infiniband/complib/cl_byteswap.h
+OLD_FILES+=usr/include/infiniband/complib/cl_types.h
+OLD_FILES+=usr/include/infiniband/complib/cl_map.h
+OLD_FILES+=usr/include/infiniband/complib/cl_packon.h
+OLD_FILES+=usr/include/infiniband/complib/cl_timer.h
+OLD_FILES+=usr/include/infiniband/complib/cl_thread_osd.h
+OLD_FILES+=usr/include/infiniband/complib/cl_thread.h
+OLD_FILES+=usr/include/infiniband/complib/cl_event.h
+OLD_FILES+=usr/include/infiniband/complib/cl_byteswap_osd.h
+OLD_FILES+=usr/include/infiniband/complib/cl_passivelock.h
+OLD_FILES+=usr/include/infiniband/complib/cl_vector.h
+OLD_FILES+=usr/include/infiniband/complib/cl_nodenamemap.h
+OLD_FILES+=usr/include/infiniband/complib/cl_event_wheel.h
+OLD_FILES+=usr/include/infiniband/complib/cl_log.h
+OLD_FILES+=usr/include/infiniband/complib/cl_fleximap.h
+OLD_FILES+=usr/include/infiniband/complib/cl_qlist.h
+OLD_FILES+=usr/include/infiniband/complib/cl_timer_osd.h
+OLD_FILES+=usr/include/infiniband/complib/cl_pool.h
+OLD_FILES+=usr/include/infiniband/complib/cl_debug.h
+OLD_FILES+=usr/include/infiniband/complib/cl_types_osd.h
+OLD_FILES+=usr/include/infiniband/complib/cl_dispatcher.h
+OLD_FILES+=usr/include/infiniband/complib/cl_ptr_vector.h
+OLD_FILES+=usr/include/infiniband/complib/cl_atomic_osd.h
+OLD_FILES+=usr/include/infiniband/complib/cl_qmap.h
+OLD_FILES+=usr/include/infiniband/complib/cl_spinlock_osd.h
+OLD_FILES+=usr/include/infiniband/complib/cl_qcomppool.h
+OLD_FILES+=usr/include/infiniband/complib/cl_threadpool.h
+OLD_FILES+=usr/include/infiniband/complib/cl_list.h
+OLD_FILES+=usr/include/infiniband/complib/cl_debug_osd.h
+OLD_FILES+=usr/include/infiniband/complib/cl_packoff.h
+OLD_FILES+=usr/include/infiniband/complib/cl_qpool.h
+OLD_FILES+=usr/include/infiniband/complib/cl_spinlock.h
+OLD_FILES+=usr/include/infiniband/complib/cl_event_osd.h
+OLD_FILES+=usr/include/infiniband/complib/cl_atomic.h
+OLD_FILES+=usr/include/infiniband/complib/cl_math.h
+OLD_FILES+=usr/include/infiniband/complib/cl_comppool.h
+OLD_DIRS+=usr/include/infiniband/complib
+OLD_FILES+=usr/lib/libosmcomp.a
+OLD_FILES+=usr/lib/libosmcomp.so
+OLD_LIBS+=usr/lib/libosmcomp.so.3
 
 # 20260919: Remove installed OpenSM program
 OLD_FILES+=usr/bin/opensm

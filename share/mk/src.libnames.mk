@@ -228,8 +228,7 @@ _LIBRARIES+= \
 		mlx4 \
 		mlx5 \
 		bnxtre \
-		rdmacm \
-		osmcomp 
+		rdmacm
 .endif
 
 .if ${MK_BEARSSL} == "yes"
@@ -408,7 +407,6 @@ _DP_mlx4=	ibverbs pthread
 _DP_mlx5=	ibverbs pthread
 _DP_bnxtre=	ibverbs pthread
 _DP_rdmacm=	ibverbs
-_DP_osmcomp=	pthread
 .endif
 
 # Define special cases
@@ -667,7 +665,6 @@ LIBMLX4DIR=	${_LIB_OBJTOP}/lib/ofed/libmlx4
 LIBMLX5DIR=	${_LIB_OBJTOP}/lib/ofed/libmlx5
 LIBBNXTREDIR=	${_LIB_OBJTOP}/lib/ofed/libbnxtre
 LIBRDMACMDIR=	${_LIB_OBJTOP}/lib/ofed/librdmacm
-LIBOSMCOMPDIR=	${_LIB_OBJTOP}/lib/ofed/complib
 LIBSSPDIR=	${_LIB_OBJTOP}/lib/libssp
 LIBSSP_NONSHAREDDIR=	${_LIB_OBJTOP}/lib/libssp_nonshared
 LIBATF_CDIR=	${_LIB_OBJTOP}/lib/atf/libatf-c
