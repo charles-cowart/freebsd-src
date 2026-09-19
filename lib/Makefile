@@ -136,7 +136,6 @@ SUBDIR_DEPEND_libpam= libcrypt ${_libradius} librpcsvc libtacplus libutil
 SUBDIR_DEPEND_libpjdlog= libutil
 SUBDIR_DEPEND_libprocstat= libkvm libutil
 SUBDIR_DEPEND_libradius= libmd
-SUBDIR_DEPEND_libsmb= libkiconv
 # See comment above about libssp_nonshared
 SUBDIR_DEPEND_libsys= libcompiler_rt libssp_nonshared
 SUBDIR_DEPEND_libtacplus= libmd

@@ -4292,10 +4292,6 @@ prison_priv_check(struct ucred *cred, int priv)
 		 */
 	case PRIV_NETNCP:
 
-		/*
-		 * SMB privileges.
-		 */
-	case PRIV_NETSMB:
 #endif
 
 	/*

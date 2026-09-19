@@ -330,8 +330,6 @@ UFS_GJOURNAL	opt_ufs.h
 # allows these options to be present in config files already (though
 # they won't make any difference yet).
 
-# SMB/CIFS requester
-
 # Enable debugnet(4) networking support.
 DEBUGNET 	opt_global.h
 # Enable netdump(4) client support.
