@@ -5,7 +5,8 @@ IBUMAD=		${SRCTOP}/contrib/ofed/libibumad
 IBCM=		${SRCTOP}/contrib/ofed/libibcm
 RDMACM=		${SRCTOP}/contrib/ofed/librdmacm
 RDMA=		${SRCTOP}/sys/ofed/include/uapi/rdma
-OSM=		${SRCTOP}/contrib/ofed/opensm/include
+COMPLIB=	${SRCTOP}/contrib/ofed/opensm/include/complib
+IBA=		${SRCTOP}/contrib/ofed/opensm/include/iba
 
 IBINCS= \
 ${OFEDINCS}/byteorder.h \
@@ -48,116 +49,53 @@ ${RDMA}/mlx5-abi.h
 RDMAINCSDIR=	${INCLUDEDIR}/rdma
 
 COMPINCS= \
-${OSM}/complib/cl_atomic.h \
-${OSM}/complib/cl_atomic_osd.h \
-${OSM}/complib/cl_byteswap.h \
-${OSM}/complib/cl_byteswap_osd.h \
-${OSM}/complib/cl_comppool.h \
-${OSM}/complib/cl_debug.h \
-${OSM}/complib/cl_debug_osd.h \
-${OSM}/complib/cl_dispatcher.h \
-${OSM}/complib/cl_event.h \
-${OSM}/complib/cl_event_osd.h \
-${OSM}/complib/cl_event_wheel.h \
-${OSM}/complib/cl_fleximap.h \
-${OSM}/complib/cl_list.h \
-${OSM}/complib/cl_log.h \
-${OSM}/complib/cl_map.h \
-${OSM}/complib/cl_math.h \
-${OSM}/complib/cl_nodenamemap.h \
-${OSM}/complib/cl_packoff.h \
-${OSM}/complib/cl_packon.h \
-${OSM}/complib/cl_passivelock.h \
-${OSM}/complib/cl_pool.h \
-${OSM}/complib/cl_ptr_vector.h \
-${OSM}/complib/cl_qcomppool.h \
-${OSM}/complib/cl_qlist.h \
-${OSM}/complib/cl_qmap.h \
-${OSM}/complib/cl_qpool.h \
-${OSM}/complib/cl_spinlock.h \
-${OSM}/complib/cl_spinlock_osd.h \
-${OSM}/complib/cl_thread.h \
-${OSM}/complib/cl_thread_osd.h \
-${OSM}/complib/cl_threadpool.h \
-${OSM}/complib/cl_timer.h \
-${OSM}/complib/cl_timer_osd.h \
-${OSM}/complib/cl_types.h \
-${OSM}/complib/cl_types_osd.h \
-${OSM}/complib/cl_vector.h
+${COMPLIB}/cl_atomic.h \
+${COMPLIB}/cl_atomic_osd.h \
+${COMPLIB}/cl_byteswap.h \
+${COMPLIB}/cl_byteswap_osd.h \
+${COMPLIB}/cl_comppool.h \
+${COMPLIB}/cl_debug.h \
+${COMPLIB}/cl_debug_osd.h \
+${COMPLIB}/cl_dispatcher.h \
+${COMPLIB}/cl_event.h \
+${COMPLIB}/cl_event_osd.h \
+${COMPLIB}/cl_event_wheel.h \
+${COMPLIB}/cl_fleximap.h \
+${COMPLIB}/cl_list.h \
+${COMPLIB}/cl_log.h \
+${COMPLIB}/cl_map.h \
+${COMPLIB}/cl_math.h \
+${COMPLIB}/cl_nodenamemap.h \
+${COMPLIB}/cl_packoff.h \
+${COMPLIB}/cl_packon.h \
+${COMPLIB}/cl_passivelock.h \
+${COMPLIB}/cl_pool.h \
+${COMPLIB}/cl_ptr_vector.h \
+${COMPLIB}/cl_qcomppool.h \
+${COMPLIB}/cl_qlist.h \
+${COMPLIB}/cl_qmap.h \
+${COMPLIB}/cl_qpool.h \
+${COMPLIB}/cl_spinlock.h \
+${COMPLIB}/cl_spinlock_osd.h \
+${COMPLIB}/cl_thread.h \
+${COMPLIB}/cl_thread_osd.h \
+${COMPLIB}/cl_threadpool.h \
+${COMPLIB}/cl_timer.h \
+${COMPLIB}/cl_timer_osd.h \
+${COMPLIB}/cl_types.h \
+${COMPLIB}/cl_types_osd.h \
+${COMPLIB}/cl_vector.h
 COMPINCSDIR=	${INCLUDEDIR}/infiniband/complib
 
-OSMINCS= \
-${OSM}/opensm/osm_attrib_req.h \
-${OSM}/opensm/osm_base.h \
-${OSM}/opensm/osm_config.h \
-${OSM}/opensm/osm_congestion_control.h \
-${OSM}/opensm/osm_console.h \
-${OSM}/opensm/osm_console_io.h \
-${OSM}/opensm/osm_db.h \
-${OSM}/opensm/osm_db_pack.h \
-${OSM}/opensm/osm_errors.h \
-${OSM}/opensm/osm_event_plugin.h \
-${OSM}/opensm/osm_file_ids.h \
-${OSM}/opensm/osm_guid.h \
-${OSM}/opensm/osm_helper.h \
-${OSM}/opensm/osm_inform.h \
-${OSM}/opensm/osm_lid_mgr.h \
-${OSM}/opensm/osm_log.h \
-${OSM}/opensm/osm_mad_pool.h \
-${OSM}/opensm/osm_madw.h \
-${OSM}/opensm/osm_mcast_mgr.h \
-${OSM}/opensm/osm_mcast_tbl.h \
-${OSM}/opensm/osm_mcm_port.h \
-${OSM}/opensm/osm_mesh.h \
-${OSM}/opensm/osm_msgdef.h \
-${OSM}/opensm/osm_mtree.h \
-${OSM}/opensm/osm_multicast.h \
-${OSM}/opensm/osm_node.h \
-${OSM}/opensm/osm_opensm.h \
-${OSM}/opensm/osm_partition.h \
-${OSM}/opensm/osm_path.h \
-${OSM}/opensm/osm_perfmgr.h \
-${OSM}/opensm/osm_perfmgr_db.h \
-${OSM}/opensm/osm_pkey.h \
-${OSM}/opensm/osm_port.h \
-${OSM}/opensm/osm_port_profile.h \
-${OSM}/opensm/osm_prefix_route.h \
-${OSM}/opensm/osm_qos_policy.h \
-${OSM}/opensm/osm_remote_sm.h \
-${OSM}/opensm/osm_router.h \
-${OSM}/opensm/osm_sa.h \
-${OSM}/opensm/osm_sa_mad_ctrl.h \
-${OSM}/opensm/osm_service.h \
-${OSM}/opensm/osm_sm.h \
-${OSM}/opensm/osm_sm_mad_ctrl.h \
-${OSM}/opensm/osm_stats.h \
-${OSM}/opensm/osm_subnet.h \
-${OSM}/opensm/osm_switch.h \
-${OSM}/opensm/osm_ucast_cache.h \
-${OSM}/opensm/osm_ucast_lash.h \
-${OSM}/opensm/osm_ucast_mgr.h \
-${OSM}/opensm/osm_version.h \
-${OSM}/opensm/osm_vl15intf.h \
-${OSM}/opensm/st.h
-OSMINCSDIR=	${INCLUDEDIR}/infiniband/opensm
-
 IBAINCS= \
-${OSM}/iba/ib_cm_types.h \
-${OSM}/iba/ib_types.h
+${IBA}/ib_cm_types.h \
+${IBA}/ib_types.h
 IBAINCSDIR=	${INCLUDEDIR}/infiniband/iba
-
-VENDORINCS= \
-${OSM}/vendor/osm_vendor.h \
-${OSM}/vendor/osm_vendor_api.h \
-${OSM}/vendor/osm_vendor_ibumad.h \
-VENDORINCSDIR=	${INCLUDEDIR}/infiniband/vendor
 
 INCSGROUPS= \
 IBINCS \
 RDMAINCS \
 COMPINCS \
-OSMINCS \
-IBAINCS \
-VENDORINCS
+IBAINCS
 
 .include <bsd.prog.mk>
