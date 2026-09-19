@@ -3904,14 +3904,12 @@ OLD_FILES+=usr/include/infiniband/verbs.h
 OLD_FILES+=usr/include/infiniband/ib.h
 OLD_FILES+=usr/include/infiniband/cm.h
 OLD_FILES+=usr/include/infiniband/opcode.h
-OLD_FILES+=usr/include/infiniband/ibnetdisc.h
 OLD_FILES+=usr/include/infiniband/driver.h
 OLD_FILES+=usr/include/infiniband/mad_osd.h
 OLD_FILES+=usr/include/infiniband/umad_types.h
 OLD_FILES+=usr/include/infiniband/umad_cm.h
 OLD_FILES+=usr/include/infiniband/cm_abi.h
 OLD_FILES+=usr/include/infiniband/sa-kern-abi.h
-OLD_FILES+=usr/include/infiniband/ibnetdisc_osd.h
 OLD_FILES+=usr/include/infiniband/opensm/osm_event_plugin.h
 OLD_FILES+=usr/include/infiniband/opensm/osm_console_io.h
 OLD_FILES+=usr/include/infiniband/opensm/osm_ucast_cache.h
@@ -4052,9 +4050,6 @@ OLD_LIBS+=usr/lib/libibcm.so.1
 OLD_FILES+=usr/lib/libibmad.a
 OLD_FILES+=usr/lib/libibmad.so
 OLD_LIBS+=usr/lib/libibmad.so.5
-OLD_FILES+=usr/lib/libibnetdisc.a
-OLD_FILES+=usr/lib/libibnetdisc.so
-OLD_LIBS+=usr/lib/libibnetdisc.so.5
 OLD_FILES+=usr/lib/libibumad.a
 OLD_FILES+=usr/lib/libibumad.so
 OLD_LIBS+=usr/lib/libibumad.so.1
@@ -4079,14 +4074,6 @@ OLD_LIBS+=usr/lib/libosmvendor.so.4
 OLD_FILES+=usr/lib/librdmacm.a
 OLD_FILES+=usr/lib/librdmacm.so
 OLD_LIBS+=usr/lib/librdmacm.so.1
-.endif
-
-.if ${MK_OFED_EXTRA} == no
-OLD_FILES+=usr/bin/dump_fts
-OLD_FILES+=usr/bin/ibcacheedit
-OLD_FILES+=usr/bin/iblinkinfo
-OLD_FILES+=usr/bin/ibnetdiscover
-OLD_FILES+=usr/bin/ibqueryerrors
 .endif
 
 .if ${MK_OPENMP} == no

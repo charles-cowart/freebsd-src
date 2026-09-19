@@ -2,8 +2,7 @@
 
 SUBDIR= \
 	libibverbs \
-	librdmacm \
-	infiniband-diags
+	librdmacm
 
 SUBDIR_PARALLEL=
 

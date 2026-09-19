@@ -3,7 +3,6 @@ IBVERBS=	${SRCTOP}/contrib/ofed/libibverbs
 IBMAD=		${SRCTOP}/contrib/ofed/libibmad
 IBUMAD=		${SRCTOP}/contrib/ofed/libibumad
 IBCM=		${SRCTOP}/contrib/ofed/libibcm
-IBND=		${SRCTOP}/contrib/ofed/libibnetdisc
 RDMACM=		${SRCTOP}/contrib/ofed/librdmacm
 RDMA=		${SRCTOP}/sys/ofed/include/uapi/rdma
 OSM=		${SRCTOP}/contrib/ofed/opensm/include
@@ -32,8 +31,6 @@ ${IBMAD}/mad.h \
 ${IBMAD}/mad_osd.h \
 ${IBCM}/cm.h \
 ${IBCM}/cm_abi.h \
-${IBND}/ibnetdisc.h \
-${IBND}/ibnetdisc_osd.h \
 ${RDMACM}/ib.h
 IBINCSDIR=	${INCLUDEDIR}/infiniband
 
