@@ -141,6 +141,9 @@ OLD_FILES+=usr/share/man/man3/poll_stop_timer.3.gz
 OLD_FILES+=usr/share/man/man3/poll_unregister.3.gz
 OLD_FILES+=usr/share/man/man3/rpoll.3.gz
 OLD_FILES+=usr/share/man/man7/bsd.snmpmod.mk.7.gz
+# 20260919: Remove pnpinfo
+OLD_FILES+=usr/sbin/pnpinfo
+
 # 20260919: Remove SMBFS and the in-tree SMB1 client
 OLD_FILES+=boot/kernel/smbfs.ko
 OLD_FILES+=etc/nsmb.conf
