@@ -51,6 +51,9 @@
 #   xargs -n1 | sort | uniq -d;
 # done
 
+# 20260919: Remove pnpinfo
+OLD_FILES+=usr/sbin/pnpinfo
+
 # 20260919: Remove SMBFS and the in-tree SMB1 client
 OLD_FILES+=boot/kernel/smbfs.ko
 OLD_FILES+=etc/nsmb.conf
