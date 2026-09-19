@@ -48,45 +48,6 @@ ${RDMA}/mlx4-abi.h \
 ${RDMA}/mlx5-abi.h
 RDMAINCSDIR=	${INCLUDEDIR}/rdma
 
-COMPINCS= \
-${COMPLIB}/cl_atomic.h \
-${COMPLIB}/cl_atomic_osd.h \
-${COMPLIB}/cl_byteswap.h \
-${COMPLIB}/cl_byteswap_osd.h \
-${COMPLIB}/cl_comppool.h \
-${COMPLIB}/cl_debug.h \
-${COMPLIB}/cl_debug_osd.h \
-${COMPLIB}/cl_dispatcher.h \
-${COMPLIB}/cl_event.h \
-${COMPLIB}/cl_event_osd.h \
-${COMPLIB}/cl_event_wheel.h \
-${COMPLIB}/cl_fleximap.h \
-${COMPLIB}/cl_list.h \
-${COMPLIB}/cl_log.h \
-${COMPLIB}/cl_map.h \
-${COMPLIB}/cl_math.h \
-${COMPLIB}/cl_nodenamemap.h \
-${COMPLIB}/cl_packoff.h \
-${COMPLIB}/cl_packon.h \
-${COMPLIB}/cl_passivelock.h \
-${COMPLIB}/cl_pool.h \
-${COMPLIB}/cl_ptr_vector.h \
-${COMPLIB}/cl_qcomppool.h \
-${COMPLIB}/cl_qlist.h \
-${COMPLIB}/cl_qmap.h \
-${COMPLIB}/cl_qpool.h \
-${COMPLIB}/cl_spinlock.h \
-${COMPLIB}/cl_spinlock_osd.h \
-${COMPLIB}/cl_thread.h \
-${COMPLIB}/cl_thread_osd.h \
-${COMPLIB}/cl_threadpool.h \
-${COMPLIB}/cl_timer.h \
-${COMPLIB}/cl_timer_osd.h \
-${COMPLIB}/cl_types.h \
-${COMPLIB}/cl_types_osd.h \
-${COMPLIB}/cl_vector.h
-COMPINCSDIR=	${INCLUDEDIR}/infiniband/complib
-
 IBAINCS= \
 ${IBA}/ib_cm_types.h \
 ${IBA}/ib_types.h
@@ -95,7 +56,6 @@ IBAINCSDIR=	${INCLUDEDIR}/infiniband/iba
 INCSGROUPS= \
 IBINCS \
 RDMAINCS \
-COMPINCS \
-IBAINCS
+
 
 .include <bsd.prog.mk>

@@ -5,7 +5,6 @@ SUBDIR= \
 	libibumad \
 	librdmacm \
 	libibmad \
-	complib \
 	libcxgb4 \
 	libmlx4 \
 	libmlx5 \
