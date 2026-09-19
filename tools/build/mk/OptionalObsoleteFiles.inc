@@ -4097,7 +4097,6 @@ OLD_FILES+=usr/bin/ibqueryerrors
 OLD_FILES+=usr/bin/ibroute
 OLD_FILES+=usr/bin/ibsysstat
 OLD_FILES+=usr/bin/ibtracert
-OLD_FILES+=usr/bin/opensm
 OLD_FILES+=usr/bin/perfquery
 OLD_FILES+=usr/bin/saquery
 OLD_FILES+=usr/bin/sminfo

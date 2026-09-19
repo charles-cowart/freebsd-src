@@ -51,6 +51,9 @@
 #   xargs -n1 | sort | uniq -d;
 # done
 
+# 20260919: Remove installed OpenSM program
+OLD_FILES+=usr/bin/opensm
+
 # 20260919: Remove OpenSM service integration
 OLD_FILES+=etc/newsyslog.conf.d/opensm.conf
 OLD_FILES+=etc/rc.d/opensm
