@@ -999,7 +999,9 @@ MLINKS+=	efidev.4 efirtc.4
 .if ${MK_ISCSI} != "no"
 MAN+=		cfiscsi.4
 MAN+=		iscsi.4
+.if ${MK_OFED} != "no"
 MAN+=		iser.4
+.endif
 .endif
 
 .if ${MK_OFED} != "no"
