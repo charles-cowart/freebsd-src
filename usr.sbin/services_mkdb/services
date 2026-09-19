@@ -1432,7 +1432,6 @@ accessbuilder	888/tcp
 accessbuilder	888/udp
 omginitialrefs	900/tcp    #OMG Initial Refs
 omginitialrefs	900/udp    #OMG Initial Refs
-swat		901/tcp	   # samba web configuration tool
 smpnameres	901/tcp
 smpnameres	901/udp
 ideafarm-chat	902/tcp

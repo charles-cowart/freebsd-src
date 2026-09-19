@@ -211,7 +211,6 @@
         ..
         procfs
         ..
-        smbfs
         ..
         udf
         ..
@@ -312,7 +311,6 @@
         route
         ..
     ..
-    netsmb
     ..
     nfs
     ..

@@ -40,7 +40,6 @@ SUBDIR=	adduser \
 	memcontrol \
 	mfiutil \
 	mlxcontrol \
-	mount_smbfs \
 	mpsutil \
 	mptutil \
 	mtest \

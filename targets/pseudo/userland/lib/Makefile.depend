@@ -147,7 +147,6 @@ DIRDEPS = \
 	lib/libsa \
 	lib/libsbuf \
 	lib/libsdp \
-	lib/libsmb \
 	lib/libsqlite3 \
 	lib/libstats \
 	lib/libstdbuf \

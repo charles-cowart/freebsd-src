@@ -641,16 +641,6 @@ pw_checkname(char *name, int gecos)
 			ch++;
 		}
 	}
-	/*
-	 * A `$' is allowed as the final character for userids and groups,
-	 * mainly for the benefit of samba.
-	 */
-	if (reject && !gecos) {
-		if (*ch == '$' && *(ch + 1) == '\0') {
-			reject = 0;
-			ch++;
-		}
-	}
 	if (reject) {
 		snprintf(showch, sizeof(showch), (*ch >= ' ' && *ch < 127)
 		    ? "`%c'" : "0x%02x", *ch);

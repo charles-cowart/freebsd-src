@@ -271,7 +271,6 @@ MSDOSFS		opt_dontuse.h
 NULLFS		opt_dontuse.h
 PROCFS		opt_dontuse.h
 PSEUDOFS	opt_dontuse.h
-SMBFS		opt_dontuse.h
 TARFS		opt_dontuse.h
 TMPFS		opt_dontuse.h
 UDF		opt_dontuse.h
@@ -332,7 +331,6 @@ UFS_GJOURNAL	opt_ufs.h
 # they won't make any difference yet).
 
 # SMB/CIFS requester
-NETSMB		opt_netsmb.h
 
 # Enable debugnet(4) networking support.
 DEBUGNET 	opt_global.h

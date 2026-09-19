@@ -22,7 +22,7 @@
 /var/mail(/.*)?			lomac/low
 /var/spool/mqueue(/.*)?		lomac/low
 (/mnt)?/cdrom(/.*)?		lomac/high
-(/usr)?/home/(ftp|samba)(/.*)?	lomac/high
+(/usr)?/home/ftp(/.*)?		lomac/high
 /var/log/sendmail\.st		lomac/low
 /var/run/utx.active		lomac/equal
 /var/log/utx.(lastlogin|log)	lomac/equal

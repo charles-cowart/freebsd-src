@@ -284,9 +284,3 @@ BADHDRS= \
 	netipsec/ipsec6.h \
 	netipsec/key_debug.h \
 	netipsec/keysock.h \
-	netsmb/netbios.h \
-	netsmb/smb.h \
-	netsmb/smb_conn.h \
-	netsmb/smb_rq.h \
-	netsmb/smb_subr.h \
-	netsmb/smb_tran.h \
