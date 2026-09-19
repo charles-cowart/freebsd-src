@@ -121,9 +121,6 @@ DIRDEPS= \
       cddl/usr.sbin/dtrace/tests/common/version \
       cddl/usr.sbin/tests \
       cddl/usr.sbin/zfsd/tests \
-      gnu/lib/tests \
-      gnu/tests \
-      gnu/usr.bin/tests \
       lib/atf/libatf-c++/tests \
       lib/atf/libatf-c++/tests/detail \
       lib/atf/libatf-c/tests \

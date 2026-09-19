@@ -429,7 +429,7 @@ SUBDIR+=bin
 .if ${MK_CDDL} != "no"
 SUBDIR+=cddl
 .endif
-SUBDIR+=gnu include
+SUBDIR+=include
 SUBDIR+=sbin
 .if ${MK_CRYPT} != "no"
 SUBDIR+=secure
@@ -3308,7 +3308,7 @@ lib/liblzma__L: lib/libmd__L lib/libthr__L
 lib/libzstd__L: lib/libthr__L
 lib/librt__L: lib/libthr__L
 
-_generic_libs=	${_cddl_lib} gnu/lib lib ${_secure_lib}
+_generic_libs=	${_cddl_lib} lib ${_secure_lib}
 .for _DIR in ${LOCAL_LIB_DIRS}
 .if ${_DIR} == ".WAIT"  || (empty(_generic_libs:M${_DIR}) && exists(${.CURDIR}/${_DIR}/Makefile))
 _generic_libs+= ${_DIR}

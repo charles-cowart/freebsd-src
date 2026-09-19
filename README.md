@@ -26,7 +26,6 @@ Source Roadmap:
 | contrib | Source code for third-party software. |
 | crypto | Source code for cryptographic libraries and commands (see [crypto/README](crypto/README)). |
 | etc | Template files for /etc. |
-| gnu | Source code for third-party software under the GNU General Public License (GPL) or Lesser General Public License (LGPL). Please see [gnu/COPYING](gnu/COPYING) and [gnu/COPYING.LIB](gnu/COPYING.LIB) for more information. |
 | include | System include files. |
 | lib | System libraries. |
 | libexec | System commands intended to be executed by other commands or daemons. |
