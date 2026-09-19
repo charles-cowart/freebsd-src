@@ -118,7 +118,6 @@ SUBDIR.${MK_EFI}+=	uefisign
 .endif
 SUBDIR.${MK_FDT}+=	ofwdump
 SUBDIR.${MK_GPIO}+=	gpioctl
-SUBDIR.${MK_HYPERV}+=	hyperv
 SUBDIR.${MK_INET6}+=	ip6addrctl
 SUBDIR.${MK_INET6}+=	mld6query
 SUBDIR.${MK_INET6}+=	ndp

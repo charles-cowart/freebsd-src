@@ -66,8 +66,6 @@ device		qcom_gcc		# Global Clock Controller
 # Google Virtual NIC
 device		gve		# Google Virtual NIC (gVNIC) driver
 
-# Microsoft Hyper-V
-device		hyperv
 
 # CPU frequency control
 device		cpufreq

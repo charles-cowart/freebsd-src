@@ -39,13 +39,6 @@ BLUETOOTH+=		bluetooth.conf
 BLUETOOTHPACKAGE=	bluetooth
 .endif
 
-.if ${MK_HYPERV} != "no"
-CONFGROUPS+=	HYPERV
-HYPERVDIR=${DEVDDIR}
-HYPERV+=	hyperv.conf
-HYPERVPACKAGE=	hyperv-tools
-.endif
-
 CONFGROUPS+=		NVME
 NVMEDIR=		${DEVDDIR}
 NVME+=			nvmf.conf

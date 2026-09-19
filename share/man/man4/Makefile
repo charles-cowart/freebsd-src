@@ -216,12 +216,6 @@ MAN=	aac.4 \
 	${_hptrr.4} \
 	hsctrl.4 \
 	htu21.4 \
-	${_hv_kvp.4} \
-	${_hv_netvsc.4} \
-	${_hv_storvsc.4} \
-	${_hv_utils.4} \
-	${_hv_vmbus.4} \
-	${_hv_vss.4} \
 	hwpmc.4 \
 	${_hwt.4} \
 	${_hwpstate_intel.4} \
@@ -714,8 +708,6 @@ MLINKS+=gpioths.4 dht11.4
 MLINKS+=gpioths.4 dht22.4
 MLINKS+=gre.4 if_gre.4
 MLINKS+=hpet.4 acpi_hpet.4
-MLINKS+=${_hv_netvsc.4} ${_hn.4} \
-	${_hv_netvsc.4} ${_if_hn.4}
 MLINKS+=${_hptrr.4} ${_rr232x.4}
 MLINKS+=${_attimer.4} ${_i8254.4}
 MLINKS+=ip.4 rawip.4
@@ -839,23 +831,15 @@ _cpuctl.4=	cpuctl.4
 _dpms.4=	dpms.4
 _ftgpio.4=	ftgpio.4
 _ftwd.4=	ftwd.4
-_hn.4=		hn.4
 _hpt27xx.4=	hpt27xx.4
 _hptiop.4=	hptiop.4
 _hptmv.4=	hptmv.4
 _hptnr.4=	hptnr.4
 _hptrr.4=	hptrr.4
-_hv_kvp.4=	hv_kvp.4
-_hv_netvsc.4=	hv_netvsc.4
-_hv_storvsc.4=	hv_storvsc.4
-_hv_utils.4=	hv_utils.4
-_hv_vmbus.4=	hv_vmbus.4
-_hv_vss.4=	hv_vss.4
 _hwpstate_intel.4=	hwpstate_intel.4
 _i8254.4=	i8254.4
 _ichwd.4=	ichwd.4
 _if_bxe.4=	if_bxe.4
-_if_hn.4=	if_hn.4
 _if_nfe.4=	if_nfe.4
 _if_urtw.4=	if_urtw.4
 _if_wpi.4=	if_wpi.4

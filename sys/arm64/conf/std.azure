@@ -2,7 +2,6 @@
 # Azure support
 #
 
-device		hyperv
 
 options 	COMPAT_LINUXKPI
 device		xz

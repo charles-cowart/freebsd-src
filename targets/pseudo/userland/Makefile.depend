@@ -656,9 +656,6 @@ DIRDEPS.amd64= \
 	usr.sbin/btxld \
 	usr.sbin/camdd \
 	usr.sbin/cpucontrol \
-	usr.sbin/hyperv/tools \
-	usr.sbin/hyperv/tools/kvp \
-	usr.sbin/hyperv/tools/vss \
 	usr.sbin/lptcontrol \
 	usr.sbin/mptable \
 	usr.sbin/spkrtest \
@@ -672,9 +669,6 @@ DIRDEPS.i386= \
 	sbin/nvmecontrol \
 	usr.sbin/btxld \
 	usr.sbin/cpucontrol \
-	usr.sbin/hyperv/tools \
-	usr.sbin/hyperv/tools/kvp \
-	usr.sbin/hyperv/tools/vss \
 	usr.sbin/lptcontrol \
 	usr.sbin/mptable \
 	usr.sbin/pnpinfo \

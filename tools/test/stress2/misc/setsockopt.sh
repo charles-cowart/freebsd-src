@@ -29,12 +29,6 @@
 
 # setsockopt() fuzz test scenario inspired by syzkaller.
 
-# "panic: mtx_lock() of spin mutex (null) @
-# ../../../dev/hyperv/hvsock/hv_sock.c:519" seen.
-# https://people.freebsd.org/~pho/stress/log/setsockopt.txt
-# Introduced by r361275
-# Fixed by r361360
-
 . ../default.cfg
 
 dir=/tmp

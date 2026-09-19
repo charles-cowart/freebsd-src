@@ -96,8 +96,6 @@ NPX_DEBUG		opt_npx.h
 # BPF just-in-time compiler
 BPF_JITTER		opt_bpf.h
 
-# Hyper-V support
-DEV_HYPERV		opt_hyperv.h
 
 XENHVM			opt_global.h
 

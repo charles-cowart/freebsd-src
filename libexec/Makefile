@@ -7,7 +7,6 @@ SUBDIR=	${_atf} \
 	${_blocklistd-helper} \
 	flua \
 	getty \
-	${_hyperv} \
 	rc \
 	${_rlogind} \
 	rpc.sprayd \
@@ -23,10 +22,6 @@ _atrun=		atrun
 
 .if ${MK_BLOCKLIST} != "no"
 _blocklistd-helper+=	blocklistd-helper
-.endif
-
-.if ${MK_HYPERV} != "no"
-_hyperv+=	hyperv
 .endif
 
 .if !defined(NO_PIC) && !defined(NO_RTLD)

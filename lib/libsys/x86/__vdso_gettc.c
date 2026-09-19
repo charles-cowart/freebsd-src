@@ -45,9 +45,6 @@
 #include <machine/pvclock.h>
 #include <machine/specialreg.h>
 #include <dev/acpica/acpi_hpet.h>
-#ifdef WANT_HYPERV
-#include <dev/hyperv/hyperv.h>
-#endif
 #include <x86/ifunc.h>
 #include "libc_private.h"
 
@@ -276,72 +273,6 @@ __vdso_init_hpet(uint32_t u)
 		munmap((void *)new_map, PAGE_SIZE);
 }
 
-#ifdef WANT_HYPERV
-
-#define HYPERV_REFTSC_DEVPATH	"/dev/" HYPERV_REFTSC_DEVNAME
-
-/*
- * NOTE:
- * We use 'NULL' for this variable to indicate that initialization
- * is required.  And if this variable is 'MAP_FAILED', then Hyper-V
- * reference TSC can not be used, e.g. in misconfigured jail.
- */
-static struct hyperv_reftsc *hyperv_ref_tsc;
-
-static void
-__vdso_init_hyperv_tsc(void)
-{
-	int fd;
-	unsigned int mode;
-
-	if (cap_getmode(&mode) == 0 && mode != 0)
-		goto fail;
-
-	fd = _open(HYPERV_REFTSC_DEVPATH, O_RDONLY | O_CLOEXEC);
-	if (fd < 0)
-		goto fail;
-	hyperv_ref_tsc = mmap(NULL, sizeof(*hyperv_ref_tsc), PROT_READ,
-	    MAP_SHARED, fd, 0);
-	_close(fd);
-
-	return;
-fail:
-	/* Prevent the caller from re-entering. */
-	hyperv_ref_tsc = MAP_FAILED;
-}
-
-static int
-__vdso_hyperv_tsc(struct hyperv_reftsc *tsc_ref, u_int *tc)
-{
-	uint64_t disc, ret, tsc, scale;
-	uint32_t seq;
-	int64_t ofs;
-
-	while ((seq = atomic_load_acq_int(&tsc_ref->tsc_seq)) != 0) {
-		scale = tsc_ref->tsc_scale;
-		ofs = tsc_ref->tsc_ofs;
-
-		mfence();	/* XXXKIB */
-		tsc = rdtsc();
-
-		/* ret = ((tsc * scale) >> 64) + ofs */
-		__asm__ __volatile__ ("mulq %3" :
-		    "=d" (ret), "=a" (disc) :
-		    "a" (tsc), "r" (scale));
-		ret += ofs;
-
-		atomic_thread_fence_acq();
-		if (tsc_ref->tsc_seq == seq) {
-			*tc = ret;
-			return (0);
-		}
-
-		/* Sequence changed; re-sync. */
-	}
-	return (ENOSYS);
-}
-
-#endif	/* WANT_HYPERV */
 
 static struct pvclock_vcpu_time_info *pvclock_timeinfos;
 
@@ -425,14 +356,6 @@ __vdso_gettc(const struct vdso_timehands *th, u_int *tc)
 			return (ENOSYS);
 		*tc = *(volatile uint32_t *)(map + HPET_MAIN_COUNTER);
 		return (0);
-#ifdef WANT_HYPERV
-	case VDSO_TH_ALGO_X86_HVTSC:
-		if (hyperv_ref_tsc == NULL)
-			__vdso_init_hyperv_tsc();
-		if (hyperv_ref_tsc == MAP_FAILED)
-			return (ENOSYS);
-		return (__vdso_hyperv_tsc(hyperv_ref_tsc, tc));
-#endif
 	case VDSO_TH_ALGO_X86_PVCLK:
 		if (pvclock_timeinfos == NULL)
 			__vdso_init_pvclock_timeinfos();

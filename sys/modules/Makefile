@@ -142,7 +142,6 @@ SUBDIR=	\
 	${_hptrr} \
 	hwpmc \
 	${_hwt} \
-	${_hyperv} \
 	i2c \
 	${_iavf} \
         ${_ibcore} \
@@ -696,7 +695,6 @@ _armv8_rng=	armv8_rng
 _dpaa2=		dpaa2
 _sff=		sff
 _em=		em
-_hyperv=  hyperv
 _vf_i2c=	vf_i2c
 
 .if !empty(OPT_FDT)
@@ -779,7 +777,6 @@ _hptmv=		hptmv
 _hptnr=		hptnr
 _hptrr=		hptrr
 .endif
-_hyperv=	hyperv
 _ichwd=		ichwd
 _ida=		ida
 _intelspi=	intelspi
