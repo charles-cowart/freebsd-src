@@ -2682,8 +2682,6 @@ ${_bt}-usr.bin/mkcsmapper: ${_bt}-usr.bin/yacc ${_bt_lex_depend}
 .endif
 
 
-${_bt}-usr.bin/mandoc: ${_bt}-lib/libopenbsd
-
 # The tools listed in _basic_bootstrap_tools will generally not be
 # bootstrapped unless BOOTSTRAP_ALL_TOOL is set. However, when building on a
 # Linux or MacOS host the host versions are incompatible so we need to build
@@ -2828,7 +2826,6 @@ bootstrap-tools: ${_bt}-links .PHONY
     lib/libopenbsd \
     lib/libucl \
     lib/libyaml \
-    usr.bin/mandoc \
     usr.bin/rpcgen \
     ${_yacc} \
     ${_m4} \
@@ -3053,7 +3050,6 @@ NXBDIRS+= \
     usr.bin/id \
     usr.bin/lex \
     usr.bin/limits \
-    usr.bin/mandoc \
     usr.bin/mktemp \
     usr.bin/mt \
     usr.bin/nm \
