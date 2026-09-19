@@ -4081,14 +4081,6 @@ OLD_FILES+=usr/lib/librdmacm.so
 OLD_LIBS+=usr/lib/librdmacm.so.1
 .endif
 
-.if ${MK_OFED_EXTRA} == no
-OLD_FILES+=usr/bin/dump_fts
-OLD_FILES+=usr/bin/ibcacheedit
-OLD_FILES+=usr/bin/iblinkinfo
-OLD_FILES+=usr/bin/ibnetdiscover
-OLD_FILES+=usr/bin/ibqueryerrors
-.endif
-
 .if ${MK_OPENMP} == no
 OLD_FILES+=usr/include/omp.h
 OLD_FILES+=usr/lib/libgomp.so
