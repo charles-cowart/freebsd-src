@@ -65,6 +65,33 @@ OLD_FILES+=usr/libexec/rpc.rwalld
 OLD_FILES+=usr/sbin/rwhod
 OLD_DIRS+=var/rwho
 
+# 20260919: Remove GNU dialog and its dependent utilities and libraries
+OLD_FILES+=usr/bin/dialog
+OLD_FILES+=usr/bin/dpv
+OLD_FILES+=usr/include/dialog.h
+OLD_FILES+=usr/include/dlg_colors.h
+OLD_FILES+=usr/include/dlg_config.h
+OLD_FILES+=usr/include/dlg_keys.h
+OLD_FILES+=usr/include/dpv.h
+OLD_FILES+=usr/include/figpar.h
+OLD_FILES+=usr/include/string_m.h
+OLD_FILES+=usr/lib/libdialog.a
+OLD_FILES+=usr/lib/libdialog.so
+OLD_LIBS+=usr/lib/libdialog.so.10
+OLD_FILES+=usr/lib/libdpv.a
+OLD_FILES+=usr/lib/libdpv.so
+OLD_LIBS+=usr/lib/libdpv.so.3
+OLD_FILES+=usr/lib/libfigpar.a
+OLD_FILES+=usr/lib/libfigpar.so
+OLD_LIBS+=usr/lib/libfigpar.so.0
+OLD_FILES+=usr/share/man/man1/dialog.1.gz
+OLD_FILES+=usr/share/man/man3/dialog.3.gz
+
+# 20260919: Remove bsdlabel(8), its compatibility link, and disktab(5)
+OLD_FILES+=etc/disktab
+OLD_FILES+=sbin/bsdlabel
+OLD_FILES+=sbin/disklabel
+
 # 20260917: Remove NFS client, server, locking, and administration support
 OLD_FILES+=usr/share/man/man8/diskless.8.gz
 OLD_FILES+=boot/kernel/dtnfscl.ko

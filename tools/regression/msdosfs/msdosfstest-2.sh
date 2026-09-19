@@ -5,7 +5,8 @@
 
 mkdir /tmp/msdosfstest/
 mdconfig -a -t swap -s 128m -u 10
-bsdlabel -w md10 auto
+gpart create -s bsd md10
+gpart add -t freebsd-ufs md10
 newfs_msdos -F 16 -b 8192 /dev/md10a
 mount_msdosfs /dev/md10a /tmp/msdosfstest/
 cat /tmp/msdosfstest/foo
