@@ -12,7 +12,6 @@
     ..
     bsm                 tags=package=audit-dev
     ..
-    bsnmp               tags=package=bsnmp-dev
     ..
     c++
         v1

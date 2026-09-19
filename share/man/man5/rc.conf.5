@@ -1422,9 +1422,7 @@ like
 hooks.
 The description can be seen with
 .Xr ifconfig 8
-command and it may be exported with
-.Xr bsnmpd 1
-daemon using its MIB-2 module.
+command.
 .It Va ifconfig_ Ns Ao Ar interface Ac Ns _ipv6
 .Pq Vt str
 IPv6 functionality on an interface should be configured by
@@ -2074,24 +2072,6 @@ This is a preferred alternative to using
 or specifying the
 .Va ntpdate_enable
 variable.
-.It Va bsnmpd_enable
-.Pq Vt bool
-If set to
-.Dq Li YES ,
-run the
-.Xr bsnmpd 1
-daemon at system boot time.
-Be sure to understand the security implications of running an SNMP daemon
-on your host.
-.It Va bsnmpd_flags
-.Pq Vt str
-If
-.Va bsnmpd_enable
-is set to
-.Dq Li YES ,
-these are the flags to pass to the
-.Xr bsnmpd 1
-daemon.
 .It Va defaultrouter
 .Pq Vt str
 If not set to

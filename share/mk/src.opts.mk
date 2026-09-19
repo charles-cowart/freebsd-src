@@ -69,7 +69,6 @@ __DEFAULT_YES_OPTIONS = \
     BOOT \
     BSD_CPIO \
     BSDINSTALL \
-    BSNMP \
     BZIP2 \
     CAROOT \
     CCD \

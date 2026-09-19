@@ -432,21 +432,6 @@ DIRDEPS+= \
 	usr.sbin/bsdinstall/distfetch \
 	usr.sbin/bsdinstall/partedit \
 	usr.sbin/bsdinstall/scripts \
-	usr.sbin/bsnmpd/bsnmpd \
-	usr.sbin/bsnmpd/gensnmptree \
-	usr.sbin/bsnmpd/modules/snmp_atm \
-	usr.sbin/bsnmpd/modules/snmp_bridge \
-	usr.sbin/bsnmpd/modules/snmp_hast \
-	usr.sbin/bsnmpd/modules/snmp_hostres \
-	usr.sbin/bsnmpd/modules/snmp_lm75 \
-	usr.sbin/bsnmpd/modules/snmp_mibII \
-	usr.sbin/bsnmpd/modules/snmp_netgraph \
-	usr.sbin/bsnmpd/modules/snmp_target \
-	usr.sbin/bsnmpd/modules/snmp_usm \
-	usr.sbin/bsnmpd/modules/snmp_vacm \
-	usr.sbin/bsnmpd/modules/snmp_wlan \
-	usr.sbin/bsnmpd/tools/bsnmptools \
-	usr.sbin/bsnmpd/tools/libbsnmptools \
 	usr.sbin/cdcontrol \
 	usr.sbin/chkgrp \
 	usr.sbin/chown \
