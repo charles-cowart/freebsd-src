@@ -36,7 +36,6 @@ LIBDIRS=./_libdirs		# intermediate output file
 USRSRC=${1:-/usr/src}		# source root
 LIBS="
 	lib
-	gnu/lib
 	secure/lib
 	usr.bin/lex/lib
 	cddl/lib
