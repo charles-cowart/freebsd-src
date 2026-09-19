@@ -51,6 +51,10 @@
 #   xargs -n1 | sort | uniq -d;
 # done
 
+# 20260919: Remove OpenSM service integration
+OLD_FILES+=etc/newsyslog.conf.d/opensm.conf
+OLD_FILES+=etc/rc.d/opensm
+
 # 20260919: Remove bsnmp and libbegemot
 OLD_FILES+=etc/snmpd.config
 OLD_FILES+=etc/rc.d/bsnmpd
