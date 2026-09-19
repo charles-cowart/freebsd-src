@@ -44,28 +44,4 @@
 */
 #include <opensm/osm_config.h>
 
-#if defined( OSM_VENDOR_INTF_TEST )
-#include <vendor/osm_vendor_test.h>
-#elif defined( OSM_VENDOR_INTF_UMADT )
-#include <vendor/osm_vendor_umadt.h>
-#elif defined( OSM_VENDOR_INTF_MTL )
-/* HACK - I do not know how to prevent complib from loading kernel H files */
-#undef __init
-#include <vendor/osm_vendor_mlx.h>
-#elif defined( OSM_VENDOR_INTF_TS )
-#undef __init
-#include <vendor/osm_vendor_mlx.h>
-#elif defined( OSM_VENDOR_INTF_ANAFA )
-#undef __init
-#include <vendor/osm_vendor_mlx.h>
-#elif defined( OSM_VENDOR_INTF_SIM )
-#undef __init
-#include <vendor/osm_vendor_mlx.h>
-#elif defined( OSM_VENDOR_INTF_OPENIB )
 #include <vendor/osm_vendor_ibumad.h>
-#elif defined( OSM_VENDOR_INTF_AL )
-#include <vendor/osm_vendor_al.h>
-#else
-#error No MAD Interface selected!
-#error Choose an interface in osm_config.h
-#endif
