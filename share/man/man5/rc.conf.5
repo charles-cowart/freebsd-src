@@ -1968,20 +1968,6 @@ Path to
 .Xr kfd 8
 (default
 .Pa /usr/libexec/kfd ) .
-.It Va rwhod_enable
-.Pq Vt bool
-If set to
-.Dq Li YES ,
-run the
-.Xr rwhod 8
-daemon at boot time.
-.It Va rwhod_flags
-.Pq Vt str
-If
-.Va rwhod_enable
-is set to
-.Dq Li YES ,
-these are the flags to pass to it.
 .It Va update_motd
 .Pq Vt bool
 If set to
@@ -4078,7 +4064,6 @@ to
 .Xr rpc.tlsclntd 8 ,
 .Xr rpc.tlsservd 8 ,
 .Xr rpcbind 8 ,
-.Xr rwhod 8 ,
 .Xr savecore 8 ,
 .Xr sdpd 8 ,
 .Xr sendmail 8 ,

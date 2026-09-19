@@ -54,10 +54,7 @@ x86_bootmethod(void)
 const char *
 default_scheme(void)
 {
-	if (strcmp(x86_bootmethod(), "UEFI") == 0)
-		return ("GPT");
-	else
-		return ("MBR");
+	return ("GPT");
 }
 
 int
@@ -150,4 +147,3 @@ partcode_path(const char *part_type, const char *fs_type)
 	/* No partcode except for non-UEFI GPT */
 	return (NULL);
 }
-

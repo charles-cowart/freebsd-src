@@ -12,6 +12,11 @@ Items affecting the ports and packages system can be found in
 /usr/ports/UPDATING.  Please read that file before updating system packages
 and/or ports.
 
+20260919:
+	The in-tree mandoc sources and the bootstrap/native cross-build mandoc
+	tool have been removed.  Builds no longer require an in-tree manual-page
+	formatter.
+
 20260917:
 	The in-tree NFS client and server, NFS-root support, Network Lock
 	Manager, boot-loader support, userland daemons and utilities,

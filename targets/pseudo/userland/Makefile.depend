@@ -165,7 +165,6 @@ DIRDEPS+= \
 	usr.bin/diff3 \
 	usr.bin/dig \
 	usr.bin/dirname \
-	usr.bin/dpv \
 	usr.bin/drill \
 	usr.bin/dtc \
 	usr.bin/du \
@@ -284,11 +283,6 @@ DIRDEPS+= \
 	usr.bin/rpcinfo \
 	usr.bin/rs \
 	usr.bin/rsh \
-	usr.bin/rup \
-	usr.bin/ruptime \
-	usr.bin/rusers \
-	usr.bin/rwall \
-	usr.bin/rwho \
 	usr.bin/script \
 	usr.bin/sdiff \
 	usr.bin/sed \
@@ -591,7 +585,6 @@ DIRDEPS+= \
 	usr.sbin/rtadvd \
 	usr.sbin/rtprio \
 	usr.sbin/rtsold \
-	usr.sbin/rwhod \
 	usr.sbin/sa \
 	usr.sbin/service \
 	usr.sbin/services_mkdb \
@@ -655,7 +648,6 @@ DIRDEPS+=	usr.sbin/efidp
 .endif
 
 DIRDEPS.amd64= \
-	sbin/bsdlabel \
 	sbin/nvmecontrol \
 	usr.sbin/acpi/acpiconf \
 	usr.sbin/acpi/acpidb \
@@ -665,7 +657,6 @@ DIRDEPS.amd64= \
 	usr.sbin/bhyve \
 	usr.sbin/bhyvectl \
 	usr.sbin/bhyveload \
-	usr.sbin/boot0cfg \
 	usr.sbin/btxld \
 	usr.sbin/camdd \
 	usr.sbin/cpucontrol \
@@ -679,11 +670,9 @@ DIRDEPS.amd64= \
 	usr.sbin/zzz
 
 DIRDEPS.arm= \
-	sbin/bsdlabel \
 	usr.sbin/ofwdump
 
 DIRDEPS.i386= \
-	sbin/bsdlabel \
 	sbin/nvmecontrol \
 	usr.sbin/apm \
 	usr.sbin/apmd \
@@ -698,8 +687,7 @@ DIRDEPS.i386= \
 	usr.sbin/sade \
 	usr.sbin/spkrtest \
 	usr.sbin/zzz \
-	usr.sbin/acpi \
-	usr.sbin/boot0cfg
+	usr.sbin/acpi
 
 DIRDEPS.arm64= \
 	usr.sbin/acpi \

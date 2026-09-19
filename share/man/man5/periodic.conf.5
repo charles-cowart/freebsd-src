@@ -208,22 +208,6 @@ they are deleted.
 Set to
 .Dq Li YES
 if you want the removed files to be reported in your daily output.
-.It Va daily_clean_rwho_enable
-.Pq Vt bool
-Set to
-.Dq Li YES
-if you wish old files in
-.Pa /var/who
-to be purged.
-.It Va daily_clean_rwho_days
-.Pq Vt num
-Set to the number of days that files must not have been modified before
-they are deleted.
-.It Va daily_clean_rwho_verbose
-.Pq Vt bool
-Set to
-.Dq Li YES
-if you want the removed files to be reported in your daily output.
 .It Va daily_backup_efi_enable
 .Pq Vt bool
 Set to
@@ -471,15 +455,7 @@ option (to do DNS lookups).
 Set to
 .Dq Li YES
 if you want to run
-.Xr uptime 1
-(or
-.Xr ruptime 1
-if
-.Va rwhod_enable
-is set to
-.Dq Li YES
-in
-.Pa /etc/rc.conf ) .
+.Xr uptime 1 .
 .It Va daily_status_security_enable
 .Pq Vt bool
 Set to
