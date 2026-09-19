@@ -66,8 +66,6 @@
         wpa_supplicant tags=package=wpa
         ..
     ..
-    rwho            gname=daemon mode=0775
-    ..
     spool
         lock            uname=uucp gname=dialer mode=0775
         ..

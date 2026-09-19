@@ -51,6 +51,20 @@
 #   xargs -n1 | sort | uniq -d;
 # done
 
+# 20260919: Remove the rcmds command and daemon suite
+OLD_FILES+=etc/periodic/daily/140.clean-rwho
+OLD_FILES+=etc/rc.d/rwho
+OLD_FILES+=usr/bin/rup
+OLD_FILES+=usr/bin/ruptime
+OLD_FILES+=usr/bin/rusers
+OLD_FILES+=usr/bin/rwall
+OLD_FILES+=usr/bin/rwho
+OLD_FILES+=usr/libexec/rpc.rstatd
+OLD_FILES+=usr/libexec/rpc.rusersd
+OLD_FILES+=usr/libexec/rpc.rwalld
+OLD_FILES+=usr/sbin/rwhod
+OLD_DIRS+=var/rwho
+
 # 20260917: Remove NFS client, server, locking, and administration support
 OLD_FILES+=usr/share/man/man8/diskless.8.gz
 OLD_FILES+=boot/kernel/dtnfscl.ko

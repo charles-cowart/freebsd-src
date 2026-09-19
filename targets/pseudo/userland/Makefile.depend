@@ -284,11 +284,6 @@ DIRDEPS+= \
 	usr.bin/rpcinfo \
 	usr.bin/rs \
 	usr.bin/rsh \
-	usr.bin/rup \
-	usr.bin/ruptime \
-	usr.bin/rusers \
-	usr.bin/rwall \
-	usr.bin/rwho \
 	usr.bin/script \
 	usr.bin/sdiff \
 	usr.bin/sed \
@@ -591,7 +586,6 @@ DIRDEPS+= \
 	usr.sbin/rtadvd \
 	usr.sbin/rtprio \
 	usr.sbin/rtsold \
-	usr.sbin/rwhod \
 	usr.sbin/sa \
 	usr.sbin/service \
 	usr.sbin/services_mkdb \

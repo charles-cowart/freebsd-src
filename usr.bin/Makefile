@@ -120,11 +120,6 @@ SUBDIR=	alias \
 	rpcinfo \
 	rs \
 	runat \
-	rup \
-	ruptime \
-	rusers \
-	rwall \
-	rwho \
 	script \
 	sdiff \
 	sed \
