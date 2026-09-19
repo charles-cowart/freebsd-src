@@ -51,6 +51,9 @@
 #   xargs -n1 | sort | uniq -d;
 # done
 
+# 20260919: Remove boot0cfg
+OLD_FILES+=usr/sbin/boot0cfg
+
 # 20260919: Remove the rcmds command and daemon suite
 OLD_FILES+=etc/periodic/daily/140.clean-rwho
 OLD_FILES+=etc/rc.d/rwho

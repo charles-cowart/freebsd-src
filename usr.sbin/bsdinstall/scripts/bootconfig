@@ -174,4 +174,6 @@ if [ -n "$(awk '{if ($2=="/boot/efi") printf("%s\n",$1);}' $PATH_FSTAB)" ]; then
 	f_dprintf "Finished configuring ESP"
 fi
 
-# Add boot0cfg for MBR BIOS booting?
+# BIOS boot code is installed while partitioning.  In particular, BIOS/GPT
+# installations use pmbr and gptboot (or gptzfsboot); there is no post-install
+# boot0 configuration step here.
