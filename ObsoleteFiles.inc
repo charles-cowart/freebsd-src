@@ -51,6 +51,37 @@
 #   xargs -n1 | sort | uniq -d;
 # done
 
+# 20260919: Remove SMBFS and the in-tree SMB1 client
+OLD_FILES+=boot/kernel/smbfs.ko
+OLD_FILES+=etc/nsmb.conf
+OLD_FILES+=usr/bin/smbutil
+OLD_FILES+=usr/include/fs/smbfs/smbfs.h
+OLD_FILES+=usr/include/fs/smbfs/smbfs_node.h
+OLD_FILES+=usr/include/fs/smbfs/smbfs_subr.h
+OLD_FILES+=usr/include/netsmb/netbios.h
+OLD_FILES+=usr/include/netsmb/smb.h
+OLD_FILES+=usr/include/netsmb/smb_conn.h
+OLD_FILES+=usr/include/netsmb/smb_dev.h
+OLD_FILES+=usr/include/netsmb/smb_rq.h
+OLD_FILES+=usr/include/netsmb/smb_subr.h
+OLD_FILES+=usr/include/netsmb/smb_tran.h
+OLD_FILES+=usr/lib/libsmb.a
+OLD_FILES+=usr/lib/libsmb.so
+OLD_LIBS+=usr/lib/libsmb.so.4
+OLD_FILES+=usr/sbin/mount_smbfs
+OLD_FILES+=usr/share/examples/smbfs/dot.nsmbrc
+OLD_FILES+=usr/share/examples/smbfs/print/lj6l
+OLD_FILES+=usr/share/examples/smbfs/print/ljspool
+OLD_FILES+=usr/share/examples/smbfs/print/printcap.sample
+OLD_FILES+=usr/share/examples/smbfs/print/tolj
+OLD_FILES+=usr/share/man/man1/smbutil.1.gz
+OLD_FILES+=usr/share/man/man4/smbfs.4.gz
+OLD_FILES+=usr/share/man/man5/nsmb.conf.5.gz
+OLD_FILES+=usr/share/man/man8/mount_smbfs.8.gz
+OLD_DIRS+=usr/include/fs/smbfs
+OLD_DIRS+=usr/include/netsmb
+OLD_DIRS+=usr/share/examples/smbfs/print
+OLD_DIRS+=usr/share/examples/smbfs
 # 20260919: Remove APM support
 OLD_FILES+=etc/apmd.conf
 OLD_FILES+=etc/rc.d/apm

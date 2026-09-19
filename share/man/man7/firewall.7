@@ -33,8 +33,7 @@ from an outside network by preventing the outside network from
 making arbitrary connections into the internal network.
 Firewalls
 are also used to prevent outside entities from spoofing internal
-IP addresses and to isolate services such as NFS or SMBFS (Windows
-file sharing) within LAN segments.
+IP addresses and to isolate services such as NFS within LAN segments.
 .Pp
 The
 .Fx
@@ -392,15 +391,8 @@ and two exposed IP addresses
 on one of those interfaces, the firewall machine is known by 5 different
 IP addresses (10.0.0.1, 10.0.1.1, 10.0.2.1, 192.100.5.5, and say
 192.100.5.1).
-If the firewall is providing file sharing services to the
-windows LAN segment (say it is LAN1), you can use samba's 'bind interfaces'
-directive to specifically bind it to just the LAN1 IP address.
-That
-way the file sharing services will not be made available to other LAN
-segments.
-The same goes for NFS.
-If LAN2 has your UNIX engineering
-workstations, you can tell nfsd to bind specifically to 10.0.2.1.
+If LAN2 has your UNIX engineering workstations, you can tell nfsd to bind
+specifically to 10.0.2.1.
 You
 can specify how to bind virtually every service on the machine and you
 can use a light
@@ -410,8 +402,6 @@ to indirectly bind services that do not otherwise give you the option.
 .Xr dummynet 4 ,
 .Xr ipnat 5 ,
 .Xr rc.conf 5 ,
-.Xr smb.conf 5 Pq Pa ports/net/samba ,
-.Xr samba 7 Pq Pa ports/net/samba ,
 .Xr config 8 ,
 .Xr ipfw 8 ,
 .Xr ipnat 8 ,
