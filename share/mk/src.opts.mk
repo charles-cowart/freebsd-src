@@ -59,7 +59,6 @@ __<src.opts.mk>__:	.NOTMAIN
 __DEFAULT_YES_OPTIONS = \
     ACCT \
     ACPI \
-    APM \
     AT \
     AUDIT \
     AUTOFS \

@@ -1,8 +1,7 @@
 #!/bin/sh
 #
-# Suspend the system using either ACPI or APM.
-# For APM, "apm -z" will be issued.
-# For ACPI, the configured suspend state will be looked up, checked to see
+# Suspend the system using ACPI.  The configured suspend state will be
+# looked up, checked to see
 # if it is supported, and "acpiconf -s <state>" will be issued.
 #
 # Mark Santcroos <marks@ripe.net>
@@ -12,7 +11,6 @@ PATH=/sbin:/usr/sbin:/usr/bin:/bin
 
 ACPI_SUSPEND_STATE=hw.acpi.suspend_state
 ACPI_SUPPORTED_STATES=hw.acpi.supported_sleep_state
-APM_SUSPEND_DELAY=machdep.apm_suspend_delay
 
 # Check for ACPI support
 if sysctl $ACPI_SUSPEND_STATE >/dev/null 2>&1; then
@@ -30,12 +28,8 @@ if sysctl $ACPI_SUSPEND_STATE >/dev/null 2>&1; then
 		echo "Requested suspend state $SUSPEND_STATE is not supported."
 		echo "Supported states: $SUPPORTED_STATES"
 	fi
-# Check for APM support
-elif sysctl $APM_SUSPEND_DELAY >/dev/null 2>&1; then
-	# Execute APM style suspend command
-	exec apm -z
 else
-	echo "Error: no ACPI or APM suspend support found."
+	echo "Error: no ACPI suspend support found."
 fi
 
 exit 1

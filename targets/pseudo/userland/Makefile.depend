@@ -368,7 +368,6 @@ DIRDEPS+= \
 	usr.sbin/amd/scripts \
 	usr.sbin/amd/wire-test \
 	usr.sbin/ancontrol \
-	usr.sbin/apm \
 	usr.sbin/arp \
 	usr.sbin/arpaname \
 	usr.sbin/audit \
@@ -653,7 +652,6 @@ DIRDEPS.amd64= \
 	usr.sbin/acpi/acpidb \
 	usr.sbin/acpi/acpidump \
 	usr.sbin/acpi/iasl \
-	usr.sbin/apm \
 	usr.sbin/bhyve \
 	usr.sbin/bhyvectl \
 	usr.sbin/bhyveload \
@@ -674,8 +672,6 @@ DIRDEPS.arm= \
 
 DIRDEPS.i386= \
 	sbin/nvmecontrol \
-	usr.sbin/apm \
-	usr.sbin/apmd \
 	usr.sbin/btxld \
 	usr.sbin/cpucontrol \
 	usr.sbin/hyperv/tools \

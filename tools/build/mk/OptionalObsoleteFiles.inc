@@ -49,13 +49,6 @@ OLD_FILES+=usr/sbin/acpidump
 OLD_FILES+=usr/sbin/iasl
 .endif
 
-.if ${MK_APM} == no
-OLD_FILES+=etc/rc.d/apm
-OLD_FILES+=etc/rc.d/apmd
-OLD_FILES+=etc/apmd.conf
-OLD_FILES+=usr/sbin/apm
-OLD_FILES+=usr/share/examples/etc/apmd.conf
-.endif
 
 .if ${MK_AT} == no
 OLD_FILES+=etc/pam.d/atrun
