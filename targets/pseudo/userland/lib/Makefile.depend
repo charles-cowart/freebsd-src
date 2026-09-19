@@ -69,7 +69,6 @@ DIRDEPS = \
 	lib/libexecinfo \
 	lib/libexpat \
 	lib/libfetch \
-	lib/libfigpar \
 	lib/libgeom \
 	lib/libiconv_modules/BIG5 \
 	lib/libiconv_modules/DECHanyu \
@@ -216,9 +215,6 @@ DIRDEPS+= \
 
 .endif
 
-.if ${MK_DIALOG} != "no"
-DIRDEPS+= lib/libdpv
-.endif
 
 .if ${MK_GPIO} != "no"
 DIRDEPS+= lib/libgpio

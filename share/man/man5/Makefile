@@ -7,7 +7,6 @@ MAN=	a.out.5 \
 	${_boot.config.5} \
 	core.5 \
 	dir.5 \
-	disktab.5 \
 	elf.5 \
 	ethers.5 \
 	eui64.5 \

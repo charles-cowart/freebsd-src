@@ -9,10 +9,11 @@ do
 	(
 	mdconfig -d -u $MD || true
 	mdconfig -a -t malloc -s $s -u $MD
-	disklabel -w md$MD auto
-	./newfs -R /dev/md${MD}c
+	gpart create -s bsd md$MD
+	gpart add -t freebsd-ufs md$MD
+	./newfs -R /dev/md${MD}a
 	) 1>&2
-	md5 < /dev/md${MD}c
+	md5 < /dev/md${MD}a
 done
 mdconfig -d -u $MD 1>&2 || true
 ) 

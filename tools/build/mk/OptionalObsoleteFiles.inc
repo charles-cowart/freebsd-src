@@ -896,20 +896,6 @@ OLD_LIBS+=${DEBUG_LIBS}
 OLD_FILES+=tests/lib/libc/stdtime/detect_tz_changes_test
 .endif
 
-.if ${MK_DIALOG} == no
-OLD_FILES+=usr/bin/dialog
-OLD_FILES+=usr/bin/dpv
-OLD_FILES+=usr/lib/libdialog.a
-OLD_FILES+=usr/lib/libdialog.so
-OLD_LIBS+=usr/lib/libdialog.so.10
-OLD_FILES+=usr/lib/libdpv.a
-OLD_FILES+=usr/lib/libdpv.so
-OLD_LIBS+=usr/lib/libdpv.so.3
-OLD_FILES+=usr/lib/libfigpar.a
-OLD_FILES+=usr/lib/libfigpar.so
-OLD_LIBS+=usr/lib/libfigpar.so.0
-.endif
-
 .if ${MK_DICT} == no
 OLD_FILES+=usr/share/dict/README
 OLD_FILES+=usr/share/dict/freebsd

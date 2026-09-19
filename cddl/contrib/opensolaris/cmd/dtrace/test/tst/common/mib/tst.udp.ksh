@@ -50,11 +50,17 @@ script()
 EOF
 }
 
-rupper()
+udp_server()
 {
 	while true; do
-		rup localhost
-		sleep 1
+		nc -u -l 54321 > /dev/null
+	done
+}
+
+udp_client()
+{
+	while true; do
+		echo test | nc -u -w 1 localhost 54321
 	done
 }
 
@@ -65,10 +71,12 @@ fi
 
 dtrace=$1
 
-rupper &
-rupper=$!
+udp_server &
+server=$!
+udp_client &
+client=$!
 script
 status=$?
 
-kill $rupper
+kill $client $server
 exit $status

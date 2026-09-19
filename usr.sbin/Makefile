@@ -60,7 +60,6 @@ SUBDIR=	adduser \
 	rmt \
 	rpcbind \
 	rtprio \
-	rwhod \
 	service \
 	services_mkdb \
 	sesutil \
