@@ -1316,12 +1316,6 @@ InfiniBand software stack, including kernel modules and userspace libraries.
 .Pp
 This is a default setting on
 arm/armv7.
-When set, it enforces these options:
-.Pp
-.Bl -item -compact
-.It
-.Va WITHOUT_OFED_EXTRA
-.El
 .It Va WITH_OFED
 Build the
 .Dq "OpenFabrics Enterprise Distribution"
@@ -1329,10 +1323,6 @@ InfiniBand software stack, including kernel modules and userspace libraries.
 .Pp
 This is a default setting on
 amd64/amd64, arm64/aarch64, i386/i386, powerpc/powerpc64, powerpc/powerpc64le and riscv/riscv64.
-.It Va WITH_OFED_EXTRA
-Build the non-essential components of the
-.Dq "OpenFabrics Enterprise Distribution"
-Infiniband software stack, mostly examples.
 .It Va WITH_OPENLDAP
 Enable building LDAP support for kerberos using an openldap client from ports.
 .It Va WITHOUT_OPENMP

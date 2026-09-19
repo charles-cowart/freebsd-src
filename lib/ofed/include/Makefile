@@ -1,6 +1,5 @@
 OFEDINCS=	${SRCTOP}/contrib/ofed/include
 IBVERBS=	${SRCTOP}/contrib/ofed/libibverbs
-IBUMAD=		${SRCTOP}/contrib/ofed/libibumad
 IBCM=		${SRCTOP}/contrib/ofed/libibcm
 RDMACM=		${SRCTOP}/contrib/ofed/librdmacm
 RDMA=		${SRCTOP}/sys/ofed/include/uapi/rdma
@@ -21,12 +20,6 @@ ${IBVERBS}/opcode.h \
 ${IBVERBS}/sa-kern-abi.h \
 ${IBVERBS}/sa.h \
 ${IBVERBS}/verbs.h \
-${IBUMAD}/umad.h \
-${IBUMAD}/umad_cm.h \
-${IBUMAD}/umad_sa.h \
-${IBUMAD}/umad_sm.h \
-${IBUMAD}/umad_str.h \
-${IBUMAD}/umad_types.h \
 ${IBCM}/cm.h \
 ${IBCM}/cm_abi.h \
 ${RDMACM}/ib.h

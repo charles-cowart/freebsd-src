@@ -180,7 +180,6 @@ __DEFAULT_NO_OPTIONS = \
     LLVM_FULL_DEBUGINFO \
     LLVM_LINK_STATIC_LIBRARIES \
     OFED \
-    OFED_EXTRA \
     OPENLDAP \
     PTHREADS_ASSERTIONS \
     RPCBIND_WARMSTART_SUPPORT \
@@ -415,10 +414,6 @@ MK_ZFS:=	no
 .if ${MK_LDNS} == "no"
 MK_LDNS_UTILS:=	no
 MK_UNBOUND:= no
-.endif
-
-.if ${MK_OFED} == "no"
-MK_OFED_EXTRA:=	no
 .endif
 
 .if ${MK_TESTS} == "no"
