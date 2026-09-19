@@ -1440,14 +1440,6 @@ OLD_FILES+=usr/share/doc/ntp/release.html
 OLD_FILES+=usr/share/doc/ntp/tickadj.html
 .endif
 
-.if ${MK_HYPERV} == no
-OLD_FILES+=etc/devd/hyperv.conf
-OLD_FILES+=usr/libexec/hyperv/hv_set_ifconfig
-OLD_FILES+=usr/libexec/hyperv/hv_get_dns_info
-OLD_FILES+=usr/libexec/hyperv/hv_get_dhcp_info
-OLD_FILES+=usr/sbin/hv_kvp_daemon
-OLD_FILES+=usr/sbin/hv_vss_daemon
-.endif
 
 .if ${MK_ICONV} == no
 OLD_FILES+=usr/bin/iconv

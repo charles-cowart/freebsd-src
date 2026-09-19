@@ -92,7 +92,6 @@ __DEFAULT_YES_OPTIONS = \
     GPIO \
     HAST \
     HTML \
-    HYPERV \
     ICONV \
     INET \
     INET6 \
@@ -327,7 +326,6 @@ BROKEN_OPTIONS+=MLX5TOOL
 .endif
 
 .if ${__T} != "amd64" && ${__T} != "i386" && ${__T} != "aarch64"
-BROKEN_OPTIONS+=HYPERV
 .endif
 
 .if ${__T} == "aarch64" || ${__T} == "amd64" || ${__T} == "i386" || \

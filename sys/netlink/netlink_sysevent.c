@@ -63,7 +63,6 @@ static const char *devctl_systems[] = {
 	"device",
 	"ETHERNET",
 	"GEOM",
-	"HYPERV_NIC_VF",
 	"IFNET",
 	"INFINIBAND",
 	"KERNEL",

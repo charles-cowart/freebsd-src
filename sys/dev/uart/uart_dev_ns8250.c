@@ -282,10 +282,6 @@ ns8250_param(struct uart_bas *bas, int baudrate, int databits, int stopbits,
 	int divisor;
 	uint8_t lcr;
 
-	/* Don't change settings when running on Hyper-V */
-	if (vm_guest == VM_GUEST_HV)
-		return (0);
-
 	lcr = 0;
 	if (databits >= 8)
 		lcr |= LCR_8BITS;
@@ -423,11 +419,9 @@ ns8250_putc(struct uart_bas *bas, int c)
 {
 	int limit;
 
-	if (vm_guest != VM_GUEST_HV) {
-		limit = 250000;
-		while ((uart_getreg(bas, REG_LSR) & LSR_THRE) == 0 && --limit)
-			DELAY(4);
-	}
+	limit = 250000;
+	while ((uart_getreg(bas, REG_LSR) & LSR_THRE) == 0 && --limit)
+		DELAY(4);
 	uart_setreg(bas, REG_DATA, c);
 	uart_barrier(bas);
 }
