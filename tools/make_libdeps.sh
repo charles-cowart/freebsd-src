@@ -39,7 +39,6 @@ LIBS="
 	secure/lib
 	usr.bin/lex/lib
 	cddl/lib
-	contrib/ofed
 "				# where to scan for libraries
 
 
