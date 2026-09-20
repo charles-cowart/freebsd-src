@@ -42,6 +42,28 @@
 #include <rdma/mlx5-abi.h>
 #include <rdma/uverbs_ioctl.h>
 
+/* RDMA-specific state kept out of the mlx5 core driver interface. */
+struct mlx5_core_psv {
+	u32	psv_idx;
+	struct psv_layout {
+		u32	pd;
+		u16	syndrome;
+		u16	reserved;
+		u16	bg;
+		u16	app_tag;
+		u32	ref_tag;
+	} psv;
+};
+
+struct mlx5_core_sig_ctx {
+	struct mlx5_core_psv	psv_memory;
+	struct mlx5_core_psv	psv_wire;
+	struct ib_sig_err	err_item;
+	bool			sig_status_checked;
+	bool			sig_err_exists;
+	u32			sigerr_count;
+};
+
 #define mlx5_ib_dbg(dev, format, arg...)				\
 pr_debug("%s:%s:%d:(pid %d): " format, (dev)->ib_dev.name, __func__,	\
 	 __LINE__, current->pid, ##arg)

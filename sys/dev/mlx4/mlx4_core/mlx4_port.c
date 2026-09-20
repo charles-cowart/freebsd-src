@@ -40,8 +40,6 @@
 #include <dev/mlx4/cmd.h>
 #include <linux/moduleparam.h>
 
-#include <rdma/ib_verbs.h>
-
 #include "mlx4.h"
 #include <dev/mlx4/stats.h>
 

@@ -40,6 +40,7 @@
 #include <linux/vmalloc.h>
 #include <linux/radix-tree.h>
 #include <linux/idr.h>
+#include <linux/xarray.h>
 #include <linux/wait.h>
 
 #include <dev/mlx5/device.h>
@@ -392,27 +393,6 @@ struct mlx5_eq {
 	struct list_head	list;
 	int			index;
 	struct mlx5_rsc_debug	*dbg;
-};
-
-struct mlx5_core_psv {
-	u32	psv_idx;
-	struct psv_layout {
-		u32	pd;
-		u16	syndrome;
-		u16	reserved;
-		u16	bg;
-		u16	app_tag;
-		u32	ref_tag;
-	} psv;
-};
-
-struct mlx5_core_sig_ctx {
-	struct mlx5_core_psv	psv_memory;
-	struct mlx5_core_psv	psv_wire;
-	struct ib_sig_err       err_item;
-	bool			sig_status_checked;
-	bool			sig_err_exists;
-	u32			sigerr_count;
 };
 
 enum {
