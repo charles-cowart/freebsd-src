@@ -144,7 +144,6 @@ SUBDIR=	\
 	${_hwt} \
 	i2c \
 	${_iavf} \
-        ${_ibcore} \
 	${_ichwd} \
 	${_ice} \
 	${_ice_ddp} \
@@ -175,7 +174,6 @@ SUBDIR=	\
 	${_intelspi} \
 	${_io} \
 	${_ioat} \
-        ${_ipoib} \
 	ipdivert \
 	${_ipfw} \
 	ipfw_nat \
@@ -540,8 +538,6 @@ _rtw89=		rtw89
 
 .if ${MACHINE_CPUARCH} != "arm"
 .if ${MK_OFED} != "no" || defined(ALL_MODULES)
-_ibcore=	ibcore
-_ipoib=		ipoib
 _iser=		iser
 _mthca=		mthca
 _rdma=		rdma

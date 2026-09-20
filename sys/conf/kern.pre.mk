@@ -276,9 +276,8 @@ LINUXKPI_INCLUDES=	-I$S/compat/linuxkpi/common/include \
 			-include $S/compat/linuxkpi/common/include/linux/kconfig.h
 LINUXKPI_C=		${NORMAL_C} ${LINUXKPI_INCLUDES}
 
-# Infiniband C flags.  Correct include paths and omit errors that linux
-# does not honor.
-OFEDINCLUDES=	-I$S/ofed/include -I$S/ofed/include/uapi ${LINUXKPI_INCLUDES}
+# Infiniband C flags.  Omit errors that Linux does not honor.
+OFEDINCLUDES=	${LINUXKPI_INCLUDES}
 OFEDNOERR=	-Wno-cast-qual -Wno-pointer-arith
 OFEDCFLAGS=	${CFLAGS:N-I*} -DCONFIG_INFINIBAND_USER_MEM \
 		${OFEDINCLUDES} ${CFLAGS:M-I*} ${OFEDNOERR}
