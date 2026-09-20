@@ -103,7 +103,6 @@ DIRDEPS = \
 	lib/ncurses/menu \
 	lib/ncurses/panel \
 	lib/ncurses/tinfo \
-	lib/ofed/include \
 	secure/lib/libcrypto \
 	usr.bin/awk.host \
 	usr.bin/lex \

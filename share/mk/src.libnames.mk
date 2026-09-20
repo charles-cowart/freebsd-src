@@ -653,15 +653,6 @@ LIBZUTILDIR=	${_LIB_OBJTOP}/cddl/lib/libzutil
 LIBZUTIL?=	${LIBZUTILDIR}/libzutil${PIE_SUFFIX}.a
 LIBTPOOLDIR=	${_LIB_OBJTOP}/cddl/lib/libtpool
 
-# OFED support
-LIBCXGB4DIR=	${_LIB_OBJTOP}/lib/ofed/libcxgb4
-LIBIBCMDIR=	${_LIB_OBJTOP}/lib/ofed/libibcm
-LIBIBVERBSDIR=	${_LIB_OBJTOP}/lib/ofed/libibverbs
-LIBIRDMADIR=	${_LIB_OBJTOP}/lib/ofed/libirdma
-LIBMLX4DIR=	${_LIB_OBJTOP}/lib/ofed/libmlx4
-LIBMLX5DIR=	${_LIB_OBJTOP}/lib/ofed/libmlx5
-LIBBNXTREDIR=	${_LIB_OBJTOP}/lib/ofed/libbnxtre
-LIBRDMACMDIR=	${_LIB_OBJTOP}/lib/ofed/librdmacm
 LIBSSPDIR=	${_LIB_OBJTOP}/lib/libssp
 LIBSSP_NONSHAREDDIR=	${_LIB_OBJTOP}/lib/libssp_nonshared
 LIBATF_CDIR=	${_LIB_OBJTOP}/lib/atf/libatf-c
