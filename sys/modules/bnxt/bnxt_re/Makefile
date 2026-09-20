@@ -12,8 +12,6 @@ SRCS	+= opt_inet.h opt_inet6.h opt_ratelimit.h
 SRCS	+= ${LINUXKPI_GENSRCS}
 
 CFLAGS+= -I${SRCTOP}/sys/dev/bnxt/bnxt_en
-CFLAGS+= -I${SRCTOP}/sys/ofed/include
-CFLAGS+= -I${SRCTOP}/sys/ofed/include/uapi
 CFLAGS+= ${LINUXKPI_INCLUDES}
 CFLAGS+= -DCONFIG_INFINIBAND_USER_MEM
 

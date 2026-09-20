@@ -176,7 +176,7 @@ list_splice(const struct list_head *list, struct list_head *head)
 void drm_list_sort(void *priv, struct list_head *head, int (*cmp)(void *priv,
     struct list_head *a, struct list_head *b));
 
-/* hlist, copied from sys/dev/ofed/linux/list.h */
+/* hlist, derived from the Linux hlist implementation */
 
 struct hlist_head {
 	struct hlist_node *first;

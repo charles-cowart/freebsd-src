@@ -18,8 +18,6 @@ SRCS= \
 SRCS+=	${LINUXKPI_GENSRCS}
 SRCS+=	opt_inet.h opt_inet6.h
 
-CFLAGS+= -I${SRCTOP}/sys/ofed/include
-CFLAGS+= -I${SRCTOP}/sys/ofed/include/uapi
 CFLAGS+= ${LINUXKPI_INCLUDES}
 CFLAGS+= -DCONFIG_INFINIBAND_USER_MEM
 CFLAGS+= -DINET6 -DINET

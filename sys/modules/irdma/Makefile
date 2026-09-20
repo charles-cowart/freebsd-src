@@ -1,6 +1,5 @@
 .include <bsd.own.mk>
 
-OFED_INC_DIR = ${SRCTOP}/sys/ofed/include
 ICE_DIR = ${SRCTOP}/sys/dev/ice
 .PATH:	${SRCTOP}/sys/dev/irdma
 

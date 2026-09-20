@@ -13,7 +13,6 @@ SRCS	+= bnxt_ulp.c bnxt_ulp.h
 SRCS	+= ${LINUXKPI_GENSRCS}
 
 CFLAGS+= -DIFLIB
-CFLAGS+= -I${SRCTOP}/sys/ofed/include
 CFLAGS+= ${LINUXKPI_INCLUDES}
 
 .include <bsd.kmod.mk>
