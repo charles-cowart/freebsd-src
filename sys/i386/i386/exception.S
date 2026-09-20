@@ -37,7 +37,6 @@
 #include "opt_apic.h"
 #include "opt_atpic.h"
 #include "opt_hwpmc_hooks.h"
-#include "opt_hyperv.h"
 
 #include "assym.inc"
 
@@ -450,13 +449,6 @@ ENTRY(fork_trampoline)
 #include <i386/i386/apic_vector.S>
 #endif
 
-#ifdef DEV_HYPERV
-	.data
-	.p2align 4
-	.text
-	SUPERALIGN_TEXT
-#include <dev/hyperv/vmbus/i386/vmbus_vector.S>
-#endif
 
 	.data
 	.p2align 4

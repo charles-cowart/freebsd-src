@@ -1817,7 +1817,6 @@ pollscan(struct thread *td, struct pollfd *fds, u_int nfd)
 }
 
 /*
- * XXX This was created specifically to support netncp and netsmb.  This
  * allows the caller to specify a socket to wait for events on.  It returns
  * 0 if any events matched and an error otherwise.  There is no way to
  * determine which events fired.

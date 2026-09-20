@@ -244,10 +244,6 @@ device		aacraid		# Container interface, CAM required
 # Order for ISA/EISA devices is important here
 
 envvar		hint.cs.0.at="isa"
-envvar		hint.cs.0.port="0x300"
-envvar		hint.ed.0.at="isa"
-envvar		hint.ed.0.port="0x280"
-envvar		hint.ed.0.irq="5"
 envvar		hint.ed.0.maddr="0xd8000"
 # Hint for the i386-only ISA front-end of le(4).
 envvar		hint.le.0.at="isa"

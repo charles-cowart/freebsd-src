@@ -23,14 +23,12 @@ DIRDEPS = \
 	lib/libalias/libalias \
 	lib/libarchive \
 	lib/libbe \
-	lib/libbegemot \
 	lib/libblocklist \
 	lib/libblocksruntime \
 	lib/libbluetooth \
 	lib/libbsddialog \
 	lib/libbsdstat \
 	lib/libbsm \
-	lib/libbsnmp/libbsnmp \
 	lib/libbz2 \
 	lib/libc \
 	lib/libc++ \
@@ -109,10 +107,6 @@ DIRDEPS = \
 	secure/lib/libcrypto \
 	usr.bin/awk.host \
 	usr.bin/lex \
-	usr.sbin/bsnmpd/modules \
-	usr.sbin/bsnmpd/modules/snmp_bridge \
-	usr.sbin/bsnmpd/modules/snmp_mibII \
-	usr.sbin/bsnmpd/modules/snmp_netgraph \
 
 
 .include <dirdeps.mk>

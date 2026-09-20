@@ -36,13 +36,11 @@ DIRDEPS = \
 	lib/libarchive \
 	lib/libauditd \
 	lib/libbe \
-	lib/libbegemot \
 	lib/libblocksruntime \
 	lib/libbluetooth \
 	lib/libbsddialog \
 	lib/libbsdstat \
 	lib/libbsm \
-	lib/libbsnmp/libbsnmp \
 	lib/libbz2 \
 	lib/libc \
 	lib/libc_nonshared \
@@ -147,7 +145,6 @@ DIRDEPS = \
 	lib/libsa \
 	lib/libsbuf \
 	lib/libsdp \
-	lib/libsmb \
 	lib/libsqlite3 \
 	lib/libstats \
 	lib/libstdbuf \

@@ -12,7 +12,6 @@
     ..
     bsm                 tags=package=audit-dev
     ..
-    bsnmp               tags=package=bsnmp-dev
     ..
     c++
         v1
@@ -139,7 +138,6 @@
         ..
         hwpmc
         ..
-        hyperv
         ..
         ic
         ..
@@ -211,7 +209,6 @@
         ..
         procfs
         ..
-        smbfs
         ..
         udf
         ..
@@ -256,10 +253,6 @@
         complib         tags=package=utilities-dev
         ..
         iba             tags=package=utilities-dev
-        ..
-        opensm          tags=package=utilities-dev
-        ..
-        vendor          tags=package=utilities-dev
         ..
     ..
     isofs
@@ -312,7 +305,6 @@
         route
         ..
     ..
-    netsmb
     ..
     nfs
     ..

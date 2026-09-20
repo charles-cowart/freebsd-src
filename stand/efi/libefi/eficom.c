@@ -253,8 +253,7 @@ comc_get_con_serial_handle(const char *name)
 
 /*
  * Called from cons_probe() to see if this device is available.
- * Return immediately on x86, except for hyperv, since it interferes with
- * common configurations otherwise (yes, this is just firewalling the bug).
+ * Return immediately on x86, since this interferes with common configurations.
  */
 static void
 comc_probe(struct console *sc)
@@ -268,15 +267,7 @@ comc_probe(struct console *sc)
 	size_t sz;
 
 #ifdef __amd64__
-	/*
-	 * This driver tickles issues on a number of different firmware loads.
-	 * It is only required for HyperV, and is only known to work on HyperV,
-	 * so only allow it on HyperV.
-	 */
-	env = getenv("smbios.bios.version");
-	if (env == NULL || strncmp(env, "Hyper-V", 7) != 0) {
-		return;
-	}
+	return;
 #endif
 
 	if (comc_port == NULL) {
@@ -550,7 +541,6 @@ static bool
 comc_setup(void)
 {
 	EFI_STATUS status;
-	char *ev;
 
 	/*
 	 * If the device isn't active, or there's no port present.
@@ -565,23 +555,18 @@ comc_setup(void)
 	}
 
 	/*
-	 * Avoid setting the baud rate on Hyper-V. Also, only set the baud rate
-	 * if the baud rate has changed from the default. And pass in '0' or
-	 * DefaultFoo when we're not changing those values. Some EFI
-	 * implementations get cranky when you set things to the values reported
-	 * back even when they are unchanged.
+	 * Only set the baud rate if it changed from the default.  Pass in zero
+	 * or DefaultFoo for unchanged values because some EFI implementations
+	 * reject attributes that match the values they reported.
 	 */
 	if (comc_port->sio->SetAttributes != NULL &&
 	    comc_port->newbaudrate != comc_port->baudrate) {
-		ev = getenv("smbios.bios.version");
-		if (ev != NULL && strncmp(ev, "Hyper-V", 7) != 0) {
-			status = comc_port->sio->SetAttributes(comc_port->sio,
-			    comc_port->newbaudrate, 0, 0, DefaultParity, 0,
-			    DefaultStopBits);
-			if (EFI_ERROR(status))
-				return (false);
-			comc_port->baudrate = comc_port->newbaudrate;
-		}
+		status = comc_port->sio->SetAttributes(comc_port->sio,
+		    comc_port->newbaudrate, 0, 0, DefaultParity, 0,
+		    DefaultStopBits);
+		if (EFI_ERROR(status))
+			return (false);
+		comc_port->baudrate = comc_port->newbaudrate;
 	}
 
 #ifdef EFI_FORCE_RTS

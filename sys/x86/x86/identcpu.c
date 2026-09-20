@@ -1382,7 +1382,6 @@ static struct {
 	  &xen_early_init,
 #endif
 	},						/* XEN */
-	{ "Microsoft Hv",	VM_GUEST_HV },		/* Microsoft Hyper-V */
 	{ "VMwareVMware",	VM_GUEST_VMWARE },	/* VMware VM */
 	{ "KVMKVMKVM",		VM_GUEST_KVM },		/* KVM */
 	{ "bhyve bhyve ",	VM_GUEST_BHYVE },	/* bhyve */
@@ -1451,18 +1450,7 @@ identify_hypervisor_cpuid_base(void)
 				 * If we found a specific hypervisor, then
 				 * we are finished.
 				 */
-				if (vm_guest != VM_GUEST_VM &&
-				    /*
-				     * Xen and other hypervisors can expose the
-				     * HyperV signature in addition to the
-				     * native one in order to support Viridian
-				     * extensions for Windows guests.
-				     *
-				     * Do the full cpuid scan if HyperV is
-				     * detected, as the native hypervisor is
-				     * preferred.
-				     */
-				    vm_guest != VM_GUEST_HV)
+				if (vm_guest != VM_GUEST_VM)
 					break;
 			}
 		}

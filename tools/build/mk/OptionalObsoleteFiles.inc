@@ -49,13 +49,6 @@ OLD_FILES+=usr/sbin/acpidump
 OLD_FILES+=usr/sbin/iasl
 .endif
 
-.if ${MK_APM} == no
-OLD_FILES+=etc/rc.d/apm
-OLD_FILES+=etc/rc.d/apmd
-OLD_FILES+=etc/apmd.conf
-OLD_FILES+=usr/sbin/apm
-OLD_FILES+=usr/share/examples/etc/apmd.conf
-.endif
 
 .if ${MK_AT} == no
 OLD_FILES+=etc/pam.d/atrun
@@ -275,91 +268,6 @@ OLD_FILES+=usr/bin/bsdcpio
 OLD_FILES+=usr/bin/cpio
 .endif
 
-.if ${MK_BSNMP} == no
-OLD_FILES+=etc/snmpd.config
-OLD_FILES+=etc/rc.d/bsnmpd
-OLD_FILES+=usr/bin/bsnmpget
-OLD_FILES+=usr/bin/bsnmpset
-OLD_FILES+=usr/bin/bsnmpwalk
-OLD_FILES+=usr/include/bsnmp/asn1.h
-OLD_FILES+=usr/include/bsnmp/bridge_snmp.h
-OLD_FILES+=usr/include/bsnmp/snmp.h
-OLD_FILES+=usr/include/bsnmp/snmp_mibII.h
-OLD_FILES+=usr/include/bsnmp/snmp_netgraph.h
-OLD_FILES+=usr/include/bsnmp/snmpagent.h
-OLD_FILES+=usr/include/bsnmp/snmpclient.h
-OLD_FILES+=usr/include/bsnmp/snmpmod.h
-OLD_FILES+=usr/lib/libbsnmp.a
-OLD_FILES+=usr/lib/libbsnmp.so
-OLD_LIBS+=usr/lib/libbsnmp.so.7
-OLD_FILES+=usr/lib/libbsnmptools.a
-OLD_FILES+=usr/lib/libbsnmptools.so
-OLD_LIBS+=usr/lib/libbsnmptools.so.0
-OLD_FILES+=usr/lib/snmp_bridge.so
-OLD_LIBS+=usr/lib/snmp_bridge.so.6
-OLD_FILES+=usr/lib/snmp_hast.so
-OLD_LIBS+=usr/lib/snmp_hast.so.6
-OLD_FILES+=usr/lib/snmp_hostres.so
-OLD_LIBS+=usr/lib/snmp_hostres.so.6
-OLD_FILES+=usr/lib/snmp_lm75.so
-OLD_LIBS+=usr/lib/snmp_lm75.so.6
-OLD_FILES+=usr/lib/snmp_mibII.so
-OLD_LIBS+=usr/lib/snmp_mibII.so.6
-OLD_FILES+=usr/lib/snmp_netgraph.so
-OLD_LIBS+=usr/lib/snmp_netgraph.so.6
-OLD_FILES+=usr/lib/snmp_pf.so
-OLD_LIBS+=usr/lib/snmp_pf.so.6
-OLD_FILES+=usr/lib/snmp_target.so
-OLD_LIBS+=usr/lib/snmp_target.so.6
-OLD_FILES+=usr/lib/snmp_usm.so
-OLD_LIBS+=usr/lib/snmp_usm.so.6
-OLD_FILES+=usr/lib/snmp_vacm.so
-OLD_LIBS+=usr/lib/snmp_vacm.so.6
-OLD_FILES+=usr/lib/snmp_wlan.so
-OLD_LIBS+=usr/lib/snmp_wlan.so.6
-OLD_FILES+=usr/sbin/bsnmpd
-OLD_FILES+=usr/sbin/gensnmptree
-OLD_FILES+=usr/share/examples/etc/snmpd.config
-# lib/libbsnmp/libbsnmp
-# usr.sbin/bsnmpd/bsnmpd
-OLD_FILES+=usr/share/snmp/defs/bridge_tree.def
-OLD_FILES+=usr/share/snmp/defs/hast_tree.def
-OLD_FILES+=usr/share/snmp/defs/hostres_tree.def
-OLD_FILES+=usr/share/snmp/defs/lm75_tree.def
-OLD_FILES+=usr/share/snmp/defs/mibII_tree.def
-OLD_FILES+=usr/share/snmp/defs/netgraph_tree.def
-OLD_FILES+=usr/share/snmp/defs/pf_tree.def
-OLD_FILES+=usr/share/snmp/defs/target_tree.def
-OLD_FILES+=usr/share/snmp/defs/tc.def
-OLD_FILES+=usr/share/snmp/defs/tree.def
-OLD_FILES+=usr/share/snmp/defs/usm_tree.def
-OLD_FILES+=usr/share/snmp/defs/vacm_tree.def
-OLD_FILES+=usr/share/snmp/defs/wlan_tree.def
-OLD_FILES+=usr/share/snmp/mibs/BEGEMOT-ATM-FREEBSD-MIB.txt
-OLD_FILES+=usr/share/snmp/mibs/BEGEMOT-ATM.txt
-OLD_FILES+=usr/share/snmp/mibs/BEGEMOT-BRIDGE-MIB.txt
-OLD_FILES+=usr/share/snmp/mibs/BEGEMOT-HAST-MIB.txt
-OLD_FILES+=usr/share/snmp/mibs/BEGEMOT-HOSTRES-MIB.txt
-OLD_FILES+=usr/share/snmp/mibs/BEGEMOT-IP-MIB.txt
-OLD_FILES+=usr/share/snmp/mibs/BEGEMOT-LM75-MIB.txt
-OLD_FILES+=usr/share/snmp/mibs/BEGEMOT-MIB.txt
-OLD_FILES+=usr/share/snmp/mibs/BEGEMOT-MIB2-MIB.txt
-OLD_FILES+=usr/share/snmp/mibs/BEGEMOT-NETGRAPH.txt
-OLD_FILES+=usr/share/snmp/mibs/BEGEMOT-PF-MIB.txt
-OLD_FILES+=usr/share/snmp/mibs/BEGEMOT-SNMPD.txt
-OLD_FILES+=usr/share/snmp/mibs/BEGEMOT-WIRELESS-MIB.txt
-OLD_FILES+=usr/share/snmp/mibs/BRIDGE-MIB.txt
-OLD_FILES+=usr/share/snmp/mibs/FOKUS-MIB.txt
-OLD_FILES+=usr/share/snmp/mibs/FREEBSD-MIB.txt
-OLD_FILES+=usr/share/snmp/mibs/RSTP-MIB.txt
-OLD_FILES+=usr/tests/lib/libbsnmp/bsnmpd_test
-OLD_FILES+=usr/tests/lib/libbsnmp/Kyuafile
-OLD_DIRS+=usr/include/bsnmp
-OLD_DIRS+=usr/share/snmp
-OLD_DIRS+=usr/share/snmp/defs
-OLD_DIRS+=usr/share/snmp/mibs
-OLD_DIRS+=usr/tests/lib/libbsnmp
-.endif
 
 .if ${MK_CASPER} == no
 OLD_LIBS+=lib/libcasper.so.1
@@ -1213,11 +1121,6 @@ OLD_FILES+=usr/share/examples/ses/srcs/inienc.c
 OLD_FILES+=usr/share/examples/ses/srcs/sesd.c
 OLD_FILES+=usr/share/examples/ses/srcs/setencstat.c
 OLD_FILES+=usr/share/examples/ses/srcs/setobjstat.c
-OLD_FILES+=usr/share/examples/smbfs/dot.nsmbrc
-OLD_FILES+=usr/share/examples/smbfs/print/lj6l
-OLD_FILES+=usr/share/examples/smbfs/print/ljspool
-OLD_FILES+=usr/share/examples/smbfs/print/printcap.sample
-OLD_FILES+=usr/share/examples/smbfs/print/tolj
 OLD_FILES+=usr/share/examples/sound/basic.c
 OLD_FILES+=usr/share/examples/sound/ossmidi.h
 OLD_FILES+=usr/share/examples/sound/ossinit.h
@@ -1305,8 +1208,6 @@ OLD_DIRS+=usr/share/examples/ses/sesd
 OLD_DIRS+=usr/share/examples/ses/setencstat
 OLD_DIRS+=usr/share/examples/ses/setobjstat
 OLD_DIRS+=usr/share/examples/ses/srcs
-OLD_DIRS+=usr/share/examples/smbfs
-OLD_DIRS+=usr/share/examples/smbfs/print
 OLD_DIRS+=usr/share/examples/sound
 OLD_DIRS+=usr/share/examples/sunrpc
 OLD_DIRS+=usr/share/examples/sunrpc/dir
@@ -1463,11 +1364,6 @@ OLD_FILES+=usr/share/examples/hast/ucarp_up.sh
 OLD_FILES+=usr/share/examples/hast/vip-down.sh
 OLD_FILES+=usr/share/examples/hast/vip-up.sh
 OLD_DIRS+=usr/share/examples/hast
-# bsnmp
-OLD_FILES+=usr/lib/snmp_hast.so
-OLD_LIBS+=usr/lib/snmp_hast.so.6
-OLD_FILES+=usr/share/snmp/defs/hast_tree.def
-OLD_FILES+=usr/share/snmp/mibs/BEGEMOT-HAST-MIB.txt
 .endif
 
 .if ${MK_HESIOD} == no
@@ -1544,14 +1440,6 @@ OLD_FILES+=usr/share/doc/ntp/release.html
 OLD_FILES+=usr/share/doc/ntp/tickadj.html
 .endif
 
-.if ${MK_HYPERV} == no
-OLD_FILES+=etc/devd/hyperv.conf
-OLD_FILES+=usr/libexec/hyperv/hv_set_ifconfig
-OLD_FILES+=usr/libexec/hyperv/hv_get_dns_info
-OLD_FILES+=usr/libexec/hyperv/hv_get_dhcp_info
-OLD_FILES+=usr/sbin/hv_kvp_daemon
-OLD_FILES+=usr/sbin/hv_vss_daemon
-.endif
 
 .if ${MK_ICONV} == no
 OLD_FILES+=usr/bin/iconv
@@ -3511,11 +3399,6 @@ OLD_FILES+=etc/rc.d/ipfw_netflow
 .endif
 
 .if ${MK_NETGRAPH_SUPPORT} == no
-OLD_FILES+=usr/include/bsnmp/snmp_netgraph.h
-OLD_FILES+=usr/lib/snmp_netgraph.so
-OLD_LIBS+=usr/lib/snmp_netgraph.so.6
-OLD_FILES+=usr/share/snmp/defs/netgraph_tree.def
-OLD_FILES+=usr/share/snmp/mibs/BEGEMOT-NETGRAPH.txt
 .endif
 
 .if ${MK_NETLINK} == no
@@ -4000,10 +3883,49 @@ OLD_DIRS+=usr/share/doc/ntp
 OLD_FILES+=usr/share/examples/etc/ntp.conf
 .endif
 
+OLD_FILES+=usr/include/infiniband/vendor/osm_mtl_bind.h
+OLD_FILES+=usr/include/infiniband/vendor/osm_pkt_randomizer.h
+OLD_FILES+=usr/include/infiniband/vendor/osm_ts_useraccess.h
+OLD_FILES+=usr/include/infiniband/vendor/osm_umadt.h
+OLD_FILES+=usr/include/infiniband/vendor/osm_vendor_al.h
+OLD_FILES+=usr/include/infiniband/vendor/osm_vendor_mlx.h
+OLD_FILES+=usr/include/infiniband/vendor/osm_vendor_mlx_defs.h
+OLD_FILES+=usr/include/infiniband/vendor/osm_vendor_mlx_dispatcher.h
+OLD_FILES+=usr/include/infiniband/vendor/osm_vendor_mlx_hca.h
+OLD_FILES+=usr/include/infiniband/vendor/osm_vendor_mlx_inout.h
+OLD_FILES+=usr/include/infiniband/vendor/osm_vendor_mlx_rmpp_ctx.h
+OLD_FILES+=usr/include/infiniband/vendor/osm_vendor_mlx_sar.h
+OLD_FILES+=usr/include/infiniband/vendor/osm_vendor_mlx_sender.h
+OLD_FILES+=usr/include/infiniband/vendor/osm_vendor_mlx_svc.h
+OLD_FILES+=usr/include/infiniband/vendor/osm_vendor_mlx_transport.h
+OLD_FILES+=usr/include/infiniband/vendor/osm_vendor_mlx_transport_anafa.h
+OLD_FILES+=usr/include/infiniband/vendor/osm_vendor_mlx_txn.h
+OLD_FILES+=usr/include/infiniband/vendor/osm_vendor_mtl.h
+OLD_FILES+=usr/include/infiniband/vendor/osm_vendor_mtl_hca_guid.h
+OLD_FILES+=usr/include/infiniband/vendor/osm_vendor_mtl_transaction_mgr.h
+OLD_FILES+=usr/include/infiniband/vendor/osm_vendor_sa_api.h
+OLD_FILES+=usr/include/infiniband/vendor/osm_vendor_test.h
+OLD_FILES+=usr/include/infiniband/vendor/osm_vendor_ts.h
+OLD_FILES+=usr/include/infiniband/vendor/osm_vendor_umadt.h
+OLD_FILES+=usr/include/infiniband/vendor/osm_vendor.h
+OLD_FILES+=usr/include/infiniband/vendor/osm_vendor_api.h
+OLD_FILES+=usr/include/infiniband/vendor/osm_vendor_ibumad.h
+OLD_DIRS+=usr/include/infiniband/vendor
+OLD_FILES+=usr/lib/libosmvendor.a
+OLD_FILES+=usr/lib/libosmvendor.so
+OLD_LIBS+=usr/lib/libosmvendor.so.4
+
+OLD_FILES+=usr/include/infiniband/umad.h
+OLD_FILES+=usr/include/infiniband/umad_cm.h
+OLD_FILES+=usr/include/infiniband/umad_sa.h
+OLD_FILES+=usr/include/infiniband/umad_sm.h
+OLD_FILES+=usr/include/infiniband/umad_str.h
+OLD_FILES+=usr/include/infiniband/umad_types.h
+OLD_FILES+=usr/lib/libibumad.a
+OLD_FILES+=usr/lib/libibumad.so
+OLD_LIBS+=usr/lib/libibumad.so.1
+
 .if ${MK_OFED} == no
-OLD_FILES+=etc/newsyslog.conf.d/opensm.conf
-OLD_FILES+=etc/rc.d/opensm
-OLD_FILES+=usr/bin/ibstat
 OLD_FILES+=usr/bin/ibv_asyncwatch
 OLD_FILES+=usr/bin/ibv_devices
 OLD_FILES+=usr/bin/ibv_devinfo
@@ -4017,21 +3939,14 @@ OLD_FILES+=usr/bin/ucmatose
 OLD_FILES+=usr/bin/udaddy
 OLD_FILES+=usr/include/infiniband/marshall.h
 OLD_FILES+=usr/include/infiniband/kern-abi.h
-OLD_FILES+=usr/include/infiniband/umad_sm.h
-OLD_FILES+=usr/include/infiniband/umad.h
 OLD_FILES+=usr/include/infiniband/arch.h
 OLD_FILES+=usr/include/infiniband/verbs.h
 OLD_FILES+=usr/include/infiniband/ib.h
 OLD_FILES+=usr/include/infiniband/cm.h
 OLD_FILES+=usr/include/infiniband/opcode.h
-OLD_FILES+=usr/include/infiniband/ibnetdisc.h
 OLD_FILES+=usr/include/infiniband/driver.h
-OLD_FILES+=usr/include/infiniband/mad_osd.h
-OLD_FILES+=usr/include/infiniband/umad_types.h
-OLD_FILES+=usr/include/infiniband/umad_cm.h
 OLD_FILES+=usr/include/infiniband/cm_abi.h
 OLD_FILES+=usr/include/infiniband/sa-kern-abi.h
-OLD_FILES+=usr/include/infiniband/ibnetdisc_osd.h
 OLD_FILES+=usr/include/infiniband/opensm/osm_event_plugin.h
 OLD_FILES+=usr/include/infiniband/opensm/osm_console_io.h
 OLD_FILES+=usr/include/infiniband/opensm/osm_ucast_cache.h
@@ -4085,83 +4000,39 @@ OLD_FILES+=usr/include/infiniband/opensm/osm_router.h
 OLD_FILES+=usr/include/infiniband/opensm/osm_guid.h
 OLD_FILES+=usr/include/infiniband/opensm/osm_inform.h
 OLD_DIRS+=usr/include/infiniband/opensm
+
+.if ${MK_OFED} == no
+OLD_FILES+=usr/bin/ibv_asyncwatch
+OLD_FILES+=usr/bin/ibv_devices
+OLD_FILES+=usr/bin/ibv_devinfo
+OLD_FILES+=usr/bin/ibv_rc_pingpong
+OLD_FILES+=usr/bin/ibv_srq_pingpong
+OLD_FILES+=usr/bin/ibv_uc_pingpong
+OLD_FILES+=usr/bin/ibv_ud_pingpong
+OLD_FILES+=usr/bin/mckey
+OLD_FILES+=usr/bin/rping
+OLD_FILES+=usr/bin/ucmatose
+OLD_FILES+=usr/bin/udaddy
+OLD_FILES+=usr/include/infiniband/marshall.h
+OLD_FILES+=usr/include/infiniband/kern-abi.h
+OLD_FILES+=usr/include/infiniband/arch.h
+OLD_FILES+=usr/include/infiniband/verbs.h
+OLD_FILES+=usr/include/infiniband/ib.h
+OLD_FILES+=usr/include/infiniband/cm.h
+OLD_FILES+=usr/include/infiniband/opcode.h
+OLD_FILES+=usr/include/infiniband/driver.h
+OLD_FILES+=usr/include/infiniband/mad_osd.h
+OLD_FILES+=usr/include/infiniband/cm_abi.h
+OLD_FILES+=usr/include/infiniband/sa-kern-abi.h
 OLD_FILES+=usr/include/infiniband/iba/ib_types.h
 OLD_FILES+=usr/include/infiniband/iba/ib_cm_types.h
 OLD_DIRS+=usr/include/infiniband/iba
-OLD_FILES+=usr/include/infiniband/umad_str.h
 OLD_FILES+=usr/include/infiniband/udma_barrier.h
-OLD_FILES+=usr/include/infiniband/umad_sa.h
-OLD_FILES+=usr/include/infiniband/mad.h
 OLD_FILES+=usr/include/infiniband/sa.h
 OLD_FILES+=usr/include/infiniband/byteorder.h
 OLD_FILES+=usr/include/infiniband/types.h
 OLD_FILES+=usr/include/infiniband/byteswap.h
-OLD_FILES+=usr/include/infiniband/vendor/osm_pkt_randomizer.h
-OLD_FILES+=usr/include/infiniband/vendor/osm_vendor_mlx_rmpp_ctx.h
-OLD_FILES+=usr/include/infiniband/vendor/osm_vendor_mtl_hca_guid.h
-OLD_FILES+=usr/include/infiniband/vendor/osm_vendor_mlx_txn.h
-OLD_FILES+=usr/include/infiniband/vendor/osm_vendor_mlx.h
-OLD_FILES+=usr/include/infiniband/vendor/osm_vendor_mlx_svc.h
-OLD_FILES+=usr/include/infiniband/vendor/osm_vendor_test.h
-OLD_FILES+=usr/include/infiniband/vendor/osm_vendor_mlx_inout.h
-OLD_FILES+=usr/include/infiniband/vendor/osm_mtl_bind.h
-OLD_FILES+=usr/include/infiniband/vendor/osm_vendor_mlx_hca.h
-OLD_FILES+=usr/include/infiniband/vendor/osm_vendor_sa_api.h
-OLD_FILES+=usr/include/infiniband/vendor/osm_vendor_mlx_sender.h
-OLD_FILES+=usr/include/infiniband/vendor/osm_vendor.h
-OLD_FILES+=usr/include/infiniband/vendor/osm_umadt.h
-OLD_FILES+=usr/include/infiniband/vendor/osm_vendor_mtl_transaction_mgr.h
-OLD_FILES+=usr/include/infiniband/vendor/osm_vendor_mlx_defs.h
-OLD_FILES+=usr/include/infiniband/vendor/osm_vendor_mlx_dispatcher.h
-OLD_FILES+=usr/include/infiniband/vendor/osm_vendor_api.h
-OLD_FILES+=usr/include/infiniband/vendor/osm_vendor_mtl.h
-OLD_FILES+=usr/include/infiniband/vendor/osm_vendor_mlx_transport.h
-OLD_FILES+=usr/include/infiniband/vendor/osm_vendor_al.h
-OLD_FILES+=usr/include/infiniband/vendor/osm_vendor_mlx_sar.h
-OLD_FILES+=usr/include/infiniband/vendor/osm_vendor_umadt.h
-OLD_FILES+=usr/include/infiniband/vendor/osm_ts_useraccess.h
-OLD_FILES+=usr/include/infiniband/vendor/osm_vendor_ts.h
-OLD_FILES+=usr/include/infiniband/vendor/osm_vendor_mlx_transport_anafa.h
-OLD_FILES+=usr/include/infiniband/vendor/osm_vendor_ibumad.h
-OLD_DIRS+=usr/include/infiniband/vendor
 OLD_FILES+=usr/include/infiniband/endian.h
-OLD_FILES+=usr/include/infiniband/complib/cl_byteswap.h
-OLD_FILES+=usr/include/infiniband/complib/cl_types.h
-OLD_FILES+=usr/include/infiniband/complib/cl_map.h
-OLD_FILES+=usr/include/infiniband/complib/cl_packon.h
-OLD_FILES+=usr/include/infiniband/complib/cl_timer.h
-OLD_FILES+=usr/include/infiniband/complib/cl_thread_osd.h
-OLD_FILES+=usr/include/infiniband/complib/cl_thread.h
-OLD_FILES+=usr/include/infiniband/complib/cl_event.h
-OLD_FILES+=usr/include/infiniband/complib/cl_byteswap_osd.h
-OLD_FILES+=usr/include/infiniband/complib/cl_passivelock.h
-OLD_FILES+=usr/include/infiniband/complib/cl_vector.h
-OLD_FILES+=usr/include/infiniband/complib/cl_nodenamemap.h
-OLD_FILES+=usr/include/infiniband/complib/cl_event_wheel.h
-OLD_FILES+=usr/include/infiniband/complib/cl_log.h
-OLD_FILES+=usr/include/infiniband/complib/cl_fleximap.h
-OLD_FILES+=usr/include/infiniband/complib/cl_qlist.h
-OLD_FILES+=usr/include/infiniband/complib/cl_timer_osd.h
-OLD_FILES+=usr/include/infiniband/complib/cl_pool.h
-OLD_FILES+=usr/include/infiniband/complib/cl_debug.h
-OLD_FILES+=usr/include/infiniband/complib/cl_types_osd.h
-OLD_FILES+=usr/include/infiniband/complib/cl_dispatcher.h
-OLD_FILES+=usr/include/infiniband/complib/cl_ptr_vector.h
-OLD_FILES+=usr/include/infiniband/complib/cl_atomic_osd.h
-OLD_FILES+=usr/include/infiniband/complib/cl_qmap.h
-OLD_FILES+=usr/include/infiniband/complib/cl_spinlock_osd.h
-OLD_FILES+=usr/include/infiniband/complib/cl_qcomppool.h
-OLD_FILES+=usr/include/infiniband/complib/cl_threadpool.h
-OLD_FILES+=usr/include/infiniband/complib/cl_list.h
-OLD_FILES+=usr/include/infiniband/complib/cl_debug_osd.h
-OLD_FILES+=usr/include/infiniband/complib/cl_packoff.h
-OLD_FILES+=usr/include/infiniband/complib/cl_qpool.h
-OLD_FILES+=usr/include/infiniband/complib/cl_spinlock.h
-OLD_FILES+=usr/include/infiniband/complib/cl_event_osd.h
-OLD_FILES+=usr/include/infiniband/complib/cl_atomic.h
-OLD_FILES+=usr/include/infiniband/complib/cl_math.h
-OLD_FILES+=usr/include/infiniband/complib/cl_comppool.h
-OLD_DIRS+=usr/include/infiniband/complib
 OLD_DIRS+=usr/include/infiniband
 OLD_FILES+=usr/lib/libcxgb4.a
 OLD_FILES+=usr/lib/libcxgb4.so
@@ -4169,15 +4040,6 @@ OLD_LIBS+=usr/lib/libcxgb4.so.1
 OLD_FILES+=usr/lib/libibcm.a
 OLD_FILES+=usr/lib/libibcm.so
 OLD_LIBS+=usr/lib/libibcm.so.1
-OLD_FILES+=usr/lib/libibmad.a
-OLD_FILES+=usr/lib/libibmad.so
-OLD_LIBS+=usr/lib/libibmad.so.5
-OLD_FILES+=usr/lib/libibnetdisc.a
-OLD_FILES+=usr/lib/libibnetdisc.so
-OLD_LIBS+=usr/lib/libibnetdisc.so.5
-OLD_FILES+=usr/lib/libibumad.a
-OLD_FILES+=usr/lib/libibumad.so
-OLD_LIBS+=usr/lib/libibumad.so.1
 OLD_FILES+=usr/lib/libibverbs.a
 OLD_FILES+=usr/lib/libibverbs.so
 OLD_LIBS+=lib/libibverbs.so.1
@@ -4187,43 +4049,9 @@ OLD_LIBS+=usr/lib/libmlx4.so.1
 OLD_FILES+=usr/lib/libmlx5.a
 OLD_FILES+=usr/lib/libmlx5.so
 OLD_LIBS+=lib/libmlx5.so.1
-OLD_FILES+=usr/lib/libopensm.a
-OLD_FILES+=usr/lib/libopensm.so
-OLD_LIBS+=usr/lib/libopensm.so.5
-OLD_FILES+=usr/lib/libosmcomp.a
-OLD_FILES+=usr/lib/libosmcomp.so
-OLD_LIBS+=usr/lib/libosmcomp.so.3
-OLD_FILES+=usr/lib/libosmvendor.a
-OLD_FILES+=usr/lib/libosmvendor.so
-OLD_LIBS+=usr/lib/libosmvendor.so.4
 OLD_FILES+=usr/lib/librdmacm.a
 OLD_FILES+=usr/lib/librdmacm.so
 OLD_LIBS+=usr/lib/librdmacm.so.1
-.endif
-
-.if ${MK_OFED_EXTRA} == no
-OLD_FILES+=etc/rc.d/opensm
-OLD_FILES+=usr/bin/dump_fts
-OLD_FILES+=usr/bin/ibaddr
-OLD_FILES+=usr/bin/ibcacheedit
-OLD_FILES+=usr/bin/ibccconfig
-OLD_FILES+=usr/bin/ibccquery
-OLD_FILES+=usr/bin/iblinkinfo
-OLD_FILES+=usr/bin/ibmirror
-OLD_FILES+=usr/bin/ibnetdiscover
-OLD_FILES+=usr/bin/ibping
-OLD_FILES+=usr/bin/ibportstate
-OLD_FILES+=usr/bin/ibqueryerrors
-OLD_FILES+=usr/bin/ibroute
-OLD_FILES+=usr/bin/ibsysstat
-OLD_FILES+=usr/bin/ibtracert
-OLD_FILES+=usr/bin/opensm
-OLD_FILES+=usr/bin/perfquery
-OLD_FILES+=usr/bin/saquery
-OLD_FILES+=usr/bin/sminfo
-OLD_FILES+=usr/bin/smpdump
-OLD_FILES+=usr/bin/smpquery
-OLD_FILES+=usr/bin/vendstat
 .endif
 
 .if ${MK_OPENMP} == no
@@ -5443,11 +5271,6 @@ OLD_FILES+=usr/share/examples/hostapd/hostapd.conf
 OLD_FILES+=usr/share/examples/hostapd/hostapd.eap_user
 OLD_FILES+=usr/share/examples/hostapd/hostapd.wpa_psk
 OLD_DIRS+=usr/share/examples/hostapd
-OLD_FILES+=usr/lib/snmp_wlan.so
-OLD_LIBS+=usr/lib/snmp_wlan.so.6
-# bsnmp module
-OLD_FILES+=usr/share/snmp/defs/wlan_tree.def
-OLD_FILES+=usr/share/snmp/mibs/BEGEMOT-WIRELESS-MIB.txt
 .endif
 
 .if ${MK_ZFS} == no

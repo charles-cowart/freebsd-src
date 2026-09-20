@@ -367,11 +367,11 @@ log_console(struct uio *uio)
 	 * the console, this looks seamless, but when displayed with
 	 * 'dmesg -a', you wind up with output that looks like this:
 	 *
-	 * Updating motd:
+	 * Updating service data:
 	 * .
 	 *
 	 * On the console, it looks like this:
-	 * Updating motd:.
+	 * Updating service data:.
 	 *
 	 * We could add logic to detect that situation, or just not insert
 	 * the extra newlines.  Set the kern.log_console_add_linefeed

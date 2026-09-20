@@ -271,7 +271,6 @@ MSDOSFS		opt_dontuse.h
 NULLFS		opt_dontuse.h
 PROCFS		opt_dontuse.h
 PSEUDOFS	opt_dontuse.h
-SMBFS		opt_dontuse.h
 TARFS		opt_dontuse.h
 TMPFS		opt_dontuse.h
 UDF		opt_dontuse.h
@@ -330,9 +329,6 @@ UFS_GJOURNAL	opt_ufs.h
 # <filesystem>_ROOT option to control if it usable as root.  This list
 # allows these options to be present in config files already (though
 # they won't make any difference yet).
-
-# SMB/CIFS requester
-NETSMB		opt_netsmb.h
 
 # Enable debugnet(4) networking support.
 DEBUGNET 	opt_global.h
@@ -902,8 +898,6 @@ EVDEV_SUPPORT	opt_evdev.h
 EVDEV_DEBUG	opt_evdev.h
 UINPUT_DEBUG	opt_evdev.h
 
-# Hyper-V network driver
-HN_DEBUG	opt_hn.h
 
 # CAM-based MMC stack
 MMCCAM

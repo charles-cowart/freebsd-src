@@ -19,7 +19,6 @@ MAN=	a.out.5 \
 	libmap.conf.5 \
 	link.5 \
 	make.conf.5 \
-	motd.5 \
 	mount.conf.5 \
 	networks.5 \
 	nsswitch.conf.5 \
@@ -90,9 +89,6 @@ RUNTIMELINKS=	passwd.5 master.passwd.5
 RUNTIMELINKS+=	passwd.5 pwd.db.5
 RUNTIMELINKS+=	passwd.5 spwd.db.5
 
-MANGROUPS+=				SMB
-SMBPACKAGE=				smbutils
-SMB=		nsmb.conf.5
 
 MANGROUPS.${MK_OPENSSH}+=		SSH
 SSHPACKAGE=				ssh

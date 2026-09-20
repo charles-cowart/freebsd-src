@@ -268,7 +268,6 @@ struct accept_filter_arg {
 #define	AF_NETLINK	38		/* Netlink protocol */
 #define	AF_INET_SDP	40		/* OFED Socket Direct Protocol ipv4 */
 #define	AF_INET6_SDP	42		/* OFED Socket Direct Protocol ipv6 */
-#define	AF_HYPERV	43		/* HyperV sockets */
 #define	AF_DIVERT	44		/* divert(4) */
 #define	AF_IPFWLOG	46
 #define	AF_MAX		46

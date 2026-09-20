@@ -59,7 +59,6 @@ __<src.opts.mk>__:	.NOTMAIN
 __DEFAULT_YES_OPTIONS = \
     ACCT \
     ACPI \
-    APM \
     AT \
     AUDIT \
     AUTOFS \
@@ -70,7 +69,6 @@ __DEFAULT_YES_OPTIONS = \
     BOOT \
     BSD_CPIO \
     BSDINSTALL \
-    BSNMP \
     BZIP2 \
     CAROOT \
     CCD \
@@ -94,7 +92,6 @@ __DEFAULT_YES_OPTIONS = \
     GPIO \
     HAST \
     HTML \
-    HYPERV \
     ICONV \
     INET \
     INET6 \
@@ -134,7 +131,6 @@ __DEFAULT_YES_OPTIONS = \
     NLS_CATALOGS \
     NS_CACHING \
     NTP \
-    OFED \
     OPENSSL \
     PAM \
     PKGBOOTSTRAP \
@@ -183,7 +179,7 @@ __DEFAULT_NO_OPTIONS = \
     LLVM_ASSERTIONS \
     LLVM_FULL_DEBUGINFO \
     LLVM_LINK_STATIC_LIBRARIES \
-    OFED_EXTRA \
+    OFED \
     OPENLDAP \
     PTHREADS_ASSERTIONS \
     RPCBIND_WARMSTART_SUPPORT \
@@ -329,7 +325,6 @@ BROKEN_OPTIONS+=MLX5TOOL
 .endif
 
 .if ${__T} != "amd64" && ${__T} != "i386" && ${__T} != "aarch64"
-BROKEN_OPTIONS+=HYPERV
 .endif
 
 .if ${__T} == "aarch64" || ${__T} == "amd64" || ${__T} == "i386" || \
@@ -419,10 +414,6 @@ MK_ZFS:=	no
 .if ${MK_LDNS} == "no"
 MK_LDNS_UTILS:=	no
 MK_UNBOUND:= no
-.endif
-
-.if ${MK_OFED} == "no"
-MK_OFED_EXTRA:=	no
 .endif
 
 .if ${MK_TESTS} == "no"

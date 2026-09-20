@@ -2,10 +2,7 @@
 
 SUBDIR= \
 	libibverbs \
-	librdmacm \
-	infiniband-diags
-
-SUBDIR.${MK_OFED_EXTRA}+= opensm
+	librdmacm
 
 SUBDIR_PARALLEL=
 

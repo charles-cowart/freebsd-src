@@ -663,17 +663,6 @@ post_install_file()
 				    >&3 2>&1
 			fi
 			;;
-		/etc/motd)
-			# /etc/rc.d/motd hardcodes the /etc/motd path.
-			# Don't warn about non-empty DESTDIR's since this
-			# change is only cosmetic anyway.
-			if [ -z "$DESTDIR" ]; then
-				log "sh /etc/rc.d/motd start"
-				if [ -z "$dryrun" ]; then
-					sh /etc/rc.d/motd start >&3 2>&1
-				fi
-			fi
-			;;
 		/etc/services)
 			log "services_mkdb -q -o $DESTDIR/var/db/services.db" \
 			    "${DESTDIR}$1"

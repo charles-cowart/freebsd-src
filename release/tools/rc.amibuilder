@@ -54,20 +54,6 @@ else
 	zfs mount -a
 fi
 
-# Provide instructions for when the user logs in
-mount -w /
-cat >/etc/motd.template <<EOF
-Welcome to the FreeBSD AMI builder!
-
-FreeBSD `uname -r` is now installed onto the disk /dev/${BOOTDISK},
-and mounted at /mnt. Make any further changes you wish, then run
-
-# mkami <AMI name> [<AMI description>]
-
-to create the AMI. Don't forget to shut down this instance when
-you're done!
-
-EOF
 mount -o ro /
 
 # After we exit, the boot proceeds with init spawning /etc/rc normally

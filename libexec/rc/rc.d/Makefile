@@ -36,7 +36,6 @@ CONFS=	DAEMON \
 	linux \
 	local \
 	localpkg \
-	motd \
 	mountcritlocal \
 	mountcritremote \
 	mountlate \
@@ -91,13 +90,6 @@ CONFGROUPS.${MK_ACPI}+=		ACPI
 ACPIPACKAGE=			acpi
 ACPI=		power_profile
 
-CONFGROUPS.${MK_APM}+=		APM
-APMPACKAGE=			apm
-APM=		apm
-.if ${MACHINE} == "i386"
-APM+=		apmd
-.endif
-
 CONFGROUPS.${MK_AUDIT}+=	AUDIT
 AUDITPACKAGE=			audit
 AUDIT=		auditd \
@@ -122,9 +114,6 @@ BLUETOOTH=	bluetooth \
 		sdpd \
 		ubthidhci
 
-CONFGROUPS.${MK_BSNMP}+=	BSNMP
-BSNMPPACKAGE=			bsnmp
-BSNMP=		bsnmpd
 
 CONFGROUPS.${MK_CCD}+=		CCD
 CCDPACKAGE=			ccdconfig
@@ -202,9 +191,6 @@ CONFGROUPS.${MK_NTP}+=		NTP
 NTPPACKAGE=			ntp
 NTP=		ntpd \
 		ntpdate
-
-CONFGROUPS.${MK_OFED_EXTRA}+=	OPENSM
-OPENSM=	opensm
 
 CONFGROUPS+=			POWERD
 POWERDPACKAGE=			powerd

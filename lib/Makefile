@@ -35,7 +35,6 @@ SUBDIR=	${SUBDIR_BOOTSTRAP} \
 	libalias \
 	libarchive \
 	libauditd \
-	libbegemot \
 	libblocksruntime \
 	libbsddialog \
 	libbsdstat \
@@ -91,7 +90,6 @@ SUBDIR=	${SUBDIR_BOOTSTRAP} \
 	librt \
 	librtld_db \
 	libsbuf \
-	libsmb \
 	libstdbuf \
 	libstdthreads \
 	libsysdecode \
@@ -122,7 +120,6 @@ SUBDIR_DEPEND_googletest= libregex
 SUBDIR_DEPEND_libarchive= libz libbz2 libexpat liblzma libmd libzstd
 SUBDIR_DEPEND_libauditdm= libbsm
 SUBDIR_DEPEND_libbsddialog= ncurses
-SUBDIR_DEPEND_libbsnmp= ${_libnetgraph}
 SUBDIR_DEPEND_libc++:= libcxxrt
 # libssp_nonshared doesn't need to be linked into libc on every arch, but it is
 # small enough to build that this bit of serialization is likely insignificant.
@@ -139,7 +136,6 @@ SUBDIR_DEPEND_libpam= libcrypt ${_libradius} librpcsvc libtacplus libutil
 SUBDIR_DEPEND_libpjdlog= libutil
 SUBDIR_DEPEND_libprocstat= libkvm libutil
 SUBDIR_DEPEND_libradius= libmd
-SUBDIR_DEPEND_libsmb= libkiconv
 # See comment above about libssp_nonshared
 SUBDIR_DEPEND_libsys= libcompiler_rt libssp_nonshared
 SUBDIR_DEPEND_libtacplus= libmd
@@ -158,7 +154,6 @@ SUBDIR.${MK_BEARSSL}+=	libbearssl libsecureboot
 SUBDIR.${MK_BLACKLIST}+=libblacklist
 SUBDIR.${MK_BLOCKLIST}+=libblocklist
 SUBDIR.${MK_BLUETOOTH}+=libbluetooth libsdp
-SUBDIR.${MK_BSNMP}+=	libbsnmp
 
 .if !defined(COMPAT_LIBCOMPAT)
 .if ${MK_CLANG} != "no" || ${MK_LLD} != "no" || \

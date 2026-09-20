@@ -152,7 +152,6 @@ static const char *const vm_guest_sysctl_names[] = {
 	[VM_GUEST_NO] = "none",
 	[VM_GUEST_VM] = "generic",
 	[VM_GUEST_XEN] = "xen",
-	[VM_GUEST_HV] = "hv",
 	[VM_GUEST_VMWARE] = "vmware",
 	[VM_GUEST_KVM] = "kvm",
 	[VM_GUEST_BHYVE] = "bhyve",

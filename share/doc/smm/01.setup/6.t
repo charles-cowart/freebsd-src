@@ -635,7 +635,6 @@ lfC l.
 /etc/gettytab	terminal type definitions
 /etc/remote	names and phone numbers of remote machines for \fItip\fP(1)
 /etc/group	group memberships
-/etc/motd	message of the day
 /etc/master.passwd	password file; each account has a line
 /etc/rc.local	local system restart script; runs reboot; starts daemons
 /etc/inetd.conf	local internet servers

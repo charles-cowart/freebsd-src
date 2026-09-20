@@ -288,7 +288,6 @@ DIRDEPS+= \
 	usr.bin/sed \
 	usr.bin/seq \
 	usr.bin/shar \
-	usr.bin/smbutil \
 	usr.bin/sockstat \
 	usr.bin/soelim \
 	usr.bin/sort \
@@ -368,7 +367,6 @@ DIRDEPS+= \
 	usr.sbin/amd/scripts \
 	usr.sbin/amd/wire-test \
 	usr.sbin/ancontrol \
-	usr.sbin/apm \
 	usr.sbin/arp \
 	usr.sbin/arpaname \
 	usr.sbin/audit \
@@ -434,21 +432,6 @@ DIRDEPS+= \
 	usr.sbin/bsdinstall/distfetch \
 	usr.sbin/bsdinstall/partedit \
 	usr.sbin/bsdinstall/scripts \
-	usr.sbin/bsnmpd/bsnmpd \
-	usr.sbin/bsnmpd/gensnmptree \
-	usr.sbin/bsnmpd/modules/snmp_atm \
-	usr.sbin/bsnmpd/modules/snmp_bridge \
-	usr.sbin/bsnmpd/modules/snmp_hast \
-	usr.sbin/bsnmpd/modules/snmp_hostres \
-	usr.sbin/bsnmpd/modules/snmp_lm75 \
-	usr.sbin/bsnmpd/modules/snmp_mibII \
-	usr.sbin/bsnmpd/modules/snmp_netgraph \
-	usr.sbin/bsnmpd/modules/snmp_target \
-	usr.sbin/bsnmpd/modules/snmp_usm \
-	usr.sbin/bsnmpd/modules/snmp_vacm \
-	usr.sbin/bsnmpd/modules/snmp_wlan \
-	usr.sbin/bsnmpd/tools/bsnmptools \
-	usr.sbin/bsnmpd/tools/libbsnmptools \
 	usr.sbin/cdcontrol \
 	usr.sbin/chkgrp \
 	usr.sbin/chown \
@@ -522,7 +505,6 @@ DIRDEPS+= \
 	usr.sbin/mixer \
 	usr.sbin/mld6query \
 	usr.sbin/mlxcontrol \
-	usr.sbin/mount_smbfs \
 	usr.sbin/moused \
 	usr.sbin/mpsutil \
 	usr.sbin/mptutil \
@@ -653,16 +635,12 @@ DIRDEPS.amd64= \
 	usr.sbin/acpi/acpidb \
 	usr.sbin/acpi/acpidump \
 	usr.sbin/acpi/iasl \
-	usr.sbin/apm \
 	usr.sbin/bhyve \
 	usr.sbin/bhyvectl \
 	usr.sbin/bhyveload \
 	usr.sbin/btxld \
 	usr.sbin/camdd \
 	usr.sbin/cpucontrol \
-	usr.sbin/hyperv/tools \
-	usr.sbin/hyperv/tools/kvp \
-	usr.sbin/hyperv/tools/vss \
 	usr.sbin/lptcontrol \
 	usr.sbin/mptable \
 	usr.sbin/spkrtest \
@@ -674,13 +652,8 @@ DIRDEPS.arm= \
 
 DIRDEPS.i386= \
 	sbin/nvmecontrol \
-	usr.sbin/apm \
-	usr.sbin/apmd \
 	usr.sbin/btxld \
 	usr.sbin/cpucontrol \
-	usr.sbin/hyperv/tools \
-	usr.sbin/hyperv/tools/kvp \
-	usr.sbin/hyperv/tools/vss \
 	usr.sbin/lptcontrol \
 	usr.sbin/mptable \
 	usr.sbin/pnpinfo \

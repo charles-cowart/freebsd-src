@@ -2640,10 +2640,6 @@ _bootstrap_tools_links+=mkimg
 
 _yacc=		usr.bin/yacc
 
-.if ${MK_BSNMP} != "no"
-_gensnmptree=	usr.sbin/bsnmpd/gensnmptree
-.endif
-
 
 # We need to build tblgen when we're building clang or lld, either as
 # bootstrap tools, or as the part of the normal build.
@@ -3286,13 +3282,10 @@ lib/libedit__L:		lib/ncurses/ncurses__L
 .if ${MK_OFED} != "no"
 _prebuild_libs+= \
 	lib/ofed/libibverbs \
-	lib/ofed/libibmad \
-	lib/ofed/libibumad \
 	lib/ofed/complib \
 	lib/ofed/libbnxtre \
 	lib/ofed/libmlx5
 
-lib/ofed/libibmad__L:	lib/ofed/libibumad__L
 lib/ofed/complib__L:	lib/libthr__L
 lib/ofed/libbnxtre__L:	lib/ofed/libibverbs__L lib/libthr__L
 lib/ofed/libmlx5__L:	lib/ofed/libibverbs__L lib/libthr__L

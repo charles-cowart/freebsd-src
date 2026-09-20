@@ -386,7 +386,6 @@ mkfifo
 mmap
 mnt
 mono
-motd
 mountd
 mqueue
 msgbuf

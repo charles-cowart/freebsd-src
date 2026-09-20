@@ -55,14 +55,6 @@
 #include <sysexits.h>
 #include <unistd.h>
 
-#ifdef __i386__
-#define USE_APM
-#endif
-
-#ifdef USE_APM
-#include <machine/apm_bios.h>
-#endif
-
 #define DEFAULT_ACTIVE_PERCENT	75
 #define DEFAULT_IDLE_PERCENT	50
 #define DEFAULT_POLL_INTERVAL	250	/* Poll interval in milliseconds */
@@ -88,7 +80,6 @@ static const char *modes[] = {
 
 #define ACPIAC		"hw.acpi.acline"
 #define PMUAC		"dev.pmu.0.acline"
-#define APMDEV		"/dev/apm"
 #define DEVDPIPE	"/var/run/devd.pipe"
 #define DEVCTL_MAXBUF	1024
 
@@ -124,16 +115,10 @@ typedef enum {
 	ac_none,
 	ac_sysctl,
 	ac_acpi_devd,
-#ifdef USE_APM
-	ac_apm,
-#endif
 	ac_acpi_netlink,
 } acline_mode_t;
 static acline_mode_t acline_mode;
 static acline_mode_t acline_mode_user = ac_none;
-#ifdef USE_APM
-static int	apm_fd = -1;
-#endif
 static int	devd_pipe = -1;
 static bool	try_netlink = true;
 static struct snl_state ss;
@@ -300,8 +285,8 @@ get_freq_id(int freq, int *freqs, int numfreqs)
 }
 
 /*
- * Try to use ACPI to find the AC line status.  If this fails, fall back
- * to APM.  If nothing succeeds, we'll just run in default mode.
+ * Try to use ACPI to find the AC line status.  If this fails, we'll just
+ * run in default mode.
  */
 static void
 acline_init(void)
@@ -324,13 +309,6 @@ acline_init(void)
 		acline_mode = ac_sysctl;
 		if (vflag)
 			warnx("using sysctl for AC line status");
-#endif
-#ifdef USE_APM
-	} else if ((skip_source_check || acline_mode_user == ac_apm) &&
-		   (apm_fd = open(APMDEV, O_RDONLY)) >= 0) {
-		if (vflag)
-			warnx("using APM for AC line status");
-		acline_mode = ac_apm;
 #endif
 	} else {
 		warnx("unable to determine AC line status");
@@ -411,33 +389,11 @@ acline_read(int rfds)
 		else
 			acline_status = SRC_UNKNOWN;
 	}
-#ifdef USE_APM
-	if (acline_mode == ac_apm) {
-		struct apm_info info;
-
-		if (ioctl(apm_fd, APMIO_GETINFO, &info) == 0) {
-			acline_status = (info.ai_acline ? SRC_AC : SRC_BATTERY);
-		} else {
-			close(apm_fd);
-			apm_fd = -1;
-			acline_mode = ac_none;
-			acline_status = SRC_UNKNOWN;
-		}
-	}
-#endif
 	/* try to (re)connect to devd */
-#ifdef USE_APM
-	if ((acline_mode == ac_sysctl &&
-	    (acline_mode_user == ac_none ||
-	     acline_mode_user == ac_acpi_devd)) ||
-	    (acline_mode == ac_apm &&
-	     acline_mode_user == ac_acpi_devd)) {
-#else
 	if (acline_mode == ac_sysctl &&
 	    (acline_mode_user == ac_none ||
 	     acline_mode_user == ac_acpi_devd ||
 	     acline_mode_user == ac_acpi_netlink)) {
-#endif
 		struct timeval now;
 
 		if (acline_mode_user != ac_acpi_devd && try_netlink) {
@@ -542,10 +498,6 @@ parse_acline_mode(char *arg, int ch)
 		acline_mode_user = ac_sysctl;
 	else if (strcmp(arg, "devd") == 0)
 		acline_mode_user = ac_acpi_devd;
-#ifdef USE_APM
-	else if (strcmp(arg, "apm") == 0)
-		acline_mode_user = ac_apm;
-#endif
 	else if (strcmp(arg, "netlink") == 0)
 		acline_mode_user = ac_acpi_netlink;
 	else
@@ -708,7 +660,7 @@ main(int argc, char * argv[])
 		pidfile_write(pfh);
 	}
 
-	/* Decide whether to use ACPI or APM to read the AC line status. */
+	/* Decide how to read the AC line status. */
 	acline_init();
 
 	/*

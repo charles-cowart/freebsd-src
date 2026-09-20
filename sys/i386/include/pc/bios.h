@@ -118,7 +118,6 @@ struct PnPBIOS_table
 #define PNP_GET_PRIBOOT		"sspppppD",	0x08
 #define PNP_SET_RESINFO		"spD",		0x09
 #define PNP_GET_RESINFO		"spD",		0x0A
-#define PNP_GET_APM_ID		"sppD",		0x0B
 
 #define PNP_GET_ISA_INFO	"spD",		0x40
 #define PNP_GET_ECSD_INFO	"spppD",	0x41

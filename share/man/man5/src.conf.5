@@ -107,11 +107,6 @@ Do not build
 .Xr acpiconf 8 ,
 .Xr acpidump 8
 and related programs.
-.It Va WITHOUT_APM
-Do not build
-.Xr apm 8 ,
-.Xr apmd 8
-and related programs.
 .It Va WITH_ASAN
 Build the base system with Address Sanitizer (ASan) to detect
 memory corruption bugs such as buffer overflows or use-after-free.
@@ -298,10 +293,6 @@ and related programs.
 .It Va WITHOUT_BSD_CPIO
 Do not build the BSD licensed version of cpio based on
 .Xr libarchive 3 .
-.It Va WITHOUT_BSNMP
-Do not build or install
-.Xr bsnmpd 1
-and related libraries and data files.
 .It Va WITHOUT_BZIP2
 Do not build contributed bzip2 software as a part of the base system.
 .Bf -symbolic
@@ -749,16 +740,6 @@ and related utilities.
 Build Hesiod support.
 .It Va WITHOUT_HTML
 Do not build HTML docs.
-.It Va WITHOUT_HYPERV
-Do not build or install HyperV utilities.
-.Pp
-This is a default setting on
-arm/armv7, powerpc/powerpc64, powerpc/powerpc64le and riscv/riscv64.
-.It Va WITH_HYPERV
-Build or install HyperV utilities.
-.Pp
-This is a default setting on
-amd64/amd64, arm64/aarch64 and i386/i386.
 .It Va WITHOUT_ICONV
 Do not build iconv as part of libc.
 .It Va WITHOUT_INCLUDES
@@ -1335,12 +1316,6 @@ InfiniBand software stack, including kernel modules and userspace libraries.
 .Pp
 This is a default setting on
 arm/armv7.
-When set, it enforces these options:
-.Pp
-.Bl -item -compact
-.It
-.Va WITHOUT_OFED_EXTRA
-.El
 .It Va WITH_OFED
 Build the
 .Dq "OpenFabrics Enterprise Distribution"
@@ -1348,10 +1323,6 @@ InfiniBand software stack, including kernel modules and userspace libraries.
 .Pp
 This is a default setting on
 amd64/amd64, arm64/aarch64, i386/i386, powerpc/powerpc64, powerpc/powerpc64le and riscv/riscv64.
-.It Va WITH_OFED_EXTRA
-Build the non-essential components of the
-.Dq "OpenFabrics Enterprise Distribution"
-Infiniband software stack, mostly examples.
 .It Va WITH_OPENLDAP
 Enable building LDAP support for kerberos using an openldap client from ports.
 .It Va WITHOUT_OPENMP

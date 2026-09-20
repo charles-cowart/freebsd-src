@@ -178,7 +178,6 @@ ghashv8-armx.o					optional armv8crypto	\
 	no-implicit-rule						\
 	clean		"ghashv8-armx.o"
 
-crypto/des/des_enc.c				optional netsmb
 crypto/openssl/ossl_aarch64.c			optional ossl
 crypto/openssl/aarch64/chacha-armv8.S		optional ossl		\
 	compile-with	"${CC} -c ${CFLAGS:N-mgeneral-regs-only} -I$S/crypto/openssl ${WERROR} ${.IMPSRC}"
@@ -307,30 +306,6 @@ arm64/arm64/cmn600.c				optional hwpmc acpi
 dev/hwpmc/hwpmc_dmc620.c			optional hwpmc acpi
 dev/hwpmc/pmu_dmc620.c				optional hwpmc acpi
 
-# Microsoft Hyper-V
-dev/hyperv/vmbus/hyperv.c			optional hyperv acpi
-dev/hyperv/vmbus/aarch64/hyperv_aarch64.c	optional hyperv acpi
-dev/hyperv/vmbus/vmbus.c			optional hyperv acpi pci
-dev/hyperv/vmbus/aarch64/vmbus_aarch64.c	optional hyperv acpi
-dev/hyperv/vmbus/vmbus_if.m			optional hyperv acpi
-dev/hyperv/vmbus/vmbus_res.c			optional hyperv acpi
-dev/hyperv/vmbus/vmbus_xact.c			optional hyperv acpi
-dev/hyperv/vmbus/aarch64/hyperv_machdep.c	optional hyperv acpi
-dev/hyperv/vmbus/vmbus_chan.c			optional hyperv acpi
-dev/hyperv/vmbus/hyperv_busdma.c		optional hyperv acpi
-dev/hyperv/vmbus/vmbus_br.c			optional hyperv acpi
-dev/hyperv/storvsc/hv_storvsc_drv_freebsd.c	optional hyperv acpi
-dev/hyperv/utilities/vmbus_timesync.c		optional hyperv acpi
-dev/hyperv/utilities/vmbus_heartbeat.c		optional hyperv acpi
-dev/hyperv/utilities/vmbus_ic.c			optional hyperv acpi
-dev/hyperv/utilities/vmbus_shutdown.c		optional hyperv acpi
-dev/hyperv/utilities/hv_kvp.c			optional hyperv acpi
-dev/hyperv/input/hv_kbd.c			optional hyperv acpi
-dev/hyperv/input/hv_kbdc.c			optional hyperv acpi
-dev/hyperv/netvsc/hn_nvs.c			optional hyperv acpi
-dev/hyperv/netvsc/hn_rndis.c			optional hyperv acpi
-dev/hyperv/netvsc/if_hn.c			optional hyperv acpi
-dev/hyperv/pcib/vmbus_pcib.c			optional hyperv pci acpi
 
 dev/ice/if_ice_iflib.c				optional ice pci \
 	compile-with "${NORMAL_C} -I$S/dev/ice"

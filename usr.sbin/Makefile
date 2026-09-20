@@ -40,7 +40,6 @@ SUBDIR=	adduser \
 	memcontrol \
 	mfiutil \
 	mlxcontrol \
-	mount_smbfs \
 	mpsutil \
 	mptutil \
 	mtest \
@@ -108,7 +107,6 @@ SUBDIR.${MK_BLOCKLIST}+=	blocklistctl
 SUBDIR.${MK_BLOCKLIST}+=	blocklistd
 SUBDIR.${MK_BLUETOOTH}+=	bluetooth
 SUBDIR.${MK_BSDINSTALL}+=	bsdinstall
-SUBDIR.${MK_BSNMP}+=	bsnmpd
 .if ${MK_CAROOT} != "no"
 SUBDIR.${MK_OPENSSL}+=	certctl
 .endif
@@ -119,7 +117,6 @@ SUBDIR.${MK_EFI}+=	uefisign
 .endif
 SUBDIR.${MK_FDT}+=	ofwdump
 SUBDIR.${MK_GPIO}+=	gpioctl
-SUBDIR.${MK_HYPERV}+=	hyperv
 SUBDIR.${MK_INET6}+=	ip6addrctl
 SUBDIR.${MK_INET6}+=	mld6query
 SUBDIR.${MK_INET6}+=	ndp

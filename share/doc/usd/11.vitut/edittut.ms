@@ -340,8 +340,7 @@ login:
 in which case you should start the login process anew.
 Assuming that you have successfully
 logged in, \s-2UNIX\s0
-will print the message of the day and eventually will present
-you with a % at the beginning of a fresh line.
+will eventually present you with a % at the beginning of a fresh line.
 The % is the \s-2UNIX\s0 prompt symbol
 which tells you that \s-2UNIX\s0 is ready to accept a command.
 .bd I 3
@@ -2275,4 +2274,3 @@ undo (u) command, 16-17, 23
 \s-1UNIX\s0, 3
 write (w) command, 8, 13, 21, 22
 z command, 12-13
-

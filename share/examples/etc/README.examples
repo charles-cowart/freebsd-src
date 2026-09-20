@@ -7,7 +7,6 @@ accidentally deleted or broken beyond repair.
 This directory contains the following files:
 
 amd.map		- filesystem automounter lookup resolution map (see amd(8))
-apmd.conf	- configuration file for apmd(8)
 bsd-style-copyright	- copyright style for bsd system
 crontab		- system scheduled command table (see crontab(5))
 defaults/	- directory containing default configuration file
@@ -29,13 +28,11 @@ login.conf	- login class capabilities database (see login.conf(5))
 mac.conf	- TrustedBSD MAC userland policy configuration file
 mail.rc		- systemwide initialization files for mail(1)
 make.conf	- example configuration variables for system builds
-motd		- sample Message of the Day
 netconfig	- network configuration data base
 netstart	- network startup script run from /etc/rc
 network.subr	- routines for network configuration scripts
 networks	- see networks(5)
 newsyslog.conf	- configuration for system log file rotator newsyslog(8)
-nsmb.conf	- smbfs lookups configuration file
 pf.conf		- pf(4) example configuration file
 pf.os		- SYN fingerprint database
 phones		- phone number database for tip(1)
@@ -55,7 +52,6 @@ rpc		- see rpc(5)
 security	- script run from crontab to do nightly security checks
 services	- see services(5)
 shells		- list of configurable shells (see shells(5))
-snmpd.config	- example configuration file for bsnmpd(1)
 sysctl.conf	- configuration file for sysctl(8)
 syslog.conf	- configuration file for syslogd(8)
 ttys		- defines port configuration for init(8)

@@ -641,11 +641,12 @@ device		hwpmc			# Driver (also a loadable module)
 options 	HWPMC_DEBUG
 options 	HWPMC_HOOKS		# Other necessary kernel hooks
 
-
-#####################################################################
-# NETWORKING OPTIONS
+options 	RATELIMIT		# TX rate limiting support
 
-#
+options 	ROUTETABLES=2		# allocated fibs up to 65536. default is 1.
+					# but that would be a bad idea as they are large.
+
+options 	TCP_OFFLOAD		# TCP offload support.
 # Protocol families
 #
 options 	INET			#Internet communications protocols
@@ -670,12 +671,6 @@ options 	CC_HTCP
 options 	CC_NEWRENO
 options 	CC_VEGAS
 options 	CC_DEFAULT=\"cubic\"
-options 	RATELIMIT		# TX rate limiting support
-
-options 	ROUTETABLES=2		# allocated fibs up to 65536. default is 1.
-					# but that would be a bad idea as they are large.
-
-options 	TCP_OFFLOAD		# TCP offload support.
 options  	TCP_RFC7413		# TCP Fast Open
 
 options  	TCPHPTS
@@ -992,9 +987,9 @@ options 	ROUTE_MPATH
 # The MBUF_STRESS_TEST option enables options which create
 # various random failures / extreme cases related to mbuf
 # functions.  See mbuf(9) for a list of available test cases.
-# MBUF_PROFILING enables code to profile the mbuf chains
-# exiting the system (via participating interfaces) and
-# return a logarithmic histogram of monitored parameters
+# FILESYSTEM OPTIONS
+# Only the root filesystem needs to be statically compiled or preloaded
+# as module; everything else will be automatically loaded at mount
 # (e.g. packet size, wasted space, number of mbufs in chain).
 options 	MBUF_STRESS_TEST
 options 	MBUF_PROFILING
@@ -1022,11 +1017,10 @@ options 	NETDUMP
 options 	NETGDB
 
 #####################################################################
-# FILESYSTEM OPTIONS
 
 #
-# Only the root filesystem needs to be statically compiled or preloaded
-# as module; everything else will be automatically loaded at mount
+# If you are running a machine just as a file server for PC and Mac
+# users, you may consider setting this option
 # time.  Some people still prefer to statically compile other
 # filesystems as well.
 #
