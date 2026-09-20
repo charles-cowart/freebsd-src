@@ -255,6 +255,7 @@ OLD_FILES+=usr/share/man/man3/poll_stop_timer.3.gz
 OLD_FILES+=usr/share/man/man3/poll_unregister.3.gz
 OLD_FILES+=usr/share/man/man3/rpoll.3.gz
 OLD_FILES+=usr/share/man/man7/bsd.snmpmod.mk.7.gz
+OLD_FILES+=usr/share/mk/bsd.snmpmod.mk
 # 20260919: Remove pnpinfo
 OLD_FILES+=usr/sbin/pnpinfo
 

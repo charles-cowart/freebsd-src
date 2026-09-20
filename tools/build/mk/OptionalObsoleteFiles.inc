@@ -3925,7 +3925,6 @@ OLD_FILES+=usr/lib/libibumad.a
 OLD_FILES+=usr/lib/libibumad.so
 OLD_LIBS+=usr/lib/libibumad.so.1
 
-.if ${MK_OFED} == no
 OLD_FILES+=usr/bin/ibv_asyncwatch
 OLD_FILES+=usr/bin/ibv_devices
 OLD_FILES+=usr/bin/ibv_devinfo
