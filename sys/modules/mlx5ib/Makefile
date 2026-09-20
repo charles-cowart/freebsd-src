@@ -18,8 +18,6 @@ mlx5_ib_virt.c
 SRCS+=	${LINUXKPI_GENSRCS}
 SRCS+= 	opt_inet.h opt_inet6.h opt_ratelimit.h opt_rss.h
 
-CFLAGS+= -I${SRCTOP}/sys/ofed/include
-CFLAGS+= -I${SRCTOP}/sys/ofed/include/uapi
 CFLAGS+= ${LINUXKPI_INCLUDES}
 CFLAGS+= -DCONFIG_INFINIBAND_USER_MEM
 

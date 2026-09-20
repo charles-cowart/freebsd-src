@@ -113,7 +113,7 @@ xen_initial_domain(void)
 #ifndef __ASSEMBLY__
 
 /*
- * Based on ofed/include/linux/bitops.h
+ * Based on the Linux bitops implementation
  *
  * Those helpers are prefixed by xen_ because xen-os.h is widely included
  * and we don't want the other drivers using them.

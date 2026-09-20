@@ -238,8 +238,6 @@ SUBDIR.${MK_USB}+=	usbhidctl
 SUBDIR.${MK_UTMPX}+=	last
 SUBDIR.${MK_UTMPX}+=	users
 SUBDIR.${MK_UTMPX}+=	who
-SUBDIR.${MK_OFED}+=	ofed
-
 .include <bsd.arch.inc.mk>
 
 SUBDIR_PARALLEL=

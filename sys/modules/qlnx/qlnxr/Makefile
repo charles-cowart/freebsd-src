@@ -51,8 +51,6 @@ SRCS+=	opt_inet.h opt_inet6.h
 
 CFLAGS+= -I${.CURDIR}
 CFLAGS+= -I${ETHDRVR}
-CFLAGS+= -I${OFEDDIR}/ofed/include
-CFLAGS+= -I${OFEDDIR}/ofed/include/uapi
 CFLAGS+= ${LINUXKPI_INCLUDES}
 
 CFLAGS+= -DLINUX_TYPES_DEFINED
