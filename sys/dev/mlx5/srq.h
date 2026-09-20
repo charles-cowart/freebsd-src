@@ -33,6 +33,10 @@ enum {
 	MLX5_SRQ_FLAG_WQ_SIG = (1 << 1),
 };
 
+enum {
+	MLX5_SRQ_TYPE_XRC = 1,
+};
+
 struct mlx5_srq_attr {
 	u32 type;
 	u32 flags;
