@@ -1298,11 +1298,11 @@ dev/bwn/if_bwn_phy_lp.c		optional bwn bhnd
 dev/bwn/if_bwn_phy_n.c		optional bwn bhnd
 dev/bwn/if_bwn_util.c		optional bwn bhnd
 dev/cadence/if_cgem.c		optional cgem fdt
-dev/cardbus/card_if.m		standard
+dev/cardbus/card_if.m		optional cardbus | cbb
 dev/cardbus/cardbus.c		optional cardbus
 dev/cardbus/cardbus_cis.c	optional cardbus
 dev/cardbus/cardbus_device.c	optional cardbus
-dev/cardbus/power_if.m		standard
+dev/cardbus/power_if.m		optional cardbus | cbb
 dev/cas/if_cas.c		optional cas
 dev/cfi/cfi_bus_fdt.c		optional cfi fdt
 dev/cfi/cfi_bus_nexus.c		optional cfi
