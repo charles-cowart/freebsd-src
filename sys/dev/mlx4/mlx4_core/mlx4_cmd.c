@@ -42,14 +42,13 @@
 #include <dev/mlx4/cmd.h>
 #include <dev/mlx4/device.h>
 #include <linux/semaphore.h>
-#include <rdma/ib_smi.h>
-
 #include <asm/io.h>
 #include <linux/ktime.h>
 
 #include "mlx4.h"
 #include "fw.h"
 #include "fw_qos.h"
+#include "mlx4_smi.h"
 
 #define CMD_POLL_TOKEN 0xffff
 #define INBOX_MASK	0xffffffffffffff00ULL
@@ -848,8 +847,8 @@ static int query_pkey_block(struct mlx4_dev *dev, u8 port, u16 index, u16 *pkey,
 			       struct mlx4_cmd_mailbox *inbox,
 			       struct mlx4_cmd_mailbox *outbox)
 {
-	struct ib_smp *in_mad = (struct ib_smp *)(inbox->buf);
-	struct ib_smp *out_mad = (struct ib_smp *)(outbox->buf);
+	struct mlx4_smp *in_mad = (struct mlx4_smp *)(inbox->buf);
+	struct mlx4_smp *out_mad = (struct mlx4_smp *)(outbox->buf);
 	int err;
 	int i;
 
@@ -888,12 +887,12 @@ static int get_full_pkey_table(struct mlx4_dev *dev, u8 port, u16 *table,
 #define PORT_CAPABILITY_LOCATION_IN_SMP 20
 #define PORT_STATE_OFFSET 32
 
-static enum ib_port_state vf_port_state(struct mlx4_dev *dev, int port, int vf)
+static int vf_port_state(struct mlx4_dev *dev, int port, int vf)
 {
 	if (mlx4_get_slave_port_state(dev, vf, port) == SLAVE_PORT_UP)
-		return IB_PORT_ACTIVE;
+		return MLX4_PORT_ACTIVE;
 	else
-		return IB_PORT_DOWN;
+		return MLX4_PORT_DOWN;
 }
 
 static int mlx4_MAD_IFC_wrapper(struct mlx4_dev *dev, int slave,
@@ -902,7 +901,7 @@ static int mlx4_MAD_IFC_wrapper(struct mlx4_dev *dev, int slave,
 				struct mlx4_cmd_mailbox *outbox,
 				struct mlx4_cmd_info *cmd)
 {
-	struct ib_smp *smp = inbox->buf;
+	struct mlx4_smp *smp = inbox->buf;
 	u32 index;
 	u8 port, slave_port;
 	u8 opcode_modifier;
@@ -911,7 +910,7 @@ static int mlx4_MAD_IFC_wrapper(struct mlx4_dev *dev, int slave,
 	int vidx, pidx;
 	int network_view;
 	struct mlx4_priv *priv = mlx4_priv(dev);
-	struct ib_smp *outsmp = outbox->buf;
+	struct mlx4_smp *outsmp = outbox->buf;
 	__be16 *outtab = (__be16 *)(outsmp->data);
 	__be32 slave_cap_mask;
 	__be64 slave_node_guid;
@@ -924,11 +923,11 @@ static int mlx4_MAD_IFC_wrapper(struct mlx4_dev *dev, int slave,
 	network_view = !!(vhcr->op_modifier & 0x8);
 
 	if (smp->base_version == 1 &&
-	    smp->mgmt_class == IB_MGMT_CLASS_SUBN_LID_ROUTED &&
+	    smp->mgmt_class == MLX4_MGMT_CLASS_SUBN_LID_ROUTED &&
 	    smp->class_version == 1) {
 		/* host view is paravirtualized */
-		if (!network_view && smp->method == IB_MGMT_METHOD_GET) {
-			if (smp->attr_id == IB_SMP_ATTR_PKEY_TABLE) {
+		if (!network_view && smp->method == MLX4_MGMT_METHOD_GET) {
+			if (smp->attr_id == MLX4_SMP_ATTR_PKEY_TABLE) {
 				index = be32_to_cpu(smp->attr_mod);
 				if (port < 1 || port > dev->caps.num_ports)
 					return -EINVAL;
@@ -950,7 +949,7 @@ static int mlx4_MAD_IFC_wrapper(struct mlx4_dev *dev, int slave,
 				kfree(table);
 				return err;
 			}
-			if (smp->attr_id == IB_SMP_ATTR_PORT_INFO) {
+			if (smp->attr_id == MLX4_SMP_ATTR_PORT_INFO) {
 				/*get the slave specific caps:*/
 				/*do the command */
 				smp->attr_mod = cpu_to_be32(port);
@@ -969,7 +968,7 @@ static int mlx4_MAD_IFC_wrapper(struct mlx4_dev *dev, int slave,
 				}
 				return err;
 			}
-			if (smp->attr_id == IB_SMP_ATTR_GUID_INFO) {
+			if (smp->attr_id == MLX4_SMP_ATTR_GUID_INFO) {
 				__be64 guid;
 
 				if (port < 1 || port > dev->caps.num_ports)
@@ -1003,7 +1002,7 @@ static int mlx4_MAD_IFC_wrapper(struct mlx4_dev *dev, int slave,
 				memset(outsmp->data + 8, 0, 56);
 				return 0;
 			}
-			if (smp->attr_id == IB_SMP_ATTR_NODE_INFO) {
+			if (smp->attr_id == MLX4_SMP_ATTR_NODE_INFO) {
 				err = mlx4_cmd_box(dev, inbox->dma, outbox->dma,
 					     port, opcode_modifier,
 					     vhcr->op, MLX4_CMD_TIME_CLASS_C, MLX4_CMD_NATIVE);
@@ -1021,8 +1020,8 @@ static int mlx4_MAD_IFC_wrapper(struct mlx4_dev *dev, int slave,
 	 */
 	if (slave != mlx4_master_func_num(dev) &&
 	    !mlx4_vf_smi_enabled(dev, slave, port)) {
-		if (!(smp->mgmt_class == IB_MGMT_CLASS_SUBN_LID_ROUTED &&
-		      smp->method == IB_MGMT_METHOD_GET) || network_view) {
+		if (!(smp->mgmt_class == MLX4_MGMT_CLASS_SUBN_LID_ROUTED &&
+		      smp->method == MLX4_MGMT_METHOD_GET) || network_view) {
 			mlx4_err(dev, "Unprivileged slave %d is trying to execute a Subnet MGMT MAD, class 0x%x, method 0x%x, view=%s for attr 0x%x. Rejecting\n",
 				 slave, smp->mgmt_class, smp->method,
 				 network_view ? "Network" : "Host",
