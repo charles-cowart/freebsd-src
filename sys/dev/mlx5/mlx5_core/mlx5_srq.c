@@ -30,7 +30,6 @@
 #include <linux/module.h>
 #include <dev/mlx5/driver.h>
 #include <dev/mlx5/srq.h>
-#include <rdma/ib_verbs.h>
 #include <dev/mlx5/mlx5_core/mlx5_core.h>
 #include <dev/mlx5/mlx5_core/transobj.h>
 
@@ -393,7 +392,7 @@ int mlx5_core_create_srq(struct mlx5_core_dev *dev, struct mlx5_core_srq *srq,
 	int err;
 	struct mlx5_srq_table *table = &dev->priv.srq_table;
 
-	if (in->type == IB_SRQT_XRC)
+	if (in->type == MLX5_SRQ_TYPE_XRC)
 		srq->common.res = MLX5_RES_XSRQ;
 	else
 		srq->common.res = MLX5_RES_SRQ;
