@@ -1139,14 +1139,14 @@ out:
 }
 
 int mlx5_query_hca_vport_gid(struct mlx5_core_dev *dev, u8 port_num,
-			     u16 vport_num, u16 gid_index, union ib_gid *gid)
+			     u16 vport_num, u16 gid_index, void *gid)
 {
 	int in_sz = MLX5_ST_SZ_BYTES(query_hca_vport_gid_in);
 	int out_sz = MLX5_ST_SZ_BYTES(query_hca_vport_gid_out);
 	int is_group_manager;
 	void *out = NULL;
 	void *in = NULL;
-	union ib_gid *tmp;
+	void *tmp;
 	int tbsz;
 	int nout;
 	int err;
@@ -1162,7 +1162,7 @@ int mlx5_query_hca_vport_gid(struct mlx5_core_dev *dev, u8 port_num,
 	else
 		nout = 1;
 
-	out_sz += nout * sizeof(*gid);
+	out_sz += nout * MLX5_GID_SIZE;
 
 	in = mlx5_vzalloc(in_sz);
 	out = mlx5_vzalloc(out_sz);
@@ -1193,9 +1193,8 @@ int mlx5_query_hca_vport_gid(struct mlx5_core_dev *dev, u8 port_num,
 	if (err)
 		goto out;
 
-	tmp = (union ib_gid *)MLX5_ADDR_OF(query_hca_vport_gid_out, out, gid);
-	gid->global.subnet_prefix = tmp->global.subnet_prefix;
-	gid->global.interface_id = tmp->global.interface_id;
+	tmp = MLX5_ADDR_OF(query_hca_vport_gid_out, out, gid);
+	memcpy(gid, tmp, MLX5_GID_SIZE);
 
 out:
 	kvfree(in);

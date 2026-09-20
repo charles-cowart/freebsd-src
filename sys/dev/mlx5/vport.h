@@ -145,7 +145,7 @@ int mlx5_query_hca_vport_pkey(struct mlx5_core_dev *dev, u8 other_vport,
 			      u8 port_num, u16 vf_num, u16 pkey_index,
 			      u16 *pkey);
 int mlx5_query_hca_vport_gid(struct mlx5_core_dev *dev, u8 port_num,
-			     u16 vport_num, u16 gid_index, union ib_gid *gid);
+			     u16 vport_num, u16 gid_index, void *gid);
 int mlx5_set_eswitch_cvlan_info(struct mlx5_core_dev *mdev, u8 vport,
 				u8 insert_mode, u8 strip_mode,
 				u16 vlan, u8 cfi, u8 pcp);

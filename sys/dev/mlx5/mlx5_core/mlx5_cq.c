@@ -30,7 +30,6 @@
 #include <linux/module.h>
 #include <linux/hardirq.h>
 #include <dev/mlx5/driver.h>
-#include <rdma/ib_verbs.h>
 #include <dev/mlx5/cq.h>
 #include <dev/mlx5/mlx5_core/mlx5_core.h>
 
