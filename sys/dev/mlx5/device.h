@@ -27,13 +27,15 @@
 #define MLX5_DEVICE_H
 
 #include <linux/types.h>
-#include <rdma/ib_verbs.h>
 #include <dev/mlx5/mlx5_ifc.h>
 
 #define	FW_INIT_TIMEOUT_MILI		2000
 #define	FW_INIT_WAIT_MS			2
 #define	FW_PRE_INIT_TIMEOUT_MILI	5000
 #define	FW_INIT_WARN_MESSAGE_INTERVAL	2000
+
+#define MLX5_GID_SIZE			16
+#define MLX5_GRH_SIZE			40
 
 #if defined(__LITTLE_ENDIAN)
 #define MLX5_SET_HOST_ENDIANNESS	0
@@ -853,7 +855,7 @@ struct mlx5_wqe_srq_next_seg {
 };
 
 union mlx5_ext_cqe {
-	struct ib_grh	grh;
+	u8		grh[MLX5_GRH_SIZE];
 	u8		inl[64];
 };
 
